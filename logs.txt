@@ -1,0 +1,2488 @@
+commit 4e1701736352a44ea51de824da135e94f0972daa
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Jun 29 11:18:32 2020 +0200
+
+    removing GPy from requirements.txt
+
+commit 25f5c12ba8bdc820b72905436988564e4d8b7392
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Jun 29 10:54:04 2020 +0200
+
+    removing perl-Bundle-LWP from the yum packages to be installed - specified in cloudwatch.config. There's an AWS error that says that it cant find this package
+
+commit 16489f6ecc343d3821be960cd2639314c684ba50
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Jun 26 16:13:53 2020 +0200
+
+    fist test concerning the pushing message to SQS
+
+commit 52915c536c0b6987ff3f608c6aac15c4ef888d1f
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Jun 26 11:54:43 2020 +0200
+
+    made a new version of simulation.py. This one runs without elfi. This is necessary in order to check the same parameter-setting with all initial values, instead of just one...
+
+commit e1f24a060e88ae56ad842c7793c1e4d53413395d
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Jun 19 10:38:39 2020 +0200
+
+    many bug fixes, including: calculation of simulation error, calculation and display of pdfs . Many optimisations including: massive improvment (complete re-do) of query_datapoints.get_data_from_related_objects__multiple_timesteps. New functionality such as rules that use randomNumber.
+
+commit 39ae7ee4d3ac0840ac50b263a07f5f2735214af8
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat May 30 11:28:38 2020 +0200
+
+    fixed and improved the uploading of timeseries
+
+commit c5f11d52ca8df40f2a46803a4b7de3f84c0aa5a7
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Apr 27 11:27:58 2020 +0200
+
+    added README.md
+
+commit 596b4eeb3344b41f864efb169ba94411799cb308
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Apr 27 11:21:07 2020 +0200
+
+    adding AGPL licence to all files
+
+commit ff70dd773346fe67e0cfea32dee08ef7003a49ec
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Mar 7 15:31:38 2020 +0100
+
+    adding a little thing to /tool/get_execution_order where it deletes any object_types, attributes and rules that no longer exist
+
+commit 7f8c5e67981f08030bfb00c4e514d63a93f5f3b3
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Feb 29 16:56:41 2020 +0100
+
+    added 'Create New Attribute' button to the right sidebar in edit_simulation__simulate.html
+
+commit 6ecdeb1f07535a80ed68f7298383bf9b972d032a
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Feb 27 17:30:26 2020 +0100
+
+    renamed everything in analyse_simulation.html from 'simulation' to 'run';  made a search field for edit_simulation__edit.html right panel attributes
+
+commit e0d15eef7e26cfe9e2d2d60d9779042c973ee1b8
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Feb 26 17:45:57 2020 +0100
+
+    seem to have fully fixed simulation.py!!
+
+commit 5cd935759e880bbfa7f29bec0498de92a5c0e58b
+Merge: dcbbc17a 7a29dda4
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Feb 21 17:16:36 2020 +0100
+
+    Merge branch 'master' into tmp
+
+commit 7a29dda42d28b00b60feccecf453a7f5ca4274a1
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Feb 21 17:15:22 2020 +0100
+
+    these are some file from a not working state. please discard
+
+commit 3c783c08283a4176ef4a298ffdc5e21d913bc34d
+Merge: 50c20fb4 dcbbc17a
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Feb 21 17:13:50 2020 +0100
+
+    Merge branch 'tmp'
+
+commit dcbbc17aa48b1c7a5e8b16bec95575338064db07
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Feb 21 17:13:30 2020 +0100
+
+    these are some file from a not working state. please discard
+
+commit 50c20fb42f694deeee7969fdacd3913ed9da73db
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Feb 21 17:07:31 2020 +0100
+
+    these are some changes git made. No idea if they are good or not (probably not)
+
+commit d101e6c7567eda485ccef3caf51bbf11cb213104
+Merge: d3939a13 10876d1b
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Feb 21 17:02:33 2020 +0100
+
+    Merge branch 'tmp'
+
+commit 10876d1bc0a5e41c0dca6a41051674933663245d
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Feb 21 16:49:08 2020 +0100
+
+    some bugs in simulation.py fixed. Some more remaining...
+
+commit 7d4a743df43704d63ba58aed8796e2ce98466c51
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Feb 12 17:28:08 2020 +0100
+
+    some bugfixes to edit_object_behavioiur_modal.html, especially relating to the deleting of rules and parameters
+
+commit 194c30e6240cb7614b6717074f4998e3fdb8a120
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Feb 10 16:54:33 2020 +0100
+
+    adding the Data-card to the left panel of edit_simulatioin__edit.py; all with complete fuctionality
+
+commit 42191dbc68387be6f12d5244606d1e7170dc0ea0
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Feb 5 17:03:18 2020 +0100
+
+    some bugs fixed for simulating the indian microcredits. Some bugs still still to do
+
+commit 1aba765ca0a079da3ed23d5c94a973d8c741f36a
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Feb 3 16:33:21 2020 +0100
+
+    PARAMETRIC RULES; this doesn't work completey yet, but quite well
+
+commit d3939a13d6fed5ecebe5ab085ddbaf011d9f5fc1
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Jan 23 10:15:11 2020 +0100
+
+    messed-up github by trying to revert without checking out first things got worse
+
+commit b444109f06c78966b17e745d1748d0ac4185ac8b
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Jan 23 10:02:25 2020 +0100
+
+    Revert "changes to simulation.py: rules can use attributes from related objects. also the finding of correct_data has been fixed"
+    
+    This reverts commit 03ea46b082aee20b3326e6c0636ccae82a3357a4.
+
+commit 03abdcc2c54abd7bda64eb3de45c87a28159c104
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Jan 23 10:02:16 2020 +0100
+
+    this is a completely messed up commit. trying to revert to previous one
+
+commit 03ea46b082aee20b3326e6c0636ccae82a3357a4
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Jan 23 09:32:40 2020 +0100
+
+    changes to simulation.py: rules can use attributes from related objects. also the finding of correct_data has been fixed
+
+commit b81d4c77ff1b3dbf4d4ad4e4efe65e367403241d
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Jan 18 17:09:24 2020 +0100
+
+    tiny change to query_data.html: the relations are now neatly alligned like all the other columns
+
+commit 4f89419f038c9b53af8b02508d67de5931cc8616
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Jan 18 16:18:12 2020 +0100
+
+    two changes to edit_simulation.html. one: the little Xs beside the objects and relations on the paper are only shown in the Scenario-view. Two: in the Scenario-view, the dropdown list of filter_attributes (in the right panel) now no longer contains relations (we want relations to be defined through arrows)
+
+commit 19156e3a1ecfa0523cc0fce2363a3d2cd987fef7
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Jan 18 15:00:28 2020 +0100
+
+    in edit_simulation.html when going from the Scenario-view to the Behaviour-view it now only querys for object data if any of the object_filter_facts or objects_relations were changed
+
+commit d226c8b20bfcc5445893afbebf2aabc7ec15fa56
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Jan 18 14:57:20 2020 +0100
+
+    in edit_simulation.html when going from the Scenario-view to the Behaviour-view it now only querys for object data if any of the object_filter_facts or objects_relations were changed
+
+commit 9a4bc7c1a3d994aefdd59a25ffe0cefa9a883fa9
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Jan 18 13:09:15 2020 +0100
+
+    edit_object_behaviour_modal.html was changed -> there now is a panel for 'available RELATED variables'
+
+commit dd01541885dfca3adf3a3448676540222850458f
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Jan 18 09:26:32 2020 +0100
+
+    object_type_behaviour_modal had accidentally been overwritten. fixed now. also tiny change to object_behaviour modal
+
+commit f04bf65182528eb34eb6d7496fee20a454399a2e
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Jan 17 15:05:04 2020 +0100
+
+    the metadata facts are now added to the table during the upload_process
+
+commit 2e6c61d5214d7f6aa1b5c0df1b87f3ab5e27137d
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Jan 17 14:23:40 2020 +0100
+
+    formatting of the additional filter facts line breaking behaviour
+
+commit 9b6cd5185f7c7abb1cac9fe0435dad33b7ebb467
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Jan 17 11:55:05 2020 +0100
+
+    small bug fix to retrieving boolean variables with query_datapoints.filter_and_make_df_from_datapoints
+
+commit c8b96e99c81ba7e115200d35381f4565ab76917c
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Jan 17 10:34:02 2020 +0100
+
+    little change to edit_object_behaviour.html - the rule types are now called 'With IF condition' and 'No IF condition'
+
+commit 4b6da75866b494f3c06ac30e62c3e804c11e3390
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Jan 15 16:58:22 2020 +0100
+
+    due to runtime issues, the simulations now work on maximally 500 rows
+
+commit 23adc4397269ffe937c4bb6f2079c7c73b0fac86
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Jan 9 13:24:08 2020 +0100
+
+    rules can now refer to attributes of related objects. also indexes have been added to the datapoints table
+
+commit 0a46ed1283f37e4b15047d189f18fe6ad98a2bb1
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Jan 4 17:17:01 2020 +0100
+
+    little bugfix to query_datapoints.get_data_from_random_related_object
+
+commit e03594d8fb01a9033726d9707bb6ab7d8b8109c3
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Jan 4 17:08:36 2020 +0100
+
+    some cosmetic changes to edit_simulation__edit: the object's values displayed on the right are now sorted according to attribute population and attribute_id
+
+commit 9c371c5cdf2e9aef0946e72e00314e3e0e4f1cf8
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Jan 3 13:25:53 2020 +0100
+
+    minor changes to create & edit_attribute_modal it wasn't changed when selecting bool
+
+commit 9ea4951ba75c59d395889084366e54344fabc868
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Jan 3 13:21:28 2020 +0100
+
+    query_datapoints.find_matching_entities was making problems on elastic beanstalk because there there isn't the environment variable DATABASE_URL
+
+commit c1c362c5bc55e3ff161e39c6133e34d83a4bcb91
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Jan 3 12:50:05 2020 +0100
+
+    minor changes to create & edit_attribute_modal it wasn't changed when selecting bool
+
+commit 5862862f2533ed01438129a6616f0acdca6a441e
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Jan 3 12:31:27 2020 +0100
+
+    little bug-fix concering the relation-object-type hierachy tree in the create_attribute_modal.html
+
+commit 4039bc4749644eb602abe31b271d4325ba034536
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 26 12:10:36 2019 +0100
+
+    the problem with the object hierachy popover was already solved in the edit attribute modal, now solving it in the create attribute modal
+
+commit 448db7a76463124a92123b722d426e25522abb39
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 26 11:57:27 2019 +0100
+
+    fixed a stupid error in query_data
+
+commit 41e6bd17f6f3e2ab42d48e5be225210f845a39ee
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 26 11:47:39 2019 +0100
+
+    there's a bug for query_data, problems are caused when feeding itattribute_ids as ints instead of strings
+
+commit 9185c698640470793b64018ca59119826ab4b600
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 26 11:40:10 2019 +0100
+
+    the last change introduced a bug concerning jsonifying int64
+
+commit 2ab24dee27c4f90e28cc3a7072ca96d280bf20f5
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 26 11:32:24 2019 +0100
+
+    there's a bug for query_data, problems are caused when feeding itattribute_ids as ints instead of strings
+
+commit d22a7a257e78663385f89dbf1815641e044ff16c
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 26 11:16:33 2019 +0100
+
+    the last change introduced a bug concerning jsonifying int64
+
+commit fb6974b697386cf726353e05e2f9a659a1571396
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 26 11:11:15 2019 +0100
+
+    there's a bug for query_data, problems are caused when feeding itattribute_ids as ints instead of strings
+
+commit 6dbdae0cb8d9925dd94d4c248d990b1f32a5cc3c
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 25 12:30:23 2019 +0100
+
+    there's a problem with loading the object_hierachy when creating a new relation_attribute . trying to fix it here
+
+commit 4de60d8e9d23dc6aa10264906c751ef05c9cf25d
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 25 11:36:12 2019 +0100
+
+    minor changes to query_data: columns without data will no longer be suggested
+
+commit 2919c8522bbaed790592c7c72ae8a8ae9eb1076e
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Dec 21 12:29:36 2019 +0100
+
+    query_data.html now can display the object ids and sorts the columns according to population; ALSO added admin-page 'delete_objects.html'
+
+commit 6714cb16baecf315bc64ded86c2431c0ca12c2d5
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Dec 20 17:18:14 2019 +0100
+
+    change to query_data.html you can now close the object_type_hierachy-popover by clicking anywhere outside it
+
+commit 3c0caa1f9efd416b8d18c7ad4ab73b5a742b4893
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Dec 20 16:50:23 2019 +0100
+
+    fixed edit_attribute_modal.html it now works smoothly
+
+commit a9bc9cfd87652bcaec43385183d30c35550469a0
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Dec 20 13:20:46 2019 +0100
+
+    bl
+
+commit 3d547890c90b07174bc2dea3e53f8e0a719a5914
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Dec 20 13:03:49 2019 +0100
+
+    bla
+
+commit 4f9e2543b182b925dede5d59b4e238d4557fc8aa
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Dec 20 12:51:01 2019 +0100
+
+    there was an error because of missing a cast in a debug-print-statement... yeah...
+
+commit aff9f46f6e57dfe2ebd2c1518364ed4f89185cac
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Dec 20 11:54:08 2019 +0100
+
+    still working on making list_of_parent_object_ids work
+
+commit ecc91ea2c53f31144075181a1f62b85d5a884e74
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Dec 20 11:40:49 2019 +0100
+
+    there was an error because of missing a cast in a debug-print-statement... yeah...
+
+commit 327dc1e3c54a77d78ca10c9760fcc95d8d2714b2
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Dec 20 11:23:58 2019 +0100
+
+    trying to get find_single_entity to work
+
+commit c4740dfb5f4a57d84d86fc331fb1c37625f995c9
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Dec 20 11:01:44 2019 +0100
+
+    trying to get whitenoise to work
+
+commit 55b31fb6758311c842efcde5ba97059c3ec567af
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Dec 20 10:34:48 2019 +0100
+
+    adding some print statments to get_from_db.find_single_entity because theres an error
+
+commit d3a1c67f1e843cc1837dae7eeb3b7f157efc9e14
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 19 14:51:19 2019 +0100
+
+    removing library jsonschema from requirements.txt
+
+commit a0c48c7629a172728ba811f606fa6e2906f73bba
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 19 14:34:56 2019 +0100
+
+    minor change to requirements.txt
+
+commit 64472592aaa10c4dc25e4deb9898a209fdc0ac8c
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 19 14:23:14 2019 +0100
+
+    removing library jsonschema from requirements.txt
+
+commit c6a2484e2a778012bbfdd79fec0004c1f70b587d
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 19 14:14:56 2019 +0100
+
+    removing library jsonschema from requirements.txt
+
+commit 24fa316015ea1477a4345591697ae211eff18d19
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 19 14:02:33 2019 +0100
+
+    still trying to get it to work in any EB environment!!...
+
+commit 22c16d3c52b4a4e163b68ad40a8f01c7309eb5f5
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 19 13:52:20 2019 +0100
+
+    removing some libraries from requests.txt
+
+commit dd119f5e95e1061d50d704261dc6b16d62b591e4
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 19 13:27:58 2019 +0100
+
+    removing library jsonschema from requirements.txt
+
+commit d4200c27f55b86c3a2f344572006b40a49aaca7f
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 19 13:10:48 2019 +0100
+
+    removing library jsonschema from requirements.txt
+
+commit 43128ae616cb73c113c4ba7c48e646e084436d6f
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 18 17:38:40 2019 +0100
+
+    adding parameter max_nb_of_objects to query_datapoints.filter_and_make_df_from_datapoints
+
+commit 189e42cd130e72946c825c36bb0e845d80098969
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 18 16:23:07 2019 +0100
+
+    there was an error when uploading to EB, god knows what, trying again
+
+commit 24019e4954c3ae20ad1903eda55b3b6146805afa
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 18 16:20:22 2019 +0100
+
+    now heroku is complaining, because more than 1 GB of files have been added since the last push
+
+commit c007c4ffec6b3c1672144606e8cc10a04dca7001
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 18 15:57:55 2019 +0100
+
+    query_datapoints.filter_and_make_df_from_datapoints needed a postgres-version of the query (with                             SELECT object_id, '[' || string_agg('[' || valid_time_start || ',' || valid_time_end || ']', ',') || ']' AS new_valid_range)
+
+commit 86993c5a0dd7670cfdbf882be2a9f86c78fe2557
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 18 14:53:40 2019 +0100
+
+    trying to upload the data to the remaining table (data_points)
+
+commit ad608297545b0cddae52d92092947278a3fcdb5f
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 18 14:15:33 2019 +0100
+
+    trying to get the css for the admin-pages to work
+
+commit 759744859c911f4c4820e3baeca072f21f93c99b
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 18 14:04:18 2019 +0100
+
+    the data_points aren't in EB's database yet, the rest is...
+
+commit 70a2bd32a3cf061ac194c8b1c1695b9f3fb80461
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 18 12:18:15 2019 +0100
+
+    trying to fix the css files for the admin-page somehow seemed to have made things worse. Trying to get it to run now...
+
+commit d4fc0ddcb88aa5a33e4442b3ebddc3cdded7e2ba
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 18 11:53:15 2019 +0100
+
+    trying to get the css for the admin-pages to work
+
+commit 7a66a24a5433f1d3411df9f65bac1ed4842363b1
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 18 11:46:19 2019 +0100
+
+    trying to fix some isssues with the static files...
+
+commit f60e51424c5c12e087b9543bcd8752933565a258
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 18 11:38:14 2019 +0100
+
+    moving cython to the beginning of requirements.txt
+
+commit d7f5441e05658b419f7d486505269bdfeadf29f7
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 18 11:23:51 2019 +0100
+
+    doing some tests related with get_most_commonly_used_object_types which doesn't seem to be working correctly
+
+commit 856f691cbff83d89b231abad82be17b74afae528
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 18 11:08:31 2019 +0100
+
+    moving cython to the beginning of requirements.txt
+
+commit ea844be0d1c91a58527c8969af3efaff23f268ba
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 16:30:02 2019 +0100
+
+    moving cython to the beginning of requirements.txt
+
+commit 3928bbedec07abbfcbbc86ab1b1347033125b2c3
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 16:23:15 2019 +0100
+
+    moving cython to the beginning of requirements.txt
+
+commit b6091208fd984821f2e1783be99e58ac59ca8c0a
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 16:15:36 2019 +0100
+
+    moving cython to the beginning of requirements.txt
+
+commit 5da60f5b40aac984ea397f74c6eb4e7221305c5d
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 16:07:08 2019 +0100
+
+    moving cython to the beginning of requirements.txt
+
+commit 3b3ca8b3e402d80fd1658274ee5c066ec597c4d8
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 16:00:44 2019 +0100
+
+    moving cython to the beginning of requirements.txt
+
+commit 1ca7ff41b0635e8db5446fbbcf6708d3b127580b
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 15:56:55 2019 +0100
+
+    moving cython to the beginning of requirements.txt
+
+commit aabbaa6989deaecf7b55ad4045478c4b818bd3c7
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 14:18:01 2019 +0100
+
+    trying to upload the remaining data to the EB database
+
+commit e5ee5dc40c9832e27977bf6539a366217614e87e
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 13:56:36 2019 +0100
+
+    trying to upload the remaining data to the EB database
+
+commit 656f1ec536170d81ef0556523c9a784b08118a9a
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 13:48:26 2019 +0100
+
+    trying to upload the remaining data to the EB database
+
+commit 33847a065f05a0ef63baa591d4465e7412081139
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 13:38:20 2019 +0100
+
+    trying to upload the remaining data to the EB database
+
+commit d08fbd83e42c15352d050f9ce1b68217891ca0ba
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 13:26:48 2019 +0100
+
+    trying to upload the remaining data to the EB database
+
+commit e8a8396bb2aa31447de99087f5cac204d8e5c451
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 13:19:02 2019 +0100
+
+    trying to upload the remaining data to the EB database
+
+commit 6823499d5bee5cc038478c980cfed0a44d5493a0
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 13:11:01 2019 +0100
+
+    trying to upload the remaining data to the EB database
+
+commit 041763efac5ee475fc98a1766071ae24738612f3
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 11:10:13 2019 +0100
+
+    trying to upload the remaining data to the EB database
+
+commit 14315c9c559d26f0b5c5c98dcf9e7c3eb8d1510a
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 11:03:26 2019 +0100
+
+    trying to upload the remaining data to the EB database
+
+commit e5c0750e85a80b678a285df554b3cbcbd5cbc699
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 17 11:00:01 2019 +0100
+
+    trying to upload the remaining data to the EB database
+
+commit 950faa121800afdbbc1cf3c956cf05aabe8a2040
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 17:32:12 2019 +0100
+
+    adding some database migration files for uploading the data to EB server
+
+commit f877a0042f83b77e5f4e89292bb9ab9eb69301ed
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 17:24:52 2019 +0100
+
+    adding some database migration files for uploading the data to EB server
+
+commit db70cb9a1be533f0707d95e3d58181384ae46d94
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 17:13:25 2019 +0100
+
+    adding some database migration files for uploading the data to EB server
+
+commit e7cd2ac6190f092feace9b389c92b719b0744658
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 15:06:49 2019 +0100
+
+    trying to make the server create a django superuser on startup
+
+commit 2bbb19d95315aaea00da1b14c3fe5d32f5e3f7c1
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 15:02:20 2019 +0100
+
+    trying to make the server create a django superuser on startup
+
+commit 03705e6025a494b7b4561169a7cd848781bd679d
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 15:00:27 2019 +0100
+
+    trying to make the server create a django superuser on startup
+
+commit 0aba8c79b4b22e3e7ac4f5f3c30f1019e4d10d8c
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 14:53:48 2019 +0100
+
+    trying to make the server create a django superuser on startup
+
+commit d98d4cbc91fb880fa9b58f208cf731a0e164ad57
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 14:47:57 2019 +0100
+
+    trying to make the server create a django superuser on startup
+
+commit 73e97775e9e81987c148374a22c7a558e7709e02
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 14:39:30 2019 +0100
+
+    trying to make the server create a django superuser on startup
+
+commit 607d51b0fe6e946335e21262a3f25dbe0885a16c
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 14:23:51 2019 +0100
+
+    trying to make the server create a django superuser on startup
+
+commit 1c1f909bc09075e752098279a108fc9041a277b5
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 14:14:15 2019 +0100
+
+    trying to make the server create a django superuser on startup
+
+commit 0a85e4e036d24b1fe952ec42a6c2b82c797c2659
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 14:09:43 2019 +0100
+
+    trying to make the server create a django superuser on startup
+
+commit 9b0592cdcba1df688a9d5c87e254f7631cd1e867
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 13:44:09 2019 +0100
+
+    there s a problem with the static files when accessed from the registration pages...
+
+commit bf6da137354619c33f64b3e35bd0219128e1313e
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 13:40:17 2019 +0100
+
+    there s a problem with the static files when accessed from the registration pages...
+
+commit c289f4fb3ba33b345bce4e3aef5947c54c60a519
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 13:32:50 2019 +0100
+
+    there s a problem with the static files when accessed from the registration pages...
+
+commit 4dc0c3e06321c15d8782b7caa3dc1ea257c26831
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 13:24:25 2019 +0100
+
+    trying to setup a postgresql database for AWS EB
+
+commit dd6b4797d257dff23ff944aac84b0ab74737b0ee
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 11:22:24 2019 +0100
+
+    some testing related to the Users on EB
+
+commit 2c9c6c819227b11324cf647601e6d8580ecd53e9
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 16 11:19:35 2019 +0100
+
+    some testing related to the Users on EB
+
+commit e28436ac49a0f23b8e84312c8a7caf232b3b48de
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 18:46:47 2019 +0100
+
+    tiny change to settings.py STATIC_URL
+
+commit e66bd584ab74e24d79a1169425d83a04fcb72c8e
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 18:29:27 2019 +0100
+
+    minor change to .ebextensions/db-migrate.config
+
+commit 7a4061093f727c57d9b088f7fec0e2e06b7888f9
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 18:16:48 2019 +0100
+
+    I'm not sure you need git commit for uploading new versions to elastic beanstalk, but i guess it doesn't harm
+
+commit 5385525e50fab94e82e19ac3ba749a2771b04214
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 17:57:05 2019 +0100
+
+    I just now ran the command 'python manage.py collectstatic'
+
+commit aa5719827677b9a36dfdf32a3eeb89777c7779b5
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 17:40:24 2019 +0100
+
+    changing the static file location for eb
+
+commit 0511b8ee06576e6926313e371df86be2feba46a6
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 17:36:14 2019 +0100
+
+    changing the static file location for eb
+
+commit be630bd043486bfdf64f18ac856f8ea63b07a8d0
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 17:27:08 2019 +0100
+
+    test concernign the django template function for static files
+
+commit 7464a9b81d9214f720042c1104f6f588c308d28a
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 14:23:39 2019 +0100
+
+    this time there were no errors with the libraries, but the app is still not running  - trying with all libraries again
+
+commit bbf528223c61512ddf6d8be7d8773d6299cb7feb
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 14:09:54 2019 +0100
+
+    small test concerning reuqirements.txt and eb
+
+commit d99595ebe4983046c7e786173a112f6152ad9925
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 13:49:58 2019 +0100
+
+    removing pypiwin32==223  from requirements.txt because it's causing troubles with heroku
+
+commit 7bee50c2957c5116f3182ca59b5f3e574d637083
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 13:47:20 2019 +0100
+
+    removing pywin32==223 from requirements.txt because it's causing troubles with heroku
+
+commit 7729dd64ea7561de001f6062e0e3ba318a75f981
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 13:45:10 2019 +0100
+
+    removing menuinst==1.4.14 from requirements.txt because it's causing troubles with heroku
+
+commit faeb1ba41e9d836e44d524a36b01432486a36199
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 13:33:00 2019 +0100
+
+    minor change to requirements.txt - removing Gpy
+
+commit da523dc7dbced4c9dcd7a211445ff275893383d6
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 13:25:24 2019 +0100
+
+    minor change to requirements.txt - using an earlier conda version
+
+commit 06f292bae8ac127804738dbd41d3f9af639bbd67
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Dec 15 13:12:19 2019 +0100
+
+    adding cython to requirements.txt
+
+commit 7f258e366e7500725e470753039aaf80880d3c87
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 12 14:56:09 2019 +0100
+
+    to admin-pages adding the page various_scripts.html;  making a change to the edit_object_type_behaviour_modal: the close and save buttons now acctually close the modal
+
+commit 9e8978103a0752e5a2c0318d9dd9ca9d649225e5
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 12 11:12:42 2019 +0100
+
+    get_most_commonly_used_object_types now not only gives the top 8 but all
+
+commit 6c5924f017b8ea3d1032c6614eb994e98174b82c
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 11 13:44:24 2019 +0100
+
+    minor change to inspect_object and to inspect_upload
+
+commit 156362fba99b10d9ca3c94b4456b3748010fe0c0
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 11 13:30:05 2019 +0100
+
+    minor change to inspect_object and to inspect_upload
+
+commit be579d0db403b4bdfa8584ba3f908409edacd40d
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 11 13:24:07 2019 +0100
+
+    minor change to inspect_object and to inspect_upload
+
+commit cffdbd6c366c3fcfb11b4a9081462aa30a59779a
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 11 11:37:28 2019 +0100
+
+    minor bugfix to /find_possibly_duplicate_objects
+
+commit 454a5f8b1f39ea98c55f5f15d1076604f95ce004
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 10 17:10:36 2019 +0100
+
+    minor bug fix to the postgresql version of admin_functions.find_possibly_duplicate_objects
+
+commit aaf436d0d324b4efa3be338abdfc906b498e1ed6
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 10 16:49:39 2019 +0100
+
+    some more admin pages
+
+commit a5dea0bb725967a1239f76b8000d72bada98369d
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 10 13:47:25 2019 +0100
+
+    changing the foldername from tree_of_knowledge_frontend to tool
+
+commit 62f4cebdd4457009c200d6b2b80e3d49747523c0
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 10 13:32:21 2019 +0100
+
+    adding the functions inspect_newsletter_subscribers and upload_file to the admin dashboard
+
+commit 529db0b0e7661fb4344fc4ebf5e7378372980711
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 10 13:02:30 2019 +0100
+
+    adding the admin functions inspect_object, inspect_upload and find_possibly_duplicate_objects
+
+commit 6b9d865ee07fb2f64385eee29e44795e040b082d
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 9 13:32:52 2019 +0100
+
+    some new admin pages - possibly_duplicate_objects and inspect_object; also adding the column upload_id to collection_data_point
+
+commit ca70abb2875424d7239ca284dd89c09e44744a94
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 5 12:04:14 2019 +0100
+
+    correcting query for populate_db.find_possibly_duplicate_objects
+
+commit 6625c00ea010b86c85a68778165246f1b0c7d50c
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Dec 5 11:57:12 2019 +0100
+
+    adding a db connection to populate_db.find_possibly_duplicate_objects
+
+commit 8f6c5c161015333eb3d11d9bf3b72f32b4e2bf78
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Dec 4 16:23:32 2019 +0100
+
+    added two new functions for database management: /remove_duplicate_datapoints and /find_possibly_duplicate_objects
+
+commit dc3e198c408e56d987db6e38b2f1566911ec0724
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 3 16:07:42 2019 +0100
+
+    minor bug fix involving the description field of the edit-attribute-modal
+
+commit ec55347716fba0ecd5d395ae5cda15a29bc840d4
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Dec 3 14:38:06 2019 +0100
+
+    small bugfix for query_datapoints.py - the queries now have WHERE XX IN ('bla') with single quotes instead of double
+
+commit 7493dff6c2d843b0cb34d187fa4b17aab0cf68c6
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 2 17:31:57 2019 +0100
+
+    little bugfix concerning uploading boolean columns
+
+commit dc30e9c85ba6fc215e5c21910fb894af090b892e
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Dec 2 17:08:56 2019 +0100
+
+    adding some print statements, because somehow the main INSERT INTO collection_data_point statement is causeing an error in upload_data.py
+
+commit e92f385f20f37c158c63deac95388a6154d5e8ee
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 25 14:27:21 2019 +0100
+
+    adding some print statements
+
+commit 17427bd2545bb1ab5d70905f51f1b82976dfbc7f
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 25 14:02:41 2019 +0100
+
+    mini gub fix for query_datapoints.find_matching_entities
+
+commit 1da14eefc7f195f8ae1bfdf3cce9256112c4b83b
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Nov 22 13:35:23 2019 +0100
+
+    changes: for edit_simulation the model_type (cross-section/timeseries) is now set; the progressbar gets set to 0 after simulating; and confirmation emails are sent
+
+commit 485e8795118e471678e1dce3de64e29a40d27bac
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 19 14:52:09 2019 +0100
+
+    the progressbar for edit_simulation should now be working...
+
+commit 6e45b3193cbf9e9080272c93a7d6ca12b949c255
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 18 16:37:20 2019 +0100
+
+    adding a progress bar to edit_simulation
+
+commit e695b3693093a5d5feae3fc8fefca5e4ced95ae9
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 18 16:36:33 2019 +0100
+
+    adding a progress bar to edit_simulation
+
+commit 943ff5c03c23680a1df96b61dd898aec919999ca
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Nov 14 14:14:07 2019 +0100
+
+    adding a progress bar to upload_data6. It finally seems to be working ... locally that is...
+
+commit d2bc2ed2599993e2aaee646e83275c10835e3de5
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 13 13:19:26 2019 +0100
+
+    including most of Veronika's suggestions. Still missing: autmomatic confirmation email, and I didn't find the humility improvements she mentioned...
+
+commit 29ddf7377761e65801b66cc9fa13a665edc64168
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 12 14:21:23 2019 +0100
+
+    wondering what's wrong with the temporary tables
+
+commit fc3442d571ff550839d1be2dc22157162e269edd
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 12 14:15:32 2019 +0100
+
+    wondering what's wrong with the temporary tables
+
+commit 7cc4f054f56954c1382a6259e56429a2c3fcfce6
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 12 14:09:11 2019 +0100
+
+    wondering what's wrong with the temporary tables
+
+commit 723dd3a3913a6062dc20780277f44d4c48d11769
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 12 14:02:42 2019 +0100
+
+    wondering what's wrong with the temporary tables
+
+commit 9007ad0757fa817327cfb61d1cc1481eb47fd76d
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 12 13:57:35 2019 +0100
+
+    wondering what's wrong with the temporary tables
+
+commit 58cf8d812607f20149aeff3a06f20c853e92c874
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 12 13:44:09 2019 +0100
+
+    wondering what's wrong with the temporary tables
+
+commit c0b30dfc5680dbfb72a4b960f77cc02a57ba2f4e
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 12 13:35:53 2019 +0100
+
+    wondering what's wrong with the temporary tables
+
+commit 6c5ee81af41d5888b73ef2eb7a5fee2b33a0aa12
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 12 13:21:41 2019 +0100
+
+    wondering what's wrong with the temporary tables
+
+commit d99125b46faa14086d826e9341215139b465c9b7
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 12 12:59:30 2019 +0100
+
+    wondering what's wrong with the temporary tables
+
+commit 0f1977a64d6d8455725900e54e91aa0fe7be6914
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 12 12:55:17 2019 +0100
+
+    wondering what's wrong with the temporary tables
+
+commit 429eab018b4024930685abd208e4a4849b61904b
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 12 12:43:46 2019 +0100
+
+    wondering what's wrong with the temporary tables
+
+commit de31b9129d2871cea118c04a2c8b9f7c7b47b606
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 17:56:35 2019 +0100
+
+    changing group_concat() to string_agg() in SQL-statement in query_datapoints. The sql now works on postgres, but no longer on sqlite...
+
+commit 25212ee6ccc6c100df2ed67d53c5b37297d38b54
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 17:52:04 2019 +0100
+
+    changing group_concat() to string_agg() in SQL-statement in query_datapoints. The sql now works on postgres, but no longer on sqlite...
+
+commit 2812eb9f29dec2343566039bccd386e8206bac2b
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 17:44:15 2019 +0100
+
+    changing group_concat() to string_agg() in SQL-statement in query_datapoints. The sql now works on postgres, but no longer on sqlite...
+
+commit d161fc5707635a39869b4ba48cef56c9703fbed1
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 17:39:59 2019 +0100
+
+    changing group_concat() to string_agg() in SQL-statement in query_datapoints. The sql now works on postgres, but no longer on sqlite...
+
+commit 365e8f52de494a75fd9741a327454b286a753198
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 17:30:28 2019 +0100
+
+    changing group_concat() to string_agg() in SQL-statement in query_datapoints. The sql now works on postgres, but no longer on sqlite...
+
+commit 8599f340d057986da4869c14de454aa9162bb52b
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 17:25:33 2019 +0100
+
+    changing group_concat() to string_agg() in SQL-statement in query_datapoints. The sql now works on postgres, but no longer on sqlite...
+
+commit 83a9f56a0a5624ca51f1a58449613c5ffbfddf3a
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 17:15:31 2019 +0100
+
+    removing some temp. prefixes for temporary tables created in query_datapoints.py
+
+commit f011ec12e6b9d5420d20388d45497443cf8e552d
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 17:05:27 2019 +0100
+
+    removing some temp. prefixes for temporary tables created in query_datapoints.py
+
+commit ac93912a4021222226187d01ee3942fff5248a99
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 16:53:38 2019 +0100
+
+    removing some temp. prefixes for temporary tables created in query_datapoints.py
+
+commit ede267c07eb0c5182a98ab2399ed92a1ad7fb56c
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 16:48:06 2019 +0100
+
+    removing some temp. prefixes for temporary tables created in query_datapoints.py
+
+commit ec127abb69bd9e382afb844260191abe30b0259e
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 16:36:56 2019 +0100
+
+    removing some temp. prefixes for temporary tables created in query_datapoints.py
+
+commit 79713e77cf9b56612c75568b558fefd49a799fdf
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 16:26:04 2019 +0100
+
+    removing some temp. prefixes for temporary tables created in query_datapoints.py
+
+commit 0a4dd2f5337373e107635a7f3186f1726be92abe
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 16:22:42 2019 +0100
+
+    removing some temp. prefixes for temporary tables created in query_datapoints.py
+
+commit 0219de082e9e78e4f8c79631874c4e3b6e2df9ea
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 16:18:36 2019 +0100
+
+    removing some temp. prefixes for temporary tables created in query_datapoints.py
+
+commit d24b54cf1bb3e535f28f6f33ca3617669d544961
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 16:13:29 2019 +0100
+
+    postgres vs. sqlite. The function query_datapoints.find_matching_entities was completely split into two - one version for postgres and the other for sqlite
+
+commit 3dfbbf25e594be986fd93d06a8b0df0c05c8270f
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 16:12:40 2019 +0100
+
+    postgres vs. sqlite. The function query_datapoints.find_matching_entities was completely split into two - one version for postgres and the other for sqlite
+
+commit 40d4796db3cf51a4f1f3a9ffd15cf69d1b719116
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 16:03:04 2019 +0100
+
+    removing some temp. prefixes for temporary tables created in query_datapoints.py
+
+commit 379bdf4421a3a07f27129e62d0ccf2a029addb0a
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 15:50:23 2019 +0100
+
+    changing group_concat() to string_agg() in SQL-statement in query_datapoints. The sql now works on postgres, but no longer on sqlite...
+
+commit 055e4fd57f9d059950d4f2d44f3c911f2a448efd
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 15:27:18 2019 +0100
+
+    removing some temp. prefixes for temporary tables created in query_datapoints.py
+
+commit 158010f15e623f9a2836aeeb0cc23c23d1f28a60
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 15:21:23 2019 +0100
+
+    removing some temp. prefixes for temporary tables created in query_datapoints.py
+
+commit fff7c784c00978797d51ddb190e3dbcd75c53041
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 11 14:53:44 2019 +0100
+
+    adding a progressbar to upload_data6A
+
+commit 7e03b1cf7ccdaf66b1d364770be78819e074579a
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Nov 10 17:41:23 2019 +0100
+
+    some extra print statements for ridiculously slow function
+
+commit 745c39a8b7a35d444bd9cca1fafb5e8cce9d6c2f
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Nov 10 17:34:44 2019 +0100
+
+    removing a section from get_attributes_concluding_format, because it's too slow
+
+commit 824c4ed732768c9c8b2e4a23d7c2591001333d30
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Nov 10 17:24:31 2019 +0100
+
+    bug fixing find_suggested_attributes2
+
+commit 189d37447daa428d6d1a2cc26fac12927c27b5e0
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Nov 10 17:18:29 2019 +0100
+
+    some extra print statements for ridiculously slow function
+
+commit e58328ebebccb7d285e142a0797d3c9b87a5ef2f
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Nov 10 17:07:34 2019 +0100
+
+    bug fixing find_suggested_attributes2
+
+commit cd38c8bc8cd3f9830d23e3a97c00a68eda64618a
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Nov 10 15:19:50 2019 +0100
+
+    lower resolution photo of the old tree
+
+commit feb6c73cfff822159096c226b10ac8c07a3d8776
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Nov 10 15:05:42 2019 +0100
+
+    lower resolution photo of the old tree
+
+commit ccd699634409774ad0e9b824d403aa2e096d8d33
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Nov 10 14:10:47 2019 +0100
+
+    correcting some spelling mistakes on the landing and about pages
+
+commit 23cb0a34015389bc14d8d36cd651c7f5352ba6f1
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Nov 9 17:12:22 2019 +0100
+
+    added google analytics to all pages...
+
+commit fa9e94c18b8c9d7e9bb9b3f1d4b2a92042470de2
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Nov 9 16:39:54 2019 +0100
+
+    litte format changes to the landing pages
+
+commit e5f55170d3a5149903d581c3e8d93c8784170257
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Nov 9 16:29:21 2019 +0100
+
+    small changes to the text of the landing and about page - making it a bit more humble
+
+commit 79a35eaf7d1f4d71f70b7b95963c29d0a24a926e
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Nov 9 11:24:59 2019 +0100
+
+    adding sitemap.xml
+
+commit c434a0dd3e5730d09125386f2aad00e6350b397d
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Nov 7 17:02:36 2019 +0100
+
+    changing from a relative redirect to an absolute redirect for the end of the simulation
+
+commit 756dddd8e3a9fe5389e3110185bc55798b7bab3a
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Nov 7 16:48:28 2019 +0100
+
+    changing from a relative redirect to an absolute redirect for the end of the simulation
+
+commit b1fb79151d2788cbde0056e96d58b12cd82cce90
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Nov 7 16:36:48 2019 +0100
+
+    some extra print statements for debugging the redirect issue
+
+commit 7793e248501d155356fc44de5d7fb8e88e52c891
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Nov 7 16:25:03 2019 +0100
+
+    debugging the issue of analyse_simulation not opening automatically
+
+commit ec39aff2da49c1b2bb1b6d90fa1d5b9845e955ba
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Nov 7 15:57:34 2019 +0100
+
+    again, a bit of code is causing errors, except if you include some print statements, so that's what were doing here
+
+commit 0585465c543799ed6cc4ad28b2be920fc35c9abb
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Nov 7 14:23:15 2019 +0100
+
+    removing some of the print statements for optimized performance
+
+commit 6fabd69ac8901d01510c00ee64a2d50cff06fdbb
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Nov 7 14:11:23 2019 +0100
+
+    now there's a problem with some of the nodes not belonging to the same model
+
+commit 1c59c2c850ce0457e70ed2b2e3237e8a067fc4e8
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Nov 7 14:02:44 2019 +0100
+
+    now there's a problem with some of the nodes not belonging to the same model
+
+commit b231464abd6c09031f2394f0291570e5a987c904
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Nov 7 12:37:22 2019 +0100
+
+    little change to simulation.py due to bug with duplicate priors
+
+commit bcb2b610e2a4284fa614d52ee4894a6054de3c06
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Nov 7 12:21:00 2019 +0100
+
+    little bug fix in simulation.py
+
+commit d9e782602824f5aa2f3f1eb3c151fbb60548cb4b
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 18:20:04 2019 +0100
+
+    there still seems to be an error relating with a prior being set twice...
+
+commit 599dec6bb723d57fcfb7f07ff7659fddc9be6f57
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 18:04:15 2019 +0100
+
+    trying to speed up the simulation by removing some of the print statements
+
+commit f0ade3a587c66a26e58fed488aeeb1c450bd31dc
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 17:49:35 2019 +0100
+
+    the simulation.py somehow seems to work if you add a lot of print statements and change nothning else...   stupid program
+
+commit ed9e5a8667c0898d6701ea93002a26e95486a227
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 17:32:44 2019 +0100
+
+    investigating error with get_single_pdf
+
+commit c79f50a86b267520b679e43c712710680489f2f4
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 17:16:38 2019 +0100
+
+    adding the anychart-js and -css files to edit_object_behaviour.html. The pdf graphs were not being plotted.
+
+commit 10a6c72851c885d19c931869685d035ff37e4402
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 15:25:09 2019 +0100
+
+    adding some print statements to query_datapoints.py for debugging
+
+commit e189f27b0edbc0fe7153ec55a9cf31644ecf3893
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 15:14:24 2019 +0100
+
+    adding some print statements to query_datapoints.py for debugging
+
+commit 734dbc7240fa0cde5425f01c14f865276c8933f1
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 15:00:34 2019 +0100
+
+    adding some print statements to query_datapoints.py for debugging
+
+commit 59881d1396f65f16de1940fc1b156fb1570b6cff
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 14:53:18 2019 +0100
+
+    adding some print statements to query_datapoints.py for debugging
+
+commit 8be29ded7bd1ec7188d0d2bb20e61ce501f55e18
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 14:42:34 2019 +0100
+
+    adding some print statements to query_datapoints.py for debugging
+
+commit 478cf5dff54034874c9c5a165f5c0d67f68f5fc7
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 14:34:40 2019 +0100
+
+    adding some print statements to query_datapoints.py for debugging
+
+commit d987900d0def877f3cab8a2a165bdefb73fb4e7d
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 13:02:03 2019 +0100
+
+    uploading new version of attribute.json
+
+commit 473e3a7c6410ca590f1d02d32c0afc37ba7e383c
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 12:35:20 2019 +0100
+
+    trying to do some bug fixing related to query_datapoints.get_data_from_related_objects
+
+commit 0281db2b7329b23d2f490d9fa873cd54928ec114
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 12:22:46 2019 +0100
+
+    trying to do some bug fixing related to query_datapoints.get_data_from_related_objects
+
+commit ee0a5725c8941b296c1c7aeee60d239888798f0e
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 12:15:52 2019 +0100
+
+    trying to do some bug fixing related to query_datapoints.get_data_from_related_objects
+
+commit 4cd3ae790a20c5e012bc6773d7281d4448db991b
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 11:58:14 2019 +0100
+
+    trying to do some bug fixing related to query_datapoints.get_data_from_related_objects
+
+commit 7d71d1dcf59ed862f0c114f939b8c71ff00659e3
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 11:51:24 2019 +0100
+
+    trying to do some bug fixing related to query_datapoints.get_data_from_related_objects
+
+commit ed7a9b3b949b2eed7c1a464608c54b69e36bd422
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 11:40:38 2019 +0100
+
+    trying to do some bug fixing related to query_datapoints.get_data_from_related_objects
+
+commit 4c42774266ecf1079bd9b322c970b0a9d958b016
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 11:33:26 2019 +0100
+
+    trying to do some bug fixing related to query_datapoints.get_data_from_related_objects
+
+commit ec3ae252c3a8c65c1d18388a4609b43843d2bd88
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 11:22:19 2019 +0100
+
+    trying to do some bug fixing related to query_datapoints.get_data_from_related_objects
+
+commit 8a77a7ed38fe831fa0ccca79303d3f0b3c805c0c
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 11:00:27 2019 +0100
+
+    trying to do some bug fixing related to query_datapoints.get_data_from_related_objects
+
+commit 434dc6265f140114eb4cce582c66a27e210ea403
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Nov 6 10:49:30 2019 +0100
+
+    bug fixes
+
+commit 48a8a99cad776d7d726282c9df95ac273bf13110
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 5 15:43:04 2019 +0100
+
+    noreply@treeofknowledge.ai emails should now be sent via fastmail SMTP
+
+commit 4ae434a2d755808ea0db421dd0b2e90c8196c8bf
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 5 11:40:11 2019 +0100
+
+    uploading data_points0.json for the database
+
+commit 5e7e594ed0a0b3467a561759159b21ca1c863520
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 5 11:22:08 2019 +0100
+
+    uploading data_points0.json for the database
+
+commit 561f78857b9e0f07c222be8db375de054c9e10a2
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 5 11:02:45 2019 +0100
+
+    uploading data_points0.json for the database
+
+commit 4bc5d4d1f3c10e188a39c001790633d5aa4c4ee1
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Nov 5 10:38:39 2019 +0100
+
+    uploading data_points0.json for the database
+
+commit 4722648e88329ef2927ccbc496ff25508be316d2
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 4 17:09:07 2019 +0100
+
+    trying to transfer the data_point data again
+
+commit 413fd29828dc164ffb1598c13fffc7578fa25e91
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 4 16:58:17 2019 +0100
+
+    trying to transfer the data_point data again
+
+commit ceda13046dbe52ef55be2d5159f45ef497c8094f
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 4 16:08:27 2019 +0100
+
+    for testing, there's a change to test_page2
+
+commit b43d2d39ca606542d27c1fdf0d4c9b3fe16546a7
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 4 16:00:26 2019 +0100
+
+    for testing, there's a change to test_page2
+
+commit 508df46f5003f8568e0641ccfa84a0a0cb9f562a
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 4 15:34:01 2019 +0100
+
+    for testing, there's a change to test_page2
+
+commit 591190d98eaf83d87a2a17595bc1e3740705ee01
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 4 15:18:34 2019 +0100
+
+    printing out some extra info at query_datapoints.get_data_from_related_objects for debugging
+
+commit 785400f38283bf674b84e0d207806151909292aa
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 4 14:57:51 2019 +0100
+
+    for testing, there's a change to test_page2
+
+commit b6c9e46e69ac9dddfe5e2945b04c4a1dc9444763
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 4 14:56:48 2019 +0100
+
+    for testing, there's a change to test_page2
+
+commit 0e97ed24e3e7c0750454f9024d19ea2c10449760
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 4 14:14:19 2019 +0100
+
+    printing out some extra info at query_datapoints.get_data_from_related_objects for debugging
+
+commit 7427634f86bb7199c9eae0b021c2020526446aa1
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 4 14:03:22 2019 +0100
+
+    printing out some extra info at query_datapoints.get_data_from_related_objects for debugging
+
+commit 3f7f5191b0c1bd0eb0ad3d49a7ddc416f5d8cab9
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 4 13:48:59 2019 +0100
+
+    printing out some extra info at query_datapoints.get_data_from_related_objects for debugging
+
+commit 35487b13cd37efa30c577079843e993be3c09000
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Nov 4 13:36:58 2019 +0100
+
+    for testing, there's a change to test_page2
+
+commit 3aee56ea65e945aacd66bb2af8d9e012d634e9fb
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Nov 1 05:29:40 2019 +0100
+
+    there was a problem with the last attribute.json - data for the attribute table - so here's a new one
+
+commit c1bbb16c2aee64b6537a85fa6cf933352ba749b7
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Nov 1 05:02:32 2019 +0100
+
+    there was a problem with the last attribute.json - data for the attribute table - so here's a new one
+
+commit edf77629eefa62a247d95eee5184cd3bf8c78038
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Oct 31 20:28:39 2019 +0100
+
+    trying to get the data from the local website to heroku, uploading some more files
+
+commit 46c3e9f8b5d5ce2c509554a0490f75f4fe64ef09
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Oct 31 20:21:56 2019 +0100
+
+    trying to get the data from the local website to heroku, uploading some more files
+
+commit 5b8adb1ec1b71790bfcfc08b49a3e2e3efc9d57d
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Oct 31 20:11:47 2019 +0100
+
+    trying to get the data from the local website to heroku, uploading some more files
+
+commit 56a30d2cf03c2c163cb9a7399d6227aa152154a6
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Oct 31 20:04:18 2019 +0100
+
+    trying to get the data from the local website to heroku, uploading some more files
+
+commit e9a7fe760b5703d987f4b6e3a8f5123cc90a5a94
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Oct 31 19:17:09 2019 +0100
+
+    added new admin page upload_file
+
+commit e2e16ac8669c20967dc671285b7b2d4d511cbd14
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Oct 31 18:54:16 2019 +0100
+
+    still trying to get the data from the local website to heroku
+
+commit 1285a22a5fe3df9a96e6dadffe45cb46e6b10b18
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Oct 31 14:49:16 2019 +0100
+
+    hopefully the mess is now cleared up after having accidentally added too big files to git
+
+commit 3fc570c4481b070fac287fe255e5ece19bf47ef4
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Oct 31 13:10:43 2019 +0100
+
+    adding some more tables to the admin page
+
+commit 1a20596aeb60b41edfca9f00520c5002ce745123
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Oct 31 11:52:43 2019 +0100
+
+    made backup of the databse
+
+commit 72199348445772be00b66149a04a117dffb3dcaf
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Oct 30 14:40:48 2019 +0100
+
+    trying to remove error that occurs at tool/edit_simulation/<sim_id>
+
+commit 8eb0de4c9ecae1bd150147cb7df5a04471e61be4
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Oct 30 14:21:01 2019 +0100
+
+    making adding 'Browse Simulations' to main menu
+
+commit 03cc23d05a106972ff457ec7692c2d6a69184c17
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Oct 30 13:47:19 2019 +0100
+
+    trying to make the subscriber page work again..
+
+commit b4958038188572d702482dfb4185ac73b532de26
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Oct 30 11:42:13 2019 +0100
+
+    trying to get the email sending to work
+
+commit f43e1040bbe3e59df3f0a0bad46310ff67ffa3dc
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Oct 28 16:26:08 2019 +0100
+
+    trying to get sendgrid to work again
+
+commit 9651ee975cb57eecd2a460250cc7fc96e889d6b4
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Oct 28 16:15:49 2019 +0100
+
+    trying to get sendgrid to work again
+
+commit 1bcdec52cb8f3dafb5c784e590f2f72aa02c62ce
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Oct 28 11:05:57 2019 +0100
+
+    reducing image sizes for some of the pages, because they take too long to load
+
+commit 6a166a1b915e20e7e0b9bc7cbb26b2ced990a852
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Oct 27 16:29:54 2019 +0100
+
+    some more changes to the landing page and about page - 2
+
+commit 3842cf2364cfb9f3db84078d94fa6a08faa23f25
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Oct 27 16:13:25 2019 +0100
+
+    some more changes to the landing page and about page
+
+commit 5386936f0ab0c29902380077706fc12360e33445
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Oct 20 22:03:39 2019 +0200
+
+    forgott to switch the landing page carousel on
+
+commit 631b93523d046fe4a7f7005b36c09bc863fddf6c
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Oct 20 16:29:10 2019 +0200
+
+    making the about-page and landing-page nicer
+
+commit 1ffda32616eca62f3a81fd70d82725ae2f673025
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Oct 17 14:35:53 2019 +0200
+
+    some new text for the about page
+
+commit 2bff9e515fdfb48d77afd0a32c8290a62e3d5103
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Oct 15 15:10:58 2019 +0200
+
+    some more changes to the landing page - new text
+
+commit 2c78a5ece4ba38353d063075700414cfeb584da2
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Oct 14 16:25:30 2019 +0200
+
+    some changes to the landing page and about page
+
+commit 8c0827503172d1f85fc5554ef7e18ceba082e28a
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Sep 23 17:58:07 2019 +0200
+
+    making edit_simulation a little nicer
+
+commit cf2855d364ef0fa27d8e39a6a6670d0cac33139a
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Sep 22 20:52:30 2019 +0200
+
+    added upload-all-data/-only-matched-data button to upload_data6
+
+commit 097c9bc1e5be828d8de163e8b33b4690cb2bfb01
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Sep 22 11:32:18 2019 +0200
+
+    made the upload_data pages nicer and allowed for relations to be chosen at the filter-attribute-selections in upload_data3 and upload_data4
+
+commit da7aa4ca4112409b87c1e988789771ee25f654c0
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Sep 17 12:15:24 2019 +0200
+
+    password reset email now sent from noreply@treeofknowledge.ai
+
+commit 93200ca1496b55d15adb9c55bd746e633684d9b5
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Sep 9 15:03:46 2019 +0200
+
+    adding aileron.light.otf to the fonts-folder
+
+commit e03f41465ca757f2816079472242e91f78ae081f
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Sep 9 14:43:07 2019 +0200
+
+    trying to deploy to heroku.... little fix to requirements.txt
+
+commit 62057144a7b43d73944816fd3737d1006b288ea3
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Sep 9 14:40:52 2019 +0200
+
+    trying to deploy to heroku.... little fix to requirements.txt
+
+commit 557d0b5b5b8eb8a481c75effc50f741fc52f2172
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Sep 9 14:38:39 2019 +0200
+
+    removing the troublesome library menuinst from requirements.txt
+
+commit 53c4b7f682c3bc65d38a8d2c77389bdcfa994888
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Sep 9 14:33:23 2019 +0200
+
+    trying to deploy to heroku.... little fix to requirements.txt
+
+commit 95cf0e004e98b8a1b76817bf1c61cfaec028c344
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Sep 9 14:30:42 2019 +0200
+
+    trying to deploy to heroku.... little fix to requirements.txt
+
+commit dc442dd0338172c22968f603e607cabcd3d3c066
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Sep 9 14:26:39 2019 +0200
+
+    more pretty html for main_menu.html and upload_data 1 - 6.html
+
+commit 8238fa56ace91fa25ee97012a124ee9c1d14354e
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Aug 22 19:29:46 2019 +0200
+
+    smoothened out many things about analyse_simulations.py - the tooltips, the graphs, etc.
+
+commit 9ee61c03acc9ca0c93f5a420ee4ce9fee9517119
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Aug 20 19:09:27 2019 +0200
+
+    fixed the simulation engine -> it now simulates both country populations and iris classifications correctly, including rule learning!
+
+commit 52eca47d1601fdf4cd96976e3d35015e4eb76209
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Aug 14 17:52:11 2019 +0200
+
+    did some more bug-fixes for simulation.py and analyse_simulation.html. E.g. the bottom panel looks a lot nicer now
+
+commit 9bc87ad4ad558bc566fed0251bf73b5788a0f32e
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Aug 13 17:49:13 2019 +0200
+
+    some bugfixes for simulation.py - the country-population simulation seems to be working alright now. More bugs tomorrow.
+
+commit 64dbd72e4cf797b777ffc87dbc96e528d2dcc204
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Aug 12 16:42:51 2019 +0200
+
+    still trying to fix the errors with simulating country population developments. Iris flower classification works except that the rule probabilities are now wrong... to be continued
+
+commit de7e9988833c4dac7eac694925be51096f9731d2
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Aug 11 18:09:54 2019 +0200
+
+     working on some bug-fixes of simulation.py - it doesn't yet work for all simulation types
+
+commit a69b579a9563bf032240cce380e789131168bd8f
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Aug 10 16:21:29 2019 +0200
+
+    working on making simulation.py work for timeseries analysees, too. there're still some errors...
+
+commit ecea2c7d9d252097819ffe74eee590e6ee6bee03
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Aug 8 14:55:21 2019 +0200
+
+    changes done to analyse_simulation.html: * the re-run simulation button now works. changes to edit_simulation__simulate.html: * you can now choose the optimisation attribute by clicking on it
+
+commit b2534f83fd2f76211758d5f1ea32f5bd10214ca5
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Aug 7 18:14:59 2019 +0200
+
+    changes to simulation.py: posterior points obtained from simulations that didn't even trigger the rule condition are excluded => clearer posteriors. changes to analyse_simulation.html: display overall simulation score, display error if posterior was made from less than 200 simulations
+
+commit 5c13943c9137b7d4885fbbb1ada12881ff6ec4f5
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Aug 5 17:44:25 2019 +0200
+
+    changes to analyse_simulation.html and edit_object_behaviour_modal.html: when clicking on a triggered rule, the rule editing modal opens. The rule editing modal now also contains small AnyChart-graphs with the pdf of the rule
+
+commit 7999445052491f47ab387d9c07b72770a47d8ba4
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Aug 2 22:18:33 2019 +0200
+
+    working on simulation.py - it now should hopefully work do multiple timesteps as well as multiple y-values. I'm currently working on improving the display of the triggered rules in analyse_simulation.html - the error after by the rule should be displayed (coloured rule), as well as the correct value...
+
+commit 2ccd5ed55bb6554e9da84a813a80a9fc021b334f
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Aug 1 15:58:04 2019 +0200
+
+    working on simulation.py the simulation will soon be able to do multiple timesteps and to have multiople y values
+
+commit fdc0faa549b9288b92ea97c218d5c7cd8f1237e8
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Jul 23 21:06:16 2019 +0200
+
+    bug fixed in backend with the generation of triggered_data
+
+commit 6d006cdf57c40e836bba1f8bae9a9b2326e7ed92
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Jul 22 16:50:04 2019 +0200
+
+    working on getting the right triggered rule info from the backend. in order for it to be displayed
+
+commit 04a2e155a711dfb7ce3f8346fd9f5459ac1dc662
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Jul 21 16:16:46 2019 +0200
+
+    working on displaying the triggered rules in analyse_simulation.html
+
+commit be1f2231964a4182dda959653a421a39766d0cb1
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Jul 20 17:49:39 2019 +0200
+
+    the top panel of analyse-simulation.html now nicely shows both linegraphs and histograms. Next up: display triggered rules
+
+commit 480087d068f0ebc28af1adaaf8cbe486bd12dadc
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Jul 18 19:31:50 2019 +0200
+
+    working on analyse_simulation.html. The left and bottom panel seem to be working alright. next up: top panel
+
+commit 48037625cd7f220ab1994cd9a9cd5463b8765497
+Author: owner <benedikt@kleppmann.de>
+Date:   Sun Jul 14 22:21:22 2019 +0200
+
+    working on the simulation engine. parameter learning is done. monte-carlo simulations and individual example simulations still need to be done
+
+commit 277415592238a0dd9810a1cde4094a5ddf0b39f0
+Author: owner <benedikt@kleppmann.de>
+Date:   Fri Jul 5 16:19:08 2019 +0200
+
+    edit_simulation__simulate.html has been changed to allow for combined behaviour- and calculation- rules
+
+commit 5f8d1637924ae47e961837aab81d39fec638cefc
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Jul 2 16:59:44 2019 +0200
+
+    working on behaviour+calculation rules in edit_simulation.html. Specifically, made edit_object_behaviour_modal.html and edit_object_type_behaviour_modal.html
+
+commit 9c69f1db6d16bd268a6d3bbafa14fe24878db0d8
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Jun 26 15:15:31 2019 +0200
+
+    completely working version with calculation rules. Generalized rules to come next...
+
+commit 56d451b867e1e0f6e8d43562821dca2744fd7a27
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Jun 25 18:16:19 2019 +0200
+
+    some bugs were fixed: for edit_simulation.html you can now draw and remove relations, specify other filters and when you go to the Simulation-view, the right data is queried and returned. Really super-nice! if I may say so myself ^^
+
+commit b67e77bc25cc763b71400dc631c2c4e396fb08e2
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Jun 22 15:49:12 2019 +0200
+
+    saving final version of the calculation_rule_only_including_lm_learning branch
+
+commit 812a943755519b9a083ae6659555beaa1fe9987d
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Jun 20 20:41:32 2019 +0200
+
+    commit from 20.06.2019. Nothing's changed, just checking that everything is up to date
+
+commit fcf6defe28db0ed8d376ab63951a269b32e413bb
+Author: owner <benedikt@kleppmann.de>
+Date:   Mon Jun 17 13:36:49 2019 +0200
+
+    messy version from 2019-06-17. Started with behaviour rules. Figuring out ELFI with jupyter notebook in test__please_delete"
+
+commit b343d80adfbba43c08e1a9b323132fd4abe4e267
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed May 29 12:29:47 2019 +0200
+
+    added relations to edit_simulation.html.
+
+commit 568365c5b6f6e4c8a458cc3ef6ec94f1b2592630
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu May 16 11:21:02 2019 +0200
+
+    upload_data now includes the possiblity of uploading RELATIONS
+
+commit 7d35bb564773d90c8a718e8801abbe6dab4ec9aa
+Author: owner <benedikt@kleppmann.de>
+Date:   Sat Apr 27 19:54:58 2019 +0200
+
+    Just getting started on learn_rule.html
+
+commit eecbfe4e84a605d268c02e1033df2456fbd02a48
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Apr 23 17:20:35 2019 +0200
+
+    removing pywin32==223 from requirements.txt as it can't be installed by heroku
+
+commit cd850dc8feaaf7c52337ab8544a715b99f5feb8d
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Apr 23 17:15:08 2019 +0200
+
+    removing menuinst==1.4.14 from requirements.txt, because heroku can't install it
+
+commit c91e4047f02b11b0802b4090537dae1806a8da1c
+Author: owner <benedikt@kleppmann.de>
+Date:   Tue Apr 23 17:06:59 2019 +0200
+
+    the previous two commits had  conda==4.5.12 marked in requirements.txt. Heroku doesn't seem to like that, so now we're trying with conda==4.3.16
+
+commit ad8ebbb1a7e550720525bd538965433b13bdf475
+Author: owner <benedikt@kleppmann.de>
+Date:   Wed Apr 17 22:52:25 2019 +0200
+
+    analyse_simulation.html looking jolly good! if anything, then there's only minor changes left
+
+commit 1b394828f5c8a64826be94f41c379b6816389c35
+Author: owner <benedikt@kleppmann.de>
+Date:   Thu Apr 11 22:41:03 2019 +0200
+
+    analyse_simulation.html - first error-based coloring of the timeline. In the backend comparison with true values and error calculation implemented
+
+commit efc38670d5fcc1d0c2e977691743299143da9400
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Mon Apr 8 12:26:28 2019 +0100
+
+    just started with analyse_simulation.html
+
+commit 056f35b0c79daf86ac551f51f54f652d18f10412
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Fri Apr 5 14:53:31 2019 +0100
+
+    edit_simulation.html fully working. The model design, simulation specification and running of the models works nicely now
+
+commit cf5a59e0902408c7bf3d9c83c93ff4a569405ca1
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Fri Mar 29 17:42:22 2019 +0000
+
+    minor change to main_menu.html
+
+commit 58e3a1c489440e1185689154d49a728d2b77653c
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Fri Mar 29 17:38:33 2019 +0000
+
+    minor change to main_menu.html
+
+commit 5786210a8248a3e8a165761f9a45f85a99330cd3
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Fri Mar 29 17:31:08 2019 +0000
+
+    edit_model.html is looking good. It has a design-window and a simulate-window. the restrictions for the objects (sepcified under design) are respected when automatically grounding the object in the simulation stage. also the Create Rule Modal of the simulation stage is working quite nicely.
+
+commit f6cba4e93d94998d53e1415289b1194a89868342
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Thu Mar 21 10:36:30 2019 +0000
+
+    started work on the interface of edit_model.html
+
+commit 0c8b044274ed63e3bf50fa363ace5f5a31efdb7c
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Mon Mar 11 08:50:28 2019 +0000
+
+    minor change to the main_menu.html
+
+commit d79d66163b1c1cc0a80ce9191454514c47b281de
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Mon Mar 11 08:47:03 2019 +0000
+
+    minor change to the main_menu.html
+
+commit 3c4f911e729f3ce6010ace417ad8c8c3b7973d59
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Mon Mar 11 08:41:17 2019 +0000
+
+    minor change to the page titles
+
+commit e175dc22cb2fe4bb2ffb605a263d36e2810dc6fe
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sun Mar 10 19:34:47 2019 +0000
+
+    very small beauty changes
+
+commit d1a608d90b7d573168557c36f774a9578ade7def
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sun Mar 10 16:53:47 2019 +0000
+
+    forgott the pip freeze ^^
+
+commit 50cd81e6532a09c8b6c2745b4c77ab05ae7d16b7
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sun Mar 10 16:49:31 2019 +0000
+
+    Version 0.1 (Data Portal) virtually complete. All the upload data works as well as the query data. Instruction video-modals have been added to all pages. The instruction videos are still missing. Also some testing is required in production (www.treeofknowledge.ai)
+
+commit d9364454530c0749d2fc053a8b1e3f260cb4ca79
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Mar 5 22:01:59 2019 +0000
+
+    query_data.html completed. looking good. only still need to make upload_data6 work and add screencasts to every page. (For the data-portal to be complete)
+
+commit 86bab7ea94640317ec1218aa63d055aa7389f15d
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Fri Mar 1 23:42:15 2019 +0000
+
+    query_data.html pretty much completed
+
+commit 474b10a16282fc257906a02881ba26eacff5dd3a
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Wed Feb 20 13:59:15 2019 +0000
+
+    the upload_data is practically finished. the last change was adding expected_valid_time to create_attribute. and adding some nicer error display to upload_data2
+
+commit f65eb425852daa17feabd82260dcc7216ce2e11f
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Feb 12 11:56:12 2019 +0000
+
+    more improvements to the upload_data pages - the UI for TimeSeries data is standing. Currently working on Upload_data6 - match to entities in the knowledge base
+
+commit 6ffcd67e803d0c7d653c4889e40b19aa1c4f1d4c
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Wed Jan 30 14:12:19 2019 +0000
+
+    forgot to update requirements.txt ...  again ^^
+
+commit 1d7bb05e1666e99c97255d6c9e229763e5dba55b
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Wed Jan 30 14:07:29 2019 +0000
+
+    fleshing out the upload process - adding the different tables, etc.
+
+commit 60edded0f182000e82e0ede1416c821d195c5239
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Thu Jan 24 18:50:11 2019 +0000
+
+    updating requirements.txt
+
+commit 41fa5514eccf762bc51296ee6e66313227585940
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Thu Jan 24 18:48:46 2019 +0000
+
+    upload_data5 is pretty much complete, including the tdda-stuff. Currently work is continuing on upload_data6 - managaed to get a datetimepicker to work!
+
+commit f509d2d4d67a8ad503b2fe4d3cf6b684c8c09d64
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Jan 8 21:41:55 2019 +0000
+
+    some more fiddling round
+
+commit d7e3e95661768213a64a4b594a342b8cc5307834
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Jan 8 21:36:15 2019 +0000
+
+    there were some more problems with the migrations after all - new try is to delete all of them and try and create them on heroku
+
+commit 0f8e52a8670819a43b9c545cdec223fd63ba13e4
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Jan 8 20:48:27 2019 +0000
+
+    modified the filename to be the same as the filepath for uploaded csv files...
+
+commit 7d160c3a014451dfb75abfe76cf6a6372696be17
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Jan 8 20:43:46 2019 +0000
+
+    the migration thing is now working!! trying to fix a little thing with the filename of the uploaded csv right now
+
+commit 4b56d74d16fe860fb161a25284f08c3ba7a59ac2
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Jan 8 15:33:34 2019 +0000
+
+    still fiddling around with the migrations
+
+commit ebdf131b7a6a6cbd9b273704126f7ce378493259
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Jan 8 15:06:15 2019 +0000
+
+    still fiddling around with the migrations
+
+commit ae94cdbe094949830dba96fc0783f5eae35b3a33
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Jan 8 14:56:54 2019 +0000
+
+    still fiddling around with the migrations
+
+commit de2aef4bd7a034939077f10ac1df000645709bfa
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Jan 8 14:46:51 2019 +0000
+
+    still fidling around with the migrations
+
+commit 5616e47617d59810bc61d2d7a358ef5dd05a5c0c
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Jan 8 14:30:07 2019 +0000
+
+    minor bugfix in views.py
+
+commit 491bba54e1a1b0f2aeaf96c76ca3fcb7dda93d40
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Jan 8 14:26:24 2019 +0000
+
+    little bug-fix to admin.py
+
+commit 90ffa4d4306ebb8ef868e1d40fa37864eb8e2dee
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Jan 8 13:39:06 2019 +0000
+
+    redoing all the migrations  (i.e. deleting the old ones and generating new) - hoping to fix the issues this way
+
+commit 8252732ba9af2a261278a1eaaa2686d5bb76e89f
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Jan 8 11:11:15 2019 +0000
+
+    adding file webservice\collection\templates\registration\register.html - hoping you will be able to forward to the tool on heroku then (it already works locally)
+
+commit 641b5514892780853b84fd6c1adf0955966b4582
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Jan 8 10:39:03 2019 +0000
+
+    removed one migrations file that is causing troubles
+
+commit 3a0c11437c7fe5d7f7ce9b904bc6efc28f4c1a99
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Jan 8 10:10:16 2019 +0000
+
+    adding webservice/collection/migrations/0007_auto_20181115_1948.py to .gitignore because it causes heroku to fail
+
+commit 53c58e89758a68ece3301294d4a8fa79988d791f
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Dec 25 15:04:49 2018 +0000
+
+    the migration file 0007_auto_20181115_1948.py is failing on heroku - trying without
+
+commit 415b9cd6d61502feb8fb12adad2ddcd0bace222d
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Dec 25 14:54:29 2018 +0000
+
+    upload_data3 seems pretty finished, you can add new object_types, or move them around, the updated object_hierachy_tree gets saved to the backend, etc
+
+commit 691306caba1063031ee7462df0a4d2463973a9bc
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sun Dec 23 23:39:00 2018 +0000
+
+    the create-new-object-type modal in upload_data3 is now also working
+
+commit 21e421d23fec37be1decfbd19d4256ca4c1ff88b
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Wed Dec 19 19:31:44 2018 +0000
+
+    for upload_data_3 the object_information is now nicely displayed
+
+commit 4e3c6d132f6e2766ae3c775dfb805e204a4c8179
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Wed Dec 19 12:05:27 2018 +0000
+
+    the file db.sqlite3 was too big for github. removing it was a mess, I had to make a local copy of the project, revert to 3 commits earlier and copy in the files from the local copy. I really hope it works now!!!
+
+commit faa337d1c9b89afce24703c8749d0702aca90a63
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Thu Dec 13 14:01:14 2018 +0000
+
+    jstree - select object-type is working. When you select an object-type, the description, examples and existing_datapoints are displayed to the right
+
+commit e49fb4095506a60ad24e549113a8da0b090f4e73
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Dec 11 17:22:46 2018 +0000
+
+    last time failed, because of a file that was anyway just used for testing: 'css/style.min.css'. Now trying without it
+
+commit a4e190fe14fe8a455f1e27502e5cb0fa63c0cd1c
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Dec 11 17:18:03 2018 +0000
+
+    forgot the requests.txt in the last commit ...
+
+commit f87045408bd0e81c5474c7d3d85365056308522f
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Dec 11 17:14:44 2018 +0000
+
+    upload_data_2: select-attribute-menu is completed. Now working on select object-type with jstree.
+
+commit 942dfc96f873110e7030d162de7037cb4009335e
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Dec 8 20:09:59 2018 +0000
+
+    for upload_data2 the Choose-Attribute-menue primitive version is working!
+
+commit 990abe9f77e68bc8c6e67e533d558aa0df3ae6e8
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Thu Dec 6 12:57:52 2018 +0000
+
+    changes to upload_data2.html - it now displays the uploaded table. Also, the html templates now use the upload-table-objects instead of the forms
+
+commit f5c2e792e894188c2e82535dd731a2b5f602b935
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Wed Dec 5 21:40:08 2018 +0000
+
+    many changes to upload_data! upload_data1 and upload_data2 are now working (the second doesn't have all the advanced column specification stuff yet)
+
+commit b72aa51daf00d505f170d43155cf30d7944ee763
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Wed Dec 5 15:03:27 2018 +0000
+
+    adding file collection/functions/upload_data.py
+
+commit 469e77368222a8ea64362c9a234cd6ee877a3264
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Wed Dec 5 14:45:41 2018 +0000
+
+    updating requirements.txt
+
+commit 468dda45d8c5e13cc50e14854df0e4e09bd7dcac
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Wed Dec 5 14:22:38 2018 +0000
+
+    new upload-table pages! - they're not pretty yet
+
+commit 91859f0cad39bd8aa1f62d992cfae91716311ee8
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Fri Nov 23 15:28:47 2018 +0000
+
+    password reset now sends a real email
+
+commit ec7371aeaad9666badcf5299b4bb135c3a34fa85
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Thu Nov 22 15:54:33 2018 +0000
+
+    updating requirements.txt
+
+commit 8dff175adef170ab6bb07c32fcd0b4f2ebba6f44
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Thu Nov 22 15:47:20 2018 +0000
+
+    nice layout for the registration pages and the tool-pages. The html-files webservice/collection/templates/layouts/base-registration.html and base_tool.html are for instance new
+
+commit 92b1b37aa7303492fe2a2d4e4a5bb27300ea64fd
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Nov 17 10:15:13 2018 +0000
+
+    same commit as before  - hope it works this time
+
+commit 20d436af5b4365030438b9c03332994c0901f4cc
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Nov 17 10:10:39 2018 +0000
+
+    fixed the edit-model-page; new 404-error and 500-error pages.
+
+commit 502260da4e2d4105feaf14aa56b2956f27de12a7
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Wed Nov 14 18:52:29 2018 +0000
+
+    added form for subscribers on the info-page. changed some formatting (background pictures, finals box)
+
+commit 36f2b352288381d90336bc658151fd731b9499f3
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Nov 13 21:41:12 2018 +0000
+
+    adding classes Simulation_model and Uploaded_dataset to models.py. These data tables have an automatically created slug and created-timestamp.
+
+commit bcb712165d037d3fe82c807222486efd8f90aec0
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Nov 13 20:35:27 2018 +0000
+
+    updated requirements.txt
+
+commit 256bb8c2e692b757e1f9c176d920926932de227a
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Nov 13 20:31:19 2018 +0000
+
+    New things: login, password change, logout.   All done with the djago-registration-redux library. The pages are still the basic examples...
+
+commit 104a0088bfdb1f2de81c2c0edd4c4b181fe77a24
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Nov 10 12:52:15 2018 +0000
+
+    putting all the pages together - the original main-page is now the about page. some formatting still has to be done.
+
+commit 81f7eef61305a21dc3912826e2358b992c1c1320
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Fri Nov 9 10:40:03 2018 +0000
+
+    new landing page
+
+commit 8d9438835d48a5d90f2a6d7e18787fe087bac95c
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Wed Nov 7 19:41:05 2018 +0000
+
+    changing column name for subscriber from is_archivist to is_scholar
+
+commit 2287d9a9833eaaacce0754639096448b1cece387
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Wed Nov 7 12:11:51 2018 +0000
+
+    adding subscribers-page and contact-page
+
+commit 947bd89f9d60a8afdc555f8c62ce56bc28497dbf
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Fri Nov 2 11:34:47 2018 +0000
+
+    bug fix in html - the whole base-url thing was not working
+
+commit 3f275db8955716f0b59ed1e6103182ebecb31b5c
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Fri Nov 2 11:32:31 2018 +0000
+
+    bug fix - wrongly named image in the html
+
+commit e37c866e74849debc03d60125e4e5e18f3640ddd
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Fri Nov 2 11:24:51 2018 +0000
+
+    bug fix in models.py
+
+commit 024a98114e4b93257c0692b6fb30d92656995e02
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Fri Nov 2 11:20:10 2018 +0000
+
+    layout changes to the landing page
+
+commit fbc783b939944f724d90cbe7d54483deaddd1951
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Thu Nov 1 08:11:12 2018 +0000
+
+    updating the text of the landing page
+
+commit c183ec84618320794bf9259f4ff019c022a68f34
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Oct 30 17:43:39 2018 +0000
+
+    bug fix for error 'file not found'
+
+commit bc4657ffb5072164273528edbafb1b182c53a0d3
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Oct 30 17:39:48 2018 +0000
+
+    the /*
+
+commit d7b7bd32bf4a43ea1656d7824dc4d0ab0ac62aca
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Oct 30 17:30:34 2018 +0000
+
+    bug fix - removed glyphicon-font from bootstrap.min.css. Also edited the CC in the footer.
+
+commit 6c28f1172e5d9e32899acffbd440dae560fcf883
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Oct 30 17:04:23 2018 +0000
+
+    fixed bug - wrong filename for: /images/logo.jpg
+
+commit 568170439164f3b62197aa8871776d1e6b6ae594
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Tue Oct 30 16:58:43 2018 +0000
+
+    updated html, js and css. The new webpage is based on the DS4DM-website (http://web.informatik.uni-mannheim.de/ds4dm/)
+
+commit 6752e3ad80a4cea9ea76ce8f4926b9d811c7e1a3
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sun Oct 28 12:17:30 2018 +0000
+
+    changed 'hellowebapp' to 'webservice' in ./Procfile
+
+commit 5c0fd32b2521a00fff1bedbc32652a15bec2d159
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sun Oct 28 10:59:01 2018 +0000
+
+    webservices/settings_production.py wasn't found. Updating to find the error
+
+commit e1c7fc0b50b757ff1bd418a34337dd88da817d26
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Oct 27 16:12:47 2018 +0100
+
+    minor change - trying to fix issue
+
+commit 810cc22df5a5f6c006cd7d10024ad94c6c2e1402
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Oct 27 16:11:20 2018 +0100
+
+    minor change - trying to fix issue
+
+commit 7d01ee0364bab62e6be3e17163ab49b0e40eb41c
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Oct 27 16:08:43 2018 +0100
+
+    minor change - trying to fix issue
+
+commit c7bd532a2d52d9b8ff12895d6844678bc57425b4
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Oct 27 16:03:33 2018 +0100
+
+    minor change - trying to fix issue
+
+commit 81aeb79d5a4cfd8b3b5db5a03b5e37bdee912f0c
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Oct 27 15:55:43 2018 +0100
+
+    minor change - trying to fix issue
+
+commit 185e28a97c8077aa80313a927a0fe60762bffa4e
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Oct 27 15:50:59 2018 +0100
+
+    changing to psycopg2==2.7.5 in requirements.txt
+
+commit 85c4d0455dad1ab1f8e6b0fb43f0c8108dfb53d3
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Oct 27 15:46:37 2018 +0100
+
+    fixed litte mistake in settings_production.py
+
+commit abd1656ffd7c08bbf9c0ac6df3133ed7c70709fd
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Oct 27 15:44:27 2018 +0100
+
+    Added prodution settings file.
+
+commit 619d3b2dc978b40617e2393efc8c91ccab6acbad
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Oct 27 13:50:45 2018 +0100
+
+    trying to make the git push heroku master work by changing requirements.txt, agian3
+
+commit fe403d9fc716474a0db30dd1c8fe6954a40fcd77
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Oct 27 13:43:57 2018 +0100
+
+    trying to make the git push heroku master work by changing requirements.txt, agian2
+
+commit 5417a05b61fb74f38d5f9a279ddd8be095886c12
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Oct 27 13:04:59 2018 +0100
+
+    trying to make the git push heroku master work by changing requirements.txt, agian
+
+commit 2d77e5f0b2454064ede3a30865f2027b46f8bea9
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Oct 27 12:58:20 2018 +0100
+
+    change to requirements.txt - trying to make it work for heroku
+
+commit 15d0d0336576b7e015862e4a2ecc02aabde9ec5c
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Oct 27 12:24:14 2018 +0100
+
+    trying to make the git push heroku master work by changing requirements.txt
+
+commit 465bcaa724613e44676950045c5ec7c168853d8f
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Sat Oct 27 11:29:44 2018 +0100
+
+    following hellowebapp instructions
+
+commit f690f213cf8221fa4f9fc3993c02e9412d5a95c4
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Fri Oct 26 11:09:28 2018 +0100
+
+    django initial commit
+
+commit 39ffaf378d64dc7cd77c2979d2666bf53ccaa350
+Author: Benedikt Kleppmann <benedikt@kleppmann.de>
+Date:   Thu Oct 25 15:38:23 2018 +0100
+
+    initial commit - dummy webservice

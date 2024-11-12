@@ -1,0 +1,31 @@
+{% extends 'layouts/base_registration.html' %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+
+{% block title %}
+	Tree of Knowledge | Logout
+{% endblock %}
+
+
+{% block navbar_right %}
+	<a href="{% url 'auth_login' %}" class="btn btn-default pull-right">Log in</a>
+{% endblock %}
+
+
+{% block message_box %}
+	<h1>Logged Out</h1>
+	<p style="text-align:center;">You are logged out.</p>
+	<br><br>
+{% endblock %}
+
+

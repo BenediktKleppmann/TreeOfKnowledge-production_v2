@@ -1,0 +1,83 @@
+
+
+body {
+  background: rgb(21, 21, 19);
+  /*background: rgb(33, 38, 41);*/
+  /*background: rgb(39, 40, 34);*/
+  /*background: rgb(68, 68, 65);*/
+  /*background: rgb(91, 93, 88);*/
+  color: rgb(255, 242, 204);
+  /*color: rgb(255, 255, 255);*/
+}
+
+.box {
+  /*background: rgb(21, 21, 19);*/
+  /*background: rgb(33, 38, 41);*/
+  background: rgb(39, 40, 34);
+  /*background: rgb(68, 68, 65);*/
+  /*background: rgb(91, 93, 88);*/
+  border-bottom: 1px solid rgb(68, 68, 65);
+  
+}
+
+#main-slider {
+  background-image: url(../images/arches.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  padding: 140px 0;
+  color: #fff;
+}
+
+
+.margin-left {
+	margin-left:170px
+}
+
+.lead h3 {
+	 font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	 font-weight: 100;
+	 font-size: 20px;
+}
+
+
+#ck-button {
+	height: 125px;
+	width: 125px;
+    margin-left:4px;
+    /*background-color: rgb(68, 68, 65);*/
+	background-color:rgb(91, 93, 88);
+    border-radius:4px;
+    border:1px solid rgb(153, 151, 145));
+    overflow:auto;
+    float:left;
+}
+
+#ck-button div {
+    float:left;
+}
+
+#ck-button input:checked  + img{
+    background-color: rgb(175, 95, 33);
+}
+
+#ck-button:hover {
+	background:rgb(153, 151, 145)
+}
+
+#ck-button input {
+	height:0px;
+	width:0px;
+	visibility: hidden;
+}
+
+#ck-button img {
+	margin-top: -15px;
+	height: 110px;
+	width: 110px;
+}
+
+input[type="checkbox"] {
+		margin: 0 0 0;
+}

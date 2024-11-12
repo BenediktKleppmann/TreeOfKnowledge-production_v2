@@ -1,0 +1,156 @@
+pre {padding:0;}
+
+.demo-box {
+    border: 2px solid #D5D9D9;
+    height: 150px;
+    margin-top: 10px;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.demo-box h3 {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0;
+    top: -2px;
+}
+
+.demo-box h3 span {
+    background-color: #ECF0F1;
+    padding: 0 20px;
+}
+    
+.context-click-area {
+    text-align: center;
+    font-size: 24px;
+    padding: 40px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 3px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.context-click-area + .context-click-area {margin-top:10px}
+.context-click-box {
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 5px 15px;
+    background-color: #3498db;
+    color: white;
+    margin-bottom: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    border-radius: 3px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.context-click-subitem {
+    background-color: #164D71;
+    float: left;
+    padding: 5px 15px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.context-click-box + .context-click-box {margin-top:10px}
+
+.example {
+    font-size: 14px;
+    background-color: #ecf0f1;
+    padding: 10px;
+    margin: 0 0 30px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.example h2 {
+    background-color: #7f8c8d;
+    color: #ECF0F1;
+    margin: -10px -10px 20px;
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+}
+
+button {
+    border: none;
+    border-radius: 3px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+    background-color: #3498DB;
+    margin: 10px 0;
+    padding: 5px 10px;
+    display: inline-block;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+hr {border-color: rgba(52, 152, 219, 0.2);border-width: 2px;border-style: dashed;}
+
+/* Demo Navigation CSS
+------------------------*/
+
+#demo-nav ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 0;
+    text-align: left;
+    
+}
+
+#demo-nav ul li {
+    text-align: center;
+    display: inline-block;
+    padding: 10px;
+    font-size: 14px;
+    width: 33.33333%;
+    background-color: #34495e;
+    color: #ecf0f1;
+    cursor: pointer;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#demo-nav ul li:first-child {border-radius: 3px 0 0 3px;}
+#demo-nav ul li.hover:first-child {border-radius: 3px 0 0 0px;}
+#demo-nav ul li:last-child {border-radius: 0 3px 3px 0;border:none}
+#demo-nav ul li.hover:last-child {border-radius: 0 3px 0 0;border:none}
+#demo-nav ul li:hover, #demo-nav ul li.hover {background-color: #647B92;}
+#demo-nav ul li .fa {margin-right: 10px;}
+#demo-nav > ul ul {display: none;}
+#contextmenu.demo-nav-menu .contextmenu-menu {
+    background-color: #647B92;
+    border-radius: 0 0 4px 4px;
+    border: none;
+}
+
+#contextmenu.demo-nav-menu  .contextmenu-menu li.contextmenu-item {
+    color: white;
+    white-space: pre-line;
+}
+
+#contextmenu.demo-nav-menu  .contextmenu-menu li.contextmenu-item.active {background-image: linear-gradient(to bottom, #34495e,#2c3e50);}
+
+/* Autocomplete CSS
+------------------------*/
+
+#autocomplete {
+    padding: 5px 15px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.2);
+    outline: none;
+    width: 300px;
+    max-width: 100%;
+}

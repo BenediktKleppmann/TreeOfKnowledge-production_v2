@@ -1,0 +1,1246 @@
+{% extends 'layouts/base_tool.html' %}
+{% load bootstrap3 %}
+{% load staticfiles %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+
+{% block title %}
+	Tree of Knowledge - Upload Data 3
+{% endblock %}
+
+{% block additionalcss %}
+
+<!--
+<script type="text/javascript" src="{% static 'js/bootstrap-3.4.0.min.js' %}"></script>-->
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/upload_table_frame.css' %}" />
+
+
+
+<style>
+		
+		.object-type-spec-box {
+			border: solid 1px grey;
+			height: calc(100vh - 315px);
+			overflow: auto;
+		}
+		
+		.object-type-spec-box2 {
+			border: solid 1px grey;
+			/*height: calc(100vh - 315px);*/
+			overflow: auto;
+		}
+		
+		#search-box, #search-box2, #object_name { 
+			box-shadow:inset 0 0 4px #eee; 
+			width:150px; 
+			margin:0; 
+			padding:6px 12px; 
+			border-radius:4px; 
+			border:1px solid silver; 
+			font-size:1.1em;
+		}
+
+		
+		/* ---  Object type info (on the right) -------------------------------------------- */
+		
+		.broad-col {
+			padding-left:0px;
+			padding-right:5px;
+		}
+		
+		.info-panel {
+			padding:10px;
+			border-radius: 5px;
+			background-color: rgb(234, 239, 242);
+			border:1px solid rgb(201, 216, 224); 
+		}
+		
+		h3 {
+			margin-top:5px;
+			margin-bottom:10px;
+			text-align:center
+		}
+		
+		#jstree-result {
+			
+		}
+		
+		#object-info {
+			height:calc(100vh - 341px);
+			overflow:auto;
+		}
+		
+		.list-group-row {
+			padding:0;
+			margin:0; 
+			border: 1px solid #ddd;
+			border-radius: 4px;
+		}
+		
+		.list-group-right-column {
+			padding:0;
+		}
+		
+
+		
+		.list-group-left-column > span {
+			vertical-align: middle; 
+			display: inline-block;
+			/*line-height:normal;*/
+			transform: rotate(270deg);
+		}
+		
+		.list-group.object-info {
+			margin-bottom:0;
+		}
+		
+		.row {
+		  display: -webkit-box;
+		  display: -webkit-flex;
+		  display: -ms-flexbox;
+		  display:         flex;
+		}
+		.row > [class*='col-'] {
+			 display: flex;
+			 flex-direction: column;
+		}
+		
+		.narrow {
+			padding-top:4px;
+			padding-bottom:4px;
+		}
+		
+		.btn-outline-dark {
+			border-color: rgb(185, 185, 185);
+			color: rgb(85, 85, 85);
+			background-color: rgb(225, 225, 225);
+			padding-top:5px;
+			padding-bottom:5px;
+	
+		}
+		
+		.choose-button {
+			margin-top: 25px;
+		}
+		
+		.btn-danger {
+			padding: 3px 5px;
+			font-size:18px;
+			position: absolute;
+			float: right;
+		}
+		
+		.popover {
+			z-index: 2060 !important;
+		}
+
+		/* --- Additional Fact Row -------------------------------------------- */
+
+
+		
+		
+		/* ---  Create Object Type Modal -------------------------------------------- */
+		
+		
+		#createObjectType .modal-body {
+			padding-top:5px;
+			padding-bottom:0px;
+		}
+		
+		#createObjectType .modal-dialog {
+			width:90%;
+		}	
+		
+		#createObjectType .modal-header {		
+			margin-right: 0px;
+			margin-left: 0px;
+			padding-right: 0px;
+			padding-left: 0px;
+		}
+		
+		#createObjectType #modal-title {
+			font-size:22px;
+			display: inline-block;
+			margin-left: 20px;
+		}
+		
+		#createObjectType #search-box2 {
+			margin-top:15px;
+		}
+		
+		#createObjectType #modal-object-info {
+			max-height: 350px;
+			overflow:auto;
+		}
+		
+		
+		#createObjectType #object_name {
+			border-color:#222;  
+			/*margin-bottom:15px;*/
+			 display: block;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		
+		#createObjectType #object_name::placeholder { 
+			color:#222;
+		}
+		
+
+		
+		#save_new_object_type_button, #save_edited_object_type_button, #cancel_object_modifictaion_button {
+			margin-top:20px;
+			display:none;
+		}
+		
+		.btn-danger {
+			padding: 5px 10px;
+			font-size: 12px;
+			line-height: 1.5;
+			border-radius: 3px;
+			position: relative;
+		}
+		
+		.modal-footer {
+			padding: 11px 20px 11px;
+		}
+		
+</style>
+{% endblock %}
+
+{% block content %}
+
+
+
+	
+	<div class="container-fluid">
+		<a href="{% url 'upload_data1' upload_id=upload_id%}"><div class="closed-frame"><div class="small-circle">1</div><div class="closed-frame-title">Select csv-file</div></div></a>
+		<a href="{% url 'upload_data2' upload_id=upload_id%}"><div class="closed-frame"><div class="small-circle">2</div><div class="closed-frame-title">Data source</div></div></a>
+		<div class="frame">
+			<div class="big-circle">3</div>
+			<div class="window-title-top">Object type</div>
+			<div class="window">
+				<div class="window-inner">
+					<h1>What type of objects are described in the table?</h1>
+					<br>
+					{% for error in errors %}
+						<div class="error">{{ error }}</div><br>
+					{% endfor %}
+					<div class="row">
+						<div class="col-sm-7">
+							<div class="form">
+								<input type="text" value="" id="search-box" placeholder="Search" />
+								<br>
+								<br>
+								<div class="object-type-spec-box">
+									<div id="container-for-object-tree" ></div>
+								</div>
+								<div style="margin-top:7px;margin-left:7px;">
+									Object Type not listed? &nbsp;<button id="create-object-type" type="button" class="btn btn-default" data-toggle="modal" data-target="#createObjectType">Create/Edit Object Type</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-5 broad-col" >
+							<form role="form" action="" method="post" class="form" enctype="multipart/form-data">
+							{% csrf_token %}
+								<div class="info-panel">
+									<div id="jstree-result"></div>
+								</div>
+								<input type="hidden" id="entire_objectInfoHTMLString" name="entire_objectInfoHTMLString" value="">
+								<input type="hidden" id="all_entry_counts" name="all_entry_counts" value="">
+								<button type="submit" class="btn btn-primary pull-right choose-button">Choose ></button>
+							</form> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="closed-frame"><div class="small-circle">4</div><div class="closed-frame-title">Meta data</div></div>
+		<div class="closed-frame"><div class="small-circle">5</div><div class="closed-frame-title">Object Attributes</div></div>
+		<div class="closed-frame"><div class="small-circle">6</div><div class="closed-frame-title">Match to existing entities</div></div>
+	</div>
+
+
+	
+
+	
+	
+	
+
+
+
+
+	
+	
+	
+	<!-- Create Object Type Modal -->
+	<div class="modal fade" id="createObjectType" tabindex="-1" role="dialog" aria-labelledby="chooseAttributeTitle" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="modal-title">Create/Edit Object Type</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top:2px; margin-right:19px;font-size:29px; float:right;">
+			  <span aria-hidden="true" >&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			  <div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form">
+							<input type="text" value="" id="search-box2" placeholder="Search" />
+							<br>
+							<br>
+							<div class="object-type-spec-box2">
+								<div id="container-for-object-tree2" ></div>
+							</div>
+							<br>	
+							<div class="row">
+									<button type="button" class="btn btn-success btn-sm" onclick="create_object_type();" style="margin-left:16px;">Create Child of Selection</button>
+									<button type="button" class="btn btn-warning btn-sm" onclick="edit_object_type();" style="margin-left:5px;">Edit Selection</button>
+									<button type="button" class="btn btn-danger btn-sm" onclick="delete_object_type();" style="margin-left:5px;">Delete Selection</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form">
+							<div class="info-panel">
+								<div id="jstree-result2">
+								</div>
+								<div class="row list-group-row" id="new_object_facts_box" style="display:none">  
+									<div class="col-sm-1 list-group-left-column"><span id="new_object_name" style="margin-left:-47px;width:130px;height:77px;margin-top:24px;text-align:center">facts about the<br>new object type</span></div>
+									<div class="col-sm-11 list-group-right-column">  
+										<ul class="list-group" id="new_object_facts_list"> 
+											<li class="list-group-item broad new-fact-list-item" > <!-- Object Attribute 1 -->
+												<div>
+													<div class="dropdown inline">
+														<button class="btn btn-secondary dropdown-toggle" type="button" id="attributeMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="attribute-name1">Attribute<span> &nbsp;<i class="fas fa-caret-down fa-sm"></i></button>
+														<div class="dropdown-menu" aria-labelledby="attributeMenu1">
+															<div id="attributeList1">
+																<input type="text" class="search" id="dropDonwSearch1" onkeyup="filterAttributeDropDown(1)" placeholder=" Search">
+																<ul id="drop-down-display1" class="list-group drop-down-display"></ul>									
+																<button class="btn btn-warning dropdown-item-button" type="button" onclick="resetAttribute(1);">Reset</button>
+																<button class="btn btn-success dropdown-item-button" type="button" data-toggle="modal" data-target="#createAttributeModal" onclick="loadListOfItsParentObjects();">Create New Attribute</button>
+															</div>
+														</div>
+													</div>
+													<input type="hidden" id="attribute1" name="attribute1" value="">
+													<div class="form-group inline operator">
+														<select class="form-control form-control-lg" id="operator1" name="operator1">
+															<option value="=" selected>=</option>
+															<option value=">">></option>
+															<option value="<"><</option>
+															<option value="in">in</option>
+														</select>
+													</div> 
+													<div class="form-group inline value">
+														<input type="text" class="form-control" id="value1" name="value1" value="" size="15">
+													</div>
+													<button type="button" id="format_violation1" class="btn btn-danger" data-container="body" data-toggle="popover" data-placement="left" data-html="true" title="Invalid fact" style="display:none;" data-content="">!</button>
+												</div>
+											</li>
+											<li class="list-group-item broad new-fact-list-item" > <!-- Object Attribute 2 -->
+												<div>
+													<div class="dropdown inline" >
+														<button class="btn btn-secondary dropdown-toggle" type="button" id="attributeMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="attribute-name2">Attribute<span> &nbsp;<i class="fas fa-caret-down fa-sm"></i></button>
+														<div class="dropdown-menu" aria-labelledby="attributeMenu2">
+															<div id="attributeList2">
+																<input type="text" class="search" id="dropDonwSearch2" onkeyup="filterAttributeDropDown(2)" placeholder=" Search">
+																<ul id="drop-down-display2" class="list-group drop-down-display"></ul>									
+																<button class="btn btn-warning dropdown-item-button" type="button" onclick="resetAttribute(2);">Reset</button>
+																<button class="btn btn-success dropdown-item-button" type="button" data-toggle="modal" data-target="#createAttributeModal" onclick="loadListOfItsParentObjects();">Create New Attribute</button>
+															</div>
+														</div>
+													</div>
+													<input type="hidden" id="attribute2" name="attribute2" value="">
+													<div class="form-group inline operator">
+														<select class="form-control form-control-lg" id="operator2" name="operator2">
+															<option value="=" selected>=</option>
+															<option value=">">></option>
+															<option value="<"><</option>
+															<option value="in">in</option>
+														</select>
+													</div> 
+													<div class="form-group inline value">
+														<input type="text" class="form-control" id="value2" name="value2" value="" size="15">
+													</div>
+													<button type="button" id="format_violation2" class="btn btn-danger" data-container="body" data-toggle="popover" data-placement="left" data-html="true" title="Invalid fact" style="display:none;" data-content="">!</button>
+												</div>
+											</li>
+											<li class="list-group-item narrow" id="create-new-object-fact-button">  	<button id="make-new-additional-fact-button" type="button" class="btn btn-outline-dark" onclick="newAdditionalFactInput('all');" ><i class="fas fa-plus"></i></button> </li>
+										</ul>  
+									</div>  
+								</div> 
+								<div class="pull-right">
+									<button type="button" id="cancel_object_modifictaion_button" class="btn btn-secondary" onclick="cancelObjectModification()">Cancel</button>
+									<button type="button" id="save_new_object_type_button" class="btn btn-primary pull-right" onclick="addObjectType()">Add</button>
+									<button type="button" id="save_edited_object_type_button" class="btn btn-primary pull-right" onclick="changeObjectType()">Change</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			  </div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" onclick="closeModalAndSave()" data-dismiss="modal">Close and Save</button>
+			
+			
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	
+	
+	{% include "tool/includes/create_attribute_modal.html" %} 
+	{% include "tool/includes/edit_attribute_modal.html" %} 
+	{% include "tool/includes/additional_facts_functions.html" %} 
+	
+
+
+<script>
+
+	// GLOBAL VARIABLES:
+	var object_hierachy_tree = {{ object_hierachy_tree|safe }}
+					
+
+	/*========================================================================*/
+	/*=====================    MAIN FUNCTIONS      ===========================*/
+	/*========================================================================*/
+	
+		
+
+	/*=============  MAKE HTML STRING FOR OBJECT-INFO (on the right)  ========================================================= */
+	function get_objectInfoHTMLString(data, node_id, prefix) {
+		
+		var objectInfoHTMLString = 	'<div class="row list-group-row row-eq-height" id="node_' + node_id + '">' + 
+										'<div class="col-sm-1 list-group-left-column" id="' + prefix + 'left_col_' + node_id + '"><span>' + data.instance.get_node(node_id).text + '</span></div>' + 
+										'<div class="col-sm-11 list-group-right-column">' + 
+											'<ul class="list-group object-info">'; 
+										
+		var attribute_values = data.instance.get_node(node_id).li_attr["attribute_values"]
+		for(var i = 0; i < attribute_values.length; i++) {
+			objectInfoHTMLString +=         	'<li class="list-group-item">' + ' ' + attribute_values[i]['attribute'] + ' '+ attribute_values[i]['operation'] + ' <i>'+ attribute_values[i]['value'] + '</i></li>';
+		} 
+		
+		objectInfoHTMLString += 			'</ul>' + 
+										'</div>' + 
+									'</div>'; 		
+		return objectInfoHTMLString;	
+	}
+	
+	
+	function get_numberOfListEntries(data, node_id) {
+	
+		var entries_count = 0
+		
+		var attribute_values = data.instance.get_node(node_id).li_attr["attribute_values"]
+		if (attribute_values) {
+			entries_count += attribute_values.length
+		}
+		
+		return entries_count
+	}
+	
+	
+	
+	/*=============  MAKE NEW ADDITIONAL FACT LIST ITEM  ================================================================ */
+	var number_of_additional_object_facts = 2;
+	
+	function newAdditionalFactInput(object_type_id) { 
+	
+
+		number_of_additional_object_facts += 1;
+		fact_number = number_of_additional_object_facts;
+		var insert_before = '#create-new-object-fact-button';
+
+		
+		var additionalFactHTMLString = 	'<li class="list-group-item broad new-fact-list-item" >' +
+											'<div">' + 
+												'<div class="dropdown inline" >' + 
+													'<button class="btn btn-secondary dropdown-toggle" type="button" id="attributeMenu' + fact_number + '" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="attribute-name' + fact_number + '">Attribute<span> &nbsp;<i class="fas fa-caret-down fa-sm"></i></button>' + 
+													'<div class="dropdown-menu" aria-labelledby="attributeMenu' + fact_number + '">' + 
+														'<div id="attributeList' + fact_number + '">' + 
+															'<input type="text" class="search" id="dropDonwSearch' + fact_number + '" onkeyup="filterAttributeDropDown(' + fact_number + ')" placeholder=" Search">' +
+															'<ul id="drop-down-display' + fact_number + '" class="list list-group drop-down-display"></ul>' +															
+															'<button class="btn btn-warning dropdown-item-button" type="button" onclick="resetAttribute(' + fact_number + ');">Reset</button>' +
+															'<button class="btn btn-success dropdown-item-button" type="button" data-toggle="modal" data-target="#createAttributeModal" onclick="loadListOfItsParentObjects();">Create New Attribute</button>' +
+														'</div>' + 
+													'</div>' + 
+												'</div>' + 
+												'<input type="hidden" id="attribute' + fact_number + '" name="attribute' + fact_number + '" value="">' + 
+												'<div class="form-group inline operator">' + 
+													'<select class="form-control form-control-lg" id="operator' + fact_number + '" name="operator' + fact_number + '">' + 
+														'<option value="=" selected>=</option>' + 
+														'<option value=">">></option>' + 
+														'<option value="<"><</option>' + 
+														'<option value="in">in</option>' +
+													'</select>' + 
+												'</div> ' + 
+												'<div class="form-group inline value">' + 
+													'<input type="text" class="form-control" id="value' + fact_number + '" name="value' + fact_number + '" size="15">' + 
+												'</div>' + 
+											'</div>' +
+											'<button type="button" id="format_violation' + fact_number + '" class="btn btn-danger" data-container="body" data-toggle="popover" data-placement="left" data-html="true" title="Invalid fact" style="display:none;" data-content="">!</button>' +
+										'</li>';
+										
+		$(additionalFactHTMLString).insertBefore(insert_before);
+		
+		makeObjectsAdditionalAttributesDropdown(object_type_id, fact_number);
+		
+	}
+	
+	
+
+	
+	/*========================================================================*/
+	/*==========   MODAL "CREATE OBJECT TYPE" FUNCTIONS  =====================*/
+	/*========================================================================*/
+
+	/*=============*/
+	/*====  CREATE */
+	/*=============*/
+	
+	/*=============  AFTER PRESSING THE 'Create Child of Selection'-BUTTON  ================================================================ */
+	function create_object_type() {
+	
+		var ref = $('#container-for-object-tree2').jstree(true),
+			sel = ref.get_selected();
+		if(!sel.length) { return false; }
+		var parents_object_type = sel[0];
+							
+		$("#info-panel-head").html('<br><input type="text" class="form-control-plaintext centered" id="object_name" name="object_name" placeholder="New Object Name" value=""><br>');
+		
+
+		
+		$("#new_object_facts_box").attr("style", "display:block;");
+		$("#save_new_object_type_button").attr("style", "display:inline-block;");
+		$("#cancel_object_modifictaion_button").attr("style", "display:inline-block;");
+		
+		
+		//For all Attribute-dropdowns: load a list of possible_attributes (for the selected object_type)
+		for (var i = 1; i <= number_of_additional_object_facts; i++) {
+			makeObjectsAdditionalAttributesDropdown( parents_object_type , i);
+		}
+		
+		//for the "+"-button change it so that the new attribute-drop-downs will list the object-types attributes
+		$("#make-new-additional-fact-button").attr("onclick", "newAdditionalFactInput('" + parents_object_type + "');")
+
+		/* WRITE THE NEW OBJECT NAME AT THE BOTTOM  */
+		$('#object_name').change(function() {
+			$('#new_object_name').html($(this).val());
+		});	
+		
+	};
+	
+	
+	
+	
+	/*=============  AFTER PRESSING THE 'Add'-BUTTON  ================================================================ */
+	function addObjectType() {
+	
+		// make new_object_dict
+		var new_object_dict = {}
+		new_object_dict['text'] = $('#object_name').val(); // <-- 'text'
+		
+		attribute_values_list = []  // <-- 'li_attr'
+		
+		//for every attribute-specification, get the attribute, operator and value and save to the object_dict
+		for (var fact_number = 1; fact_number <= number_of_additional_object_facts; fact_number++) {
+			
+			new_fact = {}
+			new_fact['attribute'] = $("#attribute-name" + fact_number).html();
+			new_fact['attribute_id'] = $("#attribute" + fact_number).val();
+			new_fact['operation'] = $("#operator" + fact_number).val();
+			new_fact['value'] = $("#value" + fact_number).val();
+			var has_no_format_error = ($("#format_violation" + fact_number).attr("style") == "display:none;")
+			
+			if (new_fact['attribute'] != "" && new_fact['value'] != "" && has_no_format_error) {
+				attribute_values_list.push(new_fact)
+			}
+		}
+		var attribute_values_dict = {}
+		attribute_values_dict['attribute_values'] = attribute_values_list
+		new_object_dict['li_attr'] = attribute_values_dict
+		
+		var parent_id = $('#parent_node_id').val(); // <-- 'parent'
+		
+		
+		var new_node_id = $('#container-for-object-tree2').jstree(true).create_node(parent_id, new_object_dict);
+		//$('#container-for-object-tree').jstree(true).create_node(parent_id, new_object_dict);
+		console.log('creating node id: ' + String(new_node_id));
+
+
+		
+		//send the new object_type to the backend
+		if (new_object_dict['text'].length >0) {
+			new_object_dict['id'] = new_node_id;
+			new_object_dict['parent'] = parent_id;
+			var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+			xmlhttp.open("POST", "/tool/save_new_object_type/");
+			xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+			xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+			xmlhttp.send(JSON.stringify(new_object_dict));
+		}
+
+		//reset the dropdown fields for the next new object type
+		for (var fact_number = 1; fact_number <= number_of_additional_object_facts; fact_number++) {
+			$("#attribute-name" + fact_number).html('Attribute');
+			$("#value" + fact_number).val("");
+		}
+		
+		$("#new_object_facts_box").attr("style", "display:none;");
+		$("#save_new_object_type_button").attr("style", "display:none;");
+		$("#cancel_object_modifictaion_button").attr("style", "display:none;");
+		$("#new_object_name").html('facts about the<br>new object type');
+		$('#jstree-result2').html('');
+	
+	}
+	
+	
+	/*=============*/
+	/*======  EDIT */
+	/*=============*/
+	
+	/*=============  AFTER PRESSING THE 'Edit Selection'-BUTTON  ================================================================ */
+	function edit_object_type() {
+	
+		var ref = $('#container-for-object-tree2').jstree(true),
+			sel = ref.get_selected();
+		if(!sel.length) { return false; }
+		var node_id = sel[0];
+		var object_hierachy_tree = $('#container-for-object-tree2').jstree(true).get_json('#', {flat:true});
+		var object_name = "";
+		var attribute_values = [];
+		var parent_id = "";
+		
+		
+		for (var i = 0; i < object_hierachy_tree.length; i++) {
+			if (object_hierachy_tree[i]['id'] == node_id){
+				object_name = object_hierachy_tree[i]['text'];
+				parent_id = object_hierachy_tree[i]['parent'];
+				attribute_values = object_hierachy_tree[i]['li_attr']['attribute_values'];
+			}
+		}
+
+		var head_html_string = 	'<br>' + 
+								'<input type="text" class="form-control-plaintext centered" id="object_name" name="object_name" placeholder="New Object Name" value="' + object_name + '">' +
+								'<input type="hidden" id="object_id" name="object_id" value="' + node_id + '">' +
+								'<br>' +
+								'<div class="form-group row">' +
+									'<label for="parent" class="col-sm-4">Parent object</label>' +
+									'<div class="form-group col-sm-6">' + 
+										'<select class="form-control form-control-lg" id="parent" name="parent">';
+											
+		for (var i = 0; i < object_hierachy_tree.length; i++) {
+			if (object_hierachy_tree[i]['id'] == parent_id){
+				head_html_string += 		'<option value="' + object_hierachy_tree[i]['id'] + '" selected>' + object_hierachy_tree[i]['text'] + '</option>';
+			} else {
+				head_html_string += 		'<option value="' + object_hierachy_tree[i]['id'] + '">' + object_hierachy_tree[i]['text'] + '</option>';
+			}
+		}
+		
+		head_html_string += 			'</select>' + 
+									'</div> ' + 
+									'<div class="col-sm-2"></div>' + 
+								'</div>' +
+								'<br>';
+		
+		$("#info-panel-head").html(head_html_string);
+		
+		// show/hide elements
+		$("#createObjectType #node_" + node_id ).attr('style', 'display:none;')
+		$("#new_object_facts_box").attr("style", "display:block;");
+		$("#save_edited_object_type_button").attr("style", "display:inline-block;");	
+		$("#cancel_object_modifictaion_button").attr("style", "display:inline-block;");	
+		$('#new_object_name').html(object_name);
+		
+
+		// if required: make additional fact input rows
+		$("#make-new-additional-fact-button").attr("onclick", "newAdditionalFactInput('" + node_id + "');"); //for the "+"-button change it so that the new attribute-drop-downs will list the object-types attributes
+		var additionally_needed_fact_inputs = attribute_values.length - number_of_additional_object_facts;
+		if (additionally_needed_fact_inputs > 0){
+			for(var i = 0; i < additionally_needed_fact_inputs; i++) {
+				document.getElementById("make-new-additional-fact-button").click();
+			}
+		}
+		
+		//populate the attribute drop downs
+		for (var i = 1; i <= number_of_additional_object_facts; i++) {
+			makeObjectsAdditionalAttributesDropdown( node_id , i);
+		}
+		
+		//set the values for all the facts
+		for(var i = 0; i < attribute_values.length; i++) {
+			$("#attribute-name" + (i+1)).html(attribute_values[i]['attribute']);
+			$("#attribute" + (i+1)).val(attribute_values[i]['attribute_id']);
+			$("#operator" + (i+1)).val(attribute_values[i]['operation']);
+			$("#value" + (i+1)).val(attribute_values[i]['value']);
+		} 
+		
+
+
+		/* WRITE THE NEW OBJECT NAME AT THE BOTTOM  */
+		$('#object_name').change(function() {
+			$('#new_object_name').html($(this).val());
+		});	
+		
+	};
+	
+	
+	
+	
+	/*=============  AFTER PRESSING THE 'Change'-BUTTON  ================================================================ */
+	function changeObjectType() {
+	
+			
+		// make edited_object_dict
+		var edited_object_dict = {}
+		edited_object_dict['id'] = $('#object_id').val();
+		edited_object_dict['text'] = $('#object_name').val(); 
+		edited_object_dict['parent'] = $('#parent').val();
+		
+		
+		attribute_values_list = []  // <-- 'li_attr'
+		
+		//for every attribute-specification, get the attribute, operator and value and save to the object_dict
+		for (var fact_number = 1; fact_number <= number_of_additional_object_facts; fact_number++) {
+			
+			new_fact = {}
+			new_fact['attribute'] = $("#attribute-name" + fact_number).html();
+			new_fact['attribute_id'] = $("#attribute" + fact_number).val();
+			new_fact['operation'] = $("#operator" + fact_number).val();
+			new_fact['value'] = $("#value" + fact_number).val();
+			var has_no_format_error = ($("#format_violation" + fact_number).attr("style") == "display:none;")
+			
+			if (new_fact['attribute'] != "" && new_fact['value'] != "" && has_no_format_error) {
+				attribute_values_list.push(new_fact)
+			}
+		}
+		var attribute_values_dict = {}
+		attribute_values_dict['attribute_values'] = attribute_values_list
+		edited_object_dict['li_attr'] = attribute_values_dict
+		
+		
+		
+		object_hierachy_tree = $('#container-for-object-tree2').jstree(true).get_json('#', {flat:true});
+		for (var i = 0; i < object_hierachy_tree.length; i++) {
+			if (object_hierachy_tree[i]['id'] == edited_object_dict['id']){
+				object_hierachy_tree[i]['text'] = edited_object_dict['text'];
+				object_hierachy_tree[i]['parent'] = edited_object_dict['parent'];
+				object_hierachy_tree[i]['li_attr'] = edited_object_dict['li_attr'];
+			}
+		}
+		
+		//redraw JSTree2 with changed object_hierachy_tree
+		$('#container-for-object-tree2').jstree(true).settings.core.data = object_hierachy_tree;
+		$('#container-for-object-tree2').jstree(true).refresh();
+		
+
+		//send the edited object_type to the backend
+		var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+		xmlhttp.open("POST", "/tool/save_edited_object_type/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send(JSON.stringify(edited_object_dict));
+
+
+		//reset the dropdown fields for the next new object type
+		for (var fact_number = 1; fact_number <= number_of_additional_object_facts; fact_number++) {
+			$("#attribute-name" + fact_number).html('Attribute');
+			$("#value" + fact_number).val("");
+		}
+		
+		$("#new_object_facts_box").attr("style", "display:none;");
+		$("#save_new_object_type_button").attr("style", "display:none;");
+		$("#cancel_object_modifictaion_button").attr("style", "display:none;");
+		$("#new_object_name").html('facts about the<br>new object type');
+	
+	}
+	
+	
+	/*=============*/
+	/*====  DELETE */
+	/*=============*/
+	
+	/*=============  AFTER PRESSING THE 'Delete Selection'-BUTTON  ================================================================ */
+	function delete_object_type() {
+	
+		var ref = $('#container-for-object-tree2').jstree(true),
+			sel = ref.get_selected();
+		if(!sel.length) { return false; }
+		var node_id = sel[0];
+		var object_hierachy_tree = $('#container-for-object-tree2').jstree(true).get_json('#', {flat:true})
+		var index_of_deleted_object = -1;
+		var parent_object_id = "";
+		var indexes_of_children_of_deleted = [];
+		
+		for (var i = 0; i < object_hierachy_tree.length; i++) {
+			if (object_hierachy_tree[i]['id'] == node_id){
+				index_of_deleted_object = i;
+				parent_object_id = object_hierachy_tree[i]['parent'];
+			}
+			if (object_hierachy_tree[i]['parent'] == node_id){
+				indexes_of_children_of_deleted.push(i);
+			}
+		}
+		
+		//change the parent of the deleted's child nodes
+		for (var i = 0; i < indexes_of_children_of_deleted.length; i++) {
+			object_hierachy_tree[indexes_of_children_of_deleted[i]]['parent'] = parent_object_id
+		}
+		
+		//remove the deleted
+		object_hierachy_tree.splice(index_of_deleted_object, 1);
+		
+		//redraw JSTree2 with changed object_hierachy_tree
+		$('#container-for-object-tree2').jstree(true).settings.core.data = object_hierachy_tree;
+		$('#container-for-object-tree2').jstree(true).refresh();
+
+		
+		//deleted the object_type also in the the backend
+		var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+		xmlhttp.open("POST", "/tool/delete_object_type/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send(JSON.stringify({'object_id':node_id}));
+		
+		$('#jstree-result2').html('');
+		
+	};
+	
+	
+	
+	
+	/*==============*/
+	/* CLOSE WINDOW */
+	/*==============*/
+	
+	/*=============  THE 'CANCEL'-BUTTON (cancels both new-object and edit dialogs)  ================================================================ */
+	function cancelObjectModification() {
+		//select the node that was already selected in #container-for-object-tree2
+		var ref = $('#container-for-object-tree2').jstree(true),
+			sel = ref.get_selected();
+		if(sel.length) {
+			sel = sel[0];
+			$('#container-for-object-tree2').jstree(true).deselect_all();
+			$('#container-for-object-tree2').jstree('select_node', sel);
+		}
+	}
+	
+	
+	
+	/*=============  WHEN CLOSING THE MODAL  ================================================================ */
+	function closeModalAndSave() {
+	
+	
+		object_hierachy_tree = $('#container-for-object-tree2').jstree(true).get_json('#', {flat:true});
+		
+		//redraw JSTree wit new object_hierachy_tree
+		$('#container-for-object-tree').jstree(true).settings.core.data = object_hierachy_tree;
+		$('#container-for-object-tree').jstree(true).refresh();
+		
+		//select the node that was selected in the modal
+		var ref = $('#container-for-object-tree2').jstree(true),
+			sel = ref.get_selected();
+		if(sel.length) {
+			sel = sel[0];
+			$('#container-for-object-tree').jstree(true).deselect_all();
+			$('#container-for-object-tree').jstree('select_node', sel);
+		}
+		
+		//send the new object_hierachy_tree to the backend
+		/*
+		var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+		xmlhttp.open("POST", "/tool/save_new_object_hierachy_tree/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send(JSON.stringify(edited_object_dict));
+		*/
+	}
+	
+	
+
+				
+										
+										
+	/*========================================================================*/
+	/*==========  DROP DOWNS (in "Create Object Type" Modal)  ================*/
+	/*========================================================================*/								
+								
+										
+	/*=============  POPULATE AdditionalAttribute-DROPDOWNS  ================================================================ */
+	/*
+	function makeObjectsAdditionalAttributesDropdown(object_type_id, attribute_number){
+
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+
+				list_group_html_string = ""
+				
+				var possible_attributes = JSON.parse(this.responseText);
+				
+				for (var i = 0; i < possible_attributes.length; i++) {
+					list_group_html_string += '<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(' + attribute_number + ', this.innerHTML, ' + possible_attributes[i]['attribute_id'] + ')" data-attribute-id=' + possible_attributes[i]['attribute_id'] + '>' + possible_attributes[i]['attribute_name'] + '</button></li>'
+					
+				}
+				
+				$("#drop-down-display" + attribute_number).html(list_group_html_string);
+				
+			}
+		};
+
+		xhttp.open("GET", "/tool/get_possible_attributes?object_type_id=" + object_type_id , true);
+		xhttp.send();
+	}
+	*/
+	/*
+	function filterAttributeDropDown(attribute_number){	
+		var current_query = $('#dropDonwSearch' + attribute_number).val().toLowerCase();
+		if (current_query !== "") {
+			$("#drop-down-display" + attribute_number + " li").hide();
+			$("#drop-down-display" + attribute_number + " li").each(function(){
+				var current_keyword = $(this).text().toLowerCase();
+				if (current_keyword.indexOf(current_query) >=0) {
+					$(this).show();    	 	
+				};
+			});    	
+		} else {
+			$("#drop-down-display" + attribute_number + " li").show();
+		};
+	}
+*/
+
+	/*=============  SELECT DROPDOWN OPTION  ================================================================ */
+	/*
+	function selectAdditionalAttribute(attribute_number , attribute_name, attribute_id) {
+		$('#attribute-name' + attribute_number).html(attribute_name);
+		$('#attribute' + attribute_number).attr('value', attribute_id);									
+	}
+	*/
+	
+	/*=============  CHECK ADDITIONAL FACTS FORMATS  ================================================================ */
+	/*
+	function checkAdditionalFactFormats() {
+		for (var fact_number = 1; fact_number <= number_of_additional_object_facts; fact_number++) {
+			var attribute_id = $('#attribute' + fact_number).val();
+			var operator = $('#operator' + fact_number).val();
+			var value = $('#value' + fact_number).val();
+			
+			var xhttp = new XMLHttpRequest();       
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+
+					var response_dict = JSON.parse(this.responseText);
+					var format_violation_text = response_dict['format_violation_text']
+					var returned_fact_number = response_dict['fact_number']
+					
+					if (format_violation_text == "") {
+						$("#format_violation" + returned_fact_number).attr("style", "display:none;");
+						$("#format_violation"  + returned_fact_number).popover('hide');
+						document.getElementById("attribute" + returned_fact_number).disabled = false; // this attribute won't be sent in the POST when pressing 'Next' - the backend thus knows that the fact is invalid
+					} else {
+						$("#format_violation" + returned_fact_number).attr("style", "display:block;");
+						document.getElementById("attribute" + returned_fact_number).disabled = true;
+						
+					}
+					
+					$("#format_violation" + returned_fact_number).attr("data-content", format_violation_text);
+					console.log("-------------------------");
+					console.log(response_dict[format_violation_text]);
+				}
+			};
+			
+			xhttp.open("GET", "/tool/check_single_fact_format?fact_number=" + String(fact_number) + "&attribute_id=" + attribute_id + '&operator=' + operator + '&value=' + value, true);
+			xhttp.send();
+		}									
+	}
+	*/
+	
+	/*=============  RESET DROPDOWN SELECTION  ================================================================ */
+	/*
+	function resetAttribute(attribute_number){
+		$('#attribute-name' + attribute_number).html('Attribute');
+		document.getElementById('attribute' + attribute_number).value = '';	
+		document.getElementById('operator' + attribute_number).selectedIndex = 0;
+		document.getElementById('value' + attribute_number).value = '';	
+		checkAdditionalFactFormats();
+	}
+	*/
+	
+	
+	//========================================================================
+	//===============    create attribute modal    ===========================
+	//========================================================================
+	
+	function loadListOfItsParentObjects() {
+		var parent_node_id = $("#parent_node_id").val();
+		loadListOfParentObjects(parent_node_id)
+	}
+	
+	function redrawAttributeSelections() {
+		//re-draw the attribute dropdowns (so that they contain the new attribute)
+		for (var i = 1; i <= number_of_additional_object_facts; i++) {
+			makeObjectsAdditionalAttributesDropdown( "{{ uploaded_dataset.object_type_id }}" , i);
+		}
+	}
+	
+	
+	
+
+	window.onload = function() {
+	
+	//========================================================================
+	//=========================      MAIN      ===============================
+	//========================================================================
+	
+		
+		//============= CREATE JSTREE    ================================================================================== 
+				
+		// search box
+		var to = false;
+		$('#search-box').keyup(function () {
+			if(to) { clearTimeout(to); }
+			to = setTimeout(function () {
+				var v = $('#search-box').val();
+				$('#container-for-object-tree').jstree(true).search(v);
+			}, 250);
+		});
+		
+		
+		$('#container-for-object-tree').jstree({
+			'core' : {
+				"animation" : 0,
+				"check_callback" : true,
+				'force_text' : true,
+				"themes" : { "stripes" : false,
+							 "icons": false},	
+				'data' : object_hierachy_tree
+			},
+			"types" : {
+				"root" : { "icon" : "/static/3.3.7/assets/images/tree_icon.png", "valid_children" : ["default"] },
+				"default" : { "valid_children" : ["default","file"] },
+				"file" : { "icon" : "glyphicon glyphicon-file", "valid_children" : [] }
+			},
+			"themes":{"icons":false},
+			"plugins" : [ "contextmenu", "dnd", "search", "state", "types"]
+		});	
+	
+		
+				
+		//============= JSTREE - SELECT ELEMENT   ================================================================================== 
+		
+		// if an element of tree is selected, display it's information on the right
+		$('#container-for-object-tree')
+		  .on('select_node.jstree', function (e, data) {
+		  
+			//=====  PART 1: display the object-info on the right  ============
+		
+			//make a list of parent nodes
+			var node_id = data.selected[0];
+			var parent_nodes = [data.selected[0]];
+			var current_node = data.selected;
+			while (data.instance.get_parent(current_node) !== "#") {
+				current_node = data.instance.get_parent(current_node);
+				parent_nodes.unshift(current_node);
+			}
+			
+			//loop through the parent nodes and add the info about the known_attribute_values and known_attribute_ranges
+			var entire_objectInfoHTMLString = 	'<h3>' + data.instance.get_node(node_id).text + '</h3>' + 
+												'<input type="hidden" id="object_type_name" name="object_type_name" value="' + data.instance.get_node(node_id).text + '">' +
+												'<input type="hidden" id="object_type_id" name="object_type_id" value="' + node_id + '">' +
+												'<div id="object-info">';
+			var all_entry_counts = {};
+			for (var i = 0; i < parent_nodes.length; i++) {
+				var node_id = parent_nodes[i];
+				
+				var entries_count = get_numberOfListEntries(data, node_id);
+				if (entries_count > 0) {
+					all_entry_counts[node_id] = entries_count;
+					entire_objectInfoHTMLString += get_objectInfoHTMLString(data, node_id, '');
+				}
+			}
+			
+			entire_objectInfoHTMLString += '</div>'
+			
+		  	$('#jstree-result').html(entire_objectInfoHTMLString);                         //<- most important line
+			$('#entire_objectInfoHTMLString').attr('value', entire_objectInfoHTMLString);   //<- other most important lines (for sending the info with the form)
+			$('#all_entry_counts').attr('value', JSON.stringify(all_entry_counts));              //<- other most important lines (for sending the info with the form)
+			
+			//set the line-heights so that the object-type labels are at the right height in the left_cols
+			for(var key in all_entry_counts) {
+				$("#left_col_" + key ).attr("style", "line-height:" + (40 * all_entry_counts[key]) + "px; white-space:nowrap;")
+			} 
+			
+			//scroll the object-info box to the bottom
+			var objectInfoBox = document.getElementById("object-info");
+			objectInfoBox.scrollTop = objectInfoBox.scrollHeight;
+		
+
+		  
+		  });
+		
+	
+		
+		//========================================================================
+		//===================   "CREATE OBJECT TYPE" MODAL     =====================
+		//========================================================================
+		
+		//when create-object-type modal is opened
+		$('#create-object-type').on('click', function (e) {
+		
+			{% if user.profile.verbose %}
+			alert("Warning!\nWhen using a new object type, you will NOT be able to profit from existing data and behaviour rules.");
+			{% else %}{% endif %}
+			//============= CREATE JSTREE2    ================================================================================== 
+			// search box
+			var to = false;
+			$('#search-box2').keyup(function () {
+				if(to) { clearTimeout(to); }
+				to = setTimeout(function () {
+					var v = $('#search-box2').val();
+					$('#container-for-object-tree2').jstree(true).search(v);
+				}, 250);
+			});
+			
+			//load tree
+			$('#container-for-object-tree2').jstree({
+				'core' : {
+					"animation" : 0,
+					"check_callback" : true,
+					'force_text' : true,
+					"themes" : { "stripes" : false,
+								  "icons": false },	
+					'data' : object_hierachy_tree
+				},
+				"types" : {
+					"root" : { "icon" : "/static/3.3.7/assets/images/tree_icon.png", "valid_children" : ["default"] },
+					"default" : { "valid_children" : ["default","file"] },
+					"file" : { "icon" : "glyphicon glyphicon-file", "valid_children" : [] }
+				},
+				"plugins" : [ "contextmenu", "dnd", "search", "state", "types"]
+			});	
+			
+			//select the node that was selected in the modal
+			var ref = $('#container-for-object-tree').jstree(true),
+				sel = ref.get_selected();
+			if(sel.length) {
+				sel = sel[0];
+				$('#container-for-object-tree2').jstree(true).deselect_all();
+				$('#container-for-object-tree2').jstree('select_node', sel);
+			}
+		
+		});
+		
+		
+		
+		//============= JSTREE - SELECT ELEMENT   ================================================================================== 
+		
+		// if an element of tree is selected, display it's information on the right
+		$('#container-for-object-tree2').on('select_node.jstree', function (e, data) {
+		
+			//=====  PART 0: Hide away any stuff that might still be open from editing or creating a new object type ============
+			
+			//reset the values for all the facts
+			for(var i = 1; i <= number_of_additional_object_facts; i++) {
+				$("#attribute-name" + i).html("Attribute");
+				$("#attribute" + i).val("");
+				$("#operator" + i).val("=");
+				$("#value" + i).val("");
+			} 
+			
+			$("#new_object_facts_box").attr("style", "display:none;");
+			$("#save_edited_object_type_button").attr("style", "display:none;");	
+			$("#save_new_object_type_button").attr("style", "display:none;");
+			$("#cancel_object_modifictaion_button").attr("style", "display:none;");
+			
+			
+			
+
+		
+		  
+			//=====  PART 1: display the object-info on the right  ============
+		
+			//make a list of parent nodes
+			var node_id = data.selected[0];
+			var parent_nodes = [data.selected[0]];
+			var current_node = data.selected;
+			while (data.instance.get_parent(current_node) != "#") {
+				current_node = data.instance.get_parent(current_node);
+				parent_nodes.unshift(current_node);
+			}
+			
+			//loop through the parent nodes and add the info about the known_attribute_values and known_attribute_ranges
+			var entire_objectInfoHTMLString = 	'<div id="info-panel-head">' +
+													'<h3 id="object_type_name">' + data.instance.get_node(node_id).text + '</h3>' +
+												'</div>' +
+												'<input type="hidden" id="parent_node_id" value="' + node_id + '">' +
+												'<div id="modal-object-info">';
+			var all_entry_counts = {};
+			for (var i = 0; i < parent_nodes.length; i++) {
+				var node_id = parent_nodes[i];
+				
+				var entries_count = get_numberOfListEntries(data, node_id);
+				if (entries_count > 0) {
+					all_entry_counts[node_id] = entries_count;
+					entire_objectInfoHTMLString += get_objectInfoHTMLString(data, node_id, 'object_');
+				}
+			}
+
+			entire_objectInfoHTMLString += 		  '</div>';
+		  	$('#jstree-result2').html(entire_objectInfoHTMLString);  //<- most important line
+			
+			
+			//set the line-heights so that the object-type labels are at the right height in the left_cols
+			for(var key in all_entry_counts) {
+				$("#object_left_col_" + key ).css("line-height", 40 * all_entry_counts[key] + "px");
+				$("#object_left_col_" + key + " > span" ).css("height", 40 * all_entry_counts[key] + "px");
+			} 
+		
+		
+			
+			//=====  PART 2: display the "additional facts on the objects" section   ====================
+			$("#additional_facts").css("display", "block");
+			
+			//For all Attribute-dropdowns: load a list of possible_attributes (for the selected object_type)
+			for (var i = 1; i <= number_of_additional_object_facts; i++) {
+				makeObjectsAdditionalAttributesDropdown(node_id , i);
+			}
+			
+			// activate the invalid-fact Popovers
+			$(document).ready(function(){
+				$('[data-toggle="popover"]').popover();   
+			});
+
+			//automatically check the fact-formats when a value was edited
+			$(".value").focusout(function(){
+				checkAdditionalFactFormats();
+			});
+			
+		  
+		  });
+		  
+
+		
+	};
+	
+
+</script>
+
+
+<script src="{% static 'js/jquery.js' %}"></script>
+	
+{% endblock %}

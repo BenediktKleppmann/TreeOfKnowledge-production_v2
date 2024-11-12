@@ -1,0 +1,77 @@
+{% extends 'layouts/base_landing_pages.html' %}'
+{% load staticfiles %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+
+{% block title %}
+	Tree of Knowledge - Overview of Tutorials
+{% endblock %}
+
+{% block additionalcss %}
+{% endblock %}	
+
+{% block content %}
+
+	<section id="background picture" class="carousel">
+		<div style="background-image: url(../static/images/brodgar_dark-min.jpg);
+					background-attachment: fixed;
+					background-size: 100%;
+					background-repeat: no-repeat;
+					padding: 200px 0;
+					background-position: 21% 29%;
+					margin-top:54px;">
+		</div>
+	</section>
+
+		
+	<section>
+		<div class="container">
+			<div class="box first last">
+				<br>
+				<div class="center">
+					<h1 class="yellowish">Overview of Tutorials</h2>
+				</div>
+				<div class="lead left-aligned">
+					The tutorials build upon each other, we therefore recommend starting with Tutorial 1. <br>
+					There are following tutorials:
+					<ul>
+						<li><a href="{% url 'tutorial1' %}">Tutorial 1: Uploading Data</a></li>
+						<li><a href="{% url 'tutorial2' %}">Tutorial 2: Modelling Birth Probabilities 1</a></li>
+						<li><a href="{% url 'tutorial3' %}">Tutorial 3: Modelling Birth Probabilities 2</a></li>
+					</ul>
+				</div>
+				<br>
+				<div id="setup" class="center">
+					<h1 class="yellowish">Setup</h2>
+				</div>
+				<div class="lead left-aligned">
+					To do the tutorials you need download <a href="https://github.com/BenediktKleppmann/TreeOfKnowledge-Tutorials">this GitHub repository</a>.<br>
+					<br>
+					You can do this with the following steps:<br>
+					<ol>
+						<li>in your browser navigate to <a href="https://github.com/BenediktKleppmann/TreeOfKnowledge-Tutorials">https://github.com/BenediktKleppmann/TreeOfKnowledge-Tutorials</a></li>
+						<li>click on "Code" and then on "Download ZIP" - see Image below</li>
+						<li>unzip the downloaded file into a folder of your choice</li>
+					</ol>
+					<br>
+					<a href="{% static 'images/tutorials/Screenshot_0.png'%}"><img id="object_hierachy-image" src="{% static 'images/tutorials/Screenshot_0.png'%}" class="img-responsive mr-3 img-thumbnail"></a><br>
+					<br>
+			  </div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
+
+
+

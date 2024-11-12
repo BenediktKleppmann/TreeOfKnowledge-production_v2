@@ -1,0 +1,65 @@
+<!--                INSTRUCTION VIDEO MODAL                                                             -->
+<!-- to use this just add the following line to the html file... -->
+<!-- {% include "tool/includes/instruction_video_modal.html" with url="https://www.youtube-nocookie.com/embed/ZVlZMOB-Sq0" %} -->
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->	
+
+{% load staticfiles %}
+
+		
+<style>	
+
+	/*  Instruction Video Modal ----------------------------------------------------*/
+	#instruction-video-toggle-button {
+		position: absolute;
+		top: 69px;
+		right: 13px;
+		border: 2px solid rgb(211, 161, 10);
+		color: rgb(211, 161, 10);
+		font-size: 15px;
+		border-radius: 10px;
+		padding: 5px 12px;
+		background-color: white;
+	}
+	
+	#instruction-video-toggle-button:hover {
+		background-color: rgb(226, 224, 217);
+	}
+	
+</style>
+
+
+	<button id="instruction-video-toggle-button" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#instructionVideoModal" data-video-url="https://www.youtube-nocookie.com/embed/A6S82xVitTw"><b>i</b></button>
+	
+	<!-- Instructions Video Modal -->
+	<div class="modal fade" id="instructionVideoModal" tabindex="-1" role="dialog" aria-labelledby="chooseAttributeTitle" aria-hidden="true">
+	  <div class="modal-dialog" role="document" style="margin-left:-300px;width:700px">
+		<div class="modal-content">
+		  <div class="modal-header row" style="margin:0px; padding:15px 0px;">
+			<h5 class="modal-title col-md-11">Instructions</h5>
+			<div id="attribute-options" style="display:none;"></div>
+			<button type="button col-md-1" class="close" data-dismiss="modal" aria-label="Close" style="margin-top:2px; margin-right:19px;font-size:29px">
+			  <span aria-hidden="true" >&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+				<iframe id="embedded-video" width="640" height="355" src="{{ url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			  
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	
+	
+	

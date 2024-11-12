@@ -1,0 +1,44 @@
+{% extends 'layouts/base_registration.html' %}
+{% load bootstrap3 %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+
+{% block title %}
+	Tree of Knowledge | Login
+{% endblock %}
+
+	
+{% block navbar_right %}
+	<span class="navbar-right-text">Don't have an account?</span><a href="{% url 'registration_register' %}" class="btn btn-default pull-right">Sign up</a> 
+{% endblock %}
+
+
+{% block message_box %}
+	<h1>Login</h1>
+	<form role="form" action="" method="post" class="form">
+		{% csrf_token %}
+		{% bootstrap_form form %}
+		{% buttons %}
+			<button type="submit" class="btn btn-primary">
+				{% bootstrap_icon "star" %} Submit
+			</button>
+		{% endbuttons %}
+	</form>
+	<br>
+	<p>
+		<a href="{% url 'password_reset' %}">
+			Forgot your password?
+		</a>
+	</p>
+	<br>
+{% endblock %}

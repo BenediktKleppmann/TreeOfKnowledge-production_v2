@@ -1,0 +1,719 @@
+<!--                 EDIT OBJECT TYPE BEHAVIOUR MODAL                   -->
+<!-- This is used in edit_simulation -->
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+{% load staticfiles %}
+<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />-->
+<link href="{% static 'css/contextmenu.min.css' %}" rel="stylesheet" />
+
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="{% static 'js/contextmenu.js' %}"></script>
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+	
+		
+		
+<style>	
+
+
+	/* --- Context Menu -------------------------------------------- */
+	
+	.contextmenu-menu {
+		z-index: 2060 !important;
+	}
+	/* --- Edit Attribute Modal -------------------------------------------- */
+	
+	#editObjectTypeModal .modal-dialog {
+		width: 1200px;
+		position: initial;
+	}
+
+	#editObjectTypeModal .modal-header.row {
+		margin-right: 0px;
+		margin-left:0px;
+		padding:9px;
+		/*background: rgb(226, 226, 226);*/
+	}
+	
+	#editObjectTypeModal .modal-body {
+		padding-top: 12px;
+		padding-left: 20px;
+		padding-right:25px;
+		padding-bottom: 0px;
+		height: calc(100vh - 230px);
+	}
+	
+	#editObjectTypeModal .modal-footer {
+		padding: 8px;
+		margin-top: 23px;
+	}
+	
+	#editObjectTypeModal #modal-title {
+		display: inline-block;
+		font-size: 22px;
+		margin-top: 16px;
+		margin-left: 19px;
+	}
+
+
+
+	/* ---------------------------------------------------------------------------*/
+	/*  Modal Header  ------------------------------------------------------------*/
+	/* ---------------------------------------------------------------------------*/
+	
+	/* Object Icon Popover -----------------------------------------*/
+	.popover {
+		z-index: 1050;
+	}
+	
+	
+	#object-type-icon-button {
+		display: inline-block;
+		margin-top: 5px;
+		margin-left: 22px;
+		margin-bottom: 8px;
+		height: 49px;
+		width: 49px;		
+		//background: rgb(235, 235, 235);
+		border: 1px solid rgb(183, 183, 183);
+		border-radius: 4px;
+		padding-top: 5px;
+		padding-left: 5px;
+		padding-right: 3px;
+	}
+	
+	.object-type-icon-box {
+		height: 400px;
+		overflow: auto;
+		width: 265px;
+	}
+	
+	.small-object-type-icon {
+		height: 25px;
+		width: 25px;
+		background: rgb(249, 249, 249);
+		border: 1px solid rgb(210, 210, 210);
+		border-radius: 2px;
+		box-shadow: -1px 1px 0px 2px rgba(0, 0, 0, 0.05);
+		margin-top: 3px;
+		margin-left: 1px;
+		padding-top: 2px;
+		padding-left: 2px;
+		padding-right: 1px;
+	}
+	
+	
+	 #editObjectTypeModal .small-object-type-icon:hover {
+		background: rgb(235, 235, 235);
+	}
+	
+	#editObjectTypeModal  #x-button {
+		display: inline-block;
+		float: right;
+		margin-top:14px; 
+		margin-right:24px;
+		font-size:29px
+	}
+	
+
+	/* ---------------------------------------------------------------------------*/
+	/*  Rules --------------------------------------------------------------*/
+	/* ---------------------------------------------------------------------------*/
+	
+	#rule-block {}
+	
+	
+							
+	/* LEFT -----------------------------------------*/
+	#rule-left-panel {
+		display: inline-block;
+		float: left;
+	}
+
+	.rule-left-block-header {
+	    font-size: 16px;
+		margin-bottom: 3px;
+		margin-left: 5px;
+	}
+	
+	#editObjectTypeModal #used-attributes {
+		border: 1px solid rgb(202, 202, 202);
+		border-radius: 4px;
+		width: 100%;
+		height: calc(100vh - 450px);
+		overflow: auto;
+	}
+	
+	#editObjectTypeModal #not-used-attributes {
+		border: 1px solid rgb(202, 202, 202);
+		border-radius: 4px;
+		width: 100%;
+		height: 140px;
+		overflow: auto;
+	}
+
+	
+	#editObjectTypeModal .list-group-item.listed-var-item{
+		border-bottom: 1px solid rgb(202, 202, 202);
+		margin-bottom: 0px;
+		padding:0px;
+	}
+
+	#editObjectTypeModal .listed-var-button {
+		background: white;
+		padding-left: 0px;
+		margin-left: 6px;
+		min-width: 255px;
+		text-align: left;
+	}
+	
+	#editObjectTypeModal .listed-var-item > img {
+		height: 18px;
+		width: 12px;
+		margin-left: 4px;
+	}
+	
+
+	
+	
+	/* MIDDLE -----------------------------------------*/
+	
+	#rule-middle-panel {
+		display: inline-block;	
+		margin-left: 10px;
+	}
+	
+	#rule-middle-panel h4 {
+		display: inline-block;
+	    margin-left: 11px;
+		width: 500px;
+	}
+	
+	#rule-block .learn-rule-title {
+	    display: inline-block;
+		float: right;
+		margin-right: 39px;
+		font-size: 16px;
+		font-weight: 600;
+		margin-top: 8px;
+	}
+	
+	
+	/* -- Rule Panels --*/
+	#rule-panel-body {
+		width: 700px;
+		height:calc(100vh - 260px);
+		overflow-y: auto;
+		padding: 2px;
+		-webkit-box-shadow: inset 1px 1px 9px 5px rgba(0,0,0,0.2);
+		-moz-box-shadow: inset 1px 1px 59px 5px rgba(0,0,0,0.2);
+		box-shadow: inset 1px 1px 9px 5px rgba(0,0,0,0.2);
+		background-color: rgb(190, 190, 190);
+		border-left: 5px solid rgb( 230, 230, 230);
+		border-top: 5px solid rgb( 218, 218, 218);
+		border-right: 5px solid rgb(250, 250, 250);
+		border-bottom: 5px solid rgb(250, 250, 250);
+	}
+	
+	#rules-list > .list-group-item {
+		height: 57px;
+		border-left: 9px solid rgb(252, 252, 252);
+		border-top: 9px solid rgb(255, 255, 255);
+		border-right: 9px solid rgb( 242, 242, 242);
+		border-bottom: 9px solid rgb( 235, 235, 235);
+		margin-bottom: 3px;
+		border-radius: 3px;
+		padding: 0px;
+		-webkit-box-shadow: 2px 4px 9px 3px rgba(0,0,0,0.18);
+		-moz-box-shadow: 2px 4px 9px 3px rgba(0,0,0,0.18);
+		box-shadow: 2px 4px 9px 3px rgba(0,0,0,0.18);
+		background-color: rgb(252, 252, 252);
+	}
+	
+
+	
+	#plus-button {
+		-webkit-box-shadow: 2px 4px 9px 3px rgba(0,0,0,0.3);
+		-moz-box-shadow: 2px 4px 9px 3px rgba(0,0,0,0.3);
+		box-shadow: 2px 4px 9px 3px rgba(0,0,0,0.3);
+	}
+	
+	/* -- rule Panel Content --*/
+	#plus-button-list-group-item {
+		background-color: rgba(256, 256, 256, 0);
+		padding: 12px;
+		padding-left: 21px;
+	}
+	
+	.rule-description {
+		width: 620px;
+		height: 46px;
+		display: inline-block;
+		float: left;
+	}
+	
+	
+	.rule-description .btn {
+		display: inline-block;
+		background-color: rgb(252, 252, 252);
+		float: left;
+		padding-bottom: 11px;
+		width: 476px;
+	}
+	
+	.rule-description .rule-probability {
+		display: inline-block;
+		margin-left: 15px;
+		padding-top: 6px;
+		float: left;
+	}
+	
+	.rule-description .learn-probabililty-checkbox {
+		display: inline-block;
+		margin-left: 40px;
+	}
+	
+	.rule-description .learn-probabililty-checkbox > input{
+		margin-top: 10px;
+	}
+	
+	
+	
+	
+	.rule-text.form-control {
+		height: 47px;
+		width: 180px;
+		border: 1px solid rgb(242,242,242);
+		display: inline-block;
+	}
+	
+	.if-block {
+		float: left;
+		display: inline-block;
+		border: 1px solid rgb(220,220,220);
+		border-radius: 7px;
+		padding: 2px;
+		margin-left: 1px;
+		background-color: rgb(250, 250, 250);
+	}
+	.then-block {
+		display: inline-block;
+		margin-left: 20px;
+		border: 1px solid rgb(220,220,220);
+		border-radius: 7px;
+		padding: 2px;
+		margin-left: 5px;
+		background-color: rgb(250, 250, 250);
+	}
+	
+	.if-then-text {
+		font-size: 14px;
+		font-weight: 600;
+		text-align: center;
+		margin-top: -4px;
+		margin-bottom: -2px;
+		font-family: Garamond;
+	}
+	
+	.then-fomula-left {
+		display: inline-block;
+		font-size: 13px;
+		margin-right: 3px;
+		margin-left: 3px;
+		max-width: 160px;
+		float: left;
+	}
+													
+	
+	.remove-rule-button {
+		display: inline-block;
+		float: right;
+		height: 18px;
+		width: 18px;
+		padding: 0px;
+		margin-top: 3px;
+		margin-right: 2px;
+		border-radius: 3px;
+		background-color: rgb(242, 242, 242);
+	}
+
+	.remove-rule-button-text {
+		margin-left: -1px;
+		margin-top: -2px;
+	}
+	
+	
+	/*  Disabled  --------------------------------------------------------------------*/
+	
+
+	
+	#rules-list > .list-group-item.disabled {
+		background-color: rgb(240, 240, 240);
+		color: rgb(160, 160, 160);
+		border-right: 9px solid rgb(227, 227, 227);
+		border-bottom: 9px solid rgb(230, 230, 230);
+		border-left: 9px solid rgb( 242, 242, 242);
+		border-top: 9px solid rgb( 247, 247, 247);
+	}
+	
+	.disabled .rule-text 
+	{
+		background-color: rgb(252, 252, 252);
+		color: rgb(160, 160, 160);
+	}
+
+	
+	.disabled .p-value-number {
+		background-color: rgb(240, 240, 240);
+		border-color: rgb(240, 240, 240);
+		color: rgb(160, 160, 160);
+	}
+</style>
+
+
+	
+	<!-- Edit Object Type Modal -->
+	<div class="modal fade" id="editObjectTypeModal" tabindex="-1" role="dialog" aria-labelledby="chooseAttributeTitle" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header row">
+			<button type="button" id="object-type-icon-button" class="btn pull-left" style="display:inline-block;" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" title="Choose icon" data-content=''>
+				<img src="{% static "images/object_icons/" %}si-glyph-mustache.svg">
+			</button>
+			<div class="modal-title object-type-name" id="modal-title"></div>
+			<button id="x-button" type="button col-md-1" class="close" data-dismiss="modal" aria-label="Close"  onclick="closeObjectTypeModal()">
+			  <span aria-hidden="true" >&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			  <div class="container-fluid">
+				<div class="form">
+					<div id="rule-block">
+						<div id="rule-left-panel">
+							<div class="rule-left-block-header">Use in Simulation:</div>
+							<ul id="used-attributes" class="list-group object-type-variable-selection"></ul>
+							<div class="rule-left-block-header">Not Used:</div>
+							<ul id="not-used-attributes" class="list-group object-type-variable-selection"></ul>
+
+
+						</div>
+						<div id="rule-middle-panel">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		  </div>
+		  <div class="modal-footer">
+			<button id="close-object-type-modal-button" type="button" class="btn btn-secondary" onclick="closeObjectTypeModal();">Cancel</button>
+			<button id="save-object-type-changes-button" type="button" class="btn btn-primary" onclick="saveChanges();">Save Changes</button>
+		  </div>
+		  
+		</div>
+	  </div>
+	</div>
+	
+	
+<script>
+
+//GLOBAL VARIABLES
+var selected_object_type_id = "n1";
+var maximum_b_rule_number = 0;
+var b_rules = {};
+
+	
+	
+	/*========================================================================*/
+	/*======================    BUILD THE MODAL     ==========================*/
+	/*========================================================================*/
+	
+	function openEditObjectTypeModal(object_type_id){
+	
+		$("#editObjectTypeModal").modal('show');
+
+
+		var object_type_name = available_object_types[object_type_id]['name'];
+		var object_type_icon = available_object_types[object_type_id]['object_type_icon'];
+		
+		$(".object-type-name").each(function( index ) {
+			$(this).html(object_type_name);
+		});
+		$("#object-type-icon-button > img").attr('src','{% static "images/object_icons/" %}' + object_type_icon + '.svg');
+		
+		// draw the Icon Popover 
+		popover_content = 	'<div id="object-type-icon-box" class="object-type-icon-box">' +
+								'<table>';
+		for (var row = 0; row < Math.ceil(object_icons.length/8) ; row++) {
+			popover_content += 	'<tr>';
+			for (var column = 0; column < 8 ; column++) {
+				icon_number = row*8 + column;
+				if (icon_number < object_icons.length) {
+					popover_content += '<td>' + 
+											'<div class="small-object-type-icon" onclick="changeObjectTypeIcon(\'' + object_type_id + '\', &#39;' + object_icons[icon_number] + '&#39;)">' +
+												'<img src="{% static "images/object_icons/" %}' + object_icons[icon_number] + '.svg" %}">' +
+											'</div>' +
+										'</td>';
+				}
+			}
+			popover_content += 		'</tr>';
+		}
+		popover_content += 	'</table>' +
+						'</div>';
+		$("#object-type-icon-button").attr('data-content',popover_content);
+			
+			
+		
+		// LEFT: List Variables			
+		used_attributes = execution_order['attribute_execution_order'][object_type_id]['used_attributes']
+		included_variables_html_string = '';
+		for (var i = 0; i < used_attributes.length ; i++) {
+			var attribute_id = used_attributes[i]['id'];
+			var attribute_name = used_attributes[i]['name'];
+			included_variables_html_string += 	'<li class="list-group-item listed-var-item" data-chosen-object-type-id="' + object_type_id + '" data-attribute-id="' + attribute_id + '"><img src="{% static "images/drag-grip2.png" %}"><button class="btn btn-outline-secondary listed-var-button" type="button" onclick="inspectBehaviourRulesForAttribute(\'' + object_type_id + '\', \'' + attribute_id + '\',\'' + attribute_name + '\')" scope="col">' + attribute_name + '</button></li>';	
+		}
+		$('#used-attributes').html(included_variables_html_string);	
+		
+		
+		not_used_attributes = execution_order['attribute_execution_order'][object_type_id]['not_used_attributes']
+		included_variables_html_string = '';
+		for (var i = 0; i < not_used_attributes.length ; i++) {
+			var attribute_id = not_used_attributes[i]['id'];
+			var attribute_name = not_used_attributes[i]['name'];
+			included_variables_html_string += 	'<li class="list-group-item listed-var-item" data-chosen-object-type-id="' + object_type_id + '" data-attribute-id="' + attribute_id + '"><img src="{% static "images/drag-grip2.png" %}"><button class="btn btn-outline-secondary listed-var-button" type="button" onclick="inspectBehaviourRulesForAttribute(\'' + object_type_id + '\', \'' + attribute_id + '\',\'' + attribute_name + '\')" scope="col">' + attribute_name + '</button></li>';	
+		}
+		$('#not-used-attributes').html(included_variables_html_string);	
+
+
+
+		
+		
+			
+
+
+		
+	
+	}
+	
+	/*========================================================================*/
+	/*=====================    MODAL FUNCTIONS     ===========================*/
+	/*========================================================================*/
+	
+	
+
+	function closeObjectTypeModal() {
+		if ($( "#object-type-icon-box" ).length ){
+			$('#object-type-icon-button').click();
+		}
+		$('#editObjectTypeModal').modal('hide');
+	}
+	
+	function saveChanges() {
+		if ($( "#object-type-icon-box" ).length ){
+			$('#object-type-icon-button').click();
+		}
+		$('#editObjectTypeModal').modal('hide');
+	}
+
+	
+	
+	
+	// select variable on the left
+	function inspectBehaviourRulesForAttribute(object_type_id, attribute_id, attribute_name) {
+	
+		// draw rule panel
+		rule_panel_html = 		'<h4>Rules that change the ' + attribute_name + '</h4>' +
+								'<div class="learn-rule-title">Learn Rule</div>' +
+								'<div id="rule-panel-body">' +
+								'<ul id="rules-list" class="list-group">' +
+									'<li id="plus-button-list-group-item">' +
+										'<button id="plus-button" type="button" class="btn btn-outline-dark" onclick="newBehariourRule()" >' +
+											'<i class="fas fa-plus"></i>' +
+										'</button>' +
+									'</li>'
+								'</ul>' +
+							'</div>';
+		$("#rule-middle-panel").html(rule_panel_html);
+
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	/*=============  ICON CHANGE  ================================================================ */
+	function changeObjectTypeIcon(object_type_id, object_type_icon) {
+		//change in Modal Header
+		$("#object-type-icon-button > img").attr('src','{% static "images/object_icons/" %}' + object_type_icon + '.svg');
+		
+		//change in available_object_types
+		available_object_types[object_type_id]['object_type_icon'] = object_type_icon;
+		
+		//change on Left Toolbar
+		$("#objects-table .object-icon ").each(function( index ) {
+			if ($(this).attr('data-object-type-id') == object_type_id) {
+				$(this).children().attr('src','{% static "images/object_icons/" %}' + object_type_icon + '.svg')
+			}
+		});
+		
+		
+		// Change the Object-Type's Icon in the backend
+		request_body = {'object_type_id': object_type_id,
+						'object_type_icon': object_type_icon}
+
+		var xmlhttp = new XMLHttpRequest();  
+		xmlhttp.open("POST", "/tool/save_changed_object_type_icon/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send(JSON.stringify(request_body));
+		//change on Paper
+		/*
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			
+				var svg_text = this.responseText.replace(/\n/g, '');
+				cell = graph.getCell(object_number); 
+				cell.attr('image/xlink:href', 'data:image/svg+xml;utf8,' + encodeURIComponent(svg_text));
+			}
+		};
+		xhttp.open('GET', '{% static "images/object_icons/" %}' + object_type_icon + '.svg', true);
+		xhttp.send();
+		*/
+	}	
+		
+		
+		
+		
+	
+	
+	/*========================================================================*/
+	/*============================    MAIN     ===============================*/
+	/*========================================================================*/
+	
+	
+jQuery(document).ready(function($){
+    
+	// activate the Object Icon Popover
+	$('#object-type-icon-button').popover();   
+
+	
+	
+    /*--------------------------------------------------*\
+     * Context Menus for opening Edit Attribute Modals
+    \*--------------------------------------------------*/
+
+	
+	$(document).on("contextmenu", "[data-object-type-id]" , function() {
+		selected_object_type_id = $(this).attr("data-object-type-id");
+	});
+	/*
+	$('[data-attribute-id]').focusin(function() {
+	  selected_attribute_id = $(this).attr("data-attribute-id");
+	  alert(selected_attribute_id)
+	});*/
+
+    $('html').contextMenu({
+		selector: '[data-object-type-id]', 
+		autoHide: 500,
+        items: [
+            {type: 'item', 
+			 text: 'Edit Object Type',
+			 click: function(e) {
+				openEditObjectTypeModal(selected_object_type_id);
+            }}
+        ]
+    });
+	
+    
+});
+</script>
+
+
+
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+<script>
+	jQuery(document).ready(function($){
+		
+		/*---------------------------------------------------------------*\
+		 * Drag & Drop  - for Variable selection/sorting in left panel
+		\*---------------------------------------------------------------*/
+		$(function() {
+			$( ".object-type-variable-selection" ).sortable({
+				connectWith: ".object-type-variable-selection",
+				update: function(event, ui) {
+				
+					// move within used-attributes
+					if (ui.sender == null && this.id == 'used-attributes') {
+						
+						var object_type_id = ui.item[0].getAttribute('data-chosen-object-type-id');
+						var	attribute_id = parseInt(ui.item[0].getAttribute('data-attribute-id'));
+						
+						attribute_execution_order = execution_order['attribute_execution_order'][object_type_id]['used_attributes'];
+						var ordered_attribute_ids = []
+						for (var i = 0; i < attribute_execution_order.length ; i++) {
+							ordered_attribute_ids.push(attribute_execution_order[i]['id'])
+						}
+						old_index = ordered_attribute_ids.indexOf(attribute_id);
+						new_index = ui.item.index();
+						execution_order['attribute_execution_order'][object_type_id]['used_attributes'] = move(attribute_execution_order, old_index, new_index);
+					}
+				},
+				receive: function(event, ui) {					
+					var object_type_id = ui.item[0].getAttribute('data-chosen-object-type-id');
+					var	attribute_id = parseInt(ui.item[0].getAttribute('data-attribute-id'));
+					var sender = ui.sender[0].id;
+					var receiver = this.id;
+					
+					// from used-attributes to not-used-attributes
+					if (receiver == 'not-used-attributes' && sender == 'used-attributes') {
+						var attribute_execution_order = execution_order['attribute_execution_order'][object_type_id]['used_attributes'];
+						var ordered_attribute_ids = []
+						for (var i = 0; i < attribute_execution_order.length ; i++) {
+							ordered_attribute_ids.push(attribute_execution_order[i]['id'])
+						}
+						old_index = ordered_attribute_ids.indexOf(attribute_id);
+						new_index = ui.item.index();
+						moved_attribute = execution_order['attribute_execution_order'][object_type_id]['used_attributes'][old_index];
+						execution_order['attribute_execution_order'][object_type_id]['used_attributes'].splice(old_index,1);
+						execution_order['attribute_execution_order'][object_type_id]['not_used_attributes'].splice(new_index,0,moved_attribute);
+					}
+					
+					// from not-used-attributes to used-attributes
+					if (receiver == 'used-attributes' && sender == 'not-used-attributes') {
+						var attribute_execution_order = execution_order['attribute_execution_order'][object_type_id]['not_used_attributes'];
+						var ordered_attribute_ids = []
+						for (var i = 0; i < attribute_execution_order.length ; i++) {
+							ordered_attribute_ids.push(attribute_execution_order[i]['id'])
+						}
+						old_index = ordered_attribute_ids.indexOf(attribute_id);
+						new_index = ui.item.index();
+						moved_attribute = execution_order['attribute_execution_order'][object_type_id]['not_used_attributes'][old_index];
+						execution_order['attribute_execution_order'][object_type_id]['not_used_attributes'].splice(old_index,1);
+						execution_order['attribute_execution_order'][object_type_id]['used_attributes'].splice(new_index,0,moved_attribute);
+					}
+				}           
+			}).disableSelection();
+		});
+		
+		
+	});
+</script>

@@ -1,0 +1,3144 @@
+,Time,Name,FIPS county code,State.Name
+0,2000-01-01,Abbeville County,45001,South Carolina
+1,2000-01-01,Acadia Parish,22001,Louisiana
+2,2000-01-01,Accomack County,51001,Virginia
+3,2000-01-01,Ada County,16001,Idaho
+4,2000-01-01,Adair County,40001,Oklahoma
+5,2000-01-01,Adair County,29001,Missouri
+6,2000-01-01,Adair County,19001,Iowa
+7,2000-01-01,Adair County,21001,Kentucky
+8,2000-01-01,Adams County,38001,North Dakota
+9,2000-01-01,Adams County,39001,Ohio
+10,2000-01-01,Adams County,42001,Pennsylvania
+11,2000-01-01,Adams County,31001,Nebraska
+12,2000-01-01,Adams County,55001,Wisconsin
+13,2000-01-01,Adams County,53001,Washington
+14,2000-01-01,Adams County,16003,Idaho
+15,2000-01-01,Adams County,18001,Indiana
+16,2000-01-01,Adams County,17001,Illinois
+17,2000-01-01,Adams County,8001,Colorado
+18,2000-01-01,Adams County,28001,Mississippi
+19,2000-01-01,Adams County,19003,Iowa
+20,2000-01-01,Addison County,50001,Vermont
+21,2000-01-01,Aiken County,45003,South Carolina
+22,2000-01-01,Aitkin County,27001,Minnesota
+23,2000-01-01,Alachua County,12001,Florida
+24,2000-01-01,Alamance County,37001,North Carolina
+25,2000-01-01,Alameda County,6001,California
+26,2000-01-01,Alamosa County,8003,Colorado
+27,2000-01-01,Albany County,36001,New York
+28,2000-01-01,Albany County,56001,Wyoming
+29,2000-01-01,Albemarle County,51003,Virginia
+30,2000-01-01,Alcona County,26001,Michigan
+31,2000-01-01,Alcorn County,28003,Mississippi
+32,2000-01-01,Aleutians East Borough,2013,Alaska
+33,2000-01-01,Aleutians West Census Area,2016,Alaska
+34,2000-01-01,Alexander County,37003,North Carolina
+35,2000-01-01,Alexander County,17003,Illinois
+36,2000-01-01,Alexandria city,51510,Virginia
+37,2000-01-01,Alfalfa County,40003,Oklahoma
+38,2000-01-01,Alger County,26003,Michigan
+39,2000-01-01,Allamakee County,19005,Iowa
+40,2000-01-01,Allegan County,26005,Michigan
+41,2000-01-01,Allegany County,36003,New York
+42,2000-01-01,Allegany County,24001,Maryland
+43,2000-01-01,Alleghany County,37005,North Carolina
+44,2000-01-01,Alleghany County,51005,Virginia
+45,2000-01-01,Allegheny County,42003,Pennsylvania
+46,2000-01-01,Allen County,39003,Ohio
+47,2000-01-01,Allen County,18003,Indiana
+48,2000-01-01,Allen County,20001,Kansas
+49,2000-01-01,Allen County,21003,Kentucky
+50,2000-01-01,Allen Parish,22003,Louisiana
+51,2000-01-01,Allendale County,45005,South Carolina
+52,2000-01-01,Alpena County,26007,Michigan
+53,2000-01-01,Alpine County,6003,California
+54,2000-01-01,Amador County,6005,California
+55,2000-01-01,Amelia County,51007,Virginia
+56,2000-01-01,Amherst County,51009,Virginia
+57,2000-01-01,Amite County,28005,Mississippi
+58,2000-01-01,Anchorage Municipality,2020,Alaska
+59,2000-01-01,Anderson County,45007,South Carolina
+60,2000-01-01,Anderson County,48001,Texas
+61,2000-01-01,Anderson County,47001,Tennessee
+62,2000-01-01,Anderson County,20003,Kansas
+63,2000-01-01,Anderson County,21005,Kentucky
+64,2000-01-01,Andrew County,29003,Missouri
+65,2000-01-01,Andrews County,48003,Texas
+66,2000-01-01,Androscoggin County,23001,Maine
+67,2000-01-01,Angelina County,48005,Texas
+68,2000-01-01,Anne Arundel County,24003,Maryland
+69,2000-01-01,Anoka County,27003,Minnesota
+70,2000-01-01,Anson County,37007,North Carolina
+71,2000-01-01,Antelope County,31003,Nebraska
+72,2000-01-01,Antrim County,26009,Michigan
+73,2000-01-01,Apache County,4001,Arizona
+74,2000-01-01,Appanoose County,19007,Iowa
+75,2000-01-01,Appling County,13001,Georgia
+76,2000-01-01,Appomattox County,51011,Virginia
+77,2000-01-01,Aransas County,48007,Texas
+78,2000-01-01,Arapahoe County,8005,Colorado
+79,2000-01-01,Archer County,48009,Texas
+80,2000-01-01,Archuleta County,8007,Colorado
+81,2000-01-01,Arenac County,26011,Michigan
+82,2000-01-01,Arkansas County,5001,Arkansas
+83,2000-01-01,Arlington County,51013,Virginia
+84,2000-01-01,Armstrong County,42005,Pennsylvania
+85,2000-01-01,Armstrong County,48011,Texas
+86,2000-01-01,Aroostook County,23003,Maine
+87,2000-01-01,Arthur County,31005,Nebraska
+88,2000-01-01,Ascension Parish,22005,Louisiana
+89,2000-01-01,Ashe County,37009,North Carolina
+90,2000-01-01,Ashland County,39005,Ohio
+91,2000-01-01,Ashland County,55003,Wisconsin
+92,2000-01-01,Ashley County,5003,Arkansas
+93,2000-01-01,Ashtabula County,39007,Ohio
+94,2000-01-01,Asotin County,53003,Washington
+95,2000-01-01,Assumption Parish,22007,Louisiana
+96,2000-01-01,Atascosa County,48013,Texas
+97,2000-01-01,Atchison County,29005,Missouri
+98,2000-01-01,Atchison County,20005,Kansas
+99,2000-01-01,Athens County,39009,Ohio
+100,2000-01-01,Atkinson County,13003,Georgia
+101,2000-01-01,Atlantic County,34001,New Jersey
+102,2000-01-01,Atoka County,40005,Oklahoma
+103,2000-01-01,Attala County,28007,Mississippi
+104,2000-01-01,Audrain County,29007,Missouri
+105,2000-01-01,Audubon County,19009,Iowa
+106,2000-01-01,Auglaize County,39011,Ohio
+107,2000-01-01,Augusta County,51015,Virginia
+108,2000-01-01,Aurora County,46003,South Dakota
+109,2000-01-01,Austin County,48015,Texas
+110,2000-01-01,Autauga County,1001,Alabama
+111,2000-01-01,Avery County,37011,North Carolina
+112,2000-01-01,Avoyelles Parish,22009,Louisiana
+113,2000-01-01,Baca County,8009,Colorado
+114,2000-01-01,Bacon County,13005,Georgia
+115,2000-01-01,Bailey County,48017,Texas
+116,2000-01-01,Baker County,41001,Oregon
+117,2000-01-01,Baker County,13007,Georgia
+118,2000-01-01,Baker County,12003,Florida
+119,2000-01-01,Baldwin County,1003,Alabama
+120,2000-01-01,Baldwin County,13009,Georgia
+121,2000-01-01,Ballard County,21007,Kentucky
+122,2000-01-01,Baltimore County,24005,Maryland
+123,2000-01-01,Baltimore city,24510,Maryland
+124,2000-01-01,Bamberg County,45009,South Carolina
+125,2000-01-01,Bandera County,48019,Texas
+126,2000-01-01,Banks County,13011,Georgia
+127,2000-01-01,Banner County,31007,Nebraska
+128,2000-01-01,Bannock County,16005,Idaho
+129,2000-01-01,Baraga County,26013,Michigan
+130,2000-01-01,Barber County,20007,Kansas
+131,2000-01-01,Barbour County,54001,West Virginia
+132,2000-01-01,Barbour County,1005,Alabama
+133,2000-01-01,Barnes County,38003,North Dakota
+134,2000-01-01,Barnstable County,25001,Massachusetts
+135,2000-01-01,Barnwell County,45011,South Carolina
+136,2000-01-01,Barren County,21009,Kentucky
+137,2000-01-01,Barron County,55005,Wisconsin
+138,2000-01-01,Barrow County,13013,Georgia
+139,2000-01-01,Barry County,26015,Michigan
+140,2000-01-01,Barry County,29009,Missouri
+141,2000-01-01,Bartholomew County,18005,Indiana
+142,2000-01-01,Barton County,29011,Missouri
+143,2000-01-01,Barton County,20009,Kansas
+144,2000-01-01,Bartow County,13015,Georgia
+145,2000-01-01,Bastrop County,48021,Texas
+146,2000-01-01,Bates County,29013,Missouri
+147,2000-01-01,Bath County,51017,Virginia
+148,2000-01-01,Bath County,21011,Kentucky
+149,2000-01-01,Baxter County,5005,Arkansas
+150,2000-01-01,Bay County,12005,Florida
+151,2000-01-01,Bay County,26017,Michigan
+152,2000-01-01,Bayfield County,55007,Wisconsin
+153,2000-01-01,Baylor County,48023,Texas
+154,2000-01-01,Beadle County,46005,South Dakota
+155,2000-01-01,Bear Lake County,16007,Idaho
+156,2000-01-01,Beaufort County,45013,South Carolina
+157,2000-01-01,Beaufort County,37013,North Carolina
+158,2000-01-01,Beauregard Parish,22011,Louisiana
+159,2000-01-01,Beaver County,40007,Oklahoma
+160,2000-01-01,Beaver County,42007,Pennsylvania
+161,2000-01-01,Beaver County,49001,Utah
+162,2000-01-01,Beaverhead County,30001,Montana
+163,2000-01-01,Becker County,27005,Minnesota
+164,2000-01-01,Beckham County,40009,Oklahoma
+165,2000-01-01,Bedford County,42009,Pennsylvania
+166,2000-01-01,Bedford County,51019,Virginia
+167,2000-01-01,Bedford County,47003,Tennessee
+168,2000-01-01,Bedford city,51515,Virginia
+169,2000-01-01,Bee County,48025,Texas
+170,2000-01-01,Belknap County,33001,New Hampshire
+171,2000-01-01,Bell County,48027,Texas
+172,2000-01-01,Bell County,21013,Kentucky
+173,2000-01-01,Belmont County,39013,Ohio
+174,2000-01-01,Beltrami County,27007,Minnesota
+175,2000-01-01,Ben Hill County,13017,Georgia
+176,2000-01-01,Benewah County,16009,Idaho
+177,2000-01-01,Bennett County,46007,South Dakota
+178,2000-01-01,Bennington County,50003,Vermont
+179,2000-01-01,Benson County,38005,North Dakota
+180,2000-01-01,Bent County,8011,Colorado
+181,2000-01-01,Benton County,41003,Oregon
+182,2000-01-01,Benton County,53005,Washington
+183,2000-01-01,Benton County,47005,Tennessee
+184,2000-01-01,Benton County,18007,Indiana
+185,2000-01-01,Benton County,5007,Arkansas
+186,2000-01-01,Benton County,27009,Minnesota
+187,2000-01-01,Benton County,29015,Missouri
+188,2000-01-01,Benton County,28009,Mississippi
+189,2000-01-01,Benton County,19011,Iowa
+190,2000-01-01,Benzie County,26019,Michigan
+191,2000-01-01,Bergen County,34003,New Jersey
+192,2000-01-01,Berkeley County,45015,South Carolina
+193,2000-01-01,Berkeley County,54003,West Virginia
+194,2000-01-01,Berks County,42011,Pennsylvania
+195,2000-01-01,Berkshire County,25003,Massachusetts
+196,2000-01-01,Bernalillo County,35001,New Mexico
+197,2000-01-01,Berrien County,13019,Georgia
+198,2000-01-01,Berrien County,26021,Michigan
+199,2000-01-01,Bertie County,37015,North Carolina
+200,2000-01-01,Bethel Census Area,2050,Alaska
+201,2000-01-01,Bexar County,48029,Texas
+202,2000-01-01,Bibb County,13021,Georgia
+203,2000-01-01,Bibb County,1007,Alabama
+204,2000-01-01,Bienville Parish,22013,Louisiana
+205,2000-01-01,Big Horn County,30003,Montana
+206,2000-01-01,Big Horn County,56003,Wyoming
+207,2000-01-01,Big Stone County,27011,Minnesota
+208,2000-01-01,Billings County,38007,North Dakota
+209,2000-01-01,Bingham County,16011,Idaho
+210,2000-01-01,Black Hawk County,19013,Iowa
+211,2000-01-01,Blackford County,18009,Indiana
+212,2000-01-01,Bladen County,37017,North Carolina
+213,2000-01-01,Blaine County,40011,Oklahoma
+214,2000-01-01,Blaine County,30005,Montana
+215,2000-01-01,Blaine County,31009,Nebraska
+216,2000-01-01,Blaine County,16013,Idaho
+217,2000-01-01,Blair County,42013,Pennsylvania
+218,2000-01-01,Blanco County,48031,Texas
+219,2000-01-01,Bland County,51021,Virginia
+220,2000-01-01,Bleckley County,13023,Georgia
+221,2000-01-01,Bledsoe County,47007,Tennessee
+222,2000-01-01,Blount County,47009,Tennessee
+223,2000-01-01,Blount County,1009,Alabama
+224,2000-01-01,Blue Earth County,27013,Minnesota
+225,2000-01-01,Boise County,16015,Idaho
+226,2000-01-01,Bolivar County,28011,Mississippi
+227,2000-01-01,Bollinger County,29017,Missouri
+228,2000-01-01,Bon Homme County,46009,South Dakota
+229,2000-01-01,Bond County,17005,Illinois
+230,2000-01-01,Bonner County,16017,Idaho
+231,2000-01-01,Bonneville County,16019,Idaho
+232,2000-01-01,Boone County,31011,Nebraska
+233,2000-01-01,Boone County,54005,West Virginia
+234,2000-01-01,Boone County,18011,Indiana
+235,2000-01-01,Boone County,17007,Illinois
+236,2000-01-01,Boone County,5009,Arkansas
+237,2000-01-01,Boone County,29019,Missouri
+238,2000-01-01,Boone County,19015,Iowa
+239,2000-01-01,Boone County,21015,Kentucky
+240,2000-01-01,Borden County,48033,Texas
+241,2000-01-01,Bosque County,48035,Texas
+242,2000-01-01,Bossier Parish,22015,Louisiana
+243,2000-01-01,Botetourt County,51023,Virginia
+244,2000-01-01,Bottineau County,38009,North Dakota
+245,2000-01-01,Boulder County,8013,Colorado
+246,2000-01-01,Boundary County,16021,Idaho
+247,2000-01-01,Bourbon County,20011,Kansas
+248,2000-01-01,Bourbon County,21017,Kentucky
+249,2000-01-01,Bowie County,48037,Texas
+250,2000-01-01,Bowman County,38011,North Dakota
+251,2000-01-01,Box Butte County,31013,Nebraska
+252,2000-01-01,Box Elder County,49003,Utah
+253,2000-01-01,Boyd County,31015,Nebraska
+254,2000-01-01,Boyd County,21019,Kentucky
+255,2000-01-01,Boyle County,21021,Kentucky
+256,2000-01-01,Bracken County,21023,Kentucky
+257,2000-01-01,Bradford County,42015,Pennsylvania
+258,2000-01-01,Bradford County,12007,Florida
+259,2000-01-01,Bradley County,47011,Tennessee
+260,2000-01-01,Bradley County,5011,Arkansas
+261,2000-01-01,Branch County,26023,Michigan
+262,2000-01-01,Brantley County,13025,Georgia
+263,2000-01-01,Braxton County,54007,West Virginia
+264,2000-01-01,Brazoria County,48039,Texas
+265,2000-01-01,Brazos County,48041,Texas
+266,2000-01-01,Breathitt County,21025,Kentucky
+267,2000-01-01,Breckinridge County,21027,Kentucky
+268,2000-01-01,Bremer County,19017,Iowa
+269,2000-01-01,Brevard County,12009,Florida
+270,2000-01-01,Brewster County,48043,Texas
+271,2000-01-01,Briscoe County,48045,Texas
+272,2000-01-01,Bristol Bay Borough,2060,Alaska
+273,2000-01-01,Bristol County,44001,Rhode Island
+274,2000-01-01,Bristol County,25005,Massachusetts
+275,2000-01-01,Bristol city,51520,Virginia
+276,2000-01-01,Broadwater County,30007,Montana
+277,2000-01-01,Bronx County,36005,New York
+278,2000-01-01,Brooke County,54009,West Virginia
+279,2000-01-01,Brookings County,46011,South Dakota
+280,2000-01-01,Brooks County,48047,Texas
+281,2000-01-01,Brooks County,13027,Georgia
+282,2000-01-01,Broome County,36007,New York
+283,2000-01-01,Broomfield County,8014,Colorado
+284,2000-01-01,Broward County,12011,Florida
+285,2000-01-01,Brown County,39015,Ohio
+286,2000-01-01,Brown County,31017,Nebraska
+287,2000-01-01,Brown County,55009,Wisconsin
+288,2000-01-01,Brown County,48049,Texas
+289,2000-01-01,Brown County,46013,South Dakota
+290,2000-01-01,Brown County,18013,Indiana
+291,2000-01-01,Brown County,17009,Illinois
+292,2000-01-01,Brown County,27015,Minnesota
+293,2000-01-01,Brown County,20013,Kansas
+294,2000-01-01,Brule County,46015,South Dakota
+295,2000-01-01,Brunswick County,37019,North Carolina
+296,2000-01-01,Brunswick County,51025,Virginia
+297,2000-01-01,Bryan County,40013,Oklahoma
+298,2000-01-01,Bryan County,13029,Georgia
+299,2000-01-01,Buchanan County,51027,Virginia
+300,2000-01-01,Buchanan County,29021,Missouri
+301,2000-01-01,Buchanan County,19019,Iowa
+302,2000-01-01,Buckingham County,51029,Virginia
+303,2000-01-01,Bucks County,42017,Pennsylvania
+304,2000-01-01,Buena Vista County,19021,Iowa
+305,2000-01-01,Buena Vista city,51530,Virginia
+306,2000-01-01,Buffalo County,31019,Nebraska
+307,2000-01-01,Buffalo County,55011,Wisconsin
+308,2000-01-01,Buffalo County,46017,South Dakota
+309,2000-01-01,Bullitt County,21029,Kentucky
+310,2000-01-01,Bulloch County,13031,Georgia
+311,2000-01-01,Bullock County,1011,Alabama
+312,2000-01-01,Buncombe County,37021,North Carolina
+313,2000-01-01,Bureau County,17011,Illinois
+314,2000-01-01,Burke County,38013,North Dakota
+315,2000-01-01,Burke County,37023,North Carolina
+316,2000-01-01,Burke County,13033,Georgia
+317,2000-01-01,Burleigh County,38015,North Dakota
+318,2000-01-01,Burleson County,48051,Texas
+319,2000-01-01,Burlington County,34005,New Jersey
+320,2000-01-01,Burnet County,48053,Texas
+321,2000-01-01,Burnett County,55013,Wisconsin
+322,2000-01-01,Burt County,31021,Nebraska
+323,2000-01-01,Butler County,39017,Ohio
+324,2000-01-01,Butler County,42019,Pennsylvania
+325,2000-01-01,Butler County,31023,Nebraska
+326,2000-01-01,Butler County,1013,Alabama
+327,2000-01-01,Butler County,29023,Missouri
+328,2000-01-01,Butler County,20015,Kansas
+329,2000-01-01,Butler County,19023,Iowa
+330,2000-01-01,Butler County,21031,Kentucky
+331,2000-01-01,Butte County,46019,South Dakota
+332,2000-01-01,Butte County,16023,Idaho
+333,2000-01-01,Butte County,6007,California
+334,2000-01-01,Butts County,13035,Georgia
+335,2000-01-01,Cabarrus County,37025,North Carolina
+336,2000-01-01,Cabell County,54011,West Virginia
+337,2000-01-01,Cache County,49005,Utah
+338,2000-01-01,Caddo County,40015,Oklahoma
+339,2000-01-01,Caddo Parish,22017,Louisiana
+340,2000-01-01,Calaveras County,6009,California
+341,2000-01-01,Calcasieu Parish,22019,Louisiana
+342,2000-01-01,Caldwell County,37027,North Carolina
+343,2000-01-01,Caldwell County,48055,Texas
+344,2000-01-01,Caldwell County,29025,Missouri
+345,2000-01-01,Caldwell County,21033,Kentucky
+346,2000-01-01,Caldwell Parish,22021,Louisiana
+347,2000-01-01,Caledonia County,50005,Vermont
+348,2000-01-01,Calhoun County,45017,South Carolina
+349,2000-01-01,Calhoun County,54013,West Virginia
+350,2000-01-01,Calhoun County,48057,Texas
+351,2000-01-01,Calhoun County,13037,Georgia
+352,2000-01-01,Calhoun County,17013,Illinois
+353,2000-01-01,Calhoun County,5013,Arkansas
+354,2000-01-01,Calhoun County,1015,Alabama
+355,2000-01-01,Calhoun County,12013,Florida
+356,2000-01-01,Calhoun County,26025,Michigan
+357,2000-01-01,Calhoun County,28013,Mississippi
+358,2000-01-01,Calhoun County,19025,Iowa
+359,2000-01-01,Callahan County,48059,Texas
+360,2000-01-01,Callaway County,29027,Missouri
+361,2000-01-01,Calloway County,21035,Kentucky
+362,2000-01-01,Calumet County,55015,Wisconsin
+363,2000-01-01,Calvert County,24009,Maryland
+364,2000-01-01,Camas County,16025,Idaho
+365,2000-01-01,Cambria County,42021,Pennsylvania
+366,2000-01-01,Camden County,37029,North Carolina
+367,2000-01-01,Camden County,34007,New Jersey
+368,2000-01-01,Camden County,13039,Georgia
+369,2000-01-01,Camden County,29029,Missouri
+370,2000-01-01,Cameron County,42023,Pennsylvania
+371,2000-01-01,Cameron County,48061,Texas
+372,2000-01-01,Cameron Parish,22023,Louisiana
+373,2000-01-01,Camp County,48063,Texas
+374,2000-01-01,Campbell County,51031,Virginia
+375,2000-01-01,Campbell County,56005,Wyoming
+376,2000-01-01,Campbell County,46021,South Dakota
+377,2000-01-01,Campbell County,47013,Tennessee
+378,2000-01-01,Campbell County,21037,Kentucky
+379,2000-01-01,Canadian County,40017,Oklahoma
+380,2000-01-01,Candler County,13043,Georgia
+381,2000-01-01,Cannon County,47015,Tennessee
+382,2000-01-01,Canyon County,16027,Idaho
+383,2000-01-01,Cape Girardeau County,29031,Missouri
+384,2000-01-01,Cape May County,34009,New Jersey
+385,2000-01-01,Carbon County,42025,Pennsylvania
+386,2000-01-01,Carbon County,30009,Montana
+387,2000-01-01,Carbon County,49007,Utah
+388,2000-01-01,Carbon County,56007,Wyoming
+389,2000-01-01,Caribou County,16029,Idaho
+390,2000-01-01,Carlisle County,21039,Kentucky
+391,2000-01-01,Carlton County,27017,Minnesota
+392,2000-01-01,Caroline County,51033,Virginia
+393,2000-01-01,Caroline County,24011,Maryland
+394,2000-01-01,Carroll County,39019,Ohio
+395,2000-01-01,Carroll County,33003,New Hampshire
+396,2000-01-01,Carroll County,51035,Virginia
+397,2000-01-01,Carroll County,47017,Tennessee
+398,2000-01-01,Carroll County,13045,Georgia
+399,2000-01-01,Carroll County,18015,Indiana
+400,2000-01-01,Carroll County,17015,Illinois
+401,2000-01-01,Carroll County,5015,Arkansas
+402,2000-01-01,Carroll County,24013,Maryland
+403,2000-01-01,Carroll County,29033,Missouri
+404,2000-01-01,Carroll County,28015,Mississippi
+405,2000-01-01,Carroll County,19027,Iowa
+406,2000-01-01,Carroll County,21041,Kentucky
+407,2000-01-01,Carson City,32510,Nevada
+408,2000-01-01,Carson County,48065,Texas
+409,2000-01-01,Carter County,40019,Oklahoma
+410,2000-01-01,Carter County,30011,Montana
+411,2000-01-01,Carter County,47019,Tennessee
+412,2000-01-01,Carter County,29035,Missouri
+413,2000-01-01,Carter County,21043,Kentucky
+414,2000-01-01,Carteret County,37031,North Carolina
+415,2000-01-01,Carver County,27019,Minnesota
+416,2000-01-01,Cascade County,30013,Montana
+417,2000-01-01,Casey County,21045,Kentucky
+418,2000-01-01,Cass County,38017,North Dakota
+419,2000-01-01,Cass County,31025,Nebraska
+420,2000-01-01,Cass County,48067,Texas
+421,2000-01-01,Cass County,18017,Indiana
+422,2000-01-01,Cass County,17017,Illinois
+423,2000-01-01,Cass County,27021,Minnesota
+424,2000-01-01,Cass County,26027,Michigan
+425,2000-01-01,Cass County,29037,Missouri
+426,2000-01-01,Cass County,19029,Iowa
+427,2000-01-01,Cassia County,16031,Idaho
+428,2000-01-01,Castro County,48069,Texas
+429,2000-01-01,Caswell County,37033,North Carolina
+430,2000-01-01,Catahoula Parish,22025,Louisiana
+431,2000-01-01,Catawba County,37035,North Carolina
+432,2000-01-01,Catoosa County,13047,Georgia
+433,2000-01-01,Catron County,35003,New Mexico
+434,2000-01-01,Cattaraugus County,36009,New York
+435,2000-01-01,Cavalier County,38019,North Dakota
+436,2000-01-01,Cayuga County,36011,New York
+437,2000-01-01,Cecil County,24015,Maryland
+438,2000-01-01,Cedar County,31027,Nebraska
+439,2000-01-01,Cedar County,29039,Missouri
+440,2000-01-01,Cedar County,19031,Iowa
+441,2000-01-01,Centre County,42027,Pennsylvania
+442,2000-01-01,Cerro Gordo County,19033,Iowa
+443,2000-01-01,Chaffee County,8015,Colorado
+444,2000-01-01,Chambers County,48071,Texas
+445,2000-01-01,Chambers County,1017,Alabama
+446,2000-01-01,Champaign County,39021,Ohio
+447,2000-01-01,Champaign County,17019,Illinois
+448,2000-01-01,Chariton County,29041,Missouri
+449,2000-01-01,Charles City County,51036,Virginia
+450,2000-01-01,Charles County,24017,Maryland
+451,2000-01-01,Charles Mix County,46023,South Dakota
+452,2000-01-01,Charleston County,45019,South Carolina
+453,2000-01-01,Charlevoix County,26029,Michigan
+454,2000-01-01,Charlotte County,51037,Virginia
+455,2000-01-01,Charlotte County,12015,Florida
+456,2000-01-01,Charlottesville city,51540,Virginia
+457,2000-01-01,Charlton County,13049,Georgia
+458,2000-01-01,Chase County,31029,Nebraska
+459,2000-01-01,Chase County,20017,Kansas
+460,2000-01-01,Chatham County,37037,North Carolina
+461,2000-01-01,Chatham County,13051,Georgia
+462,2000-01-01,Chattahoochee County,13053,Georgia
+463,2000-01-01,Chattooga County,13055,Georgia
+464,2000-01-01,Chautauqua County,36013,New York
+465,2000-01-01,Chautauqua County,20019,Kansas
+466,2000-01-01,Chaves County,35005,New Mexico
+467,2000-01-01,Cheatham County,47021,Tennessee
+468,2000-01-01,Cheboygan County,26031,Michigan
+469,2000-01-01,Chelan County,53007,Washington
+470,2000-01-01,Chemung County,36015,New York
+471,2000-01-01,Chenango County,36017,New York
+472,2000-01-01,Cherokee County,40021,Oklahoma
+473,2000-01-01,Cherokee County,45021,South Carolina
+474,2000-01-01,Cherokee County,37039,North Carolina
+475,2000-01-01,Cherokee County,48073,Texas
+476,2000-01-01,Cherokee County,13057,Georgia
+477,2000-01-01,Cherokee County,1019,Alabama
+478,2000-01-01,Cherokee County,20021,Kansas
+479,2000-01-01,Cherokee County,19035,Iowa
+480,2000-01-01,Cherry County,31031,Nebraska
+481,2000-01-01,Chesapeake city,51550,Virginia
+482,2000-01-01,Cheshire County,33005,New Hampshire
+483,2000-01-01,Chester County,45023,South Carolina
+484,2000-01-01,Chester County,42029,Pennsylvania
+485,2000-01-01,Chester County,47023,Tennessee
+486,2000-01-01,Chesterfield County,45025,South Carolina
+487,2000-01-01,Chesterfield County,51041,Virginia
+488,2000-01-01,Cheyenne County,31033,Nebraska
+489,2000-01-01,Cheyenne County,8017,Colorado
+490,2000-01-01,Cheyenne County,20023,Kansas
+491,2000-01-01,Chickasaw County,28017,Mississippi
+492,2000-01-01,Chickasaw County,19037,Iowa
+493,2000-01-01,Chicot County,5017,Arkansas
+494,2000-01-01,Childress County,48075,Texas
+495,2000-01-01,Chilton County,1021,Alabama
+496,2000-01-01,Chippewa County,55017,Wisconsin
+497,2000-01-01,Chippewa County,27023,Minnesota
+498,2000-01-01,Chippewa County,26033,Michigan
+499,2000-01-01,Chisago County,27025,Minnesota
+500,2000-01-01,Chittenden County,50007,Vermont
+501,2000-01-01,Choctaw County,40023,Oklahoma
+502,2000-01-01,Choctaw County,1023,Alabama
+503,2000-01-01,Choctaw County,28019,Mississippi
+504,2000-01-01,Chouteau County,30015,Montana
+505,2000-01-01,Chowan County,37041,North Carolina
+506,2000-01-01,Christian County,17021,Illinois
+507,2000-01-01,Christian County,29043,Missouri
+508,2000-01-01,Christian County,21047,Kentucky
+509,2000-01-01,Churchill County,32001,Nevada
+510,2000-01-01,Cibola County,35006,New Mexico
+511,2000-01-01,Cimarron County,40025,Oklahoma
+512,2000-01-01,Citrus County,12017,Florida
+513,2000-01-01,Clackamas County,41005,Oregon
+514,2000-01-01,Claiborne County,47025,Tennessee
+515,2000-01-01,Claiborne County,28021,Mississippi
+516,2000-01-01,Claiborne Parish,22027,Louisiana
+517,2000-01-01,Clallam County,53009,Washington
+518,2000-01-01,Clare County,26035,Michigan
+519,2000-01-01,Clarendon County,45027,South Carolina
+520,2000-01-01,Clarion County,42031,Pennsylvania
+521,2000-01-01,Clark County,39023,Ohio
+522,2000-01-01,Clark County,32003,Nevada
+523,2000-01-01,Clark County,55019,Wisconsin
+524,2000-01-01,Clark County,53011,Washington
+525,2000-01-01,Clark County,46025,South Dakota
+526,2000-01-01,Clark County,16033,Idaho
+527,2000-01-01,Clark County,18019,Indiana
+528,2000-01-01,Clark County,17023,Illinois
+529,2000-01-01,Clark County,5019,Arkansas
+530,2000-01-01,Clark County,29045,Missouri
+531,2000-01-01,Clark County,20025,Kansas
+532,2000-01-01,Clark County,21049,Kentucky
+533,2000-01-01,Clarke County,51043,Virginia
+534,2000-01-01,Clarke County,13059,Georgia
+535,2000-01-01,Clarke County,1025,Alabama
+536,2000-01-01,Clarke County,28023,Mississippi
+537,2000-01-01,Clarke County,19039,Iowa
+538,2000-01-01,Clatsop County,41007,Oregon
+539,2000-01-01,Clay County,31035,Nebraska
+540,2000-01-01,Clay County,37043,North Carolina
+541,2000-01-01,Clay County,54015,West Virginia
+542,2000-01-01,Clay County,46027,South Dakota
+543,2000-01-01,Clay County,47027,Tennessee
+544,2000-01-01,Clay County,48077,Texas
+545,2000-01-01,Clay County,13061,Georgia
+546,2000-01-01,Clay County,18021,Indiana
+547,2000-01-01,Clay County,17025,Illinois
+548,2000-01-01,Clay County,5021,Arkansas
+549,2000-01-01,Clay County,1027,Alabama
+550,2000-01-01,Clay County,12019,Florida
+551,2000-01-01,Clay County,27027,Minnesota
+552,2000-01-01,Clay County,29047,Missouri
+553,2000-01-01,Clay County,28025,Mississippi
+554,2000-01-01,Clay County,20027,Kansas
+555,2000-01-01,Clay County,19041,Iowa
+556,2000-01-01,Clay County,21051,Kentucky
+557,2000-01-01,Clayton County,13063,Georgia
+558,2000-01-01,Clayton County,19043,Iowa
+559,2000-01-01,Clear Creek County,8019,Colorado
+560,2000-01-01,Clearfield County,42033,Pennsylvania
+561,2000-01-01,Clearwater County,16035,Idaho
+562,2000-01-01,Clearwater County,27029,Minnesota
+563,2000-01-01,Cleburne County,5023,Arkansas
+564,2000-01-01,Cleburne County,1029,Alabama
+565,2000-01-01,Clermont County,39025,Ohio
+566,2000-01-01,Cleveland County,40027,Oklahoma
+567,2000-01-01,Cleveland County,37045,North Carolina
+568,2000-01-01,Cleveland County,5025,Arkansas
+569,2000-01-01,Clinch County,13065,Georgia
+570,2000-01-01,Clinton County,39027,Ohio
+571,2000-01-01,Clinton County,42035,Pennsylvania
+572,2000-01-01,Clinton County,36019,New York
+573,2000-01-01,Clinton County,18023,Indiana
+574,2000-01-01,Clinton County,17027,Illinois
+575,2000-01-01,Clinton County,26037,Michigan
+576,2000-01-01,Clinton County,29049,Missouri
+577,2000-01-01,Clinton County,19045,Iowa
+578,2000-01-01,Clinton County,21053,Kentucky
+579,2000-01-01,Cloud County,20029,Kansas
+580,2000-01-01,Coahoma County,28027,Mississippi
+581,2000-01-01,Coal County,40029,Oklahoma
+582,2000-01-01,Cobb County,13067,Georgia
+583,2000-01-01,Cochise County,4003,Arizona
+584,2000-01-01,Cochran County,48079,Texas
+585,2000-01-01,Cocke County,47029,Tennessee
+586,2000-01-01,Coconino County,4005,Arizona
+587,2000-01-01,Codington County,46029,South Dakota
+588,2000-01-01,Coffee County,47031,Tennessee
+589,2000-01-01,Coffee County,13069,Georgia
+590,2000-01-01,Coffee County,1031,Alabama
+591,2000-01-01,Coffey County,20031,Kansas
+592,2000-01-01,Coke County,48081,Texas
+593,2000-01-01,Colbert County,1033,Alabama
+594,2000-01-01,Cole County,29051,Missouri
+595,2000-01-01,Coleman County,48083,Texas
+596,2000-01-01,Coles County,17029,Illinois
+597,2000-01-01,Colfax County,31037,Nebraska
+598,2000-01-01,Colfax County,35007,New Mexico
+599,2000-01-01,Colleton County,45029,South Carolina
+600,2000-01-01,Collier County,12021,Florida
+601,2000-01-01,Collin County,48085,Texas
+602,2000-01-01,Collingsworth County,48087,Texas
+603,2000-01-01,Colonial Heights city,51570,Virginia
+604,2000-01-01,Colorado County,48089,Texas
+605,2000-01-01,Colquitt County,13071,Georgia
+606,2000-01-01,Columbia County,42037,Pennsylvania
+607,2000-01-01,Columbia County,41009,Oregon
+608,2000-01-01,Columbia County,36021,New York
+609,2000-01-01,Columbia County,55021,Wisconsin
+610,2000-01-01,Columbia County,53013,Washington
+611,2000-01-01,Columbia County,13073,Georgia
+612,2000-01-01,Columbia County,5027,Arkansas
+613,2000-01-01,Columbia County,12023,Florida
+614,2000-01-01,Columbiana County,39029,Ohio
+615,2000-01-01,Columbus County,37047,North Carolina
+616,2000-01-01,Colusa County,6011,California
+617,2000-01-01,Comal County,48091,Texas
+618,2000-01-01,Comanche County,40031,Oklahoma
+619,2000-01-01,Comanche County,48093,Texas
+620,2000-01-01,Comanche County,20033,Kansas
+621,2000-01-01,Concho County,48095,Texas
+622,2000-01-01,Concordia Parish,22029,Louisiana
+623,2000-01-01,Conecuh County,1035,Alabama
+624,2000-01-01,Conejos County,8021,Colorado
+625,2000-01-01,Contra Costa County,6013,California
+626,2000-01-01,Converse County,56009,Wyoming
+627,2000-01-01,Conway County,5029,Arkansas
+628,2000-01-01,Cook County,13075,Georgia
+629,2000-01-01,Cook County,17031,Illinois
+630,2000-01-01,Cook County,27031,Minnesota
+631,2000-01-01,Cooke County,48097,Texas
+632,2000-01-01,Cooper County,29053,Missouri
+633,2000-01-01,Coos County,41011,Oregon
+634,2000-01-01,Coos County,33007,New Hampshire
+635,2000-01-01,Coosa County,1037,Alabama
+636,2000-01-01,Copiah County,28029,Mississippi
+637,2000-01-01,Corson County,46031,South Dakota
+638,2000-01-01,Cortland County,36023,New York
+639,2000-01-01,Coryell County,48099,Texas
+640,2000-01-01,Coshocton County,39031,Ohio
+641,2000-01-01,Costilla County,8023,Colorado
+642,2000-01-01,Cottle County,48101,Texas
+643,2000-01-01,Cotton County,40033,Oklahoma
+644,2000-01-01,Cottonwood County,27033,Minnesota
+645,2000-01-01,Covington County,1039,Alabama
+646,2000-01-01,Covington County,28031,Mississippi
+647,2000-01-01,Covington city,51580,Virginia
+648,2000-01-01,Coweta County,13077,Georgia
+649,2000-01-01,Cowley County,20035,Kansas
+650,2000-01-01,Cowlitz County,53015,Washington
+651,2000-01-01,Craig County,40035,Oklahoma
+652,2000-01-01,Craig County,51045,Virginia
+653,2000-01-01,Craighead County,5031,Arkansas
+654,2000-01-01,Crane County,48103,Texas
+655,2000-01-01,Craven County,37049,North Carolina
+656,2000-01-01,Crawford County,39033,Ohio
+657,2000-01-01,Crawford County,42039,Pennsylvania
+658,2000-01-01,Crawford County,55023,Wisconsin
+659,2000-01-01,Crawford County,13079,Georgia
+660,2000-01-01,Crawford County,18025,Indiana
+661,2000-01-01,Crawford County,17033,Illinois
+662,2000-01-01,Crawford County,5033,Arkansas
+663,2000-01-01,Crawford County,26039,Michigan
+664,2000-01-01,Crawford County,29055,Missouri
+665,2000-01-01,Crawford County,20037,Kansas
+666,2000-01-01,Crawford County,19047,Iowa
+667,2000-01-01,Creek County,40037,Oklahoma
+668,2000-01-01,Crenshaw County,1041,Alabama
+669,2000-01-01,Crisp County,13081,Georgia
+670,2000-01-01,Crittenden County,5035,Arkansas
+671,2000-01-01,Crittenden County,21055,Kentucky
+672,2000-01-01,Crockett County,47033,Tennessee
+673,2000-01-01,Crockett County,48105,Texas
+674,2000-01-01,Crook County,41013,Oregon
+675,2000-01-01,Crook County,56011,Wyoming
+676,2000-01-01,Crosby County,48107,Texas
+677,2000-01-01,Cross County,5037,Arkansas
+678,2000-01-01,Crow Wing County,27035,Minnesota
+679,2000-01-01,Crowley County,8025,Colorado
+680,2000-01-01,Culberson County,48109,Texas
+681,2000-01-01,Cullman County,1043,Alabama
+682,2000-01-01,Culpeper County,51047,Virginia
+683,2000-01-01,Cumberland County,42041,Pennsylvania
+684,2000-01-01,Cumberland County,37051,North Carolina
+685,2000-01-01,Cumberland County,34011,New Jersey
+686,2000-01-01,Cumberland County,51049,Virginia
+687,2000-01-01,Cumberland County,47035,Tennessee
+688,2000-01-01,Cumberland County,17035,Illinois
+689,2000-01-01,Cumberland County,23005,Maine
+690,2000-01-01,Cumberland County,21057,Kentucky
+691,2000-01-01,Cuming County,31039,Nebraska
+692,2000-01-01,Currituck County,37053,North Carolina
+693,2000-01-01,Curry County,41015,Oregon
+694,2000-01-01,Curry County,35009,New Mexico
+695,2000-01-01,Custer County,40039,Oklahoma
+696,2000-01-01,Custer County,31041,Nebraska
+697,2000-01-01,Custer County,30017,Montana
+698,2000-01-01,Custer County,46033,South Dakota
+699,2000-01-01,Custer County,16037,Idaho
+700,2000-01-01,Custer County,8027,Colorado
+701,2000-01-01,Cuyahoga County,39035,Ohio
+702,2000-01-01,Dade County,13083,Georgia
+703,2000-01-01,Dade County,29057,Missouri
+704,2000-01-01,Daggett County,49009,Utah
+705,2000-01-01,Dakota County,31043,Nebraska
+706,2000-01-01,Dakota County,27037,Minnesota
+707,2000-01-01,Dale County,1045,Alabama
+708,2000-01-01,Dallam County,48111,Texas
+709,2000-01-01,Dallas County,48113,Texas
+710,2000-01-01,Dallas County,5039,Arkansas
+711,2000-01-01,Dallas County,1047,Alabama
+712,2000-01-01,Dallas County,29059,Missouri
+713,2000-01-01,Dallas County,19049,Iowa
+714,2000-01-01,Dane County,55025,Wisconsin
+715,2000-01-01,Daniels County,30019,Montana
+716,2000-01-01,Danville city,51590,Virginia
+717,2000-01-01,Dare County,37055,North Carolina
+718,2000-01-01,Darke County,39037,Ohio
+719,2000-01-01,Darlington County,45031,South Carolina
+720,2000-01-01,Dauphin County,42043,Pennsylvania
+721,2000-01-01,Davidson County,37057,North Carolina
+722,2000-01-01,Davidson County,47037,Tennessee
+723,2000-01-01,Davie County,37059,North Carolina
+724,2000-01-01,Daviess County,18027,Indiana
+725,2000-01-01,Daviess County,29061,Missouri
+726,2000-01-01,Daviess County,21059,Kentucky
+727,2000-01-01,Davis County,49011,Utah
+728,2000-01-01,Davis County,19051,Iowa
+729,2000-01-01,Davison County,46035,South Dakota
+730,2000-01-01,Dawes County,31045,Nebraska
+731,2000-01-01,Dawson County,31047,Nebraska
+732,2000-01-01,Dawson County,30021,Montana
+733,2000-01-01,Dawson County,48115,Texas
+734,2000-01-01,Dawson County,13085,Georgia
+735,2000-01-01,Day County,46037,South Dakota
+736,2000-01-01,De Baca County,35011,New Mexico
+737,2000-01-01,De Soto Parish,22031,Louisiana
+738,2000-01-01,De Witt County,17039,Illinois
+739,2000-01-01,DeKalb County,47041,Tennessee
+740,2000-01-01,DeKalb County,13089,Georgia
+741,2000-01-01,DeKalb County,18033,Indiana
+742,2000-01-01,DeKalb County,17037,Illinois
+743,2000-01-01,DeKalb County,1049,Alabama
+744,2000-01-01,DeKalb County,29063,Missouri
+745,2000-01-01,DeSoto County,12027,Florida
+746,2000-01-01,DeSoto County,28033,Mississippi
+747,2000-01-01,DeWitt County,48123,Texas
+748,2000-01-01,Deaf Smith County,48117,Texas
+749,2000-01-01,Dearborn County,18029,Indiana
+750,2000-01-01,Decatur County,47039,Tennessee
+751,2000-01-01,Decatur County,13087,Georgia
+752,2000-01-01,Decatur County,18031,Indiana
+753,2000-01-01,Decatur County,20039,Kansas
+754,2000-01-01,Decatur County,19053,Iowa
+755,2000-01-01,Deer Lodge County,30023,Montana
+756,2000-01-01,Defiance County,39039,Ohio
+757,2000-01-01,Del Norte County,6015,California
+758,2000-01-01,Delaware County,39041,Ohio
+759,2000-01-01,Delaware County,40041,Oklahoma
+760,2000-01-01,Delaware County,42045,Pennsylvania
+761,2000-01-01,Delaware County,36025,New York
+762,2000-01-01,Delaware County,18035,Indiana
+763,2000-01-01,Delaware County,19055,Iowa
+764,2000-01-01,Delta County,48119,Texas
+765,2000-01-01,Delta County,8029,Colorado
+766,2000-01-01,Delta County,26041,Michigan
+767,2000-01-01,Denali Borough,2068,Alaska
+768,2000-01-01,Dent County,29065,Missouri
+769,2000-01-01,Denton County,48121,Texas
+770,2000-01-01,Denver County,8031,Colorado
+771,2000-01-01,Des Moines County,19057,Iowa
+772,2000-01-01,Deschutes County,41017,Oregon
+773,2000-01-01,Desha County,5041,Arkansas
+774,2000-01-01,Deuel County,31049,Nebraska
+775,2000-01-01,Deuel County,46039,South Dakota
+776,2000-01-01,Dewey County,40043,Oklahoma
+777,2000-01-01,Dewey County,46041,South Dakota
+778,2000-01-01,Dickens County,48125,Texas
+779,2000-01-01,Dickenson County,51051,Virginia
+780,2000-01-01,Dickey County,38021,North Dakota
+781,2000-01-01,Dickinson County,26043,Michigan
+782,2000-01-01,Dickinson County,20041,Kansas
+783,2000-01-01,Dickinson County,19059,Iowa
+784,2000-01-01,Dickson County,47043,Tennessee
+785,2000-01-01,Dillingham Census Area,2070,Alaska
+786,2000-01-01,Dillon County,45033,South Carolina
+787,2000-01-01,Dimmit County,48127,Texas
+788,2000-01-01,Dinwiddie County,51053,Virginia
+789,2000-01-01,District of Columbia,11001,District of Columbia
+790,2000-01-01,Divide County,38023,North Dakota
+791,2000-01-01,Dixie County,12029,Florida
+792,2000-01-01,Dixon County,31051,Nebraska
+793,2000-01-01,Doddridge County,54017,West Virginia
+794,2000-01-01,Dodge County,31053,Nebraska
+795,2000-01-01,Dodge County,55027,Wisconsin
+796,2000-01-01,Dodge County,13091,Georgia
+797,2000-01-01,Dodge County,27039,Minnesota
+798,2000-01-01,Dolores County,8033,Colorado
+799,2000-01-01,Doniphan County,20043,Kansas
+800,2000-01-01,Donley County,48129,Texas
+801,2000-01-01,Dooly County,13093,Georgia
+802,2000-01-01,Door County,55029,Wisconsin
+803,2000-01-01,Dorchester County,45035,South Carolina
+804,2000-01-01,Dorchester County,24019,Maryland
+805,2000-01-01,Dougherty County,13095,Georgia
+806,2000-01-01,Douglas County,41019,Oregon
+807,2000-01-01,Douglas County,31055,Nebraska
+808,2000-01-01,Douglas County,32005,Nevada
+809,2000-01-01,Douglas County,55031,Wisconsin
+810,2000-01-01,Douglas County,53017,Washington
+811,2000-01-01,Douglas County,46043,South Dakota
+812,2000-01-01,Douglas County,13097,Georgia
+813,2000-01-01,Douglas County,17041,Illinois
+814,2000-01-01,Douglas County,8035,Colorado
+815,2000-01-01,Douglas County,27041,Minnesota
+816,2000-01-01,Douglas County,29067,Missouri
+817,2000-01-01,Douglas County,20045,Kansas
+818,2000-01-01,Do±a Ana County,35013,New Mexico
+819,2000-01-01,Drew County,5043,Arkansas
+820,2000-01-01,DuPage County,17043,Illinois
+821,2000-01-01,Dubois County,18037,Indiana
+822,2000-01-01,Dubuque County,19061,Iowa
+823,2000-01-01,Duchesne County,49013,Utah
+824,2000-01-01,Dukes County,25007,Massachusetts
+825,2000-01-01,Dundy County,31057,Nebraska
+826,2000-01-01,Dunklin County,29069,Missouri
+827,2000-01-01,Dunn County,38025,North Dakota
+828,2000-01-01,Dunn County,55033,Wisconsin
+829,2000-01-01,Duplin County,37061,North Carolina
+830,2000-01-01,Durham County,37063,North Carolina
+831,2000-01-01,Dutchess County,36027,New York
+832,2000-01-01,Duval County,48131,Texas
+833,2000-01-01,Duval County,12031,Florida
+834,2000-01-01,Dyer County,47045,Tennessee
+835,2000-01-01,Eagle County,8037,Colorado
+836,2000-01-01,Early County,13099,Georgia
+837,2000-01-01,East Baton Rouge Parish,22033,Louisiana
+838,2000-01-01,East Carroll Parish,22035,Louisiana
+839,2000-01-01,East Feliciana Parish,22037,Louisiana
+840,2000-01-01,Eastland County,48133,Texas
+841,2000-01-01,Eaton County,26045,Michigan
+842,2000-01-01,Eau Claire County,55035,Wisconsin
+843,2000-01-01,Echols County,13101,Georgia
+844,2000-01-01,Ector County,48135,Texas
+845,2000-01-01,Eddy County,38027,North Dakota
+846,2000-01-01,Eddy County,35015,New Mexico
+847,2000-01-01,Edgar County,17045,Illinois
+848,2000-01-01,Edgecombe County,37065,North Carolina
+849,2000-01-01,Edgefield County,45037,South Carolina
+850,2000-01-01,Edmonson County,21061,Kentucky
+851,2000-01-01,Edmunds County,46045,South Dakota
+852,2000-01-01,Edwards County,48137,Texas
+853,2000-01-01,Edwards County,17047,Illinois
+854,2000-01-01,Edwards County,20047,Kansas
+855,2000-01-01,Effingham County,13103,Georgia
+856,2000-01-01,Effingham County,17049,Illinois
+857,2000-01-01,El Dorado County,6017,California
+858,2000-01-01,El Paso County,48141,Texas
+859,2000-01-01,El Paso County,8041,Colorado
+860,2000-01-01,Elbert County,13105,Georgia
+861,2000-01-01,Elbert County,8039,Colorado
+862,2000-01-01,Elk County,42047,Pennsylvania
+863,2000-01-01,Elk County,20049,Kansas
+864,2000-01-01,Elkhart County,18039,Indiana
+865,2000-01-01,Elko County,32007,Nevada
+866,2000-01-01,Elliott County,21063,Kentucky
+867,2000-01-01,Ellis County,40045,Oklahoma
+868,2000-01-01,Ellis County,48139,Texas
+869,2000-01-01,Ellis County,20051,Kansas
+870,2000-01-01,Ellsworth County,20053,Kansas
+871,2000-01-01,Elmore County,16039,Idaho
+872,2000-01-01,Elmore County,1051,Alabama
+873,2000-01-01,Emanuel County,13107,Georgia
+874,2000-01-01,Emery County,49015,Utah
+875,2000-01-01,Emmet County,26047,Michigan
+876,2000-01-01,Emmet County,19063,Iowa
+877,2000-01-01,Emmons County,38029,North Dakota
+878,2000-01-01,Emporia city,51595,Virginia
+879,2000-01-01,Erath County,48143,Texas
+880,2000-01-01,Erie County,39043,Ohio
+881,2000-01-01,Erie County,42049,Pennsylvania
+882,2000-01-01,Erie County,36029,New York
+883,2000-01-01,Escambia County,1053,Alabama
+884,2000-01-01,Escambia County,12033,Florida
+885,2000-01-01,Esmeralda County,32009,Nevada
+886,2000-01-01,Essex County,34013,New Jersey
+887,2000-01-01,Essex County,36031,New York
+888,2000-01-01,Essex County,51057,Virginia
+889,2000-01-01,Essex County,50009,Vermont
+890,2000-01-01,Essex County,25009,Massachusetts
+891,2000-01-01,Estill County,21065,Kentucky
+892,2000-01-01,Etowah County,1055,Alabama
+893,2000-01-01,Eureka County,32011,Nevada
+894,2000-01-01,Evangeline Parish,22039,Louisiana
+895,2000-01-01,Evans County,13109,Georgia
+896,2000-01-01,Fairbanks North Star Borough,2090,Alaska
+897,2000-01-01,Fairfax County,51059,Virginia
+898,2000-01-01,Fairfax city,51600,Virginia
+899,2000-01-01,Fairfield County,39045,Ohio
+900,2000-01-01,Fairfield County,45039,South Carolina
+901,2000-01-01,Fairfield County,9001,Connecticut
+902,2000-01-01,Fall River County,46047,South Dakota
+903,2000-01-01,Fallon County,30025,Montana
+904,2000-01-01,Falls Church city,51610,Virginia
+905,2000-01-01,Falls County,48145,Texas
+906,2000-01-01,Fannin County,48147,Texas
+907,2000-01-01,Fannin County,13111,Georgia
+908,2000-01-01,Faribault County,27043,Minnesota
+909,2000-01-01,Faulk County,46049,South Dakota
+910,2000-01-01,Faulkner County,5045,Arkansas
+911,2000-01-01,Fauquier County,51061,Virginia
+912,2000-01-01,Fayette County,39047,Ohio
+913,2000-01-01,Fayette County,42051,Pennsylvania
+914,2000-01-01,Fayette County,54019,West Virginia
+915,2000-01-01,Fayette County,47047,Tennessee
+916,2000-01-01,Fayette County,48149,Texas
+917,2000-01-01,Fayette County,13113,Georgia
+918,2000-01-01,Fayette County,18041,Indiana
+919,2000-01-01,Fayette County,17051,Illinois
+920,2000-01-01,Fayette County,1057,Alabama
+921,2000-01-01,Fayette County,19065,Iowa
+922,2000-01-01,Fayette County,21067,Kentucky
+923,2000-01-01,Fentress County,47049,Tennessee
+924,2000-01-01,Fergus County,30027,Montana
+925,2000-01-01,Ferry County,53019,Washington
+926,2000-01-01,Fillmore County,31059,Nebraska
+927,2000-01-01,Fillmore County,27045,Minnesota
+928,2000-01-01,Finney County,20055,Kansas
+929,2000-01-01,Fisher County,48151,Texas
+930,2000-01-01,Flagler County,12035,Florida
+931,2000-01-01,Flathead County,30029,Montana
+932,2000-01-01,Fleming County,21069,Kentucky
+933,2000-01-01,Florence County,45041,South Carolina
+934,2000-01-01,Florence County,55037,Wisconsin
+935,2000-01-01,Floyd County,51063,Virginia
+936,2000-01-01,Floyd County,48153,Texas
+937,2000-01-01,Floyd County,13115,Georgia
+938,2000-01-01,Floyd County,18043,Indiana
+939,2000-01-01,Floyd County,19067,Iowa
+940,2000-01-01,Floyd County,21071,Kentucky
+941,2000-01-01,Fluvanna County,51065,Virginia
+942,2000-01-01,Foard County,48155,Texas
+943,2000-01-01,Fond du Lac County,55039,Wisconsin
+944,2000-01-01,Ford County,17053,Illinois
+945,2000-01-01,Ford County,20057,Kansas
+946,2000-01-01,Forest County,42053,Pennsylvania
+947,2000-01-01,Forest County,55041,Wisconsin
+948,2000-01-01,Forrest County,28035,Mississippi
+949,2000-01-01,Forsyth County,37067,North Carolina
+950,2000-01-01,Forsyth County,13117,Georgia
+951,2000-01-01,Fort Bend County,48157,Texas
+952,2000-01-01,Foster County,38031,North Dakota
+953,2000-01-01,Fountain County,18045,Indiana
+954,2000-01-01,Franklin County,39049,Ohio
+955,2000-01-01,Franklin County,42055,Pennsylvania
+956,2000-01-01,Franklin County,31061,Nebraska
+957,2000-01-01,Franklin County,37069,North Carolina
+958,2000-01-01,Franklin County,36033,New York
+959,2000-01-01,Franklin County,51067,Virginia
+960,2000-01-01,Franklin County,50011,Vermont
+961,2000-01-01,Franklin County,53021,Washington
+962,2000-01-01,Franklin County,47051,Tennessee
+963,2000-01-01,Franklin County,48159,Texas
+964,2000-01-01,Franklin County,16041,Idaho
+965,2000-01-01,Franklin County,13119,Georgia
+966,2000-01-01,Franklin County,18047,Indiana
+967,2000-01-01,Franklin County,17055,Illinois
+968,2000-01-01,Franklin County,5047,Arkansas
+969,2000-01-01,Franklin County,1059,Alabama
+970,2000-01-01,Franklin County,12037,Florida
+971,2000-01-01,Franklin County,25011,Massachusetts
+972,2000-01-01,Franklin County,23007,Maine
+973,2000-01-01,Franklin County,29071,Missouri
+974,2000-01-01,Franklin County,28037,Mississippi
+975,2000-01-01,Franklin County,20059,Kansas
+976,2000-01-01,Franklin County,19069,Iowa
+977,2000-01-01,Franklin County,21073,Kentucky
+978,2000-01-01,Franklin Parish,22041,Louisiana
+979,2000-01-01,Franklin city,51620,Virginia
+980,2000-01-01,Frederick County,51069,Virginia
+981,2000-01-01,Frederick County,24021,Maryland
+982,2000-01-01,Fredericksburg city,51630,Virginia
+983,2000-01-01,Freeborn County,27047,Minnesota
+984,2000-01-01,Freestone County,48161,Texas
+985,2000-01-01,Fremont County,56013,Wyoming
+986,2000-01-01,Fremont County,16043,Idaho
+987,2000-01-01,Fremont County,8043,Colorado
+988,2000-01-01,Fremont County,19071,Iowa
+989,2000-01-01,Fresno County,6019,California
+990,2000-01-01,Frio County,48163,Texas
+991,2000-01-01,Frontier County,31063,Nebraska
+992,2000-01-01,Fulton County,39051,Ohio
+993,2000-01-01,Fulton County,42057,Pennsylvania
+994,2000-01-01,Fulton County,36035,New York
+995,2000-01-01,Fulton County,13121,Georgia
+996,2000-01-01,Fulton County,18049,Indiana
+997,2000-01-01,Fulton County,17057,Illinois
+998,2000-01-01,Fulton County,5049,Arkansas
+999,2000-01-01,Fulton County,21075,Kentucky
+1000,2000-01-01,Furnas County,31065,Nebraska
+1001,2000-01-01,Gadsden County,12039,Florida
+1002,2000-01-01,Gage County,31067,Nebraska
+1003,2000-01-01,Gaines County,48165,Texas
+1004,2000-01-01,Galax city,51640,Virginia
+1005,2000-01-01,Gallatin County,30031,Montana
+1006,2000-01-01,Gallatin County,17059,Illinois
+1007,2000-01-01,Gallatin County,21077,Kentucky
+1008,2000-01-01,Gallia County,39053,Ohio
+1009,2000-01-01,Galveston County,48167,Texas
+1010,2000-01-01,Garden County,31069,Nebraska
+1011,2000-01-01,Garfield County,40047,Oklahoma
+1012,2000-01-01,Garfield County,31071,Nebraska
+1013,2000-01-01,Garfield County,30033,Montana
+1014,2000-01-01,Garfield County,49017,Utah
+1015,2000-01-01,Garfield County,53023,Washington
+1016,2000-01-01,Garfield County,8045,Colorado
+1017,2000-01-01,Garland County,5051,Arkansas
+1018,2000-01-01,Garrard County,21079,Kentucky
+1019,2000-01-01,Garrett County,24023,Maryland
+1020,2000-01-01,Garvin County,40049,Oklahoma
+1021,2000-01-01,Garza County,48169,Texas
+1022,2000-01-01,Gasconade County,29073,Missouri
+1023,2000-01-01,Gaston County,37071,North Carolina
+1024,2000-01-01,Gates County,37073,North Carolina
+1025,2000-01-01,Geary County,20061,Kansas
+1026,2000-01-01,Geauga County,39055,Ohio
+1027,2000-01-01,Gem County,16045,Idaho
+1028,2000-01-01,Genesee County,36037,New York
+1029,2000-01-01,Genesee County,26049,Michigan
+1030,2000-01-01,Geneva County,1061,Alabama
+1031,2000-01-01,Gentry County,29075,Missouri
+1032,2000-01-01,George County,28039,Mississippi
+1033,2000-01-01,Georgetown County,45043,South Carolina
+1034,2000-01-01,Gibson County,47053,Tennessee
+1035,2000-01-01,Gibson County,18051,Indiana
+1036,2000-01-01,Gila County,4007,Arizona
+1037,2000-01-01,Gilchrist County,12041,Florida
+1038,2000-01-01,Giles County,51071,Virginia
+1039,2000-01-01,Giles County,47055,Tennessee
+1040,2000-01-01,Gillespie County,48171,Texas
+1041,2000-01-01,Gilliam County,41021,Oregon
+1042,2000-01-01,Gilmer County,54021,West Virginia
+1043,2000-01-01,Gilmer County,13123,Georgia
+1044,2000-01-01,Gilpin County,8047,Colorado
+1045,2000-01-01,Glacier County,30035,Montana
+1046,2000-01-01,Glades County,12043,Florida
+1047,2000-01-01,Gladwin County,26051,Michigan
+1048,2000-01-01,Glascock County,13125,Georgia
+1049,2000-01-01,Glasscock County,48173,Texas
+1050,2000-01-01,Glenn County,6021,California
+1051,2000-01-01,Gloucester County,34015,New Jersey
+1052,2000-01-01,Gloucester County,51073,Virginia
+1053,2000-01-01,Glynn County,13127,Georgia
+1054,2000-01-01,Gogebic County,26053,Michigan
+1055,2000-01-01,Golden Valley County,38033,North Dakota
+1056,2000-01-01,Golden Valley County,30037,Montana
+1057,2000-01-01,Goliad County,48175,Texas
+1058,2000-01-01,Gonzales County,48177,Texas
+1059,2000-01-01,Goochland County,51075,Virginia
+1060,2000-01-01,Goodhue County,27049,Minnesota
+1061,2000-01-01,Gooding County,16047,Idaho
+1062,2000-01-01,Gordon County,13129,Georgia
+1063,2000-01-01,Goshen County,56015,Wyoming
+1064,2000-01-01,Gosper County,31073,Nebraska
+1065,2000-01-01,Gove County,20063,Kansas
+1066,2000-01-01,Grady County,40051,Oklahoma
+1067,2000-01-01,Grady County,13131,Georgia
+1068,2000-01-01,Grafton County,33009,New Hampshire
+1069,2000-01-01,Graham County,37075,North Carolina
+1070,2000-01-01,Graham County,4009,Arizona
+1071,2000-01-01,Graham County,20065,Kansas
+1072,2000-01-01,Grainger County,47057,Tennessee
+1073,2000-01-01,Grand County,49019,Utah
+1074,2000-01-01,Grand County,8049,Colorado
+1075,2000-01-01,Grand Forks County,38035,North Dakota
+1076,2000-01-01,Grand Isle County,50013,Vermont
+1077,2000-01-01,Grand Traverse County,26055,Michigan
+1078,2000-01-01,Granite County,30039,Montana
+1079,2000-01-01,Grant County,40053,Oklahoma
+1080,2000-01-01,Grant County,38037,North Dakota
+1081,2000-01-01,Grant County,41023,Oregon
+1082,2000-01-01,Grant County,31075,Nebraska
+1083,2000-01-01,Grant County,35017,New Mexico
+1084,2000-01-01,Grant County,55043,Wisconsin
+1085,2000-01-01,Grant County,53025,Washington
+1086,2000-01-01,Grant County,54023,West Virginia
+1087,2000-01-01,Grant County,46051,South Dakota
+1088,2000-01-01,Grant County,18053,Indiana
+1089,2000-01-01,Grant County,5053,Arkansas
+1090,2000-01-01,Grant County,27051,Minnesota
+1091,2000-01-01,Grant County,20067,Kansas
+1092,2000-01-01,Grant County,21081,Kentucky
+1093,2000-01-01,Grant Parish,22043,Louisiana
+1094,2000-01-01,Granville County,37077,North Carolina
+1095,2000-01-01,Gratiot County,26057,Michigan
+1096,2000-01-01,Graves County,21083,Kentucky
+1097,2000-01-01,Gray County,48179,Texas
+1098,2000-01-01,Gray County,20069,Kansas
+1099,2000-01-01,Grays Harbor County,53027,Washington
+1100,2000-01-01,Grayson County,51077,Virginia
+1101,2000-01-01,Grayson County,48181,Texas
+1102,2000-01-01,Grayson County,21085,Kentucky
+1103,2000-01-01,Greeley County,31077,Nebraska
+1104,2000-01-01,Greeley County,20071,Kansas
+1105,2000-01-01,Green County,55045,Wisconsin
+1106,2000-01-01,Green County,21087,Kentucky
+1107,2000-01-01,Green Lake County,55047,Wisconsin
+1108,2000-01-01,Greenbrier County,54025,West Virginia
+1109,2000-01-01,Greene County,39057,Ohio
+1110,2000-01-01,Greene County,42059,Pennsylvania
+1111,2000-01-01,Greene County,37079,North Carolina
+1112,2000-01-01,Greene County,36039,New York
+1113,2000-01-01,Greene County,51079,Virginia
+1114,2000-01-01,Greene County,47059,Tennessee
+1115,2000-01-01,Greene County,13133,Georgia
+1116,2000-01-01,Greene County,18055,Indiana
+1117,2000-01-01,Greene County,17061,Illinois
+1118,2000-01-01,Greene County,5055,Arkansas
+1119,2000-01-01,Greene County,1063,Alabama
+1120,2000-01-01,Greene County,29077,Missouri
+1121,2000-01-01,Greene County,28041,Mississippi
+1122,2000-01-01,Greene County,19073,Iowa
+1123,2000-01-01,Greenlee County,4011,Arizona
+1124,2000-01-01,Greensville County,51081,Virginia
+1125,2000-01-01,Greenup County,21089,Kentucky
+1126,2000-01-01,Greenville County,45045,South Carolina
+1127,2000-01-01,Greenwood County,45047,South Carolina
+1128,2000-01-01,Greenwood County,20073,Kansas
+1129,2000-01-01,Greer County,40055,Oklahoma
+1130,2000-01-01,Gregg County,48183,Texas
+1131,2000-01-01,Gregory County,46053,South Dakota
+1132,2000-01-01,Grenada County,28043,Mississippi
+1133,2000-01-01,Griggs County,38039,North Dakota
+1134,2000-01-01,Grimes County,48185,Texas
+1135,2000-01-01,Grundy County,47061,Tennessee
+1136,2000-01-01,Grundy County,17063,Illinois
+1137,2000-01-01,Grundy County,29079,Missouri
+1138,2000-01-01,Grundy County,19075,Iowa
+1139,2000-01-01,Guadalupe County,35019,New Mexico
+1140,2000-01-01,Guadalupe County,48187,Texas
+1141,2000-01-01,Guernsey County,39059,Ohio
+1142,2000-01-01,Guilford County,37081,North Carolina
+1143,2000-01-01,Gulf County,12045,Florida
+1144,2000-01-01,Gunnison County,8051,Colorado
+1145,2000-01-01,Guthrie County,19077,Iowa
+1146,2000-01-01,Gwinnett County,13135,Georgia
+1147,2000-01-01,Haakon County,46055,South Dakota
+1148,2000-01-01,Habersham County,13137,Georgia
+1149,2000-01-01,Haines Borough,2100,Alaska
+1150,2000-01-01,Hale County,48189,Texas
+1151,2000-01-01,Hale County,1065,Alabama
+1152,2000-01-01,Halifax County,37083,North Carolina
+1153,2000-01-01,Halifax County,51083,Virginia
+1154,2000-01-01,Hall County,31079,Nebraska
+1155,2000-01-01,Hall County,48191,Texas
+1156,2000-01-01,Hall County,13139,Georgia
+1157,2000-01-01,Hamblen County,47063,Tennessee
+1158,2000-01-01,Hamilton County,39061,Ohio
+1159,2000-01-01,Hamilton County,31081,Nebraska
+1160,2000-01-01,Hamilton County,36041,New York
+1161,2000-01-01,Hamilton County,47065,Tennessee
+1162,2000-01-01,Hamilton County,48193,Texas
+1163,2000-01-01,Hamilton County,18057,Indiana
+1164,2000-01-01,Hamilton County,17065,Illinois
+1165,2000-01-01,Hamilton County,12047,Florida
+1166,2000-01-01,Hamilton County,20075,Kansas
+1167,2000-01-01,Hamilton County,19079,Iowa
+1168,2000-01-01,Hamlin County,46057,South Dakota
+1169,2000-01-01,Hampden County,25013,Massachusetts
+1170,2000-01-01,Hampshire County,54027,West Virginia
+1171,2000-01-01,Hampshire County,25015,Massachusetts
+1172,2000-01-01,Hampton County,45049,South Carolina
+1173,2000-01-01,Hampton city,51650,Virginia
+1174,2000-01-01,Hancock County,39063,Ohio
+1175,2000-01-01,Hancock County,54029,West Virginia
+1176,2000-01-01,Hancock County,47067,Tennessee
+1177,2000-01-01,Hancock County,13141,Georgia
+1178,2000-01-01,Hancock County,18059,Indiana
+1179,2000-01-01,Hancock County,17067,Illinois
+1180,2000-01-01,Hancock County,23009,Maine
+1181,2000-01-01,Hancock County,28045,Mississippi
+1182,2000-01-01,Hancock County,19081,Iowa
+1183,2000-01-01,Hancock County,21091,Kentucky
+1184,2000-01-01,Hand County,46059,South Dakota
+1185,2000-01-01,Hanover County,51085,Virginia
+1186,2000-01-01,Hansford County,48195,Texas
+1187,2000-01-01,Hanson County,46061,South Dakota
+1188,2000-01-01,Haralson County,13143,Georgia
+1189,2000-01-01,Hardee County,12049,Florida
+1190,2000-01-01,Hardeman County,47069,Tennessee
+1191,2000-01-01,Hardeman County,48197,Texas
+1192,2000-01-01,Hardin County,39065,Ohio
+1193,2000-01-01,Hardin County,47071,Tennessee
+1194,2000-01-01,Hardin County,48199,Texas
+1195,2000-01-01,Hardin County,17069,Illinois
+1196,2000-01-01,Hardin County,19083,Iowa
+1197,2000-01-01,Hardin County,21093,Kentucky
+1198,2000-01-01,Harding County,35021,New Mexico
+1199,2000-01-01,Harding County,46063,South Dakota
+1200,2000-01-01,Hardy County,54031,West Virginia
+1201,2000-01-01,Harford County,24025,Maryland
+1202,2000-01-01,Harlan County,31083,Nebraska
+1203,2000-01-01,Harlan County,21095,Kentucky
+1204,2000-01-01,Harmon County,40057,Oklahoma
+1205,2000-01-01,Harnett County,37085,North Carolina
+1206,2000-01-01,Harney County,41025,Oregon
+1207,2000-01-01,Harper County,40059,Oklahoma
+1208,2000-01-01,Harper County,20077,Kansas
+1209,2000-01-01,Harris County,48201,Texas
+1210,2000-01-01,Harris County,13145,Georgia
+1211,2000-01-01,Harrison County,39067,Ohio
+1212,2000-01-01,Harrison County,54033,West Virginia
+1213,2000-01-01,Harrison County,48203,Texas
+1214,2000-01-01,Harrison County,18061,Indiana
+1215,2000-01-01,Harrison County,29081,Missouri
+1216,2000-01-01,Harrison County,28047,Mississippi
+1217,2000-01-01,Harrison County,19085,Iowa
+1218,2000-01-01,Harrison County,21097,Kentucky
+1219,2000-01-01,Harrisonburg city,51660,Virginia
+1220,2000-01-01,Hart County,13147,Georgia
+1221,2000-01-01,Hart County,21099,Kentucky
+1222,2000-01-01,Hartford County,9003,Connecticut
+1223,2000-01-01,Hartley County,48205,Texas
+1224,2000-01-01,Harvey County,20079,Kansas
+1225,2000-01-01,Haskell County,40061,Oklahoma
+1226,2000-01-01,Haskell County,48207,Texas
+1227,2000-01-01,Haskell County,20081,Kansas
+1228,2000-01-01,Hawaii County,15001,Hawaii
+1229,2000-01-01,Hawkins County,47073,Tennessee
+1230,2000-01-01,Hayes County,31085,Nebraska
+1231,2000-01-01,Hays County,48209,Texas
+1232,2000-01-01,Haywood County,37087,North Carolina
+1233,2000-01-01,Haywood County,47075,Tennessee
+1234,2000-01-01,Heard County,13149,Georgia
+1235,2000-01-01,Hemphill County,48211,Texas
+1236,2000-01-01,Hempstead County,5057,Arkansas
+1237,2000-01-01,Henderson County,37089,North Carolina
+1238,2000-01-01,Henderson County,47077,Tennessee
+1239,2000-01-01,Henderson County,48213,Texas
+1240,2000-01-01,Henderson County,17071,Illinois
+1241,2000-01-01,Henderson County,21101,Kentucky
+1242,2000-01-01,Hendricks County,18063,Indiana
+1243,2000-01-01,Hendry County,12051,Florida
+1244,2000-01-01,Hennepin County,27053,Minnesota
+1245,2000-01-01,Henrico County,51087,Virginia
+1246,2000-01-01,Henry County,39069,Ohio
+1247,2000-01-01,Henry County,51089,Virginia
+1248,2000-01-01,Henry County,47079,Tennessee
+1249,2000-01-01,Henry County,13151,Georgia
+1250,2000-01-01,Henry County,18065,Indiana
+1251,2000-01-01,Henry County,17073,Illinois
+1252,2000-01-01,Henry County,1067,Alabama
+1253,2000-01-01,Henry County,29083,Missouri
+1254,2000-01-01,Henry County,19087,Iowa
+1255,2000-01-01,Henry County,21103,Kentucky
+1256,2000-01-01,Herkimer County,36043,New York
+1257,2000-01-01,Hernando County,12053,Florida
+1258,2000-01-01,Hertford County,37091,North Carolina
+1259,2000-01-01,Hettinger County,38041,North Dakota
+1260,2000-01-01,Hickman County,47081,Tennessee
+1261,2000-01-01,Hickman County,21105,Kentucky
+1262,2000-01-01,Hickory County,29085,Missouri
+1263,2000-01-01,Hidalgo County,35023,New Mexico
+1264,2000-01-01,Hidalgo County,48215,Texas
+1265,2000-01-01,Highland County,39071,Ohio
+1266,2000-01-01,Highland County,51091,Virginia
+1267,2000-01-01,Highlands County,12055,Florida
+1268,2000-01-01,Hill County,30041,Montana
+1269,2000-01-01,Hill County,48217,Texas
+1270,2000-01-01,Hillsborough County,33011,New Hampshire
+1271,2000-01-01,Hillsborough County,12057,Florida
+1272,2000-01-01,Hillsdale County,26059,Michigan
+1273,2000-01-01,Hinds County,28049,Mississippi
+1274,2000-01-01,Hinsdale County,8053,Colorado
+1275,2000-01-01,Hitchcock County,31087,Nebraska
+1276,2000-01-01,Hocking County,39073,Ohio
+1277,2000-01-01,Hockley County,48219,Texas
+1278,2000-01-01,Hodgeman County,20083,Kansas
+1279,2000-01-01,Hoke County,37093,North Carolina
+1280,2000-01-01,Holmes County,39075,Ohio
+1281,2000-01-01,Holmes County,12059,Florida
+1282,2000-01-01,Holmes County,28051,Mississippi
+1283,2000-01-01,Holt County,31089,Nebraska
+1284,2000-01-01,Holt County,29087,Missouri
+1285,2000-01-01,Honolulu County,15003,Hawaii
+1286,2000-01-01,Hood County,48221,Texas
+1287,2000-01-01,Hood River County,41027,Oregon
+1288,2000-01-01,Hooker County,31091,Nebraska
+1289,2000-01-01,Hoonah-Angoon Census Area,2105,Alaska
+1290,2000-01-01,Hopewell city,51670,Virginia
+1291,2000-01-01,Hopkins County,48223,Texas
+1292,2000-01-01,Hopkins County,21107,Kentucky
+1293,2000-01-01,Horry County,45051,South Carolina
+1294,2000-01-01,Hot Spring County,5059,Arkansas
+1295,2000-01-01,Hot Springs County,56017,Wyoming
+1296,2000-01-01,Houghton County,26061,Michigan
+1297,2000-01-01,Houston County,47083,Tennessee
+1298,2000-01-01,Houston County,48225,Texas
+1299,2000-01-01,Houston County,13153,Georgia
+1300,2000-01-01,Houston County,1069,Alabama
+1301,2000-01-01,Houston County,27055,Minnesota
+1302,2000-01-01,Howard County,31093,Nebraska
+1303,2000-01-01,Howard County,48227,Texas
+1304,2000-01-01,Howard County,18067,Indiana
+1305,2000-01-01,Howard County,5061,Arkansas
+1306,2000-01-01,Howard County,24027,Maryland
+1307,2000-01-01,Howard County,29089,Missouri
+1308,2000-01-01,Howard County,19089,Iowa
+1309,2000-01-01,Howell County,29091,Missouri
+1310,2000-01-01,Hubbard County,27057,Minnesota
+1311,2000-01-01,Hudson County,34017,New Jersey
+1312,2000-01-01,Hudspeth County,48229,Texas
+1313,2000-01-01,Huerfano County,8055,Colorado
+1314,2000-01-01,Hughes County,40063,Oklahoma
+1315,2000-01-01,Hughes County,46065,South Dakota
+1316,2000-01-01,Humboldt County,32013,Nevada
+1317,2000-01-01,Humboldt County,6023,California
+1318,2000-01-01,Humboldt County,19091,Iowa
+1319,2000-01-01,Humphreys County,47085,Tennessee
+1320,2000-01-01,Humphreys County,28053,Mississippi
+1321,2000-01-01,Hunt County,48231,Texas
+1322,2000-01-01,Hunterdon County,34019,New Jersey
+1323,2000-01-01,Huntingdon County,42061,Pennsylvania
+1324,2000-01-01,Huntington County,18069,Indiana
+1325,2000-01-01,Huron County,39077,Ohio
+1326,2000-01-01,Huron County,26063,Michigan
+1327,2000-01-01,Hutchinson County,46067,South Dakota
+1328,2000-01-01,Hutchinson County,48233,Texas
+1329,2000-01-01,Hyde County,37095,North Carolina
+1330,2000-01-01,Hyde County,46069,South Dakota
+1331,2000-01-01,Iberia Parish,22045,Louisiana
+1332,2000-01-01,Iberville Parish,22047,Louisiana
+1333,2000-01-01,Ida County,19093,Iowa
+1334,2000-01-01,Idaho County,16049,Idaho
+1335,2000-01-01,Imperial County,6025,California
+1336,2000-01-01,Independence County,5063,Arkansas
+1337,2000-01-01,Indian River County,12061,Florida
+1338,2000-01-01,Indiana County,42063,Pennsylvania
+1339,2000-01-01,Ingham County,26065,Michigan
+1340,2000-01-01,Inyo County,6027,California
+1341,2000-01-01,Ionia County,26067,Michigan
+1342,2000-01-01,Iosco County,26069,Michigan
+1343,2000-01-01,Iowa County,55049,Wisconsin
+1344,2000-01-01,Iowa County,19095,Iowa
+1345,2000-01-01,Iredell County,37097,North Carolina
+1346,2000-01-01,Irion County,48235,Texas
+1347,2000-01-01,Iron County,49021,Utah
+1348,2000-01-01,Iron County,55051,Wisconsin
+1349,2000-01-01,Iron County,26071,Michigan
+1350,2000-01-01,Iron County,29093,Missouri
+1351,2000-01-01,Iroquois County,17075,Illinois
+1352,2000-01-01,Irwin County,13155,Georgia
+1353,2000-01-01,Isabella County,26073,Michigan
+1354,2000-01-01,Isanti County,27059,Minnesota
+1355,2000-01-01,Island County,53029,Washington
+1356,2000-01-01,Isle of Wight County,51093,Virginia
+1357,2000-01-01,Issaquena County,28055,Mississippi
+1358,2000-01-01,Itasca County,27061,Minnesota
+1359,2000-01-01,Itawamba County,28057,Mississippi
+1360,2000-01-01,Izard County,5065,Arkansas
+1361,2000-01-01,Jack County,48237,Texas
+1362,2000-01-01,Jackson County,39079,Ohio
+1363,2000-01-01,Jackson County,40065,Oklahoma
+1364,2000-01-01,Jackson County,41029,Oregon
+1365,2000-01-01,Jackson County,37099,North Carolina
+1366,2000-01-01,Jackson County,55053,Wisconsin
+1367,2000-01-01,Jackson County,54035,West Virginia
+1368,2000-01-01,Jackson County,47087,Tennessee
+1369,2000-01-01,Jackson County,46071,South Dakota
+1370,2000-01-01,Jackson County,48239,Texas
+1371,2000-01-01,Jackson County,13157,Georgia
+1372,2000-01-01,Jackson County,18071,Indiana
+1373,2000-01-01,Jackson County,17077,Illinois
+1374,2000-01-01,Jackson County,5067,Arkansas
+1375,2000-01-01,Jackson County,1071,Alabama
+1376,2000-01-01,Jackson County,12063,Florida
+1377,2000-01-01,Jackson County,8057,Colorado
+1378,2000-01-01,Jackson County,27063,Minnesota
+1379,2000-01-01,Jackson County,26075,Michigan
+1380,2000-01-01,Jackson County,29095,Missouri
+1381,2000-01-01,Jackson County,28059,Mississippi
+1382,2000-01-01,Jackson County,20085,Kansas
+1383,2000-01-01,Jackson County,19097,Iowa
+1384,2000-01-01,Jackson County,21109,Kentucky
+1385,2000-01-01,Jackson Parish,22049,Louisiana
+1386,2000-01-01,James City County,51095,Virginia
+1387,2000-01-01,Jasper County,45053,South Carolina
+1388,2000-01-01,Jasper County,48241,Texas
+1389,2000-01-01,Jasper County,13159,Georgia
+1390,2000-01-01,Jasper County,18073,Indiana
+1391,2000-01-01,Jasper County,17079,Illinois
+1392,2000-01-01,Jasper County,29097,Missouri
+1393,2000-01-01,Jasper County,28061,Mississippi
+1394,2000-01-01,Jasper County,19099,Iowa
+1395,2000-01-01,Jay County,18075,Indiana
+1396,2000-01-01,Jeff Davis County,48243,Texas
+1397,2000-01-01,Jeff Davis County,13161,Georgia
+1398,2000-01-01,Jefferson County,39081,Ohio
+1399,2000-01-01,Jefferson County,42065,Pennsylvania
+1400,2000-01-01,Jefferson County,40067,Oklahoma
+1401,2000-01-01,Jefferson County,41031,Oregon
+1402,2000-01-01,Jefferson County,31095,Nebraska
+1403,2000-01-01,Jefferson County,30043,Montana
+1404,2000-01-01,Jefferson County,36045,New York
+1405,2000-01-01,Jefferson County,55055,Wisconsin
+1406,2000-01-01,Jefferson County,53031,Washington
+1407,2000-01-01,Jefferson County,54037,West Virginia
+1408,2000-01-01,Jefferson County,47089,Tennessee
+1409,2000-01-01,Jefferson County,48245,Texas
+1410,2000-01-01,Jefferson County,16051,Idaho
+1411,2000-01-01,Jefferson County,13163,Georgia
+1412,2000-01-01,Jefferson County,18077,Indiana
+1413,2000-01-01,Jefferson County,17081,Illinois
+1414,2000-01-01,Jefferson County,5069,Arkansas
+1415,2000-01-01,Jefferson County,1073,Alabama
+1416,2000-01-01,Jefferson County,12065,Florida
+1417,2000-01-01,Jefferson County,8059,Colorado
+1418,2000-01-01,Jefferson County,29099,Missouri
+1419,2000-01-01,Jefferson County,28063,Mississippi
+1420,2000-01-01,Jefferson County,20087,Kansas
+1421,2000-01-01,Jefferson County,19101,Iowa
+1422,2000-01-01,Jefferson County,21111,Kentucky
+1423,2000-01-01,Jefferson Davis County,28065,Mississippi
+1424,2000-01-01,Jefferson Davis Parish,22053,Louisiana
+1425,2000-01-01,Jefferson Parish,22051,Louisiana
+1426,2000-01-01,Jenkins County,13165,Georgia
+1427,2000-01-01,Jennings County,18079,Indiana
+1428,2000-01-01,Jerauld County,46073,South Dakota
+1429,2000-01-01,Jerome County,16053,Idaho
+1430,2000-01-01,Jersey County,17083,Illinois
+1431,2000-01-01,Jessamine County,21113,Kentucky
+1432,2000-01-01,Jewell County,20089,Kansas
+1433,2000-01-01,Jim Hogg County,48247,Texas
+1434,2000-01-01,Jim Wells County,48249,Texas
+1435,2000-01-01,Jo Daviess County,17085,Illinois
+1436,2000-01-01,Johnson County,31097,Nebraska
+1437,2000-01-01,Johnson County,56019,Wyoming
+1438,2000-01-01,Johnson County,47091,Tennessee
+1439,2000-01-01,Johnson County,48251,Texas
+1440,2000-01-01,Johnson County,13167,Georgia
+1441,2000-01-01,Johnson County,18081,Indiana
+1442,2000-01-01,Johnson County,17087,Illinois
+1443,2000-01-01,Johnson County,5071,Arkansas
+1444,2000-01-01,Johnson County,29101,Missouri
+1445,2000-01-01,Johnson County,20091,Kansas
+1446,2000-01-01,Johnson County,19103,Iowa
+1447,2000-01-01,Johnson County,21115,Kentucky
+1448,2000-01-01,Johnston County,40069,Oklahoma
+1449,2000-01-01,Johnston County,37101,North Carolina
+1450,2000-01-01,Jones County,37103,North Carolina
+1451,2000-01-01,Jones County,46075,South Dakota
+1452,2000-01-01,Jones County,48253,Texas
+1453,2000-01-01,Jones County,13169,Georgia
+1454,2000-01-01,Jones County,28067,Mississippi
+1455,2000-01-01,Jones County,19105,Iowa
+1456,2000-01-01,Josephine County,41033,Oregon
+1457,2000-01-01,Juab County,49023,Utah
+1458,2000-01-01,Judith Basin County,30045,Montana
+1459,2000-01-01,Juneau City and Borough,2110,Alaska
+1460,2000-01-01,Juneau County,55057,Wisconsin
+1461,2000-01-01,Juniata County,42067,Pennsylvania
+1462,2000-01-01,Kalamazoo County,26077,Michigan
+1463,2000-01-01,Kalawao County,15005,Hawaii
+1464,2000-01-01,Kalkaska County,26079,Michigan
+1465,2000-01-01,Kanabec County,27065,Minnesota
+1466,2000-01-01,Kanawha County,54039,West Virginia
+1467,2000-01-01,Kandiyohi County,27067,Minnesota
+1468,2000-01-01,Kane County,49025,Utah
+1469,2000-01-01,Kane County,17089,Illinois
+1470,2000-01-01,Kankakee County,17091,Illinois
+1471,2000-01-01,Karnes County,48255,Texas
+1472,2000-01-01,Kauai County,15007,Hawaii
+1473,2000-01-01,Kaufman County,48257,Texas
+1474,2000-01-01,Kay County,40071,Oklahoma
+1475,2000-01-01,Kearney County,31099,Nebraska
+1476,2000-01-01,Kearny County,20093,Kansas
+1477,2000-01-01,Keith County,31101,Nebraska
+1478,2000-01-01,Kemper County,28069,Mississippi
+1479,2000-01-01,Kenai Peninsula Borough,2122,Alaska
+1480,2000-01-01,Kendall County,48259,Texas
+1481,2000-01-01,Kendall County,17093,Illinois
+1482,2000-01-01,Kenedy County,48261,Texas
+1483,2000-01-01,Kennebec County,23011,Maine
+1484,2000-01-01,Kenosha County,55059,Wisconsin
+1485,2000-01-01,Kent County,44003,Rhode Island
+1486,2000-01-01,Kent County,48263,Texas
+1487,2000-01-01,Kent County,10001,Delaware
+1488,2000-01-01,Kent County,24029,Maryland
+1489,2000-01-01,Kent County,26081,Michigan
+1490,2000-01-01,Kenton County,21117,Kentucky
+1491,2000-01-01,Keokuk County,19107,Iowa
+1492,2000-01-01,Kern County,6029,California
+1493,2000-01-01,Kerr County,48265,Texas
+1494,2000-01-01,Kershaw County,45055,South Carolina
+1495,2000-01-01,Ketchikan Gateway Borough,2130,Alaska
+1496,2000-01-01,Kewaunee County,55061,Wisconsin
+1497,2000-01-01,Keweenaw County,26083,Michigan
+1498,2000-01-01,Keya Paha County,31103,Nebraska
+1499,2000-01-01,Kidder County,38043,North Dakota
+1500,2000-01-01,Kimball County,31105,Nebraska
+1501,2000-01-01,Kimble County,48267,Texas
+1502,2000-01-01,King County,53033,Washington
+1503,2000-01-01,King County,48269,Texas
+1504,2000-01-01,King George County,51099,Virginia
+1505,2000-01-01,King William County,51101,Virginia
+1506,2000-01-01,King and Queen County,51097,Virginia
+1507,2000-01-01,Kingfisher County,40073,Oklahoma
+1508,2000-01-01,Kingman County,20095,Kansas
+1509,2000-01-01,Kings County,36047,New York
+1510,2000-01-01,Kings County,6031,California
+1511,2000-01-01,Kingsbury County,46077,South Dakota
+1512,2000-01-01,Kinney County,48271,Texas
+1513,2000-01-01,Kiowa County,40075,Oklahoma
+1514,2000-01-01,Kiowa County,8061,Colorado
+1515,2000-01-01,Kiowa County,20097,Kansas
+1516,2000-01-01,Kit Carson County,8063,Colorado
+1517,2000-01-01,Kitsap County,53035,Washington
+1518,2000-01-01,Kittitas County,53037,Washington
+1519,2000-01-01,Kittson County,27069,Minnesota
+1520,2000-01-01,Klamath County,41035,Oregon
+1521,2000-01-01,Kleberg County,48273,Texas
+1522,2000-01-01,Klickitat County,53039,Washington
+1523,2000-01-01,Knott County,21119,Kentucky
+1524,2000-01-01,Knox County,39083,Ohio
+1525,2000-01-01,Knox County,31107,Nebraska
+1526,2000-01-01,Knox County,47093,Tennessee
+1527,2000-01-01,Knox County,48275,Texas
+1528,2000-01-01,Knox County,18083,Indiana
+1529,2000-01-01,Knox County,17095,Illinois
+1530,2000-01-01,Knox County,23013,Maine
+1531,2000-01-01,Knox County,29103,Missouri
+1532,2000-01-01,Knox County,21121,Kentucky
+1533,2000-01-01,Kodiak Island Borough,2150,Alaska
+1534,2000-01-01,Koochiching County,27071,Minnesota
+1535,2000-01-01,Kootenai County,16055,Idaho
+1536,2000-01-01,Kosciusko County,18085,Indiana
+1537,2000-01-01,Kossuth County,19109,Iowa
+1538,2000-01-01,La Crosse County,55063,Wisconsin
+1539,2000-01-01,La Paz County,4012,Arizona
+1540,2000-01-01,La Plata County,8067,Colorado
+1541,2000-01-01,La Salle County,48283,Texas
+1542,2000-01-01,La Salle Parish,22059,Louisiana
+1543,2000-01-01,LaGrange County,18087,Indiana
+1544,2000-01-01,LaMoure County,38045,North Dakota
+1545,2000-01-01,LaPorte County,18091,Indiana
+1546,2000-01-01,LaSalle County,17099,Illinois
+1547,2000-01-01,Labette County,20099,Kansas
+1548,2000-01-01,Lac qui Parle County,27073,Minnesota
+1549,2000-01-01,Lackawanna County,42069,Pennsylvania
+1550,2000-01-01,Laclede County,29105,Missouri
+1551,2000-01-01,Lafayette County,55065,Wisconsin
+1552,2000-01-01,Lafayette County,5073,Arkansas
+1553,2000-01-01,Lafayette County,12067,Florida
+1554,2000-01-01,Lafayette County,29107,Missouri
+1555,2000-01-01,Lafayette County,28071,Mississippi
+1556,2000-01-01,Lafayette Parish,22055,Louisiana
+1557,2000-01-01,Lafourche Parish,22057,Louisiana
+1558,2000-01-01,Lake County,39085,Ohio
+1559,2000-01-01,Lake County,41037,Oregon
+1560,2000-01-01,Lake County,30047,Montana
+1561,2000-01-01,Lake County,47095,Tennessee
+1562,2000-01-01,Lake County,46079,South Dakota
+1563,2000-01-01,Lake County,18089,Indiana
+1564,2000-01-01,Lake County,17097,Illinois
+1565,2000-01-01,Lake County,12069,Florida
+1566,2000-01-01,Lake County,6033,California
+1567,2000-01-01,Lake County,8065,Colorado
+1568,2000-01-01,Lake County,27075,Minnesota
+1569,2000-01-01,Lake County,26085,Michigan
+1570,2000-01-01,Lake and Peninsula Borough,2164,Alaska
+1571,2000-01-01,Lake of the Woods County,27077,Minnesota
+1572,2000-01-01,Lamar County,48277,Texas
+1573,2000-01-01,Lamar County,13171,Georgia
+1574,2000-01-01,Lamar County,1075,Alabama
+1575,2000-01-01,Lamar County,28073,Mississippi
+1576,2000-01-01,Lamb County,48279,Texas
+1577,2000-01-01,Lamoille County,50015,Vermont
+1578,2000-01-01,Lampasas County,48281,Texas
+1579,2000-01-01,Lancaster County,42071,Pennsylvania
+1580,2000-01-01,Lancaster County,45057,South Carolina
+1581,2000-01-01,Lancaster County,31109,Nebraska
+1582,2000-01-01,Lancaster County,51103,Virginia
+1583,2000-01-01,Lander County,32015,Nevada
+1584,2000-01-01,Lane County,41039,Oregon
+1585,2000-01-01,Lane County,20101,Kansas
+1586,2000-01-01,Langlade County,55067,Wisconsin
+1587,2000-01-01,Lanier County,13173,Georgia
+1588,2000-01-01,Lapeer County,26087,Michigan
+1589,2000-01-01,Laramie County,56021,Wyoming
+1590,2000-01-01,Larimer County,8069,Colorado
+1591,2000-01-01,Larue County,21123,Kentucky
+1592,2000-01-01,Las Animas County,8071,Colorado
+1593,2000-01-01,Lassen County,6035,California
+1594,2000-01-01,Latah County,16057,Idaho
+1595,2000-01-01,Latimer County,40077,Oklahoma
+1596,2000-01-01,Lauderdale County,47097,Tennessee
+1597,2000-01-01,Lauderdale County,1077,Alabama
+1598,2000-01-01,Lauderdale County,28075,Mississippi
+1599,2000-01-01,Laurel County,21125,Kentucky
+1600,2000-01-01,Laurens County,45059,South Carolina
+1601,2000-01-01,Laurens County,13175,Georgia
+1602,2000-01-01,Lavaca County,48285,Texas
+1603,2000-01-01,Lawrence County,39087,Ohio
+1604,2000-01-01,Lawrence County,42073,Pennsylvania
+1605,2000-01-01,Lawrence County,47099,Tennessee
+1606,2000-01-01,Lawrence County,46081,South Dakota
+1607,2000-01-01,Lawrence County,18093,Indiana
+1608,2000-01-01,Lawrence County,17101,Illinois
+1609,2000-01-01,Lawrence County,5075,Arkansas
+1610,2000-01-01,Lawrence County,1079,Alabama
+1611,2000-01-01,Lawrence County,29109,Missouri
+1612,2000-01-01,Lawrence County,28077,Mississippi
+1613,2000-01-01,Lawrence County,21127,Kentucky
+1614,2000-01-01,Le Flore County,40079,Oklahoma
+1615,2000-01-01,Le Sueur County,27079,Minnesota
+1616,2000-01-01,Lea County,35025,New Mexico
+1617,2000-01-01,Leake County,28079,Mississippi
+1618,2000-01-01,Leavenworth County,20103,Kansas
+1619,2000-01-01,Lebanon County,42075,Pennsylvania
+1620,2000-01-01,Lee County,45061,South Carolina
+1621,2000-01-01,Lee County,37105,North Carolina
+1622,2000-01-01,Lee County,51105,Virginia
+1623,2000-01-01,Lee County,48287,Texas
+1624,2000-01-01,Lee County,13177,Georgia
+1625,2000-01-01,Lee County,17103,Illinois
+1626,2000-01-01,Lee County,5077,Arkansas
+1627,2000-01-01,Lee County,1081,Alabama
+1628,2000-01-01,Lee County,12071,Florida
+1629,2000-01-01,Lee County,28081,Mississippi
+1630,2000-01-01,Lee County,19111,Iowa
+1631,2000-01-01,Lee County,21129,Kentucky
+1632,2000-01-01,Leelanau County,26089,Michigan
+1633,2000-01-01,Leflore County,28083,Mississippi
+1634,2000-01-01,Lehigh County,42077,Pennsylvania
+1635,2000-01-01,Lemhi County,16059,Idaho
+1636,2000-01-01,Lenawee County,26091,Michigan
+1637,2000-01-01,Lenoir County,37107,North Carolina
+1638,2000-01-01,Leon County,48289,Texas
+1639,2000-01-01,Leon County,12073,Florida
+1640,2000-01-01,Leslie County,21131,Kentucky
+1641,2000-01-01,Letcher County,21133,Kentucky
+1642,2000-01-01,Levy County,12075,Florida
+1643,2000-01-01,Lewis County,36049,New York
+1644,2000-01-01,Lewis County,53041,Washington
+1645,2000-01-01,Lewis County,54041,West Virginia
+1646,2000-01-01,Lewis County,47101,Tennessee
+1647,2000-01-01,Lewis County,16061,Idaho
+1648,2000-01-01,Lewis County,29111,Missouri
+1649,2000-01-01,Lewis County,21135,Kentucky
+1650,2000-01-01,Lewis and Clark County,30049,Montana
+1651,2000-01-01,Lexington County,45063,South Carolina
+1652,2000-01-01,Lexington city,51678,Virginia
+1653,2000-01-01,Liberty County,30051,Montana
+1654,2000-01-01,Liberty County,48291,Texas
+1655,2000-01-01,Liberty County,13179,Georgia
+1656,2000-01-01,Liberty County,12077,Florida
+1657,2000-01-01,Licking County,39089,Ohio
+1658,2000-01-01,Limestone County,48293,Texas
+1659,2000-01-01,Limestone County,1083,Alabama
+1660,2000-01-01,Lincoln County,40081,Oklahoma
+1661,2000-01-01,Lincoln County,41041,Oregon
+1662,2000-01-01,Lincoln County,31111,Nebraska
+1663,2000-01-01,Lincoln County,32017,Nevada
+1664,2000-01-01,Lincoln County,30053,Montana
+1665,2000-01-01,Lincoln County,37109,North Carolina
+1666,2000-01-01,Lincoln County,35027,New Mexico
+1667,2000-01-01,Lincoln County,55069,Wisconsin
+1668,2000-01-01,Lincoln County,56023,Wyoming
+1669,2000-01-01,Lincoln County,53043,Washington
+1670,2000-01-01,Lincoln County,54043,West Virginia
+1671,2000-01-01,Lincoln County,47103,Tennessee
+1672,2000-01-01,Lincoln County,46083,South Dakota
+1673,2000-01-01,Lincoln County,16063,Idaho
+1674,2000-01-01,Lincoln County,13181,Georgia
+1675,2000-01-01,Lincoln County,5079,Arkansas
+1676,2000-01-01,Lincoln County,8073,Colorado
+1677,2000-01-01,Lincoln County,27081,Minnesota
+1678,2000-01-01,Lincoln County,23015,Maine
+1679,2000-01-01,Lincoln County,29113,Missouri
+1680,2000-01-01,Lincoln County,28085,Mississippi
+1681,2000-01-01,Lincoln County,20105,Kansas
+1682,2000-01-01,Lincoln County,21137,Kentucky
+1683,2000-01-01,Lincoln Parish,22061,Louisiana
+1684,2000-01-01,Linn County,41043,Oregon
+1685,2000-01-01,Linn County,29115,Missouri
+1686,2000-01-01,Linn County,20107,Kansas
+1687,2000-01-01,Linn County,19113,Iowa
+1688,2000-01-01,Lipscomb County,48295,Texas
+1689,2000-01-01,Litchfield County,9005,Connecticut
+1690,2000-01-01,Little River County,5081,Arkansas
+1691,2000-01-01,Live Oak County,48297,Texas
+1692,2000-01-01,Livingston County,36051,New York
+1693,2000-01-01,Livingston County,17105,Illinois
+1694,2000-01-01,Livingston County,26093,Michigan
+1695,2000-01-01,Livingston County,29117,Missouri
+1696,2000-01-01,Livingston County,21139,Kentucky
+1697,2000-01-01,Livingston Parish,22063,Louisiana
+1698,2000-01-01,Llano County,48299,Texas
+1699,2000-01-01,Logan County,39091,Ohio
+1700,2000-01-01,Logan County,38047,North Dakota
+1701,2000-01-01,Logan County,40083,Oklahoma
+1702,2000-01-01,Logan County,31113,Nebraska
+1703,2000-01-01,Logan County,54045,West Virginia
+1704,2000-01-01,Logan County,17107,Illinois
+1705,2000-01-01,Logan County,5083,Arkansas
+1706,2000-01-01,Logan County,8075,Colorado
+1707,2000-01-01,Logan County,20109,Kansas
+1708,2000-01-01,Logan County,21141,Kentucky
+1709,2000-01-01,Long County,13183,Georgia
+1710,2000-01-01,Lonoke County,5085,Arkansas
+1711,2000-01-01,Lorain County,39093,Ohio
+1712,2000-01-01,Los Alamos County,35028,New Mexico
+1713,2000-01-01,Los Angeles County,6037,California
+1714,2000-01-01,Loudon County,47105,Tennessee
+1715,2000-01-01,Loudoun County,51107,Virginia
+1716,2000-01-01,Louisa County,51109,Virginia
+1717,2000-01-01,Louisa County,19115,Iowa
+1718,2000-01-01,Loup County,31115,Nebraska
+1719,2000-01-01,Love County,40085,Oklahoma
+1720,2000-01-01,Loving County,48301,Texas
+1721,2000-01-01,Lowndes County,13185,Georgia
+1722,2000-01-01,Lowndes County,1085,Alabama
+1723,2000-01-01,Lowndes County,28087,Mississippi
+1724,2000-01-01,Lubbock County,48303,Texas
+1725,2000-01-01,Lucas County,39095,Ohio
+1726,2000-01-01,Lucas County,19117,Iowa
+1727,2000-01-01,Luce County,26095,Michigan
+1728,2000-01-01,Lumpkin County,13187,Georgia
+1729,2000-01-01,Luna County,35029,New Mexico
+1730,2000-01-01,Lunenburg County,51111,Virginia
+1731,2000-01-01,Luzerne County,42079,Pennsylvania
+1732,2000-01-01,Lycoming County,42081,Pennsylvania
+1733,2000-01-01,Lyman County,46085,South Dakota
+1734,2000-01-01,Lynchburg city,51680,Virginia
+1735,2000-01-01,Lynn County,48305,Texas
+1736,2000-01-01,Lyon County,32019,Nevada
+1737,2000-01-01,Lyon County,27083,Minnesota
+1738,2000-01-01,Lyon County,20111,Kansas
+1739,2000-01-01,Lyon County,19119,Iowa
+1740,2000-01-01,Lyon County,21143,Kentucky
+1741,2000-01-01,Mackinac County,26097,Michigan
+1742,2000-01-01,Macomb County,26099,Michigan
+1743,2000-01-01,Macon County,37113,North Carolina
+1744,2000-01-01,Macon County,47111,Tennessee
+1745,2000-01-01,Macon County,13193,Georgia
+1746,2000-01-01,Macon County,17115,Illinois
+1747,2000-01-01,Macon County,1087,Alabama
+1748,2000-01-01,Macon County,29121,Missouri
+1749,2000-01-01,Macoupin County,17117,Illinois
+1750,2000-01-01,Madera County,6039,California
+1751,2000-01-01,Madison County,39097,Ohio
+1752,2000-01-01,Madison County,31119,Nebraska
+1753,2000-01-01,Madison County,30057,Montana
+1754,2000-01-01,Madison County,37115,North Carolina
+1755,2000-01-01,Madison County,36053,New York
+1756,2000-01-01,Madison County,51113,Virginia
+1757,2000-01-01,Madison County,47113,Tennessee
+1758,2000-01-01,Madison County,48313,Texas
+1759,2000-01-01,Madison County,16065,Idaho
+1760,2000-01-01,Madison County,13195,Georgia
+1761,2000-01-01,Madison County,18095,Indiana
+1762,2000-01-01,Madison County,17119,Illinois
+1763,2000-01-01,Madison County,5087,Arkansas
+1764,2000-01-01,Madison County,1089,Alabama
+1765,2000-01-01,Madison County,12079,Florida
+1766,2000-01-01,Madison County,29123,Missouri
+1767,2000-01-01,Madison County,28089,Mississippi
+1768,2000-01-01,Madison County,19121,Iowa
+1769,2000-01-01,Madison County,21151,Kentucky
+1770,2000-01-01,Madison Parish,22065,Louisiana
+1771,2000-01-01,Magoffin County,21153,Kentucky
+1772,2000-01-01,Mahaska County,19123,Iowa
+1773,2000-01-01,Mahnomen County,27087,Minnesota
+1774,2000-01-01,Mahoning County,39099,Ohio
+1775,2000-01-01,Major County,40093,Oklahoma
+1776,2000-01-01,Malheur County,41045,Oregon
+1777,2000-01-01,Manassas Park city,51685,Virginia
+1778,2000-01-01,Manassas city,51683,Virginia
+1779,2000-01-01,Manatee County,12081,Florida
+1780,2000-01-01,Manistee County,26101,Michigan
+1781,2000-01-01,Manitowoc County,55071,Wisconsin
+1782,2000-01-01,Marathon County,55073,Wisconsin
+1783,2000-01-01,Marengo County,1091,Alabama
+1784,2000-01-01,Maricopa County,4013,Arizona
+1785,2000-01-01,Maries County,29125,Missouri
+1786,2000-01-01,Marin County,6041,California
+1787,2000-01-01,Marinette County,55075,Wisconsin
+1788,2000-01-01,Marion County,39101,Ohio
+1789,2000-01-01,Marion County,45067,South Carolina
+1790,2000-01-01,Marion County,41047,Oregon
+1791,2000-01-01,Marion County,54049,West Virginia
+1792,2000-01-01,Marion County,47115,Tennessee
+1793,2000-01-01,Marion County,48315,Texas
+1794,2000-01-01,Marion County,13197,Georgia
+1795,2000-01-01,Marion County,18097,Indiana
+1796,2000-01-01,Marion County,17121,Illinois
+1797,2000-01-01,Marion County,5089,Arkansas
+1798,2000-01-01,Marion County,1093,Alabama
+1799,2000-01-01,Marion County,12083,Florida
+1800,2000-01-01,Marion County,29127,Missouri
+1801,2000-01-01,Marion County,28091,Mississippi
+1802,2000-01-01,Marion County,20115,Kansas
+1803,2000-01-01,Marion County,19125,Iowa
+1804,2000-01-01,Marion County,21155,Kentucky
+1805,2000-01-01,Mariposa County,6043,California
+1806,2000-01-01,Marlboro County,45069,South Carolina
+1807,2000-01-01,Marquette County,55077,Wisconsin
+1808,2000-01-01,Marquette County,26103,Michigan
+1809,2000-01-01,Marshall County,40095,Oklahoma
+1810,2000-01-01,Marshall County,54051,West Virginia
+1811,2000-01-01,Marshall County,47117,Tennessee
+1812,2000-01-01,Marshall County,46091,South Dakota
+1813,2000-01-01,Marshall County,18099,Indiana
+1814,2000-01-01,Marshall County,17123,Illinois
+1815,2000-01-01,Marshall County,1095,Alabama
+1816,2000-01-01,Marshall County,27089,Minnesota
+1817,2000-01-01,Marshall County,28093,Mississippi
+1818,2000-01-01,Marshall County,20117,Kansas
+1819,2000-01-01,Marshall County,19127,Iowa
+1820,2000-01-01,Marshall County,21157,Kentucky
+1821,2000-01-01,Martin County,37117,North Carolina
+1822,2000-01-01,Martin County,48317,Texas
+1823,2000-01-01,Martin County,18101,Indiana
+1824,2000-01-01,Martin County,12085,Florida
+1825,2000-01-01,Martin County,27091,Minnesota
+1826,2000-01-01,Martin County,21159,Kentucky
+1827,2000-01-01,Martinsville city,51690,Virginia
+1828,2000-01-01,Mason County,53045,Washington
+1829,2000-01-01,Mason County,54053,West Virginia
+1830,2000-01-01,Mason County,48319,Texas
+1831,2000-01-01,Mason County,17125,Illinois
+1832,2000-01-01,Mason County,26105,Michigan
+1833,2000-01-01,Mason County,21161,Kentucky
+1834,2000-01-01,Massac County,17127,Illinois
+1835,2000-01-01,Matagorda County,48321,Texas
+1836,2000-01-01,Matanuska-Susitna Borough,2170,Alaska
+1837,2000-01-01,Mathews County,51115,Virginia
+1838,2000-01-01,Maui County,15009,Hawaii
+1839,2000-01-01,Maury County,47119,Tennessee
+1840,2000-01-01,Maverick County,48323,Texas
+1841,2000-01-01,Mayes County,40097,Oklahoma
+1842,2000-01-01,McClain County,40087,Oklahoma
+1843,2000-01-01,McCone County,30055,Montana
+1844,2000-01-01,McCook County,46087,South Dakota
+1845,2000-01-01,McCormick County,45065,South Carolina
+1846,2000-01-01,McCracken County,21145,Kentucky
+1847,2000-01-01,McCreary County,21147,Kentucky
+1848,2000-01-01,McCulloch County,48307,Texas
+1849,2000-01-01,McCurtain County,40089,Oklahoma
+1850,2000-01-01,McDonald County,29119,Missouri
+1851,2000-01-01,McDonough County,17109,Illinois
+1852,2000-01-01,McDowell County,37111,North Carolina
+1853,2000-01-01,McDowell County,54047,West Virginia
+1854,2000-01-01,McDuffie County,13189,Georgia
+1855,2000-01-01,McHenry County,38049,North Dakota
+1856,2000-01-01,McHenry County,17111,Illinois
+1857,2000-01-01,McIntosh County,38051,North Dakota
+1858,2000-01-01,McIntosh County,40091,Oklahoma
+1859,2000-01-01,McIntosh County,13191,Georgia
+1860,2000-01-01,McKean County,42083,Pennsylvania
+1861,2000-01-01,McKenzie County,38053,North Dakota
+1862,2000-01-01,McKinley County,35031,New Mexico
+1863,2000-01-01,McLean County,38055,North Dakota
+1864,2000-01-01,McLean County,17113,Illinois
+1865,2000-01-01,McLean County,21149,Kentucky
+1866,2000-01-01,McLennan County,48309,Texas
+1867,2000-01-01,McLeod County,27085,Minnesota
+1868,2000-01-01,McMinn County,47107,Tennessee
+1869,2000-01-01,McMullen County,48311,Texas
+1870,2000-01-01,McNairy County,47109,Tennessee
+1871,2000-01-01,McPherson County,31117,Nebraska
+1872,2000-01-01,McPherson County,46089,South Dakota
+1873,2000-01-01,McPherson County,20113,Kansas
+1874,2000-01-01,Meade County,46093,South Dakota
+1875,2000-01-01,Meade County,20119,Kansas
+1876,2000-01-01,Meade County,21163,Kentucky
+1877,2000-01-01,Meagher County,30059,Montana
+1878,2000-01-01,Mecklenburg County,37119,North Carolina
+1879,2000-01-01,Mecklenburg County,51117,Virginia
+1880,2000-01-01,Mecosta County,26107,Michigan
+1881,2000-01-01,Medina County,39103,Ohio
+1882,2000-01-01,Medina County,48325,Texas
+1883,2000-01-01,Meeker County,27093,Minnesota
+1884,2000-01-01,Meigs County,39105,Ohio
+1885,2000-01-01,Meigs County,47121,Tennessee
+1886,2000-01-01,Mellette County,46095,South Dakota
+1887,2000-01-01,Menard County,48327,Texas
+1888,2000-01-01,Menard County,17129,Illinois
+1889,2000-01-01,Mendocino County,6045,California
+1890,2000-01-01,Menifee County,21165,Kentucky
+1891,2000-01-01,Menominee County,55078,Wisconsin
+1892,2000-01-01,Menominee County,26109,Michigan
+1893,2000-01-01,Merced County,6047,California
+1894,2000-01-01,Mercer County,39107,Ohio
+1895,2000-01-01,Mercer County,38057,North Dakota
+1896,2000-01-01,Mercer County,42085,Pennsylvania
+1897,2000-01-01,Mercer County,34021,New Jersey
+1898,2000-01-01,Mercer County,54055,West Virginia
+1899,2000-01-01,Mercer County,17131,Illinois
+1900,2000-01-01,Mercer County,29129,Missouri
+1901,2000-01-01,Mercer County,21167,Kentucky
+1902,2000-01-01,Meriwether County,13199,Georgia
+1903,2000-01-01,Merrick County,31121,Nebraska
+1904,2000-01-01,Merrimack County,33013,New Hampshire
+1905,2000-01-01,Mesa County,8077,Colorado
+1906,2000-01-01,Metcalfe County,21169,Kentucky
+1907,2000-01-01,Miami County,39109,Ohio
+1908,2000-01-01,Miami County,18103,Indiana
+1909,2000-01-01,Miami County,20121,Kansas
+1910,2000-01-01,Miami-Dade County,12086,Florida
+1911,2000-01-01,Middlesex County,34023,New Jersey
+1912,2000-01-01,Middlesex County,51119,Virginia
+1913,2000-01-01,Middlesex County,9007,Connecticut
+1914,2000-01-01,Middlesex County,25017,Massachusetts
+1915,2000-01-01,Midland County,48329,Texas
+1916,2000-01-01,Midland County,26111,Michigan
+1917,2000-01-01,Mifflin County,42087,Pennsylvania
+1918,2000-01-01,Milam County,48331,Texas
+1919,2000-01-01,Millard County,49027,Utah
+1920,2000-01-01,Mille Lacs County,27095,Minnesota
+1921,2000-01-01,Miller County,13201,Georgia
+1922,2000-01-01,Miller County,5091,Arkansas
+1923,2000-01-01,Miller County,29131,Missouri
+1924,2000-01-01,Mills County,48333,Texas
+1925,2000-01-01,Mills County,19129,Iowa
+1926,2000-01-01,Milwaukee County,55079,Wisconsin
+1927,2000-01-01,Miner County,46097,South Dakota
+1928,2000-01-01,Mineral County,32021,Nevada
+1929,2000-01-01,Mineral County,30061,Montana
+1930,2000-01-01,Mineral County,54057,West Virginia
+1931,2000-01-01,Mineral County,8079,Colorado
+1932,2000-01-01,Mingo County,54059,West Virginia
+1933,2000-01-01,Minidoka County,16067,Idaho
+1934,2000-01-01,Minnehaha County,46099,South Dakota
+1935,2000-01-01,Missaukee County,26113,Michigan
+1936,2000-01-01,Mississippi County,5093,Arkansas
+1937,2000-01-01,Mississippi County,29133,Missouri
+1938,2000-01-01,Missoula County,30063,Montana
+1939,2000-01-01,Mitchell County,37121,North Carolina
+1940,2000-01-01,Mitchell County,48335,Texas
+1941,2000-01-01,Mitchell County,13205,Georgia
+1942,2000-01-01,Mitchell County,20123,Kansas
+1943,2000-01-01,Mitchell County,19131,Iowa
+1944,2000-01-01,Mobile County,1097,Alabama
+1945,2000-01-01,Modoc County,6049,California
+1946,2000-01-01,Moffat County,8081,Colorado
+1947,2000-01-01,Mohave County,4015,Arizona
+1948,2000-01-01,Moniteau County,29135,Missouri
+1949,2000-01-01,Monmouth County,34025,New Jersey
+1950,2000-01-01,Mono County,6051,California
+1951,2000-01-01,Monona County,19133,Iowa
+1952,2000-01-01,Monongalia County,54061,West Virginia
+1953,2000-01-01,Monroe County,39111,Ohio
+1954,2000-01-01,Monroe County,42089,Pennsylvania
+1955,2000-01-01,Monroe County,36055,New York
+1956,2000-01-01,Monroe County,55081,Wisconsin
+1957,2000-01-01,Monroe County,54063,West Virginia
+1958,2000-01-01,Monroe County,47123,Tennessee
+1959,2000-01-01,Monroe County,13207,Georgia
+1960,2000-01-01,Monroe County,18105,Indiana
+1961,2000-01-01,Monroe County,17133,Illinois
+1962,2000-01-01,Monroe County,5095,Arkansas
+1963,2000-01-01,Monroe County,1099,Alabama
+1964,2000-01-01,Monroe County,12087,Florida
+1965,2000-01-01,Monroe County,26115,Michigan
+1966,2000-01-01,Monroe County,29137,Missouri
+1967,2000-01-01,Monroe County,28095,Mississippi
+1968,2000-01-01,Monroe County,19135,Iowa
+1969,2000-01-01,Monroe County,21171,Kentucky
+1970,2000-01-01,Montague County,48337,Texas
+1971,2000-01-01,Montcalm County,26117,Michigan
+1972,2000-01-01,Monterey County,6053,California
+1973,2000-01-01,Montezuma County,8083,Colorado
+1974,2000-01-01,Montgomery County,39113,Ohio
+1975,2000-01-01,Montgomery County,42091,Pennsylvania
+1976,2000-01-01,Montgomery County,37123,North Carolina
+1977,2000-01-01,Montgomery County,36057,New York
+1978,2000-01-01,Montgomery County,51121,Virginia
+1979,2000-01-01,Montgomery County,47125,Tennessee
+1980,2000-01-01,Montgomery County,48339,Texas
+1981,2000-01-01,Montgomery County,13209,Georgia
+1982,2000-01-01,Montgomery County,18107,Indiana
+1983,2000-01-01,Montgomery County,17135,Illinois
+1984,2000-01-01,Montgomery County,5097,Arkansas
+1985,2000-01-01,Montgomery County,1101,Alabama
+1986,2000-01-01,Montgomery County,24031,Maryland
+1987,2000-01-01,Montgomery County,29139,Missouri
+1988,2000-01-01,Montgomery County,28097,Mississippi
+1989,2000-01-01,Montgomery County,20125,Kansas
+1990,2000-01-01,Montgomery County,19137,Iowa
+1991,2000-01-01,Montgomery County,21173,Kentucky
+1992,2000-01-01,Montmorency County,26119,Michigan
+1993,2000-01-01,Montour County,42093,Pennsylvania
+1994,2000-01-01,Montrose County,8085,Colorado
+1995,2000-01-01,Moody County,46101,South Dakota
+1996,2000-01-01,Moore County,37125,North Carolina
+1997,2000-01-01,Moore County,47127,Tennessee
+1998,2000-01-01,Moore County,48341,Texas
+1999,2000-01-01,Mora County,35033,New Mexico
+2000,2000-01-01,Morehouse Parish,22067,Louisiana
+2001,2000-01-01,Morgan County,39115,Ohio
+2002,2000-01-01,Morgan County,49029,Utah
+2003,2000-01-01,Morgan County,54065,West Virginia
+2004,2000-01-01,Morgan County,47129,Tennessee
+2005,2000-01-01,Morgan County,13211,Georgia
+2006,2000-01-01,Morgan County,18109,Indiana
+2007,2000-01-01,Morgan County,17137,Illinois
+2008,2000-01-01,Morgan County,1103,Alabama
+2009,2000-01-01,Morgan County,8087,Colorado
+2010,2000-01-01,Morgan County,29141,Missouri
+2011,2000-01-01,Morgan County,21175,Kentucky
+2012,2000-01-01,Morrill County,31123,Nebraska
+2013,2000-01-01,Morris County,34027,New Jersey
+2014,2000-01-01,Morris County,48343,Texas
+2015,2000-01-01,Morris County,20127,Kansas
+2016,2000-01-01,Morrison County,27097,Minnesota
+2017,2000-01-01,Morrow County,39117,Ohio
+2018,2000-01-01,Morrow County,41049,Oregon
+2019,2000-01-01,Morton County,38059,North Dakota
+2020,2000-01-01,Morton County,20129,Kansas
+2021,2000-01-01,Motley County,48345,Texas
+2022,2000-01-01,Moultrie County,17139,Illinois
+2023,2000-01-01,Mountrail County,38061,North Dakota
+2024,2000-01-01,Mower County,27099,Minnesota
+2025,2000-01-01,Muhlenberg County,21177,Kentucky
+2026,2000-01-01,Multnomah County,41051,Oregon
+2027,2000-01-01,Murray County,40099,Oklahoma
+2028,2000-01-01,Murray County,13213,Georgia
+2029,2000-01-01,Murray County,27101,Minnesota
+2030,2000-01-01,Muscatine County,19139,Iowa
+2031,2000-01-01,Muscogee County,13215,Georgia
+2032,2000-01-01,Muskegon County,26121,Michigan
+2033,2000-01-01,Muskingum County,39119,Ohio
+2034,2000-01-01,Muskogee County,40101,Oklahoma
+2035,2000-01-01,Musselshell County,30065,Montana
+2036,2000-01-01,Nacogdoches County,48347,Texas
+2037,2000-01-01,Nance County,31125,Nebraska
+2038,2000-01-01,Nantucket County,25019,Massachusetts
+2039,2000-01-01,Napa County,6055,California
+2040,2000-01-01,Nash County,37127,North Carolina
+2041,2000-01-01,Nassau County,36059,New York
+2042,2000-01-01,Nassau County,12089,Florida
+2043,2000-01-01,Natchitoches Parish,22069,Louisiana
+2044,2000-01-01,Natrona County,56025,Wyoming
+2045,2000-01-01,Navajo County,4017,Arizona
+2046,2000-01-01,Navarro County,48349,Texas
+2047,2000-01-01,Nelson County,38063,North Dakota
+2048,2000-01-01,Nelson County,51125,Virginia
+2049,2000-01-01,Nelson County,21179,Kentucky
+2050,2000-01-01,Nemaha County,31127,Nebraska
+2051,2000-01-01,Nemaha County,20131,Kansas
+2052,2000-01-01,Neosho County,20133,Kansas
+2053,2000-01-01,Neshoba County,28099,Mississippi
+2054,2000-01-01,Ness County,20135,Kansas
+2055,2000-01-01,Nevada County,5099,Arkansas
+2056,2000-01-01,Nevada County,6057,California
+2057,2000-01-01,New Castle County,10003,Delaware
+2058,2000-01-01,New Hanover County,37129,North Carolina
+2059,2000-01-01,New Haven County,9009,Connecticut
+2060,2000-01-01,New Kent County,51127,Virginia
+2061,2000-01-01,New London County,9011,Connecticut
+2062,2000-01-01,New Madrid County,29143,Missouri
+2063,2000-01-01,New York County,36061,New York
+2064,2000-01-01,Newaygo County,26123,Michigan
+2065,2000-01-01,Newberry County,45071,South Carolina
+2066,2000-01-01,Newport County,44005,Rhode Island
+2067,2000-01-01,Newport News city,51700,Virginia
+2068,2000-01-01,Newton County,48351,Texas
+2069,2000-01-01,Newton County,13217,Georgia
+2070,2000-01-01,Newton County,18111,Indiana
+2071,2000-01-01,Newton County,5101,Arkansas
+2072,2000-01-01,Newton County,29145,Missouri
+2073,2000-01-01,Newton County,28101,Mississippi
+2074,2000-01-01,Nez Perce County,16069,Idaho
+2075,2000-01-01,Niagara County,36063,New York
+2076,2000-01-01,Nicholas County,54067,West Virginia
+2077,2000-01-01,Nicholas County,21181,Kentucky
+2078,2000-01-01,Nicollet County,27103,Minnesota
+2079,2000-01-01,Niobrara County,56027,Wyoming
+2080,2000-01-01,Noble County,39121,Ohio
+2081,2000-01-01,Noble County,40103,Oklahoma
+2082,2000-01-01,Noble County,18113,Indiana
+2083,2000-01-01,Nobles County,27105,Minnesota
+2084,2000-01-01,Nodaway County,29147,Missouri
+2085,2000-01-01,Nolan County,48353,Texas
+2086,2000-01-01,Nome Census Area,2180,Alaska
+2087,2000-01-01,Norfolk County,25021,Massachusetts
+2088,2000-01-01,Norfolk city,51710,Virginia
+2089,2000-01-01,Norman County,27107,Minnesota
+2090,2000-01-01,North Slope Borough,2185,Alaska
+2091,2000-01-01,Northampton County,42095,Pennsylvania
+2092,2000-01-01,Northampton County,37131,North Carolina
+2093,2000-01-01,Northampton County,51131,Virginia
+2094,2000-01-01,Northumberland County,42097,Pennsylvania
+2095,2000-01-01,Northumberland County,51133,Virginia
+2096,2000-01-01,Northwest Arctic Borough,2188,Alaska
+2097,2000-01-01,Norton County,20137,Kansas
+2098,2000-01-01,Norton city,51720,Virginia
+2099,2000-01-01,Nottoway County,51135,Virginia
+2100,2000-01-01,Nowata County,40105,Oklahoma
+2101,2000-01-01,Noxubee County,28103,Mississippi
+2102,2000-01-01,Nuckolls County,31129,Nebraska
+2103,2000-01-01,Nueces County,48355,Texas
+2104,2000-01-01,Nye County,32023,Nevada
+2105,2000-01-01,O'Brien County,19141,Iowa
+2106,2000-01-01,Oakland County,26125,Michigan
+2107,2000-01-01,Obion County,47131,Tennessee
+2108,2000-01-01,Ocean County,34029,New Jersey
+2109,2000-01-01,Oceana County,26127,Michigan
+2110,2000-01-01,Ochiltree County,48357,Texas
+2111,2000-01-01,Oconee County,45073,South Carolina
+2112,2000-01-01,Oconee County,13219,Georgia
+2113,2000-01-01,Oconto County,55083,Wisconsin
+2114,2000-01-01,Ogemaw County,26129,Michigan
+2115,2000-01-01,Ogle County,17141,Illinois
+2116,2000-01-01,Oglethorpe County,13221,Georgia
+2117,2000-01-01,Ohio County,54069,West Virginia
+2118,2000-01-01,Ohio County,18115,Indiana
+2119,2000-01-01,Ohio County,21183,Kentucky
+2120,2000-01-01,Okaloosa County,12091,Florida
+2121,2000-01-01,Okanogan County,53047,Washington
+2122,2000-01-01,Okeechobee County,12093,Florida
+2123,2000-01-01,Okfuskee County,40107,Oklahoma
+2124,2000-01-01,Oklahoma County,40109,Oklahoma
+2125,2000-01-01,Okmulgee County,40111,Oklahoma
+2126,2000-01-01,Oktibbeha County,28105,Mississippi
+2127,2000-01-01,Oldham County,48359,Texas
+2128,2000-01-01,Oldham County,21185,Kentucky
+2129,2000-01-01,Oliver County,38065,North Dakota
+2130,2000-01-01,Olmsted County,27109,Minnesota
+2131,2000-01-01,Oneida County,36065,New York
+2132,2000-01-01,Oneida County,55085,Wisconsin
+2133,2000-01-01,Oneida County,16071,Idaho
+2134,2000-01-01,Onondaga County,36067,New York
+2135,2000-01-01,Onslow County,37133,North Carolina
+2136,2000-01-01,Ontario County,36069,New York
+2137,2000-01-01,Ontonagon County,26131,Michigan
+2138,2000-01-01,Orange County,37135,North Carolina
+2139,2000-01-01,Orange County,36071,New York
+2140,2000-01-01,Orange County,51137,Virginia
+2141,2000-01-01,Orange County,50017,Vermont
+2142,2000-01-01,Orange County,48361,Texas
+2143,2000-01-01,Orange County,18117,Indiana
+2144,2000-01-01,Orange County,12095,Florida
+2145,2000-01-01,Orange County,6059,California
+2146,2000-01-01,Orangeburg County,45075,South Carolina
+2147,2000-01-01,Oregon County,29149,Missouri
+2148,2000-01-01,Orleans County,36073,New York
+2149,2000-01-01,Orleans County,50019,Vermont
+2150,2000-01-01,Orleans Parish,22071,Louisiana
+2151,2000-01-01,Osage County,40113,Oklahoma
+2152,2000-01-01,Osage County,29151,Missouri
+2153,2000-01-01,Osage County,20139,Kansas
+2154,2000-01-01,Osborne County,20141,Kansas
+2155,2000-01-01,Osceola County,12097,Florida
+2156,2000-01-01,Osceola County,26133,Michigan
+2157,2000-01-01,Osceola County,19143,Iowa
+2158,2000-01-01,Oscoda County,26135,Michigan
+2159,2000-01-01,Oswego County,36075,New York
+2160,2000-01-01,Otero County,35035,New Mexico
+2161,2000-01-01,Otero County,8089,Colorado
+2162,2000-01-01,Otoe County,31131,Nebraska
+2163,2000-01-01,Otsego County,36077,New York
+2164,2000-01-01,Otsego County,26137,Michigan
+2165,2000-01-01,Ottawa County,39123,Ohio
+2166,2000-01-01,Ottawa County,40115,Oklahoma
+2167,2000-01-01,Ottawa County,26139,Michigan
+2168,2000-01-01,Ottawa County,20143,Kansas
+2169,2000-01-01,Otter Tail County,27111,Minnesota
+2170,2000-01-01,Ouachita County,5103,Arkansas
+2171,2000-01-01,Ouachita Parish,22073,Louisiana
+2172,2000-01-01,Ouray County,8091,Colorado
+2173,2000-01-01,Outagamie County,55087,Wisconsin
+2174,2000-01-01,Overton County,47133,Tennessee
+2175,2000-01-01,Owen County,18119,Indiana
+2176,2000-01-01,Owen County,21187,Kentucky
+2177,2000-01-01,Owsley County,21189,Kentucky
+2178,2000-01-01,Owyhee County,16073,Idaho
+2179,2000-01-01,Oxford County,23017,Maine
+2180,2000-01-01,Ozark County,29153,Missouri
+2181,2000-01-01,Ozaukee County,55089,Wisconsin
+2182,2000-01-01,Pacific County,53049,Washington
+2183,2000-01-01,Page County,51139,Virginia
+2184,2000-01-01,Page County,19145,Iowa
+2185,2000-01-01,Palm Beach County,12099,Florida
+2186,2000-01-01,Palo Alto County,19147,Iowa
+2187,2000-01-01,Palo Pinto County,48363,Texas
+2188,2000-01-01,Pamlico County,37137,North Carolina
+2189,2000-01-01,Panola County,48365,Texas
+2190,2000-01-01,Panola County,28107,Mississippi
+2191,2000-01-01,Park County,30067,Montana
+2192,2000-01-01,Park County,56029,Wyoming
+2193,2000-01-01,Park County,8093,Colorado
+2194,2000-01-01,Parke County,18121,Indiana
+2195,2000-01-01,Parker County,48367,Texas
+2196,2000-01-01,Parmer County,48369,Texas
+2197,2000-01-01,Pasco County,12101,Florida
+2198,2000-01-01,Pasquotank County,37139,North Carolina
+2199,2000-01-01,Passaic County,34031,New Jersey
+2200,2000-01-01,Patrick County,51141,Virginia
+2201,2000-01-01,Paulding County,39125,Ohio
+2202,2000-01-01,Paulding County,13223,Georgia
+2203,2000-01-01,Pawnee County,40117,Oklahoma
+2204,2000-01-01,Pawnee County,31133,Nebraska
+2205,2000-01-01,Pawnee County,20145,Kansas
+2206,2000-01-01,Payette County,16075,Idaho
+2207,2000-01-01,Payne County,40119,Oklahoma
+2208,2000-01-01,Peach County,13225,Georgia
+2209,2000-01-01,Pearl River County,28109,Mississippi
+2210,2000-01-01,Pecos County,48371,Texas
+2211,2000-01-01,Pembina County,38067,North Dakota
+2212,2000-01-01,Pemiscot County,29155,Missouri
+2213,2000-01-01,Pend Oreille County,53051,Washington
+2214,2000-01-01,Pender County,37141,North Carolina
+2215,2000-01-01,Pendleton County,54071,West Virginia
+2216,2000-01-01,Pendleton County,21191,Kentucky
+2217,2000-01-01,Pennington County,46103,South Dakota
+2218,2000-01-01,Pennington County,27113,Minnesota
+2219,2000-01-01,Penobscot County,23019,Maine
+2220,2000-01-01,Peoria County,17143,Illinois
+2221,2000-01-01,Pepin County,55091,Wisconsin
+2222,2000-01-01,Perkins County,31135,Nebraska
+2223,2000-01-01,Perkins County,46105,South Dakota
+2224,2000-01-01,Perquimans County,37143,North Carolina
+2225,2000-01-01,Perry County,39127,Ohio
+2226,2000-01-01,Perry County,42099,Pennsylvania
+2227,2000-01-01,Perry County,47135,Tennessee
+2228,2000-01-01,Perry County,18123,Indiana
+2229,2000-01-01,Perry County,17145,Illinois
+2230,2000-01-01,Perry County,5105,Arkansas
+2231,2000-01-01,Perry County,1105,Alabama
+2232,2000-01-01,Perry County,29157,Missouri
+2233,2000-01-01,Perry County,28111,Mississippi
+2234,2000-01-01,Perry County,21193,Kentucky
+2235,2000-01-01,Pershing County,32027,Nevada
+2236,2000-01-01,Person County,37145,North Carolina
+2237,2000-01-01,Petersburg Borough,2195,Alaska
+2238,2000-01-01,Petersburg city,51730,Virginia
+2239,2000-01-01,Petroleum County,30069,Montana
+2240,2000-01-01,Pettis County,29159,Missouri
+2241,2000-01-01,Phelps County,31137,Nebraska
+2242,2000-01-01,Phelps County,29161,Missouri
+2243,2000-01-01,Philadelphia County,42101,Pennsylvania
+2244,2000-01-01,Phillips County,30071,Montana
+2245,2000-01-01,Phillips County,5107,Arkansas
+2246,2000-01-01,Phillips County,8095,Colorado
+2247,2000-01-01,Phillips County,20147,Kansas
+2248,2000-01-01,Piatt County,17147,Illinois
+2249,2000-01-01,Pickaway County,39129,Ohio
+2250,2000-01-01,Pickens County,45077,South Carolina
+2251,2000-01-01,Pickens County,13227,Georgia
+2252,2000-01-01,Pickens County,1107,Alabama
+2253,2000-01-01,Pickett County,47137,Tennessee
+2254,2000-01-01,Pierce County,38069,North Dakota
+2255,2000-01-01,Pierce County,31139,Nebraska
+2256,2000-01-01,Pierce County,55093,Wisconsin
+2257,2000-01-01,Pierce County,53053,Washington
+2258,2000-01-01,Pierce County,13229,Georgia
+2259,2000-01-01,Pike County,39131,Ohio
+2260,2000-01-01,Pike County,42103,Pennsylvania
+2261,2000-01-01,Pike County,13231,Georgia
+2262,2000-01-01,Pike County,18125,Indiana
+2263,2000-01-01,Pike County,17149,Illinois
+2264,2000-01-01,Pike County,5109,Arkansas
+2265,2000-01-01,Pike County,1109,Alabama
+2266,2000-01-01,Pike County,29163,Missouri
+2267,2000-01-01,Pike County,28113,Mississippi
+2268,2000-01-01,Pike County,21195,Kentucky
+2269,2000-01-01,Pima County,4019,Arizona
+2270,2000-01-01,Pinal County,4021,Arizona
+2271,2000-01-01,Pine County,27115,Minnesota
+2272,2000-01-01,Pinellas County,12103,Florida
+2273,2000-01-01,Pipestone County,27117,Minnesota
+2274,2000-01-01,Piscataquis County,23021,Maine
+2275,2000-01-01,Pitkin County,8097,Colorado
+2276,2000-01-01,Pitt County,37147,North Carolina
+2277,2000-01-01,Pittsburg County,40121,Oklahoma
+2278,2000-01-01,Pittsylvania County,51143,Virginia
+2279,2000-01-01,Piute County,49031,Utah
+2280,2000-01-01,Placer County,6061,California
+2281,2000-01-01,Plaquemines Parish,22075,Louisiana
+2282,2000-01-01,Platte County,31141,Nebraska
+2283,2000-01-01,Platte County,56031,Wyoming
+2284,2000-01-01,Platte County,29165,Missouri
+2285,2000-01-01,Pleasants County,54073,West Virginia
+2286,2000-01-01,Plumas County,6063,California
+2287,2000-01-01,Plymouth County,25023,Massachusetts
+2288,2000-01-01,Plymouth County,19149,Iowa
+2289,2000-01-01,Pocahontas County,54075,West Virginia
+2290,2000-01-01,Pocahontas County,19151,Iowa
+2291,2000-01-01,Poinsett County,5111,Arkansas
+2292,2000-01-01,Pointe Coupee Parish,22077,Louisiana
+2293,2000-01-01,Polk County,41053,Oregon
+2294,2000-01-01,Polk County,37149,North Carolina
+2295,2000-01-01,Polk County,31143,Nebraska
+2296,2000-01-01,Polk County,55095,Wisconsin
+2297,2000-01-01,Polk County,47139,Tennessee
+2298,2000-01-01,Polk County,48373,Texas
+2299,2000-01-01,Polk County,13233,Georgia
+2300,2000-01-01,Polk County,5113,Arkansas
+2301,2000-01-01,Polk County,12105,Florida
+2302,2000-01-01,Polk County,27119,Minnesota
+2303,2000-01-01,Polk County,29167,Missouri
+2304,2000-01-01,Polk County,19153,Iowa
+2305,2000-01-01,Pondera County,30073,Montana
+2306,2000-01-01,Pontotoc County,40123,Oklahoma
+2307,2000-01-01,Pontotoc County,28115,Mississippi
+2308,2000-01-01,Pope County,17151,Illinois
+2309,2000-01-01,Pope County,5115,Arkansas
+2310,2000-01-01,Pope County,27121,Minnesota
+2311,2000-01-01,Poquoson city,51735,Virginia
+2312,2000-01-01,Portage County,39133,Ohio
+2313,2000-01-01,Portage County,55097,Wisconsin
+2314,2000-01-01,Porter County,18127,Indiana
+2315,2000-01-01,Portsmouth city,51740,Virginia
+2316,2000-01-01,Posey County,18129,Indiana
+2317,2000-01-01,Pottawatomie County,40125,Oklahoma
+2318,2000-01-01,Pottawatomie County,20149,Kansas
+2319,2000-01-01,Pottawattamie County,19155,Iowa
+2320,2000-01-01,Potter County,42105,Pennsylvania
+2321,2000-01-01,Potter County,46107,South Dakota
+2322,2000-01-01,Potter County,48375,Texas
+2323,2000-01-01,Powder River County,30075,Montana
+2324,2000-01-01,Powell County,30077,Montana
+2325,2000-01-01,Powell County,21197,Kentucky
+2326,2000-01-01,Power County,16077,Idaho
+2327,2000-01-01,Poweshiek County,19157,Iowa
+2328,2000-01-01,Powhatan County,51145,Virginia
+2329,2000-01-01,Prairie County,30079,Montana
+2330,2000-01-01,Prairie County,5117,Arkansas
+2331,2000-01-01,Pratt County,20151,Kansas
+2332,2000-01-01,Preble County,39135,Ohio
+2333,2000-01-01,Prentiss County,28117,Mississippi
+2334,2000-01-01,Presidio County,48377,Texas
+2335,2000-01-01,Presque Isle County,26141,Michigan
+2336,2000-01-01,Preston County,54077,West Virginia
+2337,2000-01-01,Price County,55099,Wisconsin
+2338,2000-01-01,Prince Edward County,51147,Virginia
+2339,2000-01-01,Prince George County,51149,Virginia
+2340,2000-01-01,Prince George's County,24033,Maryland
+2341,2000-01-01,Prince William County,51153,Virginia
+2342,2000-01-01,Prince of Wales-Hyder Census Area,2198,Alaska
+2343,2000-01-01,Providence County,44007,Rhode Island
+2344,2000-01-01,Prowers County,8099,Colorado
+2345,2000-01-01,Pueblo County,8101,Colorado
+2346,2000-01-01,Pulaski County,51155,Virginia
+2347,2000-01-01,Pulaski County,13235,Georgia
+2348,2000-01-01,Pulaski County,18131,Indiana
+2349,2000-01-01,Pulaski County,17153,Illinois
+2350,2000-01-01,Pulaski County,5119,Arkansas
+2351,2000-01-01,Pulaski County,29169,Missouri
+2352,2000-01-01,Pulaski County,21199,Kentucky
+2353,2000-01-01,Pushmataha County,40127,Oklahoma
+2354,2000-01-01,Putnam County,39137,Ohio
+2355,2000-01-01,Putnam County,36079,New York
+2356,2000-01-01,Putnam County,54079,West Virginia
+2357,2000-01-01,Putnam County,47141,Tennessee
+2358,2000-01-01,Putnam County,13237,Georgia
+2359,2000-01-01,Putnam County,18133,Indiana
+2360,2000-01-01,Putnam County,17155,Illinois
+2361,2000-01-01,Putnam County,12107,Florida
+2362,2000-01-01,Putnam County,29171,Missouri
+2363,2000-01-01,Quay County,35037,New Mexico
+2364,2000-01-01,Queen Anne's County,24035,Maryland
+2365,2000-01-01,Queens County,36081,New York
+2366,2000-01-01,Quitman County,13239,Georgia
+2367,2000-01-01,Quitman County,28119,Mississippi
+2368,2000-01-01,Rabun County,13241,Georgia
+2369,2000-01-01,Racine County,55101,Wisconsin
+2370,2000-01-01,Radford city,51750,Virginia
+2371,2000-01-01,Rains County,48379,Texas
+2372,2000-01-01,Raleigh County,54081,West Virginia
+2373,2000-01-01,Ralls County,29173,Missouri
+2374,2000-01-01,Ramsey County,38071,North Dakota
+2375,2000-01-01,Ramsey County,27123,Minnesota
+2376,2000-01-01,Randall County,48381,Texas
+2377,2000-01-01,Randolph County,37151,North Carolina
+2378,2000-01-01,Randolph County,54083,West Virginia
+2379,2000-01-01,Randolph County,13243,Georgia
+2380,2000-01-01,Randolph County,18135,Indiana
+2381,2000-01-01,Randolph County,17157,Illinois
+2382,2000-01-01,Randolph County,5121,Arkansas
+2383,2000-01-01,Randolph County,1111,Alabama
+2384,2000-01-01,Randolph County,29175,Missouri
+2385,2000-01-01,Rankin County,28121,Mississippi
+2386,2000-01-01,Ransom County,38073,North Dakota
+2387,2000-01-01,Rapides Parish,22079,Louisiana
+2388,2000-01-01,Rappahannock County,51157,Virginia
+2389,2000-01-01,Ravalli County,30081,Montana
+2390,2000-01-01,Rawlins County,20153,Kansas
+2391,2000-01-01,Ray County,29177,Missouri
+2392,2000-01-01,Reagan County,48383,Texas
+2393,2000-01-01,Real County,48385,Texas
+2394,2000-01-01,Red Lake County,27125,Minnesota
+2395,2000-01-01,Red River County,48387,Texas
+2396,2000-01-01,Red River Parish,22081,Louisiana
+2397,2000-01-01,Red Willow County,31145,Nebraska
+2398,2000-01-01,Redwood County,27127,Minnesota
+2399,2000-01-01,Reeves County,48389,Texas
+2400,2000-01-01,Refugio County,48391,Texas
+2401,2000-01-01,Reno County,20155,Kansas
+2402,2000-01-01,Rensselaer County,36083,New York
+2403,2000-01-01,Renville County,38075,North Dakota
+2404,2000-01-01,Renville County,27129,Minnesota
+2405,2000-01-01,Republic County,20157,Kansas
+2406,2000-01-01,Reynolds County,29179,Missouri
+2407,2000-01-01,Rhea County,47143,Tennessee
+2408,2000-01-01,Rice County,27131,Minnesota
+2409,2000-01-01,Rice County,20159,Kansas
+2410,2000-01-01,Rich County,49033,Utah
+2411,2000-01-01,Richardson County,31147,Nebraska
+2412,2000-01-01,Richland County,39139,Ohio
+2413,2000-01-01,Richland County,38077,North Dakota
+2414,2000-01-01,Richland County,45079,South Carolina
+2415,2000-01-01,Richland County,30083,Montana
+2416,2000-01-01,Richland County,55103,Wisconsin
+2417,2000-01-01,Richland County,17159,Illinois
+2418,2000-01-01,Richland Parish,22083,Louisiana
+2419,2000-01-01,Richmond County,37153,North Carolina
+2420,2000-01-01,Richmond County,36085,New York
+2421,2000-01-01,Richmond County,51159,Virginia
+2422,2000-01-01,Richmond County,13245,Georgia
+2423,2000-01-01,Richmond city,51760,Virginia
+2424,2000-01-01,Riley County,20161,Kansas
+2425,2000-01-01,Ringgold County,19159,Iowa
+2426,2000-01-01,Rio Arriba County,35039,New Mexico
+2427,2000-01-01,Rio Blanco County,8103,Colorado
+2428,2000-01-01,Rio Grande County,8105,Colorado
+2429,2000-01-01,Ripley County,29181,Missouri
+2430,2000-01-01,Ripley County,18137,Indiana
+2431,2000-01-01,Ritchie County,54085,West Virginia
+2432,2000-01-01,Riverside County,6065,California
+2433,2000-01-01,Roane County,54087,West Virginia
+2434,2000-01-01,Roane County,47145,Tennessee
+2435,2000-01-01,Roanoke County,51161,Virginia
+2436,2000-01-01,Roanoke city,51770,Virginia
+2437,2000-01-01,Roberts County,46109,South Dakota
+2438,2000-01-01,Roberts County,48393,Texas
+2439,2000-01-01,Robertson County,47147,Tennessee
+2440,2000-01-01,Robertson County,48395,Texas
+2441,2000-01-01,Robertson County,21201,Kentucky
+2442,2000-01-01,Robeson County,37155,North Carolina
+2443,2000-01-01,Rock County,31149,Nebraska
+2444,2000-01-01,Rock County,55105,Wisconsin
+2445,2000-01-01,Rock County,27133,Minnesota
+2446,2000-01-01,Rock Island County,17161,Illinois
+2447,2000-01-01,Rockbridge County,51163,Virginia
+2448,2000-01-01,Rockcastle County,21203,Kentucky
+2449,2000-01-01,Rockdale County,13247,Georgia
+2450,2000-01-01,Rockingham County,37157,North Carolina
+2451,2000-01-01,Rockingham County,33015,New Hampshire
+2452,2000-01-01,Rockingham County,51165,Virginia
+2453,2000-01-01,Rockland County,36087,New York
+2454,2000-01-01,Rockwall County,48397,Texas
+2455,2000-01-01,Roger Mills County,40129,Oklahoma
+2456,2000-01-01,Rogers County,40131,Oklahoma
+2457,2000-01-01,Rolette County,38079,North Dakota
+2458,2000-01-01,Rooks County,20163,Kansas
+2459,2000-01-01,Roosevelt County,30085,Montana
+2460,2000-01-01,Roosevelt County,35041,New Mexico
+2461,2000-01-01,Roscommon County,26143,Michigan
+2462,2000-01-01,Roseau County,27135,Minnesota
+2463,2000-01-01,Rosebud County,30087,Montana
+2464,2000-01-01,Ross County,39141,Ohio
+2465,2000-01-01,Routt County,8107,Colorado
+2466,2000-01-01,Rowan County,37159,North Carolina
+2467,2000-01-01,Rowan County,21205,Kentucky
+2468,2000-01-01,Runnels County,48399,Texas
+2469,2000-01-01,Rush County,18139,Indiana
+2470,2000-01-01,Rush County,20165,Kansas
+2471,2000-01-01,Rusk County,55107,Wisconsin
+2472,2000-01-01,Rusk County,48401,Texas
+2473,2000-01-01,Russell County,51167,Virginia
+2474,2000-01-01,Russell County,1113,Alabama
+2475,2000-01-01,Russell County,20167,Kansas
+2476,2000-01-01,Russell County,21207,Kentucky
+2477,2000-01-01,Rutherford County,37161,North Carolina
+2478,2000-01-01,Rutherford County,47149,Tennessee
+2479,2000-01-01,Rutland County,50021,Vermont
+2480,2000-01-01,Sabine County,48403,Texas
+2481,2000-01-01,Sabine Parish,22085,Louisiana
+2482,2000-01-01,Sac County,19161,Iowa
+2483,2000-01-01,Sacramento County,6067,California
+2484,2000-01-01,Sagadahoc County,23023,Maine
+2485,2000-01-01,Saginaw County,26145,Michigan
+2486,2000-01-01,Saguache County,8109,Colorado
+2487,2000-01-01,Salem County,34033,New Jersey
+2488,2000-01-01,Salem city,51775,Virginia
+2489,2000-01-01,Saline County,31151,Nebraska
+2490,2000-01-01,Saline County,29195,Missouri
+2491,2000-01-01,Saline County,17165,Illinois
+2492,2000-01-01,Saline County,5125,Arkansas
+2493,2000-01-01,Saline County,20169,Kansas
+2494,2000-01-01,Salt Lake County,49035,Utah
+2495,2000-01-01,Saluda County,45081,South Carolina
+2496,2000-01-01,Sampson County,37163,North Carolina
+2497,2000-01-01,San Augustine County,48405,Texas
+2498,2000-01-01,San Benito County,6069,California
+2499,2000-01-01,San Bernardino County,6071,California
+2500,2000-01-01,San Diego County,6073,California
+2501,2000-01-01,San Francisco County,6075,California
+2502,2000-01-01,San Jacinto County,48407,Texas
+2503,2000-01-01,San Joaquin County,6077,California
+2504,2000-01-01,San Juan County,35045,New Mexico
+2505,2000-01-01,San Juan County,49037,Utah
+2506,2000-01-01,San Juan County,53055,Washington
+2507,2000-01-01,San Juan County,8111,Colorado
+2508,2000-01-01,San Luis Obispo County,6079,California
+2509,2000-01-01,San Mateo County,6081,California
+2510,2000-01-01,San Miguel County,35047,New Mexico
+2511,2000-01-01,San Miguel County,8113,Colorado
+2512,2000-01-01,San Patricio County,48409,Texas
+2513,2000-01-01,San Saba County,48411,Texas
+2514,2000-01-01,Sanborn County,46111,South Dakota
+2515,2000-01-01,Sanders County,30089,Montana
+2516,2000-01-01,Sandoval County,35043,New Mexico
+2517,2000-01-01,Sandusky County,39143,Ohio
+2518,2000-01-01,Sangamon County,17167,Illinois
+2519,2000-01-01,Sanilac County,26151,Michigan
+2520,2000-01-01,Sanpete County,49039,Utah
+2521,2000-01-01,Santa Barbara County,6083,California
+2522,2000-01-01,Santa Clara County,6085,California
+2523,2000-01-01,Santa Cruz County,4023,Arizona
+2524,2000-01-01,Santa Cruz County,6087,California
+2525,2000-01-01,Santa Fe County,35049,New Mexico
+2526,2000-01-01,Santa Rosa County,12113,Florida
+2527,2000-01-01,Sarasota County,12115,Florida
+2528,2000-01-01,Saratoga County,36091,New York
+2529,2000-01-01,Sargent County,38081,North Dakota
+2530,2000-01-01,Sarpy County,31153,Nebraska
+2531,2000-01-01,Sauk County,55111,Wisconsin
+2532,2000-01-01,Saunders County,31155,Nebraska
+2533,2000-01-01,Sawyer County,55113,Wisconsin
+2534,2000-01-01,Schenectady County,36093,New York
+2535,2000-01-01,Schleicher County,48413,Texas
+2536,2000-01-01,Schley County,13249,Georgia
+2537,2000-01-01,Schoharie County,36095,New York
+2538,2000-01-01,Schoolcraft County,26153,Michigan
+2539,2000-01-01,Schuyler County,29197,Missouri
+2540,2000-01-01,Schuyler County,36097,New York
+2541,2000-01-01,Schuyler County,17169,Illinois
+2542,2000-01-01,Schuylkill County,42107,Pennsylvania
+2543,2000-01-01,Scioto County,39145,Ohio
+2544,2000-01-01,Scotland County,37165,North Carolina
+2545,2000-01-01,Scotland County,29199,Missouri
+2546,2000-01-01,Scott County,29201,Missouri
+2547,2000-01-01,Scott County,51169,Virginia
+2548,2000-01-01,Scott County,47151,Tennessee
+2549,2000-01-01,Scott County,18143,Indiana
+2550,2000-01-01,Scott County,17171,Illinois
+2551,2000-01-01,Scott County,5127,Arkansas
+2552,2000-01-01,Scott County,27139,Minnesota
+2553,2000-01-01,Scott County,28123,Mississippi
+2554,2000-01-01,Scott County,20171,Kansas
+2555,2000-01-01,Scott County,19163,Iowa
+2556,2000-01-01,Scott County,21209,Kentucky
+2557,2000-01-01,Scotts Bluff County,31157,Nebraska
+2558,2000-01-01,Screven County,13251,Georgia
+2559,2000-01-01,Scurry County,48415,Texas
+2560,2000-01-01,Searcy County,5129,Arkansas
+2561,2000-01-01,Sebastian County,5131,Arkansas
+2562,2000-01-01,Sedgwick County,8115,Colorado
+2563,2000-01-01,Sedgwick County,20173,Kansas
+2564,2000-01-01,Seminole County,40133,Oklahoma
+2565,2000-01-01,Seminole County,13253,Georgia
+2566,2000-01-01,Seminole County,12117,Florida
+2567,2000-01-01,Seneca County,39147,Ohio
+2568,2000-01-01,Seneca County,36099,New York
+2569,2000-01-01,Sequatchie County,47153,Tennessee
+2570,2000-01-01,Sequoyah County,40135,Oklahoma
+2571,2000-01-01,Sevier County,49041,Utah
+2572,2000-01-01,Sevier County,47155,Tennessee
+2573,2000-01-01,Sevier County,5133,Arkansas
+2574,2000-01-01,Seward County,31159,Nebraska
+2575,2000-01-01,Seward County,20175,Kansas
+2576,2000-01-01,Shackelford County,48417,Texas
+2577,2000-01-01,Shannon County,29203,Missouri
+2578,2000-01-01,Shannon County,46113,South Dakota
+2579,2000-01-01,Sharkey County,28125,Mississippi
+2580,2000-01-01,Sharp County,5135,Arkansas
+2581,2000-01-01,Shasta County,6089,California
+2582,2000-01-01,Shawano County,55115,Wisconsin
+2583,2000-01-01,Shawnee County,20177,Kansas
+2584,2000-01-01,Sheboygan County,55117,Wisconsin
+2585,2000-01-01,Shelby County,39149,Ohio
+2586,2000-01-01,Shelby County,29205,Missouri
+2587,2000-01-01,Shelby County,47157,Tennessee
+2588,2000-01-01,Shelby County,48419,Texas
+2589,2000-01-01,Shelby County,18145,Indiana
+2590,2000-01-01,Shelby County,17173,Illinois
+2591,2000-01-01,Shelby County,1117,Alabama
+2592,2000-01-01,Shelby County,19165,Iowa
+2593,2000-01-01,Shelby County,21211,Kentucky
+2594,2000-01-01,Shenandoah County,51171,Virginia
+2595,2000-01-01,Sherburne County,27141,Minnesota
+2596,2000-01-01,Sheridan County,38083,North Dakota
+2597,2000-01-01,Sheridan County,31161,Nebraska
+2598,2000-01-01,Sheridan County,30091,Montana
+2599,2000-01-01,Sheridan County,56033,Wyoming
+2600,2000-01-01,Sheridan County,20179,Kansas
+2601,2000-01-01,Sherman County,41055,Oregon
+2602,2000-01-01,Sherman County,31163,Nebraska
+2603,2000-01-01,Sherman County,48421,Texas
+2604,2000-01-01,Sherman County,20181,Kansas
+2605,2000-01-01,Shiawassee County,26155,Michigan
+2606,2000-01-01,Shoshone County,16079,Idaho
+2607,2000-01-01,Sibley County,27143,Minnesota
+2608,2000-01-01,Sierra County,35051,New Mexico
+2609,2000-01-01,Sierra County,6091,California
+2610,2000-01-01,Silver Bow County,30093,Montana
+2611,2000-01-01,Simpson County,28127,Mississippi
+2612,2000-01-01,Simpson County,21213,Kentucky
+2613,2000-01-01,Sioux County,38085,North Dakota
+2614,2000-01-01,Sioux County,31165,Nebraska
+2615,2000-01-01,Sioux County,19167,Iowa
+2616,2000-01-01,Siskiyou County,6093,California
+2617,2000-01-01,Sitka City and Borough,2220,Alaska
+2618,2000-01-01,Skagit County,53057,Washington
+2619,2000-01-01,Skagway Municipality,2230,Alaska
+2620,2000-01-01,Skamania County,53059,Washington
+2621,2000-01-01,Slope County,38087,North Dakota
+2622,2000-01-01,Smith County,47159,Tennessee
+2623,2000-01-01,Smith County,48423,Texas
+2624,2000-01-01,Smith County,28129,Mississippi
+2625,2000-01-01,Smith County,20183,Kansas
+2626,2000-01-01,Smyth County,51173,Virginia
+2627,2000-01-01,Snohomish County,53061,Washington
+2628,2000-01-01,Snyder County,42109,Pennsylvania
+2629,2000-01-01,Socorro County,35053,New Mexico
+2630,2000-01-01,Solano County,6095,California
+2631,2000-01-01,Somerset County,42111,Pennsylvania
+2632,2000-01-01,Somerset County,34035,New Jersey
+2633,2000-01-01,Somerset County,24039,Maryland
+2634,2000-01-01,Somerset County,23025,Maine
+2635,2000-01-01,Somervell County,48425,Texas
+2636,2000-01-01,Sonoma County,6097,California
+2637,2000-01-01,Southampton County,51175,Virginia
+2638,2000-01-01,Southeast Fairbanks Census Area,2240,Alaska
+2639,2000-01-01,Spalding County,13255,Georgia
+2640,2000-01-01,Spartanburg County,45083,South Carolina
+2641,2000-01-01,Spencer County,18147,Indiana
+2642,2000-01-01,Spencer County,21215,Kentucky
+2643,2000-01-01,Spink County,46115,South Dakota
+2644,2000-01-01,Spokane County,53063,Washington
+2645,2000-01-01,Spotsylvania County,51177,Virginia
+2646,2000-01-01,St. Bernard Parish,22087,Louisiana
+2647,2000-01-01,St. Charles County,29183,Missouri
+2648,2000-01-01,St. Charles Parish,22089,Louisiana
+2649,2000-01-01,St. Clair County,29185,Missouri
+2650,2000-01-01,St. Clair County,17163,Illinois
+2651,2000-01-01,St. Clair County,1115,Alabama
+2652,2000-01-01,St. Clair County,26147,Michigan
+2653,2000-01-01,St. Croix County,55109,Wisconsin
+2654,2000-01-01,St. Francis County,5123,Arkansas
+2655,2000-01-01,St. Francois County,29187,Missouri
+2656,2000-01-01,St. Helena Parish,22091,Louisiana
+2657,2000-01-01,St. James Parish,22093,Louisiana
+2658,2000-01-01,St. John the Baptist Parish,22095,Louisiana
+2659,2000-01-01,St. Johns County,12109,Florida
+2660,2000-01-01,St. Joseph County,18141,Indiana
+2661,2000-01-01,St. Joseph County,26149,Michigan
+2662,2000-01-01,St. Landry Parish,22097,Louisiana
+2663,2000-01-01,St. Lawrence County,36089,New York
+2664,2000-01-01,St. Louis County,29189,Missouri
+2665,2000-01-01,St. Louis County,27137,Minnesota
+2666,2000-01-01,St. Louis city,29510,Missouri
+2667,2000-01-01,St. Lucie County,12111,Florida
+2668,2000-01-01,St. Martin Parish,22099,Louisiana
+2669,2000-01-01,St. Mary Parish,22101,Louisiana
+2670,2000-01-01,St. Mary's County,24037,Maryland
+2671,2000-01-01,St. Tammany Parish,22103,Louisiana
+2672,2000-01-01,Stafford County,51179,Virginia
+2673,2000-01-01,Stafford County,20185,Kansas
+2674,2000-01-01,Stanislaus County,6099,California
+2675,2000-01-01,Stanley County,46117,South Dakota
+2676,2000-01-01,Stanly County,37167,North Carolina
+2677,2000-01-01,Stanton County,31167,Nebraska
+2678,2000-01-01,Stanton County,20187,Kansas
+2679,2000-01-01,Stark County,39151,Ohio
+2680,2000-01-01,Stark County,38089,North Dakota
+2681,2000-01-01,Stark County,17175,Illinois
+2682,2000-01-01,Starke County,18149,Indiana
+2683,2000-01-01,Starr County,48427,Texas
+2684,2000-01-01,Staunton city,51790,Virginia
+2685,2000-01-01,Ste. Genevieve County,29186,Missouri
+2686,2000-01-01,Stearns County,27145,Minnesota
+2687,2000-01-01,Steele County,38091,North Dakota
+2688,2000-01-01,Steele County,27147,Minnesota
+2689,2000-01-01,Stephens County,40137,Oklahoma
+2690,2000-01-01,Stephens County,48429,Texas
+2691,2000-01-01,Stephens County,13257,Georgia
+2692,2000-01-01,Stephenson County,17177,Illinois
+2693,2000-01-01,Sterling County,48431,Texas
+2694,2000-01-01,Steuben County,36101,New York
+2695,2000-01-01,Steuben County,18151,Indiana
+2696,2000-01-01,Stevens County,53065,Washington
+2697,2000-01-01,Stevens County,27149,Minnesota
+2698,2000-01-01,Stevens County,20189,Kansas
+2699,2000-01-01,Stewart County,47161,Tennessee
+2700,2000-01-01,Stewart County,13259,Georgia
+2701,2000-01-01,Stillwater County,30095,Montana
+2702,2000-01-01,Stoddard County,29207,Missouri
+2703,2000-01-01,Stokes County,37169,North Carolina
+2704,2000-01-01,Stone County,29209,Missouri
+2705,2000-01-01,Stone County,5137,Arkansas
+2706,2000-01-01,Stone County,28131,Mississippi
+2707,2000-01-01,Stonewall County,48433,Texas
+2708,2000-01-01,Storey County,32029,Nevada
+2709,2000-01-01,Story County,19169,Iowa
+2710,2000-01-01,Strafford County,33017,New Hampshire
+2711,2000-01-01,Stutsman County,38093,North Dakota
+2712,2000-01-01,Sublette County,56035,Wyoming
+2713,2000-01-01,Suffolk County,36103,New York
+2714,2000-01-01,Suffolk County,25025,Massachusetts
+2715,2000-01-01,Suffolk city,51800,Virginia
+2716,2000-01-01,Sullivan County,42113,Pennsylvania
+2717,2000-01-01,Sullivan County,29211,Missouri
+2718,2000-01-01,Sullivan County,36105,New York
+2719,2000-01-01,Sullivan County,33019,New Hampshire
+2720,2000-01-01,Sullivan County,47163,Tennessee
+2721,2000-01-01,Sullivan County,18153,Indiana
+2722,2000-01-01,Sully County,46119,South Dakota
+2723,2000-01-01,Summers County,54089,West Virginia
+2724,2000-01-01,Summit County,39153,Ohio
+2725,2000-01-01,Summit County,49043,Utah
+2726,2000-01-01,Summit County,8117,Colorado
+2727,2000-01-01,Sumner County,47165,Tennessee
+2728,2000-01-01,Sumner County,20191,Kansas
+2729,2000-01-01,Sumter County,45085,South Carolina
+2730,2000-01-01,Sumter County,13261,Georgia
+2731,2000-01-01,Sumter County,1119,Alabama
+2732,2000-01-01,Sumter County,12119,Florida
+2733,2000-01-01,Sunflower County,28133,Mississippi
+2734,2000-01-01,Surry County,37171,North Carolina
+2735,2000-01-01,Surry County,51181,Virginia
+2736,2000-01-01,Susquehanna County,42115,Pennsylvania
+2737,2000-01-01,Sussex County,34037,New Jersey
+2738,2000-01-01,Sussex County,51183,Virginia
+2739,2000-01-01,Sussex County,10005,Delaware
+2740,2000-01-01,Sutter County,6101,California
+2741,2000-01-01,Sutton County,48435,Texas
+2742,2000-01-01,Suwannee County,12121,Florida
+2743,2000-01-01,Swain County,37173,North Carolina
+2744,2000-01-01,Sweet Grass County,30097,Montana
+2745,2000-01-01,Sweetwater County,56037,Wyoming
+2746,2000-01-01,Swift County,27151,Minnesota
+2747,2000-01-01,Swisher County,48437,Texas
+2748,2000-01-01,Switzerland County,18155,Indiana
+2749,2000-01-01,Talbot County,13263,Georgia
+2750,2000-01-01,Talbot County,24041,Maryland
+2751,2000-01-01,Taliaferro County,13265,Georgia
+2752,2000-01-01,Talladega County,1121,Alabama
+2753,2000-01-01,Tallahatchie County,28135,Mississippi
+2754,2000-01-01,Tallapoosa County,1123,Alabama
+2755,2000-01-01,Tama County,19171,Iowa
+2756,2000-01-01,Taney County,29213,Missouri
+2757,2000-01-01,Tangipahoa Parish,22105,Louisiana
+2758,2000-01-01,Taos County,35055,New Mexico
+2759,2000-01-01,Tarrant County,48439,Texas
+2760,2000-01-01,Tate County,28137,Mississippi
+2761,2000-01-01,Tattnall County,13267,Georgia
+2762,2000-01-01,Taylor County,55119,Wisconsin
+2763,2000-01-01,Taylor County,54091,West Virginia
+2764,2000-01-01,Taylor County,48441,Texas
+2765,2000-01-01,Taylor County,13269,Georgia
+2766,2000-01-01,Taylor County,12123,Florida
+2767,2000-01-01,Taylor County,19173,Iowa
+2768,2000-01-01,Taylor County,21217,Kentucky
+2769,2000-01-01,Tazewell County,51185,Virginia
+2770,2000-01-01,Tazewell County,17179,Illinois
+2771,2000-01-01,Tehama County,6103,California
+2772,2000-01-01,Telfair County,13271,Georgia
+2773,2000-01-01,Teller County,8119,Colorado
+2774,2000-01-01,Tensas Parish,22107,Louisiana
+2775,2000-01-01,Terrebonne Parish,22109,Louisiana
+2776,2000-01-01,Terrell County,48443,Texas
+2777,2000-01-01,Terrell County,13273,Georgia
+2778,2000-01-01,Terry County,48445,Texas
+2779,2000-01-01,Teton County,30099,Montana
+2780,2000-01-01,Teton County,56039,Wyoming
+2781,2000-01-01,Teton County,16081,Idaho
+2782,2000-01-01,Texas County,40139,Oklahoma
+2783,2000-01-01,Texas County,29215,Missouri
+2784,2000-01-01,Thayer County,31169,Nebraska
+2785,2000-01-01,Thomas County,31171,Nebraska
+2786,2000-01-01,Thomas County,13275,Georgia
+2787,2000-01-01,Thomas County,20193,Kansas
+2788,2000-01-01,Throckmorton County,48447,Texas
+2789,2000-01-01,Thurston County,31173,Nebraska
+2790,2000-01-01,Thurston County,53067,Washington
+2791,2000-01-01,Tift County,13277,Georgia
+2792,2000-01-01,Tillamook County,41057,Oregon
+2793,2000-01-01,Tillman County,40141,Oklahoma
+2794,2000-01-01,Tioga County,42117,Pennsylvania
+2795,2000-01-01,Tioga County,36107,New York
+2796,2000-01-01,Tippah County,28139,Mississippi
+2797,2000-01-01,Tippecanoe County,18157,Indiana
+2798,2000-01-01,Tipton County,47167,Tennessee
+2799,2000-01-01,Tipton County,18159,Indiana
+2800,2000-01-01,Tishomingo County,28141,Mississippi
+2801,2000-01-01,Titus County,48449,Texas
+2802,2000-01-01,Todd County,46121,South Dakota
+2803,2000-01-01,Todd County,27153,Minnesota
+2804,2000-01-01,Todd County,21219,Kentucky
+2805,2000-01-01,Tolland County,9013,Connecticut
+2806,2000-01-01,Tom Green County,48451,Texas
+2807,2000-01-01,Tompkins County,36109,New York
+2808,2000-01-01,Tooele County,49045,Utah
+2809,2000-01-01,Toole County,30101,Montana
+2810,2000-01-01,Toombs County,13279,Georgia
+2811,2000-01-01,Torrance County,35057,New Mexico
+2812,2000-01-01,Towner County,38095,North Dakota
+2813,2000-01-01,Towns County,13281,Georgia
+2814,2000-01-01,Traill County,38097,North Dakota
+2815,2000-01-01,Transylvania County,37175,North Carolina
+2816,2000-01-01,Traverse County,27155,Minnesota
+2817,2000-01-01,Travis County,48453,Texas
+2818,2000-01-01,Treasure County,30103,Montana
+2819,2000-01-01,Trego County,20195,Kansas
+2820,2000-01-01,Trempealeau County,55121,Wisconsin
+2821,2000-01-01,Treutlen County,13283,Georgia
+2822,2000-01-01,Trigg County,21221,Kentucky
+2823,2000-01-01,Trimble County,21223,Kentucky
+2824,2000-01-01,Trinity County,48455,Texas
+2825,2000-01-01,Trinity County,6105,California
+2826,2000-01-01,Tripp County,46123,South Dakota
+2827,2000-01-01,Troup County,13285,Georgia
+2828,2000-01-01,Trousdale County,47169,Tennessee
+2829,2000-01-01,Trumbull County,39155,Ohio
+2830,2000-01-01,Tucker County,54093,West Virginia
+2831,2000-01-01,Tulare County,6107,California
+2832,2000-01-01,Tulsa County,40143,Oklahoma
+2833,2000-01-01,Tunica County,28143,Mississippi
+2834,2000-01-01,Tuolumne County,6109,California
+2835,2000-01-01,Turner County,46125,South Dakota
+2836,2000-01-01,Turner County,13287,Georgia
+2837,2000-01-01,Tuscaloosa County,1125,Alabama
+2838,2000-01-01,Tuscarawas County,39157,Ohio
+2839,2000-01-01,Tuscola County,26157,Michigan
+2840,2000-01-01,Twiggs County,13289,Georgia
+2841,2000-01-01,Twin Falls County,16083,Idaho
+2842,2000-01-01,Tyler County,54095,West Virginia
+2843,2000-01-01,Tyler County,48457,Texas
+2844,2000-01-01,Tyrrell County,37177,North Carolina
+2845,2000-01-01,Uinta County,56041,Wyoming
+2846,2000-01-01,Uintah County,49047,Utah
+2847,2000-01-01,Ulster County,36111,New York
+2848,2000-01-01,Umatilla County,41059,Oregon
+2849,2000-01-01,Unicoi County,47171,Tennessee
+2850,2000-01-01,Union County,39159,Ohio
+2851,2000-01-01,Union County,37179,North Carolina
+2852,2000-01-01,Union County,42119,Pennsylvania
+2853,2000-01-01,Union County,41061,Oregon
+2854,2000-01-01,Union County,34039,New Jersey
+2855,2000-01-01,Union County,35059,New Mexico
+2856,2000-01-01,Union County,47173,Tennessee
+2857,2000-01-01,Union County,45087,South Carolina
+2858,2000-01-01,Union County,46127,South Dakota
+2859,2000-01-01,Union County,13291,Georgia
+2860,2000-01-01,Union County,18161,Indiana
+2861,2000-01-01,Union County,17181,Illinois
+2862,2000-01-01,Union County,5139,Arkansas
+2863,2000-01-01,Union County,12125,Florida
+2864,2000-01-01,Union County,28145,Mississippi
+2865,2000-01-01,Union County,19175,Iowa
+2866,2000-01-01,Union County,21225,Kentucky
+2867,2000-01-01,Union Parish,22111,Louisiana
+2868,2000-01-01,Upshur County,48459,Texas
+2869,2000-01-01,Upshur County,54097,West Virginia
+2870,2000-01-01,Upson County,13293,Georgia
+2871,2000-01-01,Upton County,48461,Texas
+2872,2000-01-01,Utah County,49049,Utah
+2873,2000-01-01,Uvalde County,48463,Texas
+2874,2000-01-01,Val Verde County,48465,Texas
+2875,2000-01-01,Valdez-Cordova Census Area,2261,Alaska
+2876,2000-01-01,Valencia County,35061,New Mexico
+2877,2000-01-01,Valley County,31175,Nebraska
+2878,2000-01-01,Valley County,30105,Montana
+2879,2000-01-01,Valley County,16085,Idaho
+2880,2000-01-01,Van Buren County,47175,Tennessee
+2881,2000-01-01,Van Buren County,5141,Arkansas
+2882,2000-01-01,Van Buren County,26159,Michigan
+2883,2000-01-01,Van Buren County,19177,Iowa
+2884,2000-01-01,Van Wert County,39161,Ohio
+2885,2000-01-01,Van Zandt County,48467,Texas
+2886,2000-01-01,Vance County,37181,North Carolina
+2887,2000-01-01,Vanderburgh County,18163,Indiana
+2888,2000-01-01,Venango County,42121,Pennsylvania
+2889,2000-01-01,Ventura County,6111,California
+2890,2000-01-01,Vermilion County,17183,Illinois
+2891,2000-01-01,Vermilion Parish,22113,Louisiana
+2892,2000-01-01,Vermillion County,18165,Indiana
+2893,2000-01-01,Vernon County,29217,Missouri
+2894,2000-01-01,Vernon County,55123,Wisconsin
+2895,2000-01-01,Vernon Parish,22115,Louisiana
+2896,2000-01-01,Victoria County,48469,Texas
+2897,2000-01-01,Vigo County,18167,Indiana
+2898,2000-01-01,Vilas County,55125,Wisconsin
+2899,2000-01-01,Vinton County,39163,Ohio
+2900,2000-01-01,Virginia Beach city,51810,Virginia
+2901,2000-01-01,Volusia County,12127,Florida
+2902,2000-01-01,Wabash County,18169,Indiana
+2903,2000-01-01,Wabash County,17185,Illinois
+2904,2000-01-01,Wabasha County,27157,Minnesota
+2905,2000-01-01,Wabaunsee County,20197,Kansas
+2906,2000-01-01,Wade Hampton Census Area,2270,Alaska
+2907,2000-01-01,Wadena County,27159,Minnesota
+2908,2000-01-01,Wagoner County,40145,Oklahoma
+2909,2000-01-01,Wahkiakum County,53069,Washington
+2910,2000-01-01,Wake County,37183,North Carolina
+2911,2000-01-01,Wakulla County,12129,Florida
+2912,2000-01-01,Waldo County,23027,Maine
+2913,2000-01-01,Walker County,48471,Texas
+2914,2000-01-01,Walker County,13295,Georgia
+2915,2000-01-01,Walker County,1127,Alabama
+2916,2000-01-01,Walla Walla County,53071,Washington
+2917,2000-01-01,Wallace County,20199,Kansas
+2918,2000-01-01,Waller County,48473,Texas
+2919,2000-01-01,Wallowa County,41063,Oregon
+2920,2000-01-01,Walsh County,38099,North Dakota
+2921,2000-01-01,Walthall County,28147,Mississippi
+2922,2000-01-01,Walton County,13297,Georgia
+2923,2000-01-01,Walton County,12131,Florida
+2924,2000-01-01,Walworth County,55127,Wisconsin
+2925,2000-01-01,Walworth County,46129,South Dakota
+2926,2000-01-01,Wapello County,19179,Iowa
+2927,2000-01-01,Ward County,38101,North Dakota
+2928,2000-01-01,Ward County,48475,Texas
+2929,2000-01-01,Ware County,13299,Georgia
+2930,2000-01-01,Warren County,39165,Ohio
+2931,2000-01-01,Warren County,37185,North Carolina
+2932,2000-01-01,Warren County,42123,Pennsylvania
+2933,2000-01-01,Warren County,29219,Missouri
+2934,2000-01-01,Warren County,36113,New York
+2935,2000-01-01,Warren County,34041,New Jersey
+2936,2000-01-01,Warren County,51187,Virginia
+2937,2000-01-01,Warren County,47177,Tennessee
+2938,2000-01-01,Warren County,13301,Georgia
+2939,2000-01-01,Warren County,17187,Illinois
+2940,2000-01-01,Warren County,18171,Indiana
+2941,2000-01-01,Warren County,28149,Mississippi
+2942,2000-01-01,Warren County,19181,Iowa
+2943,2000-01-01,Warren County,21227,Kentucky
+2944,2000-01-01,Warrick County,18173,Indiana
+2945,2000-01-01,Wasatch County,49051,Utah
+2946,2000-01-01,Wasco County,41065,Oregon
+2947,2000-01-01,Waseca County,27161,Minnesota
+2948,2000-01-01,Washakie County,56043,Wyoming
+2949,2000-01-01,Washburn County,55129,Wisconsin
+2950,2000-01-01,Washington County,39167,Ohio
+2951,2000-01-01,Washington County,37187,North Carolina
+2952,2000-01-01,Washington County,42125,Pennsylvania
+2953,2000-01-01,Washington County,44009,Rhode Island
+2954,2000-01-01,Washington County,40147,Oklahoma
+2955,2000-01-01,Washington County,41067,Oregon
+2956,2000-01-01,Washington County,31177,Nebraska
+2957,2000-01-01,Washington County,29221,Missouri
+2958,2000-01-01,Washington County,36115,New York
+2959,2000-01-01,Washington County,51191,Virginia
+2960,2000-01-01,Washington County,48477,Texas
+2961,2000-01-01,Washington County,49053,Utah
+2962,2000-01-01,Washington County,50023,Vermont
+2963,2000-01-01,Washington County,55131,Wisconsin
+2964,2000-01-01,Washington County,47179,Tennessee
+2965,2000-01-01,Washington County,13303,Georgia
+2966,2000-01-01,Washington County,17189,Illinois
+2967,2000-01-01,Washington County,16087,Idaho
+2968,2000-01-01,Washington County,5143,Arkansas
+2969,2000-01-01,Washington County,1129,Alabama
+2970,2000-01-01,Washington County,8121,Colorado
+2971,2000-01-01,Washington County,12133,Florida
+2972,2000-01-01,Washington County,18175,Indiana
+2973,2000-01-01,Washington County,24043,Maryland
+2974,2000-01-01,Washington County,23029,Maine
+2975,2000-01-01,Washington County,28151,Mississippi
+2976,2000-01-01,Washington County,27163,Minnesota
+2977,2000-01-01,Washington County,19183,Iowa
+2978,2000-01-01,Washington County,21229,Kentucky
+2979,2000-01-01,Washington County,20201,Kansas
+2980,2000-01-01,Washington Parish,22117,Louisiana
+2981,2000-01-01,Washita County,40149,Oklahoma
+2982,2000-01-01,Washoe County,32031,Nevada
+2983,2000-01-01,Washtenaw County,26161,Michigan
+2984,2000-01-01,Watauga County,37189,North Carolina
+2985,2000-01-01,Watonwan County,27165,Minnesota
+2986,2000-01-01,Waukesha County,55133,Wisconsin
+2987,2000-01-01,Waupaca County,55135,Wisconsin
+2988,2000-01-01,Waushara County,55137,Wisconsin
+2989,2000-01-01,Wayne County,39169,Ohio
+2990,2000-01-01,Wayne County,37191,North Carolina
+2991,2000-01-01,Wayne County,42127,Pennsylvania
+2992,2000-01-01,Wayne County,31179,Nebraska
+2993,2000-01-01,Wayne County,29223,Missouri
+2994,2000-01-01,Wayne County,36117,New York
+2995,2000-01-01,Wayne County,49055,Utah
+2996,2000-01-01,Wayne County,54099,West Virginia
+2997,2000-01-01,Wayne County,47181,Tennessee
+2998,2000-01-01,Wayne County,13305,Georgia
+2999,2000-01-01,Wayne County,17191,Illinois
+3000,2000-01-01,Wayne County,26163,Michigan
+3001,2000-01-01,Wayne County,28153,Mississippi
+3002,2000-01-01,Wayne County,18177,Indiana
+3003,2000-01-01,Wayne County,19185,Iowa
+3004,2000-01-01,Wayne County,21231,Kentucky
+3005,2000-01-01,Waynesboro city,51820,Virginia
+3006,2000-01-01,Weakley County,47183,Tennessee
+3007,2000-01-01,Webb County,48479,Texas
+3008,2000-01-01,Weber County,49057,Utah
+3009,2000-01-01,Webster County,31181,Nebraska
+3010,2000-01-01,Webster County,29225,Missouri
+3011,2000-01-01,Webster County,54101,West Virginia
+3012,2000-01-01,Webster County,13307,Georgia
+3013,2000-01-01,Webster County,28155,Mississippi
+3014,2000-01-01,Webster County,19187,Iowa
+3015,2000-01-01,Webster County,21233,Kentucky
+3016,2000-01-01,Webster Parish,22119,Louisiana
+3017,2000-01-01,Weld County,8123,Colorado
+3018,2000-01-01,Wells County,38103,North Dakota
+3019,2000-01-01,Wells County,18179,Indiana
+3020,2000-01-01,West Baton Rouge Parish,22121,Louisiana
+3021,2000-01-01,West Carroll Parish,22123,Louisiana
+3022,2000-01-01,West Feliciana Parish,22125,Louisiana
+3023,2000-01-01,Westchester County,36119,New York
+3024,2000-01-01,Westmoreland County,42129,Pennsylvania
+3025,2000-01-01,Westmoreland County,51193,Virginia
+3026,2000-01-01,Weston County,56045,Wyoming
+3027,2000-01-01,Wetzel County,54103,West Virginia
+3028,2000-01-01,Wexford County,26165,Michigan
+3029,2000-01-01,Wharton County,48481,Texas
+3030,2000-01-01,Whatcom County,53073,Washington
+3031,2000-01-01,Wheatland County,30107,Montana
+3032,2000-01-01,Wheeler County,41069,Oregon
+3033,2000-01-01,Wheeler County,31183,Nebraska
+3034,2000-01-01,Wheeler County,48483,Texas
+3035,2000-01-01,Wheeler County,13309,Georgia
+3036,2000-01-01,White County,47185,Tennessee
+3037,2000-01-01,White County,13311,Georgia
+3038,2000-01-01,White County,17193,Illinois
+3039,2000-01-01,White County,5145,Arkansas
+3040,2000-01-01,White County,18181,Indiana
+3041,2000-01-01,White Pine County,32033,Nevada
+3042,2000-01-01,Whiteside County,17195,Illinois
+3043,2000-01-01,Whitfield County,13313,Georgia
+3044,2000-01-01,Whitley County,18183,Indiana
+3045,2000-01-01,Whitley County,21235,Kentucky
+3046,2000-01-01,Whitman County,53075,Washington
+3047,2000-01-01,Wibaux County,30109,Montana
+3048,2000-01-01,Wichita County,48485,Texas
+3049,2000-01-01,Wichita County,20203,Kansas
+3050,2000-01-01,Wicomico County,24045,Maryland
+3051,2000-01-01,Wilbarger County,48487,Texas
+3052,2000-01-01,Wilcox County,13315,Georgia
+3053,2000-01-01,Wilcox County,1131,Alabama
+3054,2000-01-01,Wilkes County,37193,North Carolina
+3055,2000-01-01,Wilkes County,13317,Georgia
+3056,2000-01-01,Wilkin County,27167,Minnesota
+3057,2000-01-01,Wilkinson County,13319,Georgia
+3058,2000-01-01,Wilkinson County,28157,Mississippi
+3059,2000-01-01,Will County,17197,Illinois
+3060,2000-01-01,Willacy County,48489,Texas
+3061,2000-01-01,Williams County,39171,Ohio
+3062,2000-01-01,Williams County,38105,North Dakota
+3063,2000-01-01,Williamsburg County,45089,South Carolina
+3064,2000-01-01,Williamsburg city,51830,Virginia
+3065,2000-01-01,Williamson County,48491,Texas
+3066,2000-01-01,Williamson County,47187,Tennessee
+3067,2000-01-01,Williamson County,17199,Illinois
+3068,2000-01-01,Wilson County,37195,North Carolina
+3069,2000-01-01,Wilson County,48493,Texas
+3070,2000-01-01,Wilson County,47189,Tennessee
+3071,2000-01-01,Wilson County,20205,Kansas
+3072,2000-01-01,Winchester city,51840,Virginia
+3073,2000-01-01,Windham County,50025,Vermont
+3074,2000-01-01,Windham County,9015,Connecticut
+3075,2000-01-01,Windsor County,50027,Vermont
+3076,2000-01-01,Winkler County,48495,Texas
+3077,2000-01-01,Winn Parish,22127,Louisiana
+3078,2000-01-01,Winnebago County,55139,Wisconsin
+3079,2000-01-01,Winnebago County,17201,Illinois
+3080,2000-01-01,Winnebago County,19189,Iowa
+3081,2000-01-01,Winneshiek County,19191,Iowa
+3082,2000-01-01,Winona County,27169,Minnesota
+3083,2000-01-01,Winston County,1133,Alabama
+3084,2000-01-01,Winston County,28159,Mississippi
+3085,2000-01-01,Wirt County,54105,West Virginia
+3086,2000-01-01,Wise County,51195,Virginia
+3087,2000-01-01,Wise County,48497,Texas
+3088,2000-01-01,Wolfe County,21237,Kentucky
+3089,2000-01-01,Wood County,39173,Ohio
+3090,2000-01-01,Wood County,48499,Texas
+3091,2000-01-01,Wood County,54107,West Virginia
+3092,2000-01-01,Wood County,55141,Wisconsin
+3093,2000-01-01,Woodbury County,19193,Iowa
+3094,2000-01-01,Woodford County,17203,Illinois
+3095,2000-01-01,Woodford County,21239,Kentucky
+3096,2000-01-01,Woodruff County,5147,Arkansas
+3097,2000-01-01,Woods County,40151,Oklahoma
+3098,2000-01-01,Woodson County,20207,Kansas
+3099,2000-01-01,Woodward County,40153,Oklahoma
+3100,2000-01-01,Worcester County,24047,Maryland
+3101,2000-01-01,Worcester County,25027,Massachusetts
+3102,2000-01-01,Worth County,29227,Missouri
+3103,2000-01-01,Worth County,13321,Georgia
+3104,2000-01-01,Worth County,19195,Iowa
+3105,2000-01-01,Wrangell City and Borough,2275,Alaska
+3106,2000-01-01,Wright County,29229,Missouri
+3107,2000-01-01,Wright County,27171,Minnesota
+3108,2000-01-01,Wright County,19197,Iowa
+3109,2000-01-01,Wyandot County,39175,Ohio
+3110,2000-01-01,Wyandotte County,20209,Kansas
+3111,2000-01-01,Wyoming County,42131,Pennsylvania
+3112,2000-01-01,Wyoming County,36121,New York
+3113,2000-01-01,Wyoming County,54109,West Virginia
+3114,2000-01-01,Wythe County,51197,Virginia
+3115,2000-01-01,Yadkin County,37197,North Carolina
+3116,2000-01-01,Yakima County,53077,Washington
+3117,2000-01-01,Yakutat City and Borough,2282,Alaska
+3118,2000-01-01,Yalobusha County,28161,Mississippi
+3119,2000-01-01,Yamhill County,41071,Oregon
+3120,2000-01-01,Yancey County,37199,North Carolina
+3121,2000-01-01,Yankton County,46135,South Dakota
+3122,2000-01-01,Yates County,36123,New York
+3123,2000-01-01,Yavapai County,4025,Arizona
+3124,2000-01-01,Yazoo County,28163,Mississippi
+3125,2000-01-01,Yell County,5149,Arkansas
+3126,2000-01-01,Yellow Medicine County,27173,Minnesota
+3127,2000-01-01,Yellowstone County,30111,Montana
+3128,2000-01-01,Yoakum County,48501,Texas
+3129,2000-01-01,Yolo County,6113,California
+3130,2000-01-01,York County,42133,Pennsylvania
+3131,2000-01-01,York County,31185,Nebraska
+3132,2000-01-01,York County,51199,Virginia
+3133,2000-01-01,York County,45091,South Carolina
+3134,2000-01-01,York County,23031,Maine
+3135,2000-01-01,Young County,48503,Texas
+3136,2000-01-01,Yuba County,6115,California
+3137,2000-01-01,Yukon-Koyukuk Census Area,2290,Alaska
+3138,2000-01-01,Yuma County,4027,Arizona
+3139,2000-01-01,Yuma County,8125,Colorado
+3140,2000-01-01,Zapata County,48505,Texas
+3141,2000-01-01,Zavala County,48507,Texas
+3142,2000-01-01,Ziebach County,46137,South Dakota

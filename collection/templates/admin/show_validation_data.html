@@ -1,0 +1,200 @@
+{% extends 'layouts/base_admin.html' %}'
+{% load staticfiles %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+
+{% block title %}
+	Show Validation Data
+{% endblock %}
+
+
+{% block additionalcss %}
+
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap-3.4.0.min.css' %}" />
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+<style>
+	
+					
+	/* --------------------------------------------------------------------------*/
+	/* Top ----------------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+	#main-panel {}
+	
+	#buttons {
+		margin-left: 500px;
+		margin-top: 70px;
+	}
+	
+	.simulation-id-input {
+		margin-top: 5px;
+	}
+	
+	.form-control {
+		width: 200px;
+		display: inline-block;
+	}
+	
+	.simulation-id-input label {
+		width: 100px;
+	}
+	
+	#get-simulation-data-button {
+		margin-top: 12px;
+		margin-left: 40px;
+		margin-bottom: 10px;
+	}
+	
+
+	/* --------------------------------------------------------------------------*/
+	/* bottom ----------------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+
+	.result {
+		margin-top: 90px;
+	}
+	
+	.result-title {
+		font-size: 29px;
+		margin-bottom: 9px;
+	}
+	
+	.result-value {}
+	
+</style>	
+
+
+
+{% endblock %}	
+
+{% block content %}
+<div id="main-panel">
+	<div id="buttons">
+		<div class="simulation-id-input">
+			<label for="simulation_id">Simulation ID:</label>
+			<input type="text" class="form-control" id="simulation_id" name="simulation_id" value="">
+		</div>
+		<button id="get-simulation-data-button" class="btn btn-success" type="button" onclick="getSimulationData()">Get Simulation Data</button>
+		<div id="show-results-button-frame"></div>
+	</div>
+	<div id="download-buttons" style="display:none;">
+		<button class="btn btn-primary" type="button" onclick="download_simulation_state_code();">Download simulation_state_code</button>
+		<button class="btn btn-primary" type="button" onclick="download_df();">Download df</button>
+		<button class="btn btn-primary" type="button" onclick="download_y0_values();">Download y0_values</button>
+	</div>
+	<div id="results" style="display:none;">
+		<div class="result">
+			<div class="result-title">simulation_state_code</div>
+			<div class="result-value" id="simulation_state_code"></div>
+		</div>
+		<div class="result">
+			<div class="result-title">df</div>
+			<div class="result-value" id="df"></div>
+		</div>
+		<div class="result">
+			<div class="result-title">y0_values</div>
+			<div class="result-value" id="y0_values"></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+	//========================================================================
+	//========================================================================
+	//=========================   MAIN PANEL      ============================
+	//========================================================================
+	//========================================================================
+
+	// GLOBAL VARAIBLES
+	var simulation_state_code = '';
+	var df = '';
+	var y0_values = '';
+
+	
+	function getSimulationData() {
+
+		var simulation_id = $('#simulation_id').val();
+		
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			
+				$('#download-buttons').css('display','block');
+				$('#results').css('display','block');
+				validation_data = JSON.parse(this.responseText);
+				simulation_state_code = JSON.stringify(validation_data['simulation_state_code'])
+				df = JSON.stringify(validation_data['df'])
+				y0_values = JSON.stringify(validation_data['y0_values'])
+					
+				$('#simulation_state_code').html(simulation_state_code);
+				$('#df').html(df);
+				$('#y0_values').html(y0_values);
+			}
+		};
+		xhttp.open('GET', '/admin/get_validation_data?simulation_id=' + simulation_id, true);
+		xhttp.send();
+	}
+	
+	
+	
+	function download_simulation_state_code() {
+		var a = document.createElement("a");
+		a.href="data:application/json;charset=utf-8," + simulation_state_code
+		a.download = "simulation_state_code.txt"
+		document.body.appendChild(a)
+		a.click()
+		document.body.removeChild(a)
+	}
+	
+	function download_df() {
+		var a = document.createElement("a");
+		a.href="data:application/json;charset=utf-8," + df
+		a.download = "df.json"
+		document.body.appendChild(a)
+		a.click()
+		document.body.removeChild(a)
+	}
+	
+	function download_y0_values() {
+		var a = document.createElement("a");
+		a.href="data:application/json;charset=utf-8," + y0_values
+		a.download = "y0_values.json"
+		document.body.appendChild(a)
+		a.click()
+		document.body.removeChild(a)
+
+	}
+	
+	
+	
+	
+
+
+</script>
+
+
+
+{% endblock %}
+
+
+

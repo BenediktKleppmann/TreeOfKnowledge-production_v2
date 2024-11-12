@@ -1,0 +1,73 @@
+ {% extends 'layouts/base_landing_pages.html' %}'
+{% load staticfiles %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+
+{% block title %}
+	Tree of Knowledge - Tutorial 1
+{% endblock %}
+
+{% block additionalcss %}
+	<style>
+		.box h2 {
+		    padding-top: 16px;
+			padding-left: 0px;
+			font-size: 26px;
+			margin-bottom: 7px;
+			display: block;
+			text-align: left;
+		}
+		
+		.left-side {
+			display: inline-block;
+			width: 700px;
+		}
+		
+		.right-side {
+			display: inline-block;
+			width: 350px;
+			float: right;
+		}
+		
+	</style>
+{% endblock %}	
+
+{% block content %}
+
+	<section id="background picture" class="carousel">
+		<div style="background-image: url(../static/images/brodgar_dark-min.jpg);
+					background-attachment: fixed;
+					background-size: 100%;
+					background-repeat: no-repeat;
+					padding: 200px 0;
+					background-position: 21% 29%;
+					margin-top:54px;">
+		</div>
+	</section>
+
+		
+	<section>
+		<div class="container">
+			<div class="box first last">
+				<br>
+				<div class="lead left-aligned">
+					Still to come...
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
+
+
+

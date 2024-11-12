@@ -1,0 +1,132 @@
+{% load staticfiles %}
+<!doctype html>
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+
+<html lang="en">
+<head>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151938988-1"></script>
+	<script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());    gtag('config', 'UA-151938988-1'); </script>
+
+
+	<meta charset="utf-8">
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="author" content="Benedikt Kleppmann">
+	<title>{% block title %}{% endblock %}</title>
+	
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/themes/default/style.min.css" />
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/tool.css' %}" />	
+	
+	<!--
+	<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap-3.4.0.min.js' %}"></script>
+	-->
+	
+	<style>
+		.navbar-default .navbar-nav > li > a {
+			color: rgb(194, 188, 174) !important;
+			font-size: 15px;
+			padding-top: 18px;
+			padding-bottom: 18px;
+			padding-left: 25px;
+			padding-right: 25px;
+		}
+		
+		#navbar-main {
+			background-color:rgb(50, 51, 84);
+		}
+		
+	</style>	
+	
+	{% block additionalcss %}{% endblock %}
+	<link rel="shortcut icon" href="{% static 'images/logo_with_background.png'%}">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+          <a class="navbar-brand" href="{% url 'main_menu' %}" ></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+		<ul class="nav navbar-nav">
+			<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-eye"></i>&nbsp;Inspect&nbsp;<span class="caret" style="border-top-color:rgb(226,221,204);"></span></a>
+                <ul class="dropdown-menu">
+				  <li><a href="//www.treeofknowledge.ai/admin">All Database Records</a></li>
+				  <li><a href="{% url 'show_attributes' %}">All Attributes</a></li>
+				  <li><a href="{% url 'show_object_types' %}">All Object Types</a></li>
+				  <li><a href="{% url 'inspect_object_empty' %}">Inspect Object</a></li>
+				  <li><a href="{% url 'inspect_upload_empty' %}">Inspect Upload</a></li>
+				  <li><a href="{% url 'inspect_logged_variables' %}">Inspect Logged Variables</a></li>
+				  <li><a href="{% url 'run_query' %}">Run Query</a></li>
+                </ul>
+            </li>
+			
+			<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-broom"></i>&nbsp;Data Cleaning&nbsp;<span class="caret" style="border-top-color:rgb(226,221,204);"></span></a>
+                <ul class="dropdown-menu">
+				  <li><a href="{% url 'possibly_duplicate_objects_with_keys' %}">Find possibly duplicate objects (with keys)</a></li>
+				  <li><a href="{% url 'possibly_duplicate_objects_without_keys' %}">Find possibly duplicate objects (without keys)</a></li>
+				  <li><a href="{% url 'delete_objects_page' %}">Delete objects</a></li>
+				  <li><a href="{% url 'delete_upload_page' %}">Delete upload</a></li>
+				  <li><a href="{% url 'delete_simulation_page' %}">Delete simulation</a></li>
+                </ul>
+            </li>
+			
+			<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-band-aid"></i>&nbsp;Model Fixes&nbsp;<span class="caret" style="border-top-color:rgb(226,221,204);"></span></a>
+                <ul class="dropdown-menu">
+				  <li><a href="{% url 'salvage_cancelled_simulation_page' %}">Salvage results from cancelled simulation</a></li>
+				  <li><a href="{% url 'show_validation_data' %}">Show simulation's validation data</a></li>
+                </ul>
+            </li>
+			
+			
+			
+			<li><a href="{% url 'various_scripts' %}"><i class="fas fa-play"></i>&nbsp;Various Scripts</a></li>
+            
+			
+			<!--<li><a href="{% url 'query_data' %}"><i class="fas fa-database"></i>&nbsp;Database Management</a></li>-->
+			
+            <li><a href="{% url 'upload_file' %}"><i class="fas fa-upload"></i>&nbsp; Upload File</a></li>
+          </ul>
+        </div>
+    </nav>
+	
+	<div style="background-color:rgb(50, 51, 84); height:58px">
+	</div>
+	
+	<div class="content">
+	{% block content %}{% endblock %}
+	</div>
+	
+	
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.5/jstree.min.js"></script>
+
+	
+
+</body>
+</html>
+
+

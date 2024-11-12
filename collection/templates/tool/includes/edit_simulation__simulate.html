@@ -1,0 +1,2176 @@
+{% load staticfiles %}
+<!--                 EDIT SIMULATION - SIMULATE                   -->
+<!-- This is used edit_simulation.html. It was extracted, because edit_model.html was getting a bit long  -->
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+<style>
+
+	/* --------------------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+	/* Left Panel ---------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+
+	.left-panel-title {
+		background:rgb(226, 226, 226);
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 15.5px;
+		font-weight: 400;
+		padding: 6px 12px 6px 20px;
+		border: 1px solid rgb(180, 180, 180);
+	}
+	
+	.left-panel-body {
+		background-color: rgb(244, 244, 244);
+		padding: 19px 25px 2px 20px;
+		height: 100%;
+	}
+	
+	.left-panel-body .col-sm-3,
+	.left-panel-body .col-sm-4,
+	.left-panel-body .col-sm-5,
+	.left-panel-body .col-sm-7 { 
+		padding: 0px;
+	}
+	
+	.left-panel-body .row {
+		margin: 0px;
+	}
+	
+	.left-panel-body .form-group {
+		margin-bottom: 10px;
+	}
+	
+	.left-panel-body label {
+		font-weight: 200;
+		margin-top: 5px;
+		font-size: 15px;
+	}
+	
+	.left-panel-body .col-sm-3 {
+		padding-right: 5px;
+	}
+	
+	#query-info-button1, #query-info-button2 {
+		margin-bottom: 12px;
+	}
+	
+	#analysis-details-box {
+		margin-top: 22px;
+	}
+	
+	#analysis_type {
+		padding-left: 1px;
+	}
+	
+	
+	#advanced-settings-button {
+		border: 1px solid rgb(204, 204, 204);
+	}
+	
+	#save-button {
+		display: inline-block;
+		margin-top: 2px;
+		margin-right: 5px;
+		border-radius: 6px;
+		padding: 7px 15px;
+	}
+	
+	#run-button {
+		display: inline-block;
+		margin-top: 2px;
+		border-radius: 6px;
+		padding: 7px 15px;
+	}
+	
+	/* --------------------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+	/* Right Panel --------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+		
+		
+	/* --- Dual Ring Spinner ----------------------------------- */
+
+	.lds-dual-ring {
+	  margin: auto;
+	  width: 24px;
+	  height: 24px;
+	  padding-top: 12px;
+	}
+	.lds-dual-ring:after {
+	  content: " ";
+	  display: block;
+	  width: 24px;
+	  height: 24px;
+	  margin: 1px;
+	  border-radius: 50%;
+	  border: 2px solid #fed;
+	  border-color: rgb(80,80,80) transparent rgb(80,80,80) transparent;
+	  animation: lds-dual-ring 3.2s linear infinite;
+	}
+	@keyframes lds-dual-ring {
+	  0% {
+		transform: rotate(0deg);
+	  }
+	  100% {
+		transform: rotate(360deg);
+	  }
+	}
+	
+	/* Object Header ----------------------------------------------------------*/
+	#object-header-object-icon {
+		display: inline-block;
+		margin-top: 5px;
+		margin-left: 70px;
+		margin-bottom: 8px;
+		height: 38px;
+		width: 38px;
+		border: 1px solid rgb(193, 193, 193);
+		border-radius: 3px;
+		padding-top: 1px;
+		padding-left: 1px;
+		padding-right: 1px;
+		background: rgb(230, 230, 230);
+	}
+	
+	#object-header-object-name {
+		display: inline-block;
+		font-size: 18px;
+		margin-left: 12px;
+		margin-bottom: 11px;
+		vertical-align: bottom;
+	}
+	
+	#object-attribute-search-field {
+	    margin-left: 2px;
+		height: 35px;
+		margin-bottom: 1px;
+		width: 182px;
+		margin-top: 4px;
+	}
+	
+	
+	
+	/* Object Body ----------------------------------------------------------*/
+	#right-sidebar-body {
+		height: calc(100vh - 152px);
+		overflow:auto;
+	}
+	
+	#object-attributes-table {
+		border-collapse: collapse;
+	}
+	
+	
+	#object-attributes-table .list-group-item{
+		padding: 0px;
+		border: 0px;
+		border-top: 1px solid rgb(221, 221, 221);
+	}
+	
+	
+	
+	.attribute-name.active {
+		background: -moz-linear-gradient(
+			top,
+			#8ab8a1 0%,
+			#9bd1b6);
+		background: -webkit-gradient(
+			linear, left top, left bottom,
+			from(#8ab8a1),
+			to(#9bd1b6));
+	}
+
+
+	.attribute-name {
+		width: 44%;
+		padding-left: 9px;
+		border: 1px solid rgb(202, 202, 202);
+		background: -moz-linear-gradient(
+			top,
+			#f5f5f2 0%,
+			#ebeae6);
+		background: -webkit-gradient(
+			linear, left top, left bottom,
+			from(#f5f5f2),
+			to(#ebeae6));
+		-moz-box-shadow:
+			inset 0px 0px 3px rgba(255,255,255,0.9);
+		-webkit-box-shadow:
+			inset 0px 0px 3px rgba(255,255,255,0.9);
+		box-shadow:
+			inset 0px 0px 3px rgba(255,255,255,0.9);
+			
+		color: black;
+		display: inline-block;
+		min-height: 36px;
+	}
+	
+
+	.attribute-name .attribute-name-paragraph {
+		transform: translate(0, 7px);
+	}
+
+	.attribute-value-box {
+		border: 1px solid rgb(202, 202, 202);
+		width: 27%;
+		padding: 0px;
+		display: inline-block;
+		vertical-align: bottom;
+	}
+	
+	.attribute-value {
+		border-width: 0px;
+		border-radius: 0px;
+		color: rgb(51, 51, 51);
+	}
+	
+	.attribute-rule-box {
+		border: 1px solid rgb(202, 202, 202);
+		width: 29%;
+		background: white;
+		display: inline-block;
+		vertical-align: bottom;
+	}
+	
+	.attribute-rule-button {
+		border: 1px solid rgb(202, 202, 202);
+		color: rgb(85, 85, 85);
+		padding: 4px 7px;
+		margin: 2px 2px;
+		width: 105px;
+	}
+	
+	
+	
+	
+	#create-new-attribute-button {
+		margin-left: 126px;
+		margin-top: 17px;
+	}
+	
+	
+	/* Object Footer ----------------------------------------------------------	
+	
+	#object-footer {
+		background: rgb(226, 226, 226);
+		box-shadow: 0  -3px 6px 0 rgba(0, 0, 0, 0.20);
+		padding: 9px;
+		height: 51px;
+	}
+
+	#object-footer > .btn {
+		margin-left: 4px;
+	}
+	*/
+	
+	
+	/* --------------------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+	/* Choose Rule Modal --------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+	
+	.modal-dialog {
+		width: 700px;
+	}
+	
+	.modal-header {
+		margin: 0px;
+	}
+	
+	#modal-title {
+		margin: 0px;
+		margin-top: 2px;
+		font-size: 21px;
+	}
+	
+	.modal-body {
+		padding-left: 19px;
+		padding-right: 19px;
+		padding-top: 19px;
+		padding-bottom: 0px;
+	}
+	
+	#rule-modal-left {
+		width: 195px;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	#rule-modal-middle {
+		width: 430px;
+		padding-left: 15px;
+		display: inline-block;
+		vertical-align: top;
+		border-left: 1px solid rgb(202,202,202);
+		height: 378px;
+		margin-left: 6px;
+	}
+	
+	#rule-modal-right {
+		padding-left: 22px;
+		vertical-align: top;
+		display: inline-block;
+	}
+	
+	/* -------------------------------------------------------------------------------------------*/
+	/* Rule Modal Left  --------------------------------------------------------------------------*/
+	/* -------------------------------------------------------------------------------------------*/
+	
+	#selectOptionSearch {
+		width: 190px;
+	}
+	
+	#selection-options-frame {
+		margin-top: 8px;
+	}
+	
+	#selection-options {
+		margin-bottom:7px;
+	}
+	
+	#selection-options-frame .list-group-item {
+		padding: 0px;
+		margin:0px;
+		width: 190px;
+		border-style: none;
+		margin-bottom: 5px;
+	}
+	
+	#selection-options .list-group-item > .btn{
+		width: 190px;
+		text-align: left;
+	}
+	
+	#constant-value-button {
+		width: 190px;
+		margin-bottom:5px;
+		text-align: left;
+	}
+	
+	#no-rule-button {
+		width: 190px;
+		margin-bottom:5px;
+		text-align: left;
+	}
+	
+	#new-rule-button {
+		width: 190px;
+		text-align: left;
+	}
+	
+
+	/* --------------------------------------------------------------------------------------------------------*/
+	/* Rule Modal Middle  -------------------------------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------------------------------------*/
+	#rule-name {
+		display: inline-block;
+		margin-top: 0px;
+		margin-bottom: 31px;
+		text-align: center;
+		width: 356px;
+	}
+	
+	#rule-name-input {
+		width: 200px;
+		margin-left: 104px;
+		margin-bottom: 29px;
+	}
+	
+
+	#edit-and-delete-rule-buttons {
+		display: inline-block;
+		vertical-align: text-top;
+		margin-top: -19px;
+	}
+	
+	.edit-rule-button {
+		background-color: rgb(249, 235, 214);
+		border-color: rgb(244, 229, 205);
+		float: right;
+		padding: 2px 7px;
+		margin-bottom: 3px;
+	}
+	
+	.delete-rule-button {
+		background-color: rgb(244, 215, 215);
+		border-color: rgb(242, 210, 210);
+		float: right;
+		padding: 2px 7px;
+	}
+						
+	
+	/* Used Attribute Buttons ---*/
+	
+	#unique_identifier_selection {
+		margin-left:24px;
+		height: 44px;
+	}
+	
+	#used-attributes {
+		margin-top: 5px
+	}
+	
+	#used-attributes > .btn {
+		margin-right:7px;	
+		border: 1px solid black;
+		border-radius: 17px;
+		color:rgb(102, 102, 102);
+		background-color: rgb(252, 252, 255);
+		border-color: rgb(186, 187, 188);
+		margin-bottom: 5px;
+		padding: 3px 8px;
+	  }
+	
+	
+	#used-attributes > .btn:last-child:not(:first-child), 
+	#used-attributes > .dropdown-toggle:not(:first-child),
+	#used-attributes > .btn:first-child:not(:last-child):not(.dropdown-toggle),
+	#used-attributes > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle)	{
+		border-radius: 17px;
+	  }
+	  
+	#used-attributes > .btn:hover, 
+	#used-attributes > .active{
+		color:rgb(0, 0, 0);
+		/*background-color: rgb(156, 209, 183);*/
+		border-color: rgb(146, 147, 147);
+	}
+	
+	#used-attribute0:hover, #used-attribute0.active {background-color: rgb(96, 143, 202);}
+	#used-attribute1:hover, #used-attribute1.active {background-color: rgb(49, 148, 76);}
+	#used-attribute2:hover, #used-attribute2.active {background-color: rgb(147, 116, 209);}
+	#used-attribute3:hover, #used-attribute3.active {background-color: rgb(200, 91, 103);}
+	#used-attribute4:hover, #used-attribute4.active {background-color: rgb(198, 201, 92);}
+	#used-attribute5:hover, #used-attribute5.active {background-color: rgb(184, 61, 161);}
+	#used-attribute6:hover, #used-attribute6.active {background-color: rgb(190, 136, 63);}
+	#used-attribute7:hover, #used-attribute7.active {background-color: rgb(59, 176, 160);}
+	#used-attribute8:hover, #used-attribute8.active {background-color: rgb(193, 72, 69);}
+	#used-attribute9:hover, #used-attribute9.active {background-color: rgb(169, 99, 56);}
+	#used-attribute10:hover, #used-attribute10.active {background-color: rgb(129, 213, 170);}
+	#used-attribute11:hover, #used-attribute11.active {background-color: rgb(73, 106, 194);}
+	#used-attribute12:hover, #used-attribute12.active {background-color: =rgb(154, 51, 135);}
+
+	.hwt-content mark.color0 { background-color:rgb(96, 143, 202);}
+	.hwt-content mark.color1 { background-color:rgb(49, 148, 76);}
+	.hwt-content mark.color2 { background-color:rgb(147, 116, 209);}
+	.hwt-content mark.color3 { background-color:rgb(200, 91, 103);}
+	.hwt-content mark.color4 { background-color:rgb(198, 201, 92);}
+	.hwt-content mark.color5 { background-color:rgb(184, 61, 161);}
+	.hwt-content mark.color6 { background-color:rgb(190, 136, 63);}
+	.hwt-content mark.color7 { background-color:rgb(125, 195, 75);}
+	.hwt-content mark.color8 { background-color:rgb(193, 72, 69);}
+	.hwt-content mark.color9 { background-color:rgb(169, 99, 56);}
+	.hwt-content mark.color10 { background-color:rgb(129, 213, 170);}
+	.hwt-content mark.color11 { background-color:rgb(73, 106, 194);}
+	.hwt-content mark.color12 { background-color:rgb(154, 51, 135);}
+	
+	/*.hwt-container {
+		background-color: #f8f9fa;
+	}*/
+
+	.hwt-content {
+		width: 348.667px;
+		height: 91px;
+		padding: 6px 12px;
+		border: 1px solid rgb(204, 204, 204);
+		color: rgb(85, 85, 85);
+		font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+		border-radius:4px;
+		background: white;
+		line-height: 20px;
+	}
+	
+	#rule-text {
+		height: 91px;
+		width: 400px;
+	}
+	
+	
+	/* --------------------------------------------------------------------------------------------------------*/
+	/* Rule Modal Right  --------------------------------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------------------------------------*/
+	
+	.available-variables-label {
+		margin-top: 19px;
+		font-weight: 700;
+		font-size: 15px;
+		color: rgb(110, 110, 110);
+	} 
+	
+	#selectAvailableVariable {
+		width: 179px;
+		margin-top: 2px;
+		margin-bottom: 5px;
+	}
+	
+	#available-variable-frame {
+		border: 1px solid rgb(202, 202, 202);
+		border-radius: 4px;
+		width: 195px;
+		height: 300px;
+		overflow: auto;
+	}
+	
+	.list-group-item.avail-var-item{
+		border-bottom: 1px solid rgb(202, 202, 202);
+		margin-bottom: 0px;
+		padding:0px;
+	}
+
+	.avail-var-button {
+		background: white;
+		width: 195px;
+	}
+
+	/* --------------------------------------------------------------------------------------------------------*/
+	/* Simulation Progress Modal  -----------------------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------------------------------------*/
+
+	#simulationProgressModal .modal-dialog {
+		position:absolute; 
+		left:15%; 
+		width:70%;
+	}
+
+	.modal-title {
+		font-size: 22px; 
+		margin-top: 2px;
+	}
+	
+	#progress-bar-frame {
+		display: inline-block;
+		width: calc(100% - 105px);
+		margin-top: 15px;
+	}
+	
+	#cancel-simulation-button {
+		display: inline-block;
+		float: right;
+		font-size: 14px;
+		padding: 7px 7px;
+	    background: white;
+		border: 1px solid rgb(220, 53, 69);
+		color: rgb(220, 53, 69);
+	}
+	
+	#cancel-simulation-button:hover {
+	    background: rgb(220, 53, 69);
+		color: white;
+	}
+	
+	.progress {
+		margin-bottom: 0px;
+	}
+	
+	.progress-description {
+		font-size: 12px;
+	    margin-bottom: 20px;
+	}
+	
+	
+	#simulation-explanation-image-div {
+		width:98%; 
+		margin-left:1%;
+	}
+	
+	#display-results-button {
+		margin-left: 522px;
+		margin-top: 10px;
+		margin-bottom: 38px;
+	}
+	
+	/*-- create attribute modal -----------*/
+	
+	.modal-dialog {
+		left: 0px;
+	}
+	
+
+	
+</style>
+
+
+	{% include "tool/includes/create_attribute_modal.html" %} 
+
+	<!-- Choose Rule Modal -->
+	<!-- 
+	<div class="modal fade" id="chooseRuleModal" tabindex="-1" role="dialog" aria-labelledby="chooseRuleTitle" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header row">
+					<h4 class="modal-title col-md-11" id="modal-title">Choose Rule</h4>
+					<button id="rule-x-button" type="button col-md-1" class="close" data-dismiss="modal" aria-label="Close" style="margin-top:2px; margin-right:19px;font-size:29px">
+						<span aria-hidden="true" >&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div id="rule-modal-left">
+							<input type="text" class="form-control" id="selectOptionSearch" onkeyup="filterSelectionOptions();" placeholder=" Search">
+							<div id="selection-options-frame">
+								<ul id="selection-options" class="input-group list-group"></ul>
+							</div>
+							<button type="button" id="constant-value-button" class="btn btn-outline-secondary" onclick="constantValue_buttonClick()" >Constant Value</button>
+							<button type="button" id="no-rule-button" class="btn btn-primary" onclick="noRule_buttonClick()" >No Rule</button>
+							<button type="button" id="new-rule-button" class="btn btn-success" onclick="openNewRuleForm()">Create New Rule</button>							
+						</div>
+						<div id="rule-modal-middle">
+							<div class="form">
+								<div id="rule-details"></div>
+							</div>	
+						</div>
+						<div id="rule-modal-right">
+							<div class="form">
+								<div id="rule-details"></div>
+							</div>	
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer" id="rule-modal-footer">
+					<button type="button" class="btn btn-secondary" id="chooseRuleCloseButton" data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary" id="chooseRuleSaveButton" onclick="chooseRule()">Choose Rule</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	-->
+	
+	<!-- Simulation Progress Modal -->
+	<div class="modal fade" id="simulationProgressModal" tabindex="-1" role="dialog" aria-labelledby="simulationProgressModal" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header row">
+					<h5 class="modal-title col-md-11">Running Simulations ...</h5>
+					<button type="button col-md-1" class="close" data-dismiss="modal" aria-label="Close" style="margin-top:2px; margin-right:19px;font-size:29px">
+						<span aria-hidden="true" >&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div id="progress-section">
+						<div id="progress-bar-frame">
+							<div id="progress-box" class="progress">
+								<div id="progress-bar" class="progress-bar" style="width:0%"></div>
+							</div>
+							<div id="progress-bar-description" class="progress-description"></div>	
+						</div>
+						<button id="cancel-simulation-button" type="button" class="btn btn-outline-danger" onclick="abort_simulation();" >Cancel<br>Simulations</button>
+					</div>
+					<div id="show-results-button-frame"></div>
+					<div id="simulation-progress-modal-text">
+						<div id="simulation-explanation">
+						</div>
+						<b>How the simulations work</b><br>
+						At every timestep all of the objects' attributes are updated according to the rules for those attributes e.g. in the image below the attribute 'walking direction' is being updated.<br>
+						For the updating, the all the rules whose conditions are met are executed (whereby probabilistic rules are only executed with a certain probability), starting from the top. Lower rules can therefore potentially overwrite higher ones. It is therefore recommended to sort the rules according to their importance, with the most important at the bottom.<br>
+						<br>
+						<img id="simulation-explanation-image-div" src="{% static 'images/simulation_explanation.png'%}">
+						<br><br>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+<script>
+	// GLOBAL VARIABLES:
+	var rules_list = {};
+	//var new_rule_cursor_position = {};
+	var new_rule_used_attribute_names = [];
+	var new_rule_used_attribute_ids = [];
+	var highlighted_words_dict = {};
+	
+	var delta_t_list = ['delta_t (years)', 'delta_t (months)', 'delta_t (days)', 'delta_t (hours)', 'delta_t (minutes)', 'delta_t (seconds)'];
+	var timestep_units = [31622400, 2635200, 604800, 86400, 3600, 60, 1];
+	var got_object_data = false;
+	var run_simulation_post_request;
+	var simulation_running = false;
+	
+	
+
+	function getObjectData() {
+	
+		if (get_new_object_data) {
+			var url_components = window.location.href.split("/");
+			var simulation_id = url_components[url_components.length - 2];
+			
+			var request_body = {};
+			request_body['simulation_id']  = simulation_id;
+			request_body['objects_dict']  = objects_dict;
+			request_body['environment_start_time'] = environment_start_time;
+			request_body['environment_end_time'] = environment_end_time;
+			request_body['max_number_of_instances'] = max_number_of_instances;
+			got_object_data = false;
+			
+			var xmlhttp = new XMLHttpRequest();       
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var response = JSON.parse(this.responseText);
+					
+					if (response["objects_data"]["sorted_attribute_ids"].length == 0) {					
+						object_numbers = Object.keys(objects_dict);
+						for (var i = 0; i < object_numbers.length ; i++) {
+							object_number = parseInt(object_numbers[i]);
+							objects_dict[object_number]['object_id'] = null;	
+							objects_dict[object_number]['object_attributes'] = {};
+						}
+						
+						got_object_data = true;
+						var no_results_string = '<br><br><br><br><div style="width:100%;text-align:center;">No combination of objects found that satisfy the restrictions.</div>';
+						$("#right-sidebar-body").html(no_results_string);
+						
+					} else {
+						//data_querying_info
+						data_querying_info = JSON.parse(response['data_querying_info']);
+						object_numbers = Object.keys(data_querying_info['timestamps']);
+						var all_timestamps = [];
+						for (var i = 0; i < object_numbers.length ; i++) {
+							timestamps = Object.keys(data_querying_info['timestamps'][object_numbers[i]]);
+							for (var j = 0; j < timestamps.length ; j++) {
+								var total_number_of_entities = data_querying_info['table_sizes'][object_numbers[i]]['number_of_objects'];
+								if (data_querying_info['timestamps'][object_numbers[i]][timestamps[j]] > 0.1*total_number_of_entities ) {
+									all_timestamps.push(timestamps[j]);
+								}
+							}
+						}
+						new_simulation_start_time = all_timestamps.sort()[0];
+						var new_simulation_start_date = new Date(new_simulation_start_time*1000);
+						var new_simulation_start_date_string = new_simulation_start_date.toISOString().replace('T', ' ').substring(0,16);
+						$("#simulation-start-time").val(new_simulation_start_date_string);
+						simulation_start_time = parseInt(new_simulation_start_time);
+						
+						
+						//objects_data
+						var objects_data = response['objects_data'];
+						var all_attribute_values = objects_data['all_attribute_values'];
+						sorted_attribute_ids = objects_data['sorted_attribute_ids'];
+
+						object_numbers = Object.keys(all_attribute_values);
+						for (var i = 0; i < object_numbers.length ; i++) {
+							object_number = parseInt(object_numbers[i]);
+							objects_dict[object_number]['object_id'] = all_attribute_values[object_number]['object_id'];	
+							objects_dict[object_number]['object_attributes'] = all_attribute_values[object_number]['object_attributes'];
+						}	
+						got_object_data = true;	
+						var no_results_string = '<br><br><br><br><div style="width:100%;text-align:center;">Got the data.<br>Please click on the object again.</div>';
+						$("#right-sidebar-body").html(no_results_string);
+						get_new_object_data = false;
+						
+						saveSimulation();
+					}
+				}
+			};
+
+			xmlhttp.open("POST", "/tool/get_data_from_random_related_object/");
+			xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+			xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+			xmlhttp.send(JSON.stringify(request_body));	
+			
+			var no_results_string = '<br><br><br><br><div style="width:100%;text-align:center;">Retrieving data...<div class="lds-dual-ring"></div></div>';
+			$("#right-sidebar-body").html(no_results_string);
+		} else {
+			got_object_data = true;
+		}
+	}
+
+	
+
+	
+	//========================================================================
+	//================   LEFT PANEL	======================================
+	//========================================================================
+	
+	
+								
+		
+	// Draw the Left Panel (For the Behaviour-State)    =============================================================================
+	function drawLeftPanel__behaviour() {
+	
+		if (is_timeseries_analysis){
+			timeseries_option = 'selected';
+			cross_section_option = '';
+		} else {
+			timeseries_option = '';
+			cross_section_option = 'selected';		
+		}
+								
+		/*left_panel__behaviour = 	'<div class="left-panel-title">Simulation</div>' +
+								'<div class="form left-panel-body">' +
+									'<div class="form-group row">' +
+										'<label for="analysis_type" class="col-sm-5">Analysis Type</label><br>' +
+										'<div class="col-sm-7">' +
+											'<select id="analysis_type" class="form-control col-sm-7" onchange="changeAnalysisType()">' +
+												'<option ' + timeseries_option + '>Simulate changes over time</option>' +
+												'<option ' + cross_section_option + '>Analyse Dependencies at a Single Moment in Time</option>' +
+											'</select>' +
+										'</div>' + 
+									'</div>' + 
+									'<div id="analysis-details-box"></div>' + 
+									'<button id="run-button" class="btn btn-success pull-right" type="button" onclick="run()">Run</button>' +
+								'</div>';
+		*/
+			
+		left_panel__behaviour = '<div class="accordion md-accordion" id="accordion-left" role="tablist" aria-multiselectable="true">' +	
+									'<div class="card">' +
+										'<div class="card-header" role="tab" id="accordion-left-header-1">' +
+											'<button class="btn left-panel-header collapsed accordion-toggle" data-parent="#accordion-left" href="#accordion-left-content-1" aria-expanded="false" aria-controls="accordion-left-content-1">Data</button>' +
+										'</div>' +
+										'<div id="accordion-left-content-1" class="collapse" role="tabpanel" aria-labelledby="accordion-left-header-1" data-parent="#accordion-left">' +
+											'<div class="card-body">' +
+												'<div class="form left-panel-body">' +
+													'<button id="query-info-button1" class="btn btn-success" type="button" onclick="displayNumberOfFoundEntities()">Display Number of Found Entities</button>' +
+													'<button id="query-info-button2" class="btn btn-success" type="button" onclick="displayFirstObservationDates()">Display First Observation Dates</button>' +
+												'</div>' +
+											'</div>' +
+										'</div>' +
+									'</div>' +
+									'<div class="card">' +
+										'<div class="card-header" role="tab" id="accordion-left-header-2">' +
+											'<button class="btn left-panel-header collapsed accordion-toggle" data-parent="#accordion-left" href="#accordion-left-content-2" aria-expanded="false" aria-controls="accordion-left-content-2">Simulation</button>' +
+										'</div>' +
+										'<div id="accordion-left-content-2" class="collapse in" role="tabpanel" aria-labelledby="accordion-left-header-2" data-parent="#accordion-left" style="display: block;">' +
+											'<div class="card-body" style="padding-bottom:10px;">' +
+												'<div class="form left-panel-body">' +
+													'<label for="analysis_type" style="margin-left:5px;">Analysis Type:</label><br>' +
+													'<select id="analysis_type" class="form-control" onchange="changeAnalysisType()">' +
+														'<option ' + timeseries_option + '>Simulate changes over time</option>' +
+														'<option ' + cross_section_option + '>Analyse Dependencies at a Moment in Time</option>' +
+													'</select>' +
+													'<div id="analysis-details-box"></div>' + 
+													'<p>' +
+														'<button id="advanced-settings-button" class="btn" type="button" onclick="collapseAdvancedButton()">' +
+															'Advanced' +
+														'</button>' +
+													'</p>' +
+													'<div id="advanced-settings-form" style="display:none">' +
+														'<div class="form-group row">' +
+															'<label for="nb_of_tested_parameters" class="col-sm-8">#(Tested Parameter Values)</label>' +
+															'<div class="col-sm-4">' +
+																'<input type="text" id="nb_of_tested_parameters" class="form-control" value="40">' +
+															'</div>' +
+														'</div>' +
+														'<div class="form-group row">' +
+															'<label for="error_threshold" class="col-sm-8">Error Threshold</label>' +
+															'<div class="col-sm-4">' +
+																'<input type="text" id="error_threshold" class="form-control" value="0.2">' +
+															'</div>' +
+														'</div>' +
+														'<div class="form-group row">' +
+															'<label for="run_locally" class="col-sm-8">Run Locally</label>' +
+															'<div class="col-sm-4">' +
+																	'<select id="run_locally" class="form-control">' +
+																		'<option value="True">True</option>' +
+																		'<option value="False">False</option>' +
+																	'</select>' +
+															'</div>' +
+														'</div>' +
+														'<div class="form-group row">' +
+															'<label for="limit_to_populated_y0_columns" class="col-sm-8">Limit to populated y-columns</label>' +
+															'<div class="col-sm-4">' +
+																	'<select id="limit_to_populated_y0_columns" class="form-control">' +
+																		'<option value="True">True</option>' +
+																		'<option value="False">False</option>' +
+																	'</select>' +
+															'</div>' +
+														'</div>' +
+													'</div>' +
+													'<button id="save-button" class="btn btn-primary" type="button" onclick="saveSimulation()">Save</button>' +
+													'<button id="run-button" class="btn btn-success" type="button" onclick="run()">Run</button>' +
+												'</div>' +
+											'</div>' +
+										'</div>' +
+									'</div>' +
+								'</div>';
+
+		$("#left-panel").html(left_panel__behaviour);	
+		
+		
+		$("#nb_of_tested_parameters").val(nb_of_tested_parameters);
+		$("#error_threshold").val(error_threshold);
+		$('#run_locally').find('option[value="' + run_locally + '"]').attr("selected",true);
+		$('#limit_to_populated_y0_columns').find('option[value="' + limit_to_populated_y0_columns + '"]').attr("selected",true);
+		
+		
+		
+		changeAnalysisType();
+		
+		$('.accordion-toggle').click(function() {
+			content_element = $($(this).attr('href'));
+			if (content_element.hasClass('in')) {
+				content_element.hide();
+				content_element.removeClass('in')
+			} else {
+				content_element.show();
+				content_element.addClass('in')
+			}
+		});
+		
+
+		
+	}		
+	
+	
+	
+	// 'Display Number of Found Entities' Button     =============================================================================	
+	function displayNumberOfFoundEntities() {
+	
+		
+		if ($('#query-info-button1').hasClass('active')) {
+			// objects
+			object_numbers = Object.keys(objects_dict);
+			for (var i = 0; i < object_numbers.length ; i++) {
+				var object_number = object_numbers[i];
+				var object_name = objects_dict[object_number]['object_name'];
+				cell = graph.getCell(object_number); 
+				cell.attr('text/text', object_name);
+			}
+			
+			// relations
+			link_ids = Object.keys(data_querying_info['relation_sizes']);
+			for (var i = 0; i < link_ids.length ; i++) {
+				var object_number = parseInt(link_ids[i].split(',')[0]);
+				var attribute_id = parseInt(link_ids[i].split(',')[1]);
+				var target_object_number = parseInt(link_ids[i].split(',')[2]);
+				var relation_name = available_relations[attribute_id]['name'];
+				
+				link = graph.getCell(link_ids[i]);  
+				new_label = { position:.5, attrs: { text:{ text: relation_name || '', 'font-weight': 'normal' } } }
+				link.label(0, new_label);
+			}
+			
+			$('#query-info-button1').removeClass('active');
+			
+		} else {
+		
+			// objects
+			object_numbers = Object.keys(data_querying_info['table_sizes']);
+			for (var i = 0; i < object_numbers.length ; i++) {
+				var object_number = object_numbers[i];
+				var object_name = objects_dict[parseInt(object_number)]['object_name'];
+				var number_of_objects = data_querying_info['table_sizes'][object_number]['number_of_objects'];
+
+				cell = graph.getCell(object_number); 
+				cell.attr('text/text', object_name + '\n' + number_of_objects + ' entities found');
+			}
+			
+			// relations
+			link_ids = Object.keys(data_querying_info['relation_sizes']);
+			for (var i = 0; i < link_ids.length ; i++) {
+				var object_number = parseInt(link_ids[i].split(',')[0]);
+				var attribute_id = parseInt(link_ids[i].split(',')[1]);
+				var target_object_number = parseInt(link_ids[i].split(',')[2]);
+				var relation_name = available_relations[attribute_id]['name'];
+				var matched_from_source = data_querying_info['relation_sizes'][link_ids[i]]['matched_from_source'];
+				var matched_from_target = data_querying_info['relation_sizes'][link_ids[i]]['matched_from_target'];
+				
+				link = graph.getCell(link_ids[i]);  
+				new_label = { position:.5, attrs: { text:{ text: relation_name + '\n' + matched_from_source + ' matched source entities\n' + matched_from_target + ' matched target entities' || '', 'font-weight': 'normal' } } }
+				link.label(0, new_label);
+			}
+			
+			$('#query-info-button1').addClass('active');
+		}
+	}
+	
+	
+	// 'Display First Observation Date' Button     =============================================================================	
+	function displayFirstObservationDates() {
+	
+		
+		if ($('#query-info-button2').hasClass('active')) {
+		
+			object_numbers = Object.keys(objects_dict);
+			for (var i = 0; i < object_numbers.length ; i++) {
+				var object_number = object_numbers[i];
+				var object_name = objects_dict[object_number]['object_name'];
+				cell = graph.getCell(object_number); 
+				cell.attr('text/text', object_name);
+			}
+			$('#query-info-button2').removeClass('active');
+			
+		} else {
+		
+			object_numbers = Object.keys(data_querying_info['timestamps']);
+			for (var i = 0; i < object_numbers.length ; i++) {
+				var object_number = object_numbers[i];
+				var new_cell_text = objects_dict[parseInt(object_number)]['object_name'];
+
+				var timestamps = Object.keys(data_querying_info['timestamps'][object_number]);
+				for (var j = 0; j < timestamps.length ; j++) {
+					var number_of_entities = data_querying_info['timestamps'][object_number][timestamps[j]];
+					var first_observed_date = new Date(parseInt(timestamps[j])*1000);
+					var first_observed_date_string = first_observed_date.toISOString().replace('T', ' ').substring(0,16);
+					new_cell_text += '\n' + first_observed_date_string + ' (' + number_of_entities + ' entities)';
+					
+					cell = graph.getCell(parseInt(object_number)); 
+					cell.attr('text/text', new_cell_text);
+				}
+			}	
+			$('#query-info-button2').addClass('active');
+		}
+	}
+	
+	
+	
+	// Fill-in the Simulation-Section of the Left Panel     =============================================================================	
+	function changeAnalysisType() {
+	
+		var analysis_type = $('#analysis_type').find(":selected").text();
+		
+		if (analysis_type == 'Simulate changes over time'){
+			is_timeseries_analysis = true;
+			analysis_details_html_string = 	'<div class="form-group row">' +
+												'<label for="simulation-start-time" class="col-sm-5">Start Time</label>' +
+												'<div class="col-sm-7">' +
+													'<input id="simulation-start-time" class="datetimepicker form-control" value="">' +
+												'</div>' +
+											'</div>' +
+											'<div class="form-group row">' +
+												'<label for="simulation-end-time" class="col-sm-5">End Time</label>' +
+												'<div class="col-sm-7">' +
+													'<input id="simulation-end-time" class="datetimepicker form-control" value="">' +
+												'</div>' +
+											'</div>' +
+											'<div class="form-group row">' +
+												'<label for="timestep_size" class="col-sm-5">Timestep (&Delta;t)</label>' +
+												'<div class="col-sm-3">' +
+													'<input type="text" class="form-control" id="timestep_size" name="timestep_size">' +
+												'</div>' +
+												'<div class="col-sm-4">' +
+													'<select class="form-control form-control-lg" id="timestep_unit" name="timestep_unit">' +
+														'<option value=31622400 selected>years</option>' +
+														'<option value=2635200>months</option>' +
+														'<option value=604800>weeks</option>' +
+														'<option value=86400>days</option>' +
+														'<option value=3600>hours</option>' +
+														'<option value=60>minutes</option>' +
+														'<option value=1>seconds</option>' +
+													'</select>' +
+												'</div>' +
+											'</div>';				
+			$('#analysis-details-box').html(analysis_details_html_string);
+			
+			// initialize DATE TIME PICKERS 
+			//make the datetimepickers
+			$('.datetimepicker').datetimepicker({
+				startView:'decade',
+				minView:'hour',
+				format: 'yyyy-mm-dd hh:ii',
+				autoclose:true
+			});
+			
+			// this showing and hiding makes sure that there are no open ones at the bottom of the page
+			$('.datetimepicker').datetimepicker('show');
+			$('.datetimepicker').datetimepicker('hide');
+			
+			// initialize the datetimepickers
+			var start_date = new Date(simulation_start_time*1000);
+			var end_date = new Date(simulation_end_time*1000);
+			var start_date_string = start_date.toISOString().replace('T', ' ').substring(0,16);
+			var end_date_string = end_date.toISOString().replace('T', ' ').substring(0,16);
+			$("#simulation-start-time").val(start_date_string);
+			$("#simulation-end-time").val(end_date_string);
+		
+			
+			// Save the changed Date and Link the Start- and End- Time
+			$("#simulation-start-time").datetimepicker().on('changeDate', function(ev){
+				$("#simulation-end-time").datetimepicker("setStartDate", '"' + ev.date.toISOString().substring(0,10) + '"');
+				simulation_start_time = Math.round((ev.date.getTime()/1000) - ev.date.getTimezoneOffset()*60);
+			});
+			
+			$("#simulation-end-time").datetimepicker().on('changeDate', function(ev){
+				$("#simulation-start-time").datetimepicker("setEndDate", '"' + ev.date.toISOString().substring(0,10) + '"');
+				simulation_end_time = Math.round((ev.date.getTime()/1000) - ev.date.getTimezoneOffset()*60);
+			});
+			
+			// initialize TIMESTEP (Δt)
+			for (var i = 0; i < timestep_units.length; i++) {
+				if (timestep_size % timestep_units[i] == 0){
+					number_of_timestep_units = timestep_size / timestep_units[i];
+					document.getElementById('timestep_size').value = number_of_timestep_units;
+					document.getElementById('timestep_unit').value = timestep_units[i];
+					break;
+				}
+			}
+			
+		} else if (analysis_type == 'Analyse Dependencies at a Single Moment in Time'){
+			is_timeseries_analysis = false;
+			$('#analysis-details-box').html('');
+		}
+	}
+	
+	
+	
+	
+	// Advanced     =============================================================================	
+	function collapseAdvancedButton() {
+		if ($("#advanced-settings-form").css('display') != 'none') {
+			$('#advanced-settings-form').css('display','none');	
+		} else {
+			$('#advanced-settings-form').css('display','block');
+		}
+	}
+	
+
+
+	// Run Simulation     =============================================================================	
+	function run() {
+	
+		if (y_value_attributes.length == 0) {
+			alert('Please specify a y-attribute!!');
+			return;
+		}
+		
+		$('#progress-bar').attr('style','width:0%');
+		$('#progress-bar-description').html('');
+		$('#simulationProgressModal').modal('show');
+		saveSimulation();
+		simulation_running = true;
+		
+		setTimeout('prepare_the_progress_bar();', 10); 
+		setTimeout('update_the_progress_bar();', 2500); 
+		setTimeout('submit_form();', 300);
+
+		
+
+	
+	}
+	
+	
+	async function prepare_the_progress_bar() {
+		// get number_of_rules_to_learn
+		var number_of_rules_to_learn = 0;
+		object_numbers = Object.keys(objects_dict);
+		for (var i = 0; i < object_numbers.length ; i++) {
+			object_number = object_numbers[i];
+			attribute_ids = Object.keys(objects_dict[object_number]['object_rules']);
+			for (var j = 0; j < attribute_ids.length ; j++) {
+				rule_ids = Object.keys(objects_dict[object_number]['object_rules'][attribute_ids[j]]);
+				for (var k = 0; k < rule_ids.length ; k++) {
+					if (objects_dict[object_number]['object_rules'][attribute_ids[j]][rule_ids[k]]['learn_posterior']) {
+						number_of_rules_to_learn += 1;
+					}
+				}
+			}
+		}	
+		
+		// write text
+		if (number_of_rules_to_learn > 0) {
+			simulation_explanation = 	'There are two steps to the current simulations: ' + 
+					'<ul>' + 
+					'    <li>First: the probability of ' + String(number_of_rules_to_learn) + ' rules are being learned by running 1 000 - 5 000 simulations</li>' + 
+					'    <li>Second: 300 simulations are run using the learned rule probabilities. Due to their probabilistic nature the individual simulations vary, with the 300 simulations you can however get an idea of the overall probabilities for different outcomes. </li>' + 
+					'</ul><br>';
+			$('#simulation-explanation').html(simulation_explanation);
+		} else {
+			simulation_explanation = 	'The simulation is currently being run 300 times. Due to its probabilistic nature the individual simulations have varying outcomes, with the 300 simulations you can however get an idea of the overall probabilities for the different outcomes.<br><br>';
+			$('#simulation-explanation').html(simulation_explanation);
+		}
+		$('#show-results-button-frame').html('');
+		$('#simulation-progress-modal-text').css('display','block');
+	}
+	
+	
+	async function update_the_progress_bar() {
+		var progress = '0';
+		var url_components = window.location.href.split("/");
+		var simulation_id = url_components[url_components.length - 2];
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				
+				var progress_dict = JSON.parse(this.responseText);
+				//progess-bar
+				if ('current_number' in progress_dict){
+					$('#progress-bar').attr('style','width:' + String(100 * progress_dict['current_number']/progress_dict['total_number']) + '%')
+					$('#progress-bar-description').html(progress_dict['text'] +  String(progress_dict['current_number']) + '/' + String(progress_dict['total_number']));				
+				}
+				
+				if (run_simulation_post_request.readyState < 4 && simulation_running) {
+					window.setTimeout(() => { update_the_progress_bar();}, 1000);
+				}
+
+			}
+		};
+		xhttp.open("GET", "/tool/get_simulation_progress?simulation_id=" + simulation_id , true);
+		xhttp.send();
+		
+	}
+
+
+	
+	async function submit_form() {
+	
+		var url_components = window.location.href.split("/");
+		var simulation_id = url_components[url_components.length - 2];
+		
+		
+		run_simulation_post_request = new XMLHttpRequest();   // new HttpRequest instance
+
+		
+		run_simulation_post_request.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200 && simulation_running) {
+
+				parameters_were_learned = JSON.parse(this.responseText);
+
+				$('#progress-bar-description').html('Completed!');				
+				$('#progress-bar').attr('style','width:100%')
+				if (parameters_were_learned) {
+					$('#show-results-button-frame').html('<button id="display-results-button" type="button" class="btn" onclick="showLearnedParameterValues();" >Show Learned Parameter Values</button>')
+				} else {
+					$('#show-results-button-frame').html('<button id="display-results-button" type="button" class="btn" onclick="showSimulationResults();" >Show Simulation Results</button>')
+				}
+				$('#simulation-progress-modal-text').css('display','none');
+
+
+
+				
+			}
+		};
+		run_simulation_post_request.open("POST", "/tool/edit_simulation/" + simulation_id + "/", true);
+		run_simulation_post_request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		run_simulation_post_request.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		run_simulation_post_request.send();
+		
+		//run_simulation_post_request.abort();
+ 
+	}
+	
+	
+	
+	function abort_simulation() {
+		simulation_running = false;
+		if (run_simulation_post_request) {
+			run_simulation_post_request.abort();
+		}
+		
+		var url_components = window.location.href.split("/");
+		var simulation_id = url_components[url_components.length - 2];
+		var xhttp = new XMLHttpRequest();       
+		xhttp.open('GET', '/tool/abort_simulation?simulation_id=' + simulation_id , true);
+		xhttp.send();
+		
+		$('#simulationProgressModal').modal('hide');	
+	}
+	
+	
+	
+	
+	
+	function showLearnedParameterValues() {
+		console.log('!!!!!!!!!!!!  completed simulation  !!!!!!!!!!!!!!!!!');
+		simulation_running = false;
+		var url_components = window.location.href.split("/");
+		var simulation_id = url_components[url_components.length - 2];
+		var w = window.open("/tool/analyse_simulation/" + simulation_id + "/" + execution_order_id + "/");
+		//w.document.open();
+		//w.document.write(this.response);
+		//w.document.close();
+		$('#simulationProgressModal').modal('hide');
+	}
+	
+	
+	function showSimulationResults() {
+		console.log('!!!!!!!!!!!!  completed simulation  !!!!!!!!!!!!!!!!!');
+		simulation_running = false;
+		var url_components = window.location.href.split("/");
+		var simulation_id = url_components[url_components.length - 2];
+		var w = window.open("/tool/analyse_simulation/" + simulation_id + "/" + execution_order_id + "/0/");
+		$('#simulationProgressModal').modal('hide');
+	}
+	
+	
+	
+	
+	
+	function saveSimulation() {
+	
+			
+		//var execution_order_name = $('#execution-order-name').val();
+		//var execution_order_description = $('#execution-order-description').val();
+		//var execution_order_name = 'test_name';
+		//var execution_order_description = 'test_description';
+		
+		request_body = {
+			'id': execution_order_id,
+			'execution_order': execution_order
+		}
+		
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.open("POST", "/tool/save_changed_execution_order/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send(JSON.stringify(request_body));	
+		
+		
+		//save Simulation --------------------------
+		var url_components = window.location.href.split("/");
+		var simulation_id = url_components[url_components.length - 2];
+		
+		//update the object positions in objects_dict
+		var object_numbers = Object.keys(objects_dict);
+		for (var i = 0; i < object_numbers.length; i++) {
+			object_number = object_numbers[i];
+			cell = graph.getCell(object_number);
+			objects_dict[object_number]['position']['x'] = cell['attributes']['position']['x'];
+			objects_dict[object_number]['position']['y'] = cell['attributes']['position']['y'];	
+		}
+
+
+		request_body = {
+			'simulation_id': simulation_id,
+			'objects_dict': objects_dict,
+			'y_value_attributes': y_value_attributes,
+			'manually_set_initial_values': manually_set_initial_values,
+			'sorted_attribute_ids': sorted_attribute_ids,
+			'object_type_counts': object_type_counts,
+			'total_object_count': total_object_count,
+			'number_of_additional_object_facts': number_of_additional_object_facts,
+			'simulation_name': simulation_name,
+			'execution_order_id':execution_order_id,
+			'environment_start_time': environment_start_time,
+			'environment_end_time': environment_end_time,
+			'simulation_start_time': simulation_start_time,
+			'simulation_end_time': simulation_end_time,
+			'max_number_of_instances': max_number_of_instances,
+		}
+		
+		// if in simulate-view: get some additional facts
+		if (window_state=='behaviour') {
+			request_body['is_timeseries_analysis'] = ($('#analysis_type').find(":selected").text() == 'Simulate changes over time');
+			request_body['nb_of_tested_parameters'] = parseInt($('#nb_of_tested_parameters').val());
+			request_body['error_threshold'] = parseFloat($('#error_threshold').val());
+			run_locally_string = $('#run_locally').children("option:selected").val();
+			request_body['run_locally'] = run_locally_string =='True';
+			limit_to_populated_y0_columns_string = $('#limit_to_populated_y0_columns').children("option:selected").val();
+			request_body['limit_to_populated_y0_columns'] = limit_to_populated_y0_columns_string =='True';
+			
+			
+			
+			if($('#timestep_size').length){
+				var number_of_timestep_units = document.getElementById('timestep_size').value;	
+				if (isNaN(number_of_timestep_units)) {
+					alert("Please enter a number as Timestep (Δt)");
+					return
+				}
+				var number_of_timestep_units = parseInt(number_of_timestep_units, 10) || null;
+				request_body['timestep_size'] = number_of_timestep_units * document.getElementById('timestep_unit').value;
+			}
+		}
+		
+		
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.open("POST", "/tool/save_changed_simulation/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send(JSON.stringify(request_body));	
+		
+		
+
+	}
+	
+	
+	
+	
+	
+	function copySimulation() {
+
+		var url_components = window.location.href.split("/");
+		var simulation_id = url_components[url_components.length - 2];
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				id_of_new_simulation_record = parseInt(this.responseText);
+				$('#open-copy-button-frame').html('<button id="open-copy-button" type="button" class="btn" onclick="openCopyInNewWindow(' + id_of_new_simulation_record + ');" >Open Copy in new Window</button>');
+			}
+		};
+		xhttp.open('GET', '/tool/copy_simulation?simulation_id=' + simulation_id , true);
+		xhttp.send();
+	}
+	
+	function openCopyInNewWindow(new_simulation_id) {
+		var w = window.open("/tool/edit_simulation/" + new_simulation_id + "/");
+		$('#open-copy-button-frame').html('');
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//========================================================================
+	//================   RIGHT SIDEBAR	======================================
+	//========================================================================
+	
+	
+	
+	
+	
+	
+	// Draw Right Sidebar ==============================================================		
+	function drawObjectAttributeTable(object_number) {
+		var object_attributes = objects_dict[object_number]['object_attributes'];
+		var object_sorted_attributes = execution_order['attribute_execution_order'][objects_dict[object_number]['object_type_id']]['used_attributes'];
+		var object_sorted_attribute_ids = [];
+		for (var i = 0; i < object_sorted_attributes.length ; i++) {
+			var object_sorted_attribute_id = String(object_sorted_attributes[i]['id']);
+			if (Object.keys(objects_dict[object_number]['object_attributes']).includes(object_sorted_attribute_id)) {
+				object_sorted_attribute_ids.push(object_sorted_attribute_id);
+			}
+		}
+		//var object_sorted_attribute_ids = sorted_attribute_ids.filter(function(item) {
+		//  return object_attribute_ids.includes(item); 
+		//})
+
+		
+		if (!got_object_data){
+			var no_results_string = '<br><br><br><br><div style="width:100%;text-align:center;">Retrieving data...<div class="lds-dual-ring"></div></div>';
+			$("#right-sidebar-body").html(no_results_string);
+			
+		} else {
+		
+			if (object_sorted_attribute_ids.length ==0){
+				var no_results_string = '<br><br><br><br><div style="width:100%;text-align:center;">No combination of objects found that satisfy the restrictions.</div>';
+				$("#right-sidebar-body").html(no_results_string);
+				//var object_type_name = objects_dict[object_number]['object_type_name'];
+				//var object_name = objects_dict[object_number]['object_name'];
+				
+			} else {	
+				//object-header
+				object_header_string = 	'<div>' +
+											'<div id="object-header-object-icon">' +
+												'<img src="/static/images/object_icons/' + objects_dict[object_number]['object_icon'] + '.svg">' +
+											'</div>' + 
+											'<div id="object-header-object-name">' + objects_dict[object_number]['object_name'] + '</div>' +
+										'</div>' + 
+										'<input type="hidden" id="object-name-field" value=' + objects_dict[object_number]['object_name'] + '>' + 
+										'<input type="hidden" id="object-number-field" value=' + object_number + '>' + 
+										'<input type="text" class="search" id="object-attribute-search-field" onkeyup="filterObjectAttributes();" placeholder=" Search">';
+				$('#object-header').html(object_header_string);
+
+				//right-sidebar-body
+				object_attributes_string = '<ul id="object-attributes-table" class="list-group">';
+				for (var i = 0; i < object_sorted_attribute_ids.length ; i++) {
+					var attribute_id = object_sorted_attribute_ids[i];
+					
+					var attribute_value = object_attributes[attribute_id]['attribute_value'];
+					var attribute_value_color = 'white';
+					if (object_number in manually_set_initial_values) {
+						if (attribute_id in manually_set_initial_values[object_number]) {
+							attribute_value = manually_set_initial_values[object_number][attribute_id];
+							var attribute_value_color = 'rgb(220, 231, 247)';
+						}
+					}
+					
+
+					object_attributes_string += '<li class="list-group-item">' +
+													'<div id="optimisation-attribute-button-' + object_number + '-' + attribute_id + '" class="attribute-name" onclick="selectOptimisationAttribute(' + object_number + ', ' + attribute_id + ')">' + 
+														'<p class="attribute-name-paragraph">' + object_attributes[attribute_id]['attribute_name'] + '</p>' + 
+													'</div>' +
+													'<div class="attribute-value-box"><input id="attribute-value-' + object_number + '-' + attribute_id + '" class="form-control attribute-value" type="text" value="' + attribute_value + '" onchange="manuallySetInitialValue(' + object_number + ',' + attribute_id + ', this.value)" style="background:' + attribute_value_color + '"></div>' +
+													'<button type="button" id="format_violation' + 1 + '" class="btn btn-danger pull-left" data-container="body" data-toggle="popover" data-placement="left" data-html="true" title="Invalid value" style="display:none;" data-content="">!</button>' + 
+													'<div class="attribute-rule-box">' + 
+														'<button id="attribute-button' + attribute_id + '" type="button" class="btn btn-outline-dark attribute-rule-button" onclick="openEditObjectBehaviourModal(' + object_number + ',' + attribute_id + ',\'' + object_attributes[attribute_id]['attribute_name'] + '\', null)">edit behaviour</button>'
+													'</div>' +
+												'</li>';
+				}
+				object_attributes_string += 	'<li class="list-group-item">' +
+													'<button id="create-new-attribute-button" class="btn btn-success" type="button" data-toggle="modal" data-target="#createAttributeModal">Create New Attribute</button>' +
+													//'<button id="create-attribute-button" type="button" class="btn btn-success" onclick="openEditObjectBehaviourModal(' + object_number + ',' + attribute_id + ',\'' + object_attributes[attribute_id]['attribute_name'] + '\', null)">Create Attribute</button>'
+												'</li>' + 
+											'</ul>';
+				$("#right-sidebar-body").html(object_attributes_string);
+				
+				// press the active Optimisation-attribute-buttons
+				for (var i = 0; i < y_value_attributes.length; i++) {
+					$('#optimisation-attribute-button-' + y_value_attributes[i]['object_number'] + '-' + y_value_attributes[i]['attribute_id'] ).addClass('active');
+				}
+				
+				
+				// in the 'Create New Attribute' Modal, populate the first_applicable_object_type options
+				loadListOfParentObjects(objects_dict[object_number]['object_type_id']);
+			}	
+		}
+	}	
+	
+	// this gets triggered when someone creates and saves a new attribute
+	function redrawAttributeSelections() {
+		get_new_object_data = true;
+		getObjectData();
+		
+		//load execution order
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				execution_order = JSON.parse(this.responseText);
+			}
+		};
+		xhttp.open('GET', '/tool/get_execution_order?execution_order_id=' + execution_order_id , true);
+		xhttp.send();
+		
+		// the previous step only adds the attribute to object_attributes (in the objects_dict), here we also add it to object_rules 
+		var object_numbers = Object.keys(objects_dict);
+		for (var i = 0; i < object_numbers.length; i++) {
+			var object_number = object_numbers[i];
+			var attribute_ids = Object.keys(objects_dict[object_number]['object_attributes']);
+			for (var j = 0; j < attribute_ids.length; j++) {
+			var attribute_id = parseInt(attribute_ids[j]);
+				if (!(attribute_id in objects_dict[object_number]['object_rules'])) {
+					objects_dict[object_number]['object_rules'][attribute_id] = {}
+				}
+			}
+		}
+	}
+	
+	
+	
+	function filterObjectAttributes() {	
+		var current_query = $('#object-attribute-search-field').val().toLowerCase();
+		if (current_query !== "") {
+			$("#object-attributes-table li").hide();
+			$("#object-attributes-table li").each(function(){
+				var current_keyword = $(this).text().toLowerCase();
+				if (current_keyword.indexOf(current_query) >=0) {
+					$(this).show();    	 	
+				};
+			});    	
+		} else {
+			$("#object-attributes-table li").show();
+		};
+	}
+
+	
+	function getObjectRules(object_number, object_type_id){
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				response = JSON.parse(this.responseText);
+				
+				//remember for which rules the learn_posterior-checkbox was clicked
+				var learn_posterior_rules = []
+				var attribute_ids = Object.keys(objects_dict[response['object_number']]['object_rules'])
+				for (var i = 0; i < attribute_ids.length; i++) {
+					rule_ids = Object.keys(objects_dict[response['object_number']]['object_rules'][attribute_ids[i]]);
+					for (var j = 0; j < rule_ids.length; j++) {
+						if (objects_dict[response['object_number']]['object_rules'][attribute_ids[i]][rule_ids[j]]["learn_posterior"]) {
+							learn_posterior_rules.push({'attribute_id':attribute_ids[i], 'rule_id':rule_ids[j]});
+						}
+					}
+				}
+				// get the new rules
+				objects_dict[response['object_number']]['object_rules'] = response['object_rules'];
+				
+				//select the learn_posterior-checkboxes that were selected before
+				for (var i = 0; i < learn_posterior_rules.length; i++) {
+					var attribute_id = learn_posterior_rules[i]['attribute_id']
+					var rule_id = learn_posterior_rules[i]['rule_id']
+					if (objects_dict[response['object_number']]['object_rules'][attribute_id] && objects_dict[response['object_number']]['object_rules'][attribute_id][rule_id]) {
+						objects_dict[response['object_number']]['object_rules'][attribute_id][rule_id]["learn_posterior"]=true;
+					}
+				}
+			}
+		};
+		xhttp.open('GET', '/tool/get_object_rules?execution_order_id=' + String(execution_order_id) + '&object_number=' + String(object_number) + '&object_type_id=' + object_type_id , true);
+		xhttp.send();
+	}
+	
+	
+	function manuallySetInitialValue(object_number, attribute_id , attribute_value) {
+		objects_dict[object_number]['object_attributes'][attribute_id]['attribute_value'] = attribute_value;
+		
+		
+		if (attribute_value=='') {
+		
+			//remove it 
+			delete manually_set_initial_values[object_number][attribute_id];
+			$('#attribute-value-' + object_number + '-' + attribute_id).css("background", "white");
+			
+		} else {
+		
+			//add it
+			if (!isNaN(attribute_value)) {
+				attribute_value = parseFloat(attribute_value);
+			}
+			if (!(object_number in manually_set_initial_values)) {
+				manually_set_initial_values[object_number] = {};
+			}
+			manually_set_initial_values[object_number][attribute_id] = attribute_value;
+			$('#attribute-value-' + object_number + '-' + attribute_id).css("background", "rgb(220, 231, 247)");
+		}
+	}
+	
+	
+	
+	
+	function selectOptimisationAttribute(object_number, attribute_id) {
+		if ($('#optimisation-attribute-button-' + object_number + '-' + attribute_id ).hasClass('active')) {
+			$('#optimisation-attribute-button-' + object_number + '-' + attribute_id ).removeClass('active');
+			for (var i = 0; i < y_value_attributes.length; i++) {
+				if ((y_value_attributes[i]['object_number'] = object_number) && (y_value_attributes[i]['attribute_id'] = attribute_id)) {
+					y_value_attributes.splice(i, 1);
+				}
+			}			
+		
+		} else {
+			$('#optimisation-attribute-button-' + object_number + '-' + attribute_id ).addClass('active');
+			y_value_attributes.push({'object_number': object_number, 'attribute_id':attribute_id})
+			
+			if ($('#analysis_type').val()=='Simulate changes over time') {
+				// IF simulation_start_time != the selected object's first observed time, suggest using that instead
+				// suggested_simulation_start_time
+				var all_objects_timestamps = [];
+				var timestamps = Object.keys(data_querying_info['timestamps'][object_number]);
+				for (var i = 0; i < timestamps.length ; i++) {
+					var total_number_of_entities = data_querying_info['table_sizes'][object_number]['number_of_objects'];
+					if (data_querying_info['timestamps'][object_number][timestamps[i]] > 0.1*total_number_of_entities ) {
+						all_objects_timestamps.push(timestamps[i]);
+					}
+				}
+				suggested_simulation_start_time = all_objects_timestamps.sort()[0];
+				
+				// current simulation_start_time
+				simulation_start_time_string = $("#simulation-start-time").val();
+				simulation_start_time = Date.parse(simulation_start_time_string + ' GMT');
+			
+				if (suggested_simulation_start_time != String(simulation_start_time)){
+					var new_simulation_start_date = new Date(suggested_simulation_start_time*1000);
+					var new_simulation_start_date_string = new_simulation_start_date.toISOString().replace('T', ' ').substring(0,16);
+					$("#simulation-start-time").val(new_simulation_start_date_string);
+					simulation_start_time = parseInt(suggested_simulation_start_time);
+				}
+			}
+		}
+	}
+	
+	
+	
+	//========================================================================
+	//============    CHOOSE-RULE MODAL      =================================
+	//========================================================================
+
+	//===========
+	// Left Side  
+	//===========
+	
+	//== Create Rule Modal Left Side  =========================================================================================		  
+	function populateRuleModal(object_number,rules_attribute_id, rules_attribute_name) {
+	
+		$("#chooseRuleModal #modal-title").html('Choose Rule for ' + rules_attribute_name);
+		$("#constant-value-button").attr('onclick','constantValue_buttonClick(' + object_number + ', ' + rules_attribute_id + ',\'' + rules_attribute_name + '\')');
+		$("#no-rule-button").attr('onclick','noRule_buttonClick(' + object_number + ', ' + rules_attribute_id + ',\'' + rules_attribute_name + '\')');
+		$("#new-rule-button").attr('onclick','openNewRuleForm(' + rules_attribute_id + ', \'' + rules_attribute_name + '\',' + object_number + ')');			
+					
+					
+		var xhttp = new XMLHttpRequest();       
+		xhttp.open('GET', '/tool/get_attribute_rules_old?attribute_id=' + rules_attribute_id , false);
+		xhttp.send();
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+				console.log(xhttp.responseText);
+				rules_list = JSON.parse(xhttp.responseText);
+				rule_options_html_string = "";
+				
+				for (var i = 0; i < rules_list.length; i++) {
+					rule_options_html_string += 	'<li class="list-group-item narrow"><button id="rule-inspection-button' + rules_list[i]['id'] + '" class="btn btn-outline-secondary" type="button" onclick="inspectCalculationRule(' + object_number + ',' + i + ',' + rules_attribute_id + ',\'' + rules_attribute_name + '\')" scope="col">' + rules_list[i]['name'] + '</button></li>';
+				}
+				$("#selection-options").html(rule_options_html_string);
+				
+				//if a rule has already been chosen -> select it
+				var rule_id = objects_dict[object_number]['object_rules'][rules_attribute_id]
+				if (rule_id == null || rule_id == 'from_data') {
+					$("#rule-details").html('');
+				} else {
+					document.getElementById('rule-inspection-button' + rule_id).click();
+				}
+		}
+		
+		$("#rule-modal-right").html('');
+		$('#chooseRuleModal').modal("hide");
+		$('#chooseRuleModal').modal("show"); // this is some silly bug-work around
+	}
+	
+	//== Filter Rule Options =========================================================================================		  
+	function filterSelectionOptions(){	
+		var current_query = $('#selectOptionSearch').val().toLowerCase();
+		if (current_query !== "") {
+			$("#selection-options li").hide();
+			$("#selection-options li").each(function(){
+				var current_keyword = $(this).text().toLowerCase();
+				if (current_keyword.indexOf(current_query) >=0) {
+					$(this).show();    	 	
+				};
+			});    	
+		} else {
+			$("#selection-options li").show();
+		};
+	}
+	
+
+	//==========
+	// Middle  
+	//==========
+	
+	//== Inspect Rule =========================================================================================		 
+	/*	
+	function inspectCalculationRule(object_number, i, rules_attribute_id, rules_attribute_name) {
+		
+		$("#rule-modal-right").html('');
+		$('.modal-dialog').animate({width: '700px'}, 200, 'linear');
+		
+		var rule_details_html_string = 	'<div id="rule-title-box">' + 
+											'<h3 id="rule-name">' + rules_list[i]['name'] + '</h3>' +
+											'<div id="edit-and-delete-rule-buttons">' +
+												'<button type="button" class="btn btn-warning edit-rule-button" onclick="editRule(' + object_number + ',' + rules_attribute_id + ',\'' + rules_attribute_name + '\',' + i + ')">Edit</button><br>' +
+												'<button type="button" class="btn btn-danger delete-rule-button" onclick="deleteRule(' + object_number + ',' + rules_attribute_id + ',\'' + rules_attribute_name + '\',' + rules_list[i]['id'] + ')">Delete</button>' +
+											'</div>' +
+										'</div>' +
+										'<div class="form-group">' + 
+											'<label class="control-label" for="rule-text" style="margin-left:12px;margin-bottom:4px;font-size:15px;">' + rules_attribute_name + ' (t + &Delta;t) = </label>' +
+											'<textarea cols="20" rows="5" class="form-control" id="rule-text">' + rules_list[i]['rule_text'] + '</textarea>' +
+										'</div>' + 
+										'<div id="used-attributes" class="btn-group" data-toggle="buttons">';
+									
+		var used_attribute_names = JSON.parse(rules_list[i]['used_attribute_names']);
+		for (var j = 0; j < used_attribute_names.length; j++) {			
+				rule_details_html_string +=	'<label id="used-attribute' + j + '" class="btn" onclick="usedAttributeButtonClick(\'' + used_attribute_names[j] + '\',' + j + ')">' +
+												'<input type="checkbox" autocomplete="off" id="used-attribute' + j + '">' + used_attribute_names[j] +
+											'</label>';
+		}
+		rule_details_html_string += '</div>';
+		
+		$("#rule-details").html(rule_details_html_string);
+		
+		
+		var save_button_html_string =  	'<button type="button" class="btn btn-secondary" id="chooseRuleCloseButton" data-dismiss="modal">Cancel</button>' +
+										'<button type="button" class="btn btn-primary" id="chooseRuleSaveButton" onclick="chooseRule(' + object_number + ',' + rules_attribute_id + ',' + rules_list[i]['id'] + ')">Choose Rule</button>';
+		$('#rule-modal-footer').html(save_button_html_string);
+	}
+	*/
+	
+	
+	//== Constant Value =========================================================================================	
+	/*
+	function constantValue_buttonClick(object_number, rules_attribute_id, rules_attribute_name){
+		$("#rule-modal-right").html('');
+		$('.modal-dialog').animate({width: '700px'}, 200, 'linear');
+		
+		var rule_details_html_string = 	'<h3 id="rule-name">Constant Value</h3><br>' +
+										'i.e. ' + rules_attribute_name + ' (t + &Delta;t) =  ' + rules_attribute_name + ' (t)<br>' +
+										'Useful baseline for comparing other rules against.';		
+		$("#rule-details").html(rule_details_html_string);
+		
+		var save_button_html_string =  	'<button type="button" class="btn btn-secondary" id="chooseRuleCloseButton" data-dismiss="modal">Cancel</button>' +
+										'<button type="button" class="btn btn-primary" id="chooseRuleSaveButton" onclick="chooseRule(' + object_number + ',' + rules_attribute_id +', null)">Choose Rule</button>';
+		$('#rule-modal-footer').html(save_button_html_string);
+	
+	}
+	*/
+	
+	//== No Rule =========================================================================================	
+	/*
+	function noRule_buttonClick(object_number, rules_attribute_id, rules_attribute_name){
+		
+		$("#rule-modal-right").html('');
+		$('.modal-dialog').animate({width: '700px'}, 200, 'linear');
+		
+		var rule_details_html_string = 	'<h3 id="rule-name">No Rule</h3><br>' +
+										'i.e. in the simulation the ' + rules_attribute_name + ' variable will remain constant.';		
+		$("#rule-details").html(rule_details_html_string);
+		
+		var save_button_html_string =  	'<button type="button" class="btn btn-secondary" id="chooseRuleCloseButton" data-dismiss="modal">Cancel</button>' +
+										'<button type="button" class="btn btn-primary" id="chooseRuleSaveButton" onclick="chooseRule(' + object_number + ',' + rules_attribute_id +', \'from_data\')">Choose Rule</button>';
+		$('#rule-modal-footer').html(save_button_html_string);
+		
+	}
+	*/
+	
+	//== Choose Rule =========================================================================================	
+	function chooseRule(object_number, rules_attribute_id, rule_id) {
+		objects_dict[object_number]['object_rules'][rules_attribute_id] = rule_id;
+		if (rule_id == 'from_data') {
+			$('#attribute-button' + rules_attribute_id).html('no rule');
+			$('#attribute-button' + rules_attribute_id).attr('style','');
+		} else if (rule_id == null) {
+			$('#attribute-button' + rules_attribute_id).html('constant');
+			$('#attribute-button' + rules_attribute_id).attr('style','');
+		} else {
+			$('#attribute-button' + rules_attribute_id).html('changing');
+			$('#attribute-button' + rules_attribute_id).attr('style','background-color:rgb(156, 209, 183);');
+		}
+		document.getElementById("rule-x-button").click();
+		$("#rule-details").html('');
+
+	}
+	
+	//==========
+	// Right  
+	//==========
+	
+	function filterAvailableVariables() {
+		var current_query = $('#selectAvailableVariable').val().toLowerCase();
+		if (current_query !== "") {
+			$("#available-variables li").hide();
+			$("#available-variables li").each(function(){
+				var current_keyword = $(this).text().toLowerCase();
+				if (current_keyword.indexOf(current_query) >=0) {
+					$(this).show();    	 	
+				};
+			});    	
+		} else {
+			$("#available-variables li").show();
+		};
+	}
+	
+	
+	function filterRelatedVariables() {
+		var current_query = $('#selectRelatedAvailableVariable').val().toLowerCase();
+		if (current_query !== "") {
+			$("#related-available-variables li").hide();
+			$("#related-available-variables li").each(function(){
+				var current_keyword = $(this).text().toLowerCase();
+				if (current_keyword.indexOf(current_query) >=0) {
+					$(this).show();    	 	
+				};
+			});    	
+		} else {
+			$("#related-available-variables li").show();
+		};
+	}
+	
+	
+	//== Button - used attribute  =========================================================================================	
+	/*
+	function usedAttributeButtonClick(used_attribute_name, used_attribute_number) {
+	
+		if (used_attribute_name in highlighted_words_dict){
+			delete highlighted_words_dict[used_attribute_name];
+		} else {
+			highlighted_words_dict[used_attribute_name] = used_attribute_number;
+		}
+		
+		var highlighted_words_list = [];
+		var attribute_names = Object.keys(highlighted_words_dict);
+		for (var i = 0; i < attribute_names.length; i++) {
+			var attribute_name = attribute_names[i];
+			var attribute_number = highlighted_words_dict[attribute_name];
+			highlighted_words_list.push({highlight: '[' + attribute_name + ']', className: 'color' + attribute_number});
+		}
+		
+		$("#rule-text").highlightWithinTextarea({highlight:highlighted_words_list});
+		
+	}
+	*/
+	
+	//==========
+	// New Rule  
+	//==========
+	
+	
+	//== New Rule =========================================================================================	
+	/*
+	function openNewRuleForm(rules_attribute_id, rules_attribute_name, object_number) {
+	
+		var rule_details_html_string = 	'<input type="text" class="form-control" id="rule-name-input" placeholder="Rule Name" value="">' +
+										'<div class="form-group">' + 
+											'<label class="control-label" for="rule-text" style="margin-left:12px;margin-bottom:4px;font-size:15px;">' + rules_attribute_name + ' (t + &Delta;t) = </label>' +
+											'<textarea cols="20" rows="5" class="form-control" id="rule-text" onclick="rememberCursorPostion()" onchange="checkTextareaForVariables(' + object_number + ')"></textarea>' +
+										'</div>' + 
+										'<div id="used-attributes" class="btn-group" data-toggle="buttons">' +
+										'</div>';
+										
+		$("#rule-details").html(rule_details_html_string);
+		
+		
+		
+		available_variables_html_string = 	'<div class="available-variables-label">Available Variables:</div>' + 
+											'<input type="text" class="form-control" id="selectAvailableVariable" onkeyup="filterAvailableVariables();" placeholder=" Search">' + 
+											'<div id="available-variable-frame">' + 
+												'<ul id="available-variables" class="input-group list-group">';
+			
+		var object_attributes = objects_dict[object_number]['object_attributes'];
+		var attribute_ids = Object.keys(object_attributes);
+		for (var i = 0; i < attribute_ids.length ; i++) {
+			var attribute_id = attribute_ids[i];
+			var attribute_name = object_attributes[attribute_id]['attribute_name']
+			available_variables_html_string += 		'<li class="list-group-item avail-var-item"><button class="btn btn-outline-secondary avail-var-button" type="button" onclick="selectAvailableVariable(' + object_number + ',\'' + attribute_name + '\')" scope="col">' + attribute_name + '</button></li>';
+		}
+		for (var i = 0; i < delta_t_list.length ; i++) {
+			var delta_t_name = delta_t_list[i];
+			available_variables_html_string += 		'<li class="list-group-item avail-var-item"><button class="btn btn-outline-secondary avail-var-button" type="button" onclick="selectAvailableVariable(' + object_number + ',\'' + delta_t_name + '\')" scope="col">' + delta_t_name + '</button></li>';
+		}
+		
+		
+		available_variables_html_string += 		'</ul>' + 
+											'</div>';
+		
+		$("#rule-modal-right").html(available_variables_html_string);		
+		$('.modal-dialog').animate({width: '921px'}, 200, 'linear');
+		
+		var save_button_html_string =  	'<button type="button" class="btn btn-secondary" id="cancelNewRuleButton" onclick="noRule_buttonClick(' + object_number + ', ' + rules_attribute_id + ')">Cancel</button>' +
+										'<button type="button" class="btn btn-primary" id="chooseRuleSaveButton" onclick="saveRule(null, ' + rules_attribute_id + ',\'' + rules_attribute_name + '\',' + object_number + ')">Save Rule</button>';
+		
+		$('#rule-modal-footer').html(save_button_html_string);
+	}	
+	*/
+	
+	//== New Rule - Textarea stuff  =========================================================================================	
+	/*
+	function rememberCursorPostion() {
+		var myElement = document.getElementById('rule-text');
+		var startPosition = myElement.selectionStart;
+		var endPosition = myElement.selectionEnd;
+		
+		new_rule_cursor_position = {'startPosition':startPosition, 'endPosition':endPosition};	
+	}
+	
+	
+	function selectAvailableVariable(object_number, attribute_name) {
+		var rule_text = document.getElementById('rule-text').value;
+		var new_rule_text = rule_text.substring(0, new_rule_cursor_position['startPosition']) + '[' + attribute_name + ']' + rule_text.substring(new_rule_cursor_position['endPosition'], rule_text.length);
+		document.getElementById('rule-text').value = new_rule_text;
+		
+		checkTextareaForVariables(object_number);
+	}
+	*/
+	
+	/*
+	function checkTextareaForVariables(object_number) {
+		var rule_text = document.getElementById('rule-text').value;
+		new_rule_used_attribute_names = [];
+		new_rule_used_attribute_ids = [];
+		var used_attributes_html_string = '';
+		
+		
+		var object_attributes = objects_dict[object_number]['object_attributes'];
+		var attribute_ids = Object.keys(object_attributes);
+		var attribute_names = []
+		for (var i = 0; i < attribute_ids.length ; i++) {
+			attribute_names.push(object_attributes[attribute_ids[i]]['attribute_name']);
+		}
+		attribute_names = attribute_names.concat(delta_t_list);
+		for (var i = 0; i < attribute_names.length ; i++) {
+			var attribute_name = attribute_names[i];
+			if (rule_text.indexOf('[' + attribute_name + ']') !== -1) {
+				if (!delta_t_list.includes(attribute_name)) {
+						new_rule_used_attribute_ids.push(attribute_ids[i]);
+				}
+				new_rule_used_attribute_names.push(attribute_name);
+				
+				used_attributes_html_string +=	'<label id="used-attribute' + i + '" class="btn" onclick="usedAttributeButtonClick(\'' + attribute_name + '\',' + i + ')">' +
+													'<input type="checkbox" autocomplete="off" id="used-attribute' + i + '">' + attribute_name +
+												'</label>';
+			}
+		}
+		$('#used-attributes').html(used_attributes_html_string);
+	}
+*/
+	
+
+	//== Save New Rule  ================================================================================================================	
+	/*
+	function saveRule(rule_id, rules_attribute_id, rules_attribute_name, object_number) {
+		var rule_name = document.getElementById('rule-name-input').value;
+		var rule_text = document.getElementById('rule-text').value;
+		
+		// basic checks
+		// I know it is idiotic to do security checks on the client side - I'll move this to the backend asap
+		if (rule_name.length == 0) {
+			alert('Rule Name required');
+			return;
+		} else if (rule_text.length >= 500) {
+			alert('The Rule is ' + rule_text.length + ' characters long. Maximally 500 are allowed.');
+			return;
+		}
+		
+		// Checking the Rule Text - only the commands in permitted_substrings are allowed==================
+		//1 - removing/replacing delta_t
+		var executable = rule_text;
+		var stripped_rule_text = rule_text;
+		for (var i = 0; i < delta_t_list.length; i++) {
+			var search_value = '[' + delta_t_list[i] + ']';
+			executable = executable.split(search_value).join('(delta_t/' + timestep_units[i] +')');
+			stripped_rule_text = stripped_rule_text.split(search_value).join(' ');
+		}
+		
+		//2 - removing/replacing variables
+		for (var i = 0; i < new_rule_used_attribute_ids.length; i++) {
+			var search_value = '[' + new_rule_used_attribute_names[i] + ']';
+			var data_type = objects_dict[object_number]['object_attributes'][parseInt(new_rule_used_attribute_ids[i])]['attribute_data_type'];
+			if (['string', 'date'].includes(data_type)){
+				var replacement = '"attr' + String(new_rule_used_attribute_ids[i]) + '"';
+			} else {
+				var replacement = 'attr' + String(new_rule_used_attribute_ids[i]);
+			}
+			executable = executable.split(search_value).join(replacement);
+			stripped_rule_text = stripped_rule_text.split(search_value).join(' ');
+			//stripped_rule_text = stripped_rule_text.replace(new RegExp(search_value, 'g'), '');
+		}
+		
+		//3 - removing/replacing parameters
+		if (rule_id) {
+			var used_parameter_ids = objects_dict[object_number]['object_rules'][rules_attribute_id]['used_rules'][rule_id]['used_parameter_ids'];
+			for (var i = 0; i < used_parameter_ids.length; i++) {
+				parameter_id = used_parameter_ids[i];
+				parameter_name = parameter_info[parameter_id]['parameter_name'];
+				executable = executable.split('['+parameter_name+']').join('df.param'+parameter_id);
+				stripped_rule_text = stripped_rule_text.split('['+parameter_name+']').join(' ');
+			}
+		}
+				
+		//4 - removing function-characters
+		var permitted_characters = ['\\(','\\)','\\[','\\]','\\{','\\}','\\+','\\*','\\.','-','/','%','.',',',':'] 
+		for (var i = 0; i < permitted_characters.length; i++) {
+			stripped_rule_text = stripped_rule_text.replace(new RegExp(permitted_characters[i], 'g'), ' ');
+		}
+		
+		//5 - removing permitted commands
+		var permitted_substrings = ['if','and','or']
+		for (var i = 0; i < permitted_substrings.length; i++) {
+			stripped_rule_text = stripped_rule_text.replace(new RegExp(permitted_substrings[i], 'g'), '');
+		}
+		
+		//6 - if there's still something remaining: ERROR
+		stripped_rule__remaining_words = stripped_rule_text.split(" ");
+		for (var i =0; i < stripped_rule__remaining_words.length; i++){
+			if (stripped_rule__remaining_words[i] == ''){
+				stripped_rule__remaining_words.splice(i, );
+			}
+		}
+		if (stripped_rule__remaining_words.length > 0) {
+			alert('The following commands are not permitted in the Rule: ' + stripped_rule__remaining_words.join(','));
+			return;
+		}
+		
+		
+		
+		// Save Rule in Backend  ==================
+		request_body = {
+			'name': rule_name,
+			'attribute_id': rules_attribute_id,
+			'number_of_times_used': 0,
+			'used_attribute_ids': new_rule_used_attribute_ids,
+			'used_attribute_names': new_rule_used_attribute_names,
+			'rule_text': rule_text,
+			'executable': executable
+		}
+		
+		if (rule_id != null) {request_body['rule_id'] = rule_id;} //this triggers the exiting rule to be modified instead of a new rule to be created
+		
+		 
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				
+				var response_message = this.responseText;
+				if (response_message == "success") {
+					populateRuleModal(object_number, rules_attribute_id, rules_attribute_name);
+					$("#rule-modal-right").html('');		
+					$('.modal-dialog').animate({width: '700px'}, 200, 'linear');
+				} else {
+					alert(response_message);
+				}
+			}
+		};
+		
+		xmlhttp.open("POST", "/tool/save_rule/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send(JSON.stringify(request_body));	
+		
+	
+	}
+	*/
+	
+	//==========
+	// Edit Rule  
+	//==========
+	/*
+	function editRule(object_number, rules_attribute_id, rules_attribute_name, rule_number) {
+		
+		rule_id = rules_list[rule_number]['id'];
+		rule_name = rules_list[rule_number]['name'];
+		used_attribute_ids = rules_list[rule_number]['used_attribute_ids'];
+		used_attribute_names = rules_list[rule_number]['used_attribute_names'];
+		rule_text = rules_list[rule_number]['rule_text'];
+		
+		var rule_details_html_string = 	'<input type="text" class="form-control" id="rule-name-input" placeholder="Rule Name" value="' + rule_name + '">' +
+										'<div class="form-group">' + 
+											'<label class="control-label" for="rule-text" style="margin-left:12px;margin-bottom:4px;font-size:15px;">' + rules_attribute_name + ' (t + &Delta;t) = </label>' +
+											'<textarea cols="20" rows="5" class="form-control" id="rule-text" onclick="rememberCursorPostion()" onchange="checkTextareaForVariables(' + object_number + ')">' + rule_text + '</textarea>' +
+										'</div>' + 
+										'<div id="used-attributes" class="btn-group" data-toggle="buttons">' +
+										'</div>';
+										
+		$("#rule-details").html(rule_details_html_string);
+		
+		
+		
+		available_variables_html_string = 	'<div class="available-variables-label">Available Variables:</div>' + 
+											'<input type="text" class="form-control" id="selectAvailableVariable" onkeyup="filterAvailableVariables();" placeholder=" Search">' + 
+											'<div id="available-variable-frame">' + 
+												'<ul id="available-variables" class="input-group list-group">';
+			
+		var object_attributes = objects_dict[object_number]['object_attributes'];
+		var attribute_ids = Object.keys(object_attributes);
+		for (var i = 0; i < attribute_ids.length ; i++) {
+			var attribute_id = attribute_ids[i];
+			var attribute_name = object_attributes[attribute_id]['attribute_name']
+			available_variables_html_string += 		'<li class="list-group-item avail-var-item"><button class="btn btn-outline-secondary avail-var-button" type="button" onclick="selectAvailableVariable(' + object_number + ',\'' + attribute_name + '\')" scope="col">' + attribute_name + '</button></li>';
+		}
+		for (var i = 0; i < delta_t_list.length ; i++) {
+			var delta_t_name = delta_t_list[i];
+			available_variables_html_string += 		'<li class="list-group-item avail-var-item"><button class="btn btn-outline-secondary avail-var-button" type="button" onclick="selectAvailableVariable(' + object_number + ',\'' + delta_t_name + '\')" scope="col">' + delta_t_name + '</button></li>';
+		}
+		
+		available_variables_html_string += 		'</ul>' + 
+											'</div>';
+		
+		$("#rule-modal-right").html(available_variables_html_string);		
+		$('.modal-dialog').animate({width: '921px'}, 200, 'linear');
+		
+		var save_button_html_string =  	'<button type="button" class="btn btn-secondary" id="cancelNewRuleButton" onclick="noRule_buttonClick(' + object_number + ', ' + rules_attribute_id + ')">Cancel</button>' +
+										'<button type="button" class="btn btn-primary" id="chooseRuleSaveButton" onclick="saveRule(' + rule_id + ', ' + rules_attribute_id + ',\'' + rules_attribute_name + '\',' + object_number + ')">Save Rule</button>';
+		
+		$('#rule-modal-footer').html(save_button_html_string);
+		
+		checkTextareaForVariables(object_number);
+		
+	}
+	*/
+	
+	//==========
+	// Delete Rule  
+	//==========
+	/*
+	function deleteRule(object_number, rules_attribute_id, rules_attribute_name, rule_id) {
+		
+		var xmlhttp = new XMLHttpRequest();       	
+		xmlhttp.open("POST", "/tool/delete_rule/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send(JSON.stringify({'rule_id': rule_id}));	
+		
+		populateRuleModal(object_number, rules_attribute_id, rules_attribute_name);
+	}
+	*/
+
+	
+</script>

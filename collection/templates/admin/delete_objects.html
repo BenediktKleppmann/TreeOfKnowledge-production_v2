@@ -1,0 +1,162 @@
+{% extends 'layouts/base_admin.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+
+{% block title %}
+	ToK Admin - Delete Objects
+{% endblock %}
+
+{% block additionalcss %}
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<!--<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>-->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="{% static 'css/contextmenu.min.css' %}" rel="stylesheet" />
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="{% static 'js/contextmenu.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/upload_table_frame.css' %}" />
+
+
+
+<style>
+	/* --------------------------------------------------------------------------*/
+	/* Top Panel ----------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+	
+	.top-panel {
+		width: 100%;
+	}
+
+	.form-group {
+		margin-top: 10px;
+		margin-bottom: 8px;
+	}
+	
+	#object-id-label {
+		margin-left: 15px;
+		display: inline-block;
+	}
+	
+	#object-ids-list {
+		margin-left: 5px;
+		display: inline-block;
+		width: 350px;
+	}
+	
+	#get-object-button {
+		margin-left: 22px;
+		display: inline-block;
+		margin-bottom: 9px;
+	}
+	
+	#server-response {
+		display: inline-block;
+	}
+
+
+				
+
+	
+</style>
+{% endblock %}
+
+
+	
+	
+
+{% block content %}
+
+	<div class="top-panel">
+		<div class="window-title-top">Delete Objects</div>
+		<br>
+		<br>
+		<div class="form">
+			<div class="form-group">
+				<div id="object-id-label">List of Object Ids:</div><input id="object-ids-list" type="text" name="object_ids-list">
+				<button id="get-object-button" type="button" class="btn btn-danger" onclick="delete_objects()">Delete Objects</button><div id="server-response"></div>
+			</div>
+		</div>		
+	</div>
+	
+	
+
+
+	
+
+<script>
+
+
+
+	
+	
+	//====================================================================================================
+	//====  Main window  =================================================================================
+	//====================================================================================================
+	
+	
+	//===  Draw the table  =============================================================================	
+	
+    function delete_objects() {
+
+		object_ids_list = $('#object-ids-list').val();
+		object_ids = object_ids_list.split(",");
+		
+		$('#server-response').html('');
+		var ok_given = confirm("Are you sure you want to permanently delete these " + String(object_ids.length) + " objects?");
+		if (ok_given == false){return;}
+		
+			
+			
+		var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+
+				$('#server-response').html(this.responseText);
+			}
+		};
+		xmlhttp.open("POST", "/admin/delete_objects/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send('[' + object_ids + ']');
+
+
+		
+	}
+	
+	
+
+
+
+
+						
+	//====================================================================================================
+	//====  Main  ========================================================================================
+	//====================================================================================================
+
+	
+	
+	window.onload = function() {
+		$('#object-id').val('{{ object_id }}');
+		display_object();
+	};
+</script>
+
+
+	
+{% endblock %}

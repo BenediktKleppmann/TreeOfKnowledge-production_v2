@@ -1,0 +1,112 @@
+{% extends 'layouts/base_landing_pages.html' %}'
+{% load staticfiles %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+
+{% block title %}
+	Tree of Knowledge - Contact
+{% endblock %}
+
+{% block additionalcss %}
+	<style>
+		#contact-left {
+			display: inline-block;
+			width: 62%;
+			float: left;
+		}
+		
+		#contact-right {
+			display: inline-block;
+			width: 30%;
+		}
+		
+		#my-picture {
+			width:209px;
+		}
+		
+		#cv {
+			padding-left: 89px;
+			padding-top: 9px;
+			display: block;
+			font-size: 24px;
+		}
+	</style>
+{% endblock %}	
+
+{% block content %}
+	
+
+
+	<section id="background picture" class="carousel">
+		<div style="background-image: url(../static/images/deer_large-min.jpg);
+					background-attachment: fixed;
+					background-size: 100%;
+					background-repeat: no-repeat;
+					padding: 200px 0;
+					background-position: 21% 29%;
+					margin-top:54px;">
+		</div>
+	</section>
+
+
+		
+	<section>
+		<div class="container">
+			<div class="box first last">
+				<br>
+				<div class="center">
+					<h1 class="yellowish">Contact</h2>
+				</div>
+				<br>
+				<div class="lead left-aligned">
+					<div id="contact-left">
+						<br>
+						<br>
+						Benedikt Kleppmann<br>
+						Innovationszentrum Aalen<br>
+						Anton-Huber-Straße 20<br>
+						D-73430 Aalen<br>
+						<br>
+						<i class="fas fa-phone"></i> +49 7365 6753<br>
+						<i class="fas fa-mobile-alt"></i> &nbsp;+49 176 28706442<br>
+						<i class="fas fa-envelope"></i> <a href="mailto:benedikt.kleppmann@treeofknowledge.ai" style="color:rgb(226, 221, 204);">benedikt.kleppmann@treeofknowledge.ai</a>
+					</div>
+					<div id="contact-right">
+						<div id="my-picture">
+							<a href="/static/images/Benedikt.png"><img id="object_hierachy-image" src="/static/images/Benedikt.png" class="img-responsive mr-3 img-thumbnail"></a>
+						</div>
+						<a href="/static/images/Lebenslauf_Benedikt_Kleppmann.pdf" id="cv">CV</a>
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="center">
+					<h1 class="yellowish">Legal Notice</h2>
+				</div>
+				<div class="lead left-aligned">
+					We ask all users not to upload any data that they are not allowed to make public (e.g. private data). 
+					We however can't guarantee it and won't take any responsibility for it. If you find data that you would like to have removed, please contact us.<br>
+					<br>
+					Although we try to assure the correctness of the data and the simulation results, their correctness is not guaranteed and we don't take any resposibility for it.<br>
+					<br>
+					The software is licensed under a <a href="https://en.wikipedia.org/wiki/Affero_General_Public_License">AGPL Licence</a>.<br>
+					<br><br>
+			  </div>
+			</div>
+		</div>
+	</section>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,97 @@
+{% extends 'layouts/base_tool.html' %}'
+{% load staticfiles %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+
+{% block title %}
+	Tree of Knowledge - Main Menu
+{% endblock %}
+
+{% block additionalcss %}
+
+	<script src="{% static 'js/jointjs/jquery.js' %}"></script>
+	<script src="{% static 'js/jointjs/lodash.js' %}"></script>
+	<script src="{% static 'js/jointjs/backbone.js' %}"></script>
+	<script src="{% static 'js/jointjs/joint.js' %}"></script>
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="https://rawgit.com/RickStrahl/jquery-resizable/master/src/jquery-resizable.js"></script>
+	
+	<script type="text/javascript" src="{% static 'js/datepicker/moment.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/datepicker/transition.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/datepicker/collapse.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/datepicker/bootstrap-datetimepicker.min.js' %}"></script>
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'js/jointjs/joint.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/jquery.highlight-within-textarea.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap-3.4.0.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/bootstrap-datetimepicker.min.css' %}" />
+
+	
+
+{% endblock %}	
+
+{% block content %}
+
+
+<div class="dropdown inline">
+	<button class="btn btn-secondary dropdown-toggle attribute-button" type="button" id="attributeMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="attribute-name1">Attribute
+		<span> &nbsp;<i class="fas fa-caret-down fa-sm"></i>
+		</span></span>
+	</button>
+	<div class="dropdown-menu" aria-labelledby="attributeMenu1">
+		<div id="attributeList1">
+			<input type="text" class="search" id="dropDonwSearch1" onkeyup="filterAttributeDropDown(1)" placeholder=" Search">
+			<ul id="drop-down-display1" class="list-group drop-down-display">
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 11, '', 'null')" data-attribute-id="11">Kingdom</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 22, 'string', 'null')" data-attribute-id="22">Name</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 50, 'real', 'null')" data-attribute-id="50">Latitude</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 64, 'string', 'null')" data-attribute-id="64">Profession</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 69, 'relation', 'j1_5')" data-attribute-id="69">Nationality</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 84, 'real', 'null')" data-attribute-id="84">Weight</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 85, 'string', 'null')" data-attribute-id="85">Sex</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 90, 'int', 'null')" data-attribute-id="90">Age</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 91, 'string', 'null')" data-attribute-id="91">Race / Ethnicity</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 92, 'string', 'null')" data-attribute-id="92">Marital Status</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 93, 'bool', 'null')" data-attribute-id="93">Enrolled in School</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 100, 'string', 'null')" data-attribute-id="100">Educational Attainment</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 101, 'string', 'null')" data-attribute-id="101">English Ability</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 102, 'int', 'null')" data-attribute-id="102">Year of Entry to United States</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 103, 'bool', 'null')" data-attribute-id="103">Has a Sensory Disability</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 104, 'bool', 'null')" data-attribute-id="104">Has a Physical Disability</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 105, 'bool', 'null')" data-attribute-id="105">Has a Mental Disability</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 106, 'bool', 'null')" data-attribute-id="106">Has a Self-care Disability</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 107, 'bool', 'null')" data-attribute-id="107">Has a Go-outside-home Disability</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 108, 'bool', 'null')" data-attribute-id="108">Has an Employment Disability</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 109, 'bool', 'null')" data-attribute-id="109">Is Disabled</button></li>
+				<li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 110, 'bool', 'null')" data-attribute-id="110">Has Grandchildren under 18 years</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 111, 'bool', 'null')" data-attribute-id="111">Is Responsible for Grandchildren</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 112, 'string', 'null')" data-attribute-id="112">Employment Status</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 113, 'string', 'null')" data-attribute-id="113">Means of Transportation to Work</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 114, 'real', 'null')" data-attribute-id="114">Travel Time to Work (min)</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 115, 'relation', 'j2_3')" data-attribute-id="115">works in Industry</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 116, 'real', 'null')" data-attribute-id="116">Weeks Worked in the last year</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 117, 'real', 'null')" data-attribute-id="117">Hours Worked per Week</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 118, 'real', 'null')" data-attribute-id="118">Self-Employment Income</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 119, 'real', 'null')" data-attribute-id="119">Wage/Salary Income</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 120, 'real', 'null')" data-attribute-id="120">Social Security Income</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 121, 'real', 'null')" data-attribute-id="121">Retirement Income</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 122, 'relation', 'j1_13')" data-attribute-id="122">Place of residence (US State)</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 123, 'string', 'null')" data-attribute-id="123">Time Leaving for Work</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 124, 'string', 'null')" data-attribute-id="124">Occupation</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 125, 'real', 'null')" data-attribute-id="125">Income ($/year)</button></li><li class="list-group-item narrow"><button class="name dropdown-item btn btn-secondary" type="button" onclick="selectAdditionalAttribute(1, this.innerHTML, 126, 'relation', 'j1_16')" data-attribute-id="126">Preferred Political Candidate</button></li>
+			</ul>									
+			<button class="btn btn-warning dropdown-item-button" type="button" onclick="resetAttribute(1);">Reset</button>
+		</div>
+	</div>
+</div>
+
+	{% include "tool/includes/edit_simulation__simulate.html" %} 
+	
+	
+	{% include "tool/includes/additional_facts_functions.html" %} 
+
+	
+      
+{% include "tool/includes/edit_object_behaviour_modal.html" %} 
+{% include "tool/includes/edit_object_type_behaviour_modal.html" %}           
+
+{% endblock %}
+
+
+

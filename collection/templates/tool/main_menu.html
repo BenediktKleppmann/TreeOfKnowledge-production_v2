@@ -1,0 +1,195 @@
+{% extends 'layouts/base_tool.html' %}
+{% load staticfiles %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+
+{% block title %}
+	Tree of Knowledge - Main Menu
+{% endblock %}
+
+{% block additionalcss %}
+<style>
+
+	/* Buttons ---------------------------*/
+	.menu-row {
+		padding: 13px;
+	}
+
+	.menu-item-box {
+	    padding: 5px;
+		border: 1px solid rgb(230,230,230);
+		display: inline-block;
+		border-radius: 9px;
+		margin: 26px;
+		float:left;
+	}
+	
+	.menu-item-button {
+	    height: 170px;
+		width: 170px;
+		border-radius: 6px;
+		/*border-left: 14px solid rgb(252, 252, 252);
+		border-top: 14px solid rgb(255, 255, 255);
+		border-right: 14px solid rgb( 242, 242, 242);
+		border-bottom: 14px solid rgb( 235, 235, 235);
+		background-color: rgb(252, 252, 252);*/
+		border-left: 11px solid rgb(246, 246, 246);
+		border-top: 11px solid rgb(249, 249, 249);
+		border-right: 11px solid rgb(234, 234, 234);
+		border-bottom: 11px solid rgb(227, 227, 227);
+		background-color: rgb(244, 244, 244);
+		color: rgb(80, 80, 80);
+	}
+	
+	
+	#simulation-button {
+		border-left: 11px solid rgb(232, 247, 249);
+		border-top: 11px solid rgb(235, 250, 252);
+		border-right: 11px solid rgb(220, 235, 237);
+		border-bottom: 11px solid rgb(213, 228, 230);
+		background-color: rgb(230, 245, 247);
+	}
+	
+	#admin-button {
+		border-left: 11px solid rgb(223, 223, 245);
+		border-top: 11px solid rgb(230, 230, 250);
+		border-right: 11px solid rgb(207, 207, 227);
+		border-bottom: 11px solid rgb(202, 202, 222);
+		background-color: rgb(220, 220, 242);
+	}
+	
+	/* Button Icons ---------------------------*/
+	.icon-box {
+		margin-bottom: 11px;
+	}
+	
+	.fas {
+		font-size: 37px;
+	}
+	
+	
+	/* Log out button ---------------------------*/
+	.log-out-button {
+	    position: absolute;
+		bottom: 55px;
+		left: 64px;
+		border: 2px solid rgb(130, 111, 94);
+		background: rgb(250, 247, 245);
+		color: rgb(130, 111, 94) !important;
+	}
+	
+	.log-out-button i {
+		font-size: 25px;
+	}
+	
+	.log-out-button-text {
+		display: inline-block;
+		padding-left: 9px;
+		padding-top: 2px;
+		float: right;
+		font-size: 16px;
+	}
+
+	
+	/* Existing Simulations ---------------------------*/
+	.existing-simulations-box {
+		margin-top: 18px;
+		height: 368px;
+		overflow-y: scroll;
+	}
+	
+	
+	.existing-simulations-title {
+		margin-left: 4px;
+		margin-bottom: 3px;
+		color: rgb(120, 120, 120);
+	}
+	
+	.existing-simulation-link {
+		line-height: 23px;
+		color: #7cadd9;
+	}
+	
+	
+	
+
+</style>
+{% endblock %}
+
+{% block content %}
+	<br>
+	<div class="menu-row">
+		<div class="menu-item-box">
+			<a href="{% url 'upload_data1_new' %}">
+				<button type="button" class="menu-item-button btn btn-light">
+				
+					<div class="icon-box"><i class="fas fa-file-upload"></i></div>
+					Upload Data
+				</button>
+			</a>
+		</div>
+		<div class="menu-item-box">
+			<a href="{% url 'edit_simulation_new' %}">
+				<button type="button" class="menu-item-button btn btn-light" id="simulation-button" href="{% url 'edit_simulation_new' %}">
+					<div class="icon-box"><i class="fas fa-hammer" aria-hidden="true"></i></div>
+					Make a Simulation
+				</button>
+			</a>
+		</div>
+		<div class="menu-item-box">
+			<a href="{% url 'browse_simulations' %}">
+				<button type="button" class="menu-item-button btn btn-light">
+					<div class="icon-box">
+						<img src="{% static 'images/si-glyph-trees_dark_grey.svg'%}" style="height:47px;width:47px;margin-right:3px;">
+					</div>
+					Browse Simulations
+				</button>
+			</a>
+		</div>
+		<div class="menu-item-box">
+			<a href="{% url 'query_data' %}">
+				<button type="button" class="menu-item-button btn btn-light">
+					<div class="icon-box"><i class="fas fa-search" aria-hidden="true"></i></div>
+					Query Data
+				</button>
+			</a>
+		</div>
+		{% if user.is_superuser %}
+		<div class="menu-item-box">
+			<a href="{% url 'admin_page' %}">
+				<button type="button" class="menu-item-button btn btn-light"  id="admin-button">
+					<div class="icon-box"><i class="fas fa-user-cog"></i></div>
+					Admin Pages
+				</button>
+			</a>
+		</div>
+		{% else %}{% endif %}
+	</div>
+	
+	
+	
+
+	<a href="{% url 'landing_page' %}">
+		<button type="button" class="log-out-button btn btn-outline-secondary">
+			<i class="fas fa-arrow-left"></i>
+			<div class="log-out-button-text">Go to landing pages</div>
+		</button>
+	</a>
+
+	
+	<script src="{% static 'js/jquery.js' %}"></script>
+		
+{% endblock %}
+
+
+

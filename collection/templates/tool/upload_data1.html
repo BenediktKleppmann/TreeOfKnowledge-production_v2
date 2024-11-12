@@ -1,0 +1,342 @@
+{% extends 'layouts/base_tool.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+
+{% block title %}
+	Tree of Knowledge - Upload Data 1
+{% endblock %}
+
+{% block additionalcss %}
+
+	<link rel="stylesheet" href="{% static 'css/upload_table_frame.css' %}" />
+
+	<style>
+		h1{
+			text-align:center;
+		}
+		
+		.form-group {
+			margin-bottom: 22px;
+		}
+		
+		#left-column {
+			margin-left:5%;
+			margin-right:5%;
+		}
+		
+		.form-control-plaintext {
+			width: 100%
+		}
+		
+		.greyed-out * {
+			color:#CCC;
+			border-color: #CCC;
+		}
+		
+		.black * {
+			color:#000;
+			border-color: #000;
+		}
+		
+		#upload-button {
+			margin-top:10px;
+			padding-left:20px;
+			padding-right:20px;
+			
+		}
+		
+		#next-button {
+			margin-top:35px;
+			margin-right:2%;
+		}
+
+		
+		/* --- Table box ----------------------------------------------------------- */
+		
+		
+		.overflowing-content {
+		    height: 400px;
+			overflow-y: hidden;
+			overflow-x: auto;
+			margin-top:100px;
+			margin-left:2%;
+			margin-right:2%;
+		}
+		
+		.table-box {
+			width: max-content;
+			width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+            width: -moz-max-content;    /* Firefox/Gecko */
+            width: -webkit-max-content; /* Chrome */
+		}
+		
+		#uploaded_table {
+			margin-bottom:0px;
+		}
+		/* --- Table format -------------------------------------------------------- */
+        .table {
+			margin-bottom:0px;
+			width: 2705px;
+			overflow: auto;
+        }
+		
+
+        thead, tbody, tr, td, th { display: block; text-align:left; }
+
+        tr:after {
+            content: ' ';
+            display: block;
+            visibility: hidden;
+            clear: both;
+        }
+
+		
+        thead th {
+            height: max-content;
+			height: intrinsic;           /* Safari/WebKit uses a non-standard name */
+            height: -moz-max-content;    /* Firefox/Gecko */
+            height: -webkit-max-content; /* Chrome */
+        }
+		
+		
+		thead {
+			margin-left:20px;
+		}
+		
+		.table thead > tr > th {
+			border-bottom: 0;
+			word-wrap: break-word;
+		}
+
+        tbody {
+            height: 340px;
+            overflow-y: auto;
+			direction: rtl;
+        }
+
+        tbody td, thead th {
+            width: 150px;
+            float: left;
+        }
+		
+
+
+	</style>
+{% endblock %}
+
+
+{% block content %}
+
+
+	
+	<div class="container-fluid">
+		<div class="frame">
+			<div class="big-circle">1</div>
+			<div class="window-title-top">Select csv-file</div>
+			<div class="window">
+				<div class="window-inner">
+					{% for error in errors %}
+						<div class="error">{{ error }}</div>
+					{% endfor %}
+					<div class="row">
+						<div class="col-md-5">
+							<div id="left-column">
+								<!--<h1>Select csv-file</h1>-->
+								<br>
+								<br>
+								<br>
+								<br>
+								<form role="form" action="" method="post" class="form" enctype="multipart/form-data">
+									{% csrf_token %}
+									<div class="form-group row">
+										<label class="control-label col-sm-4" for="id_file" {% if uploaded_dataset %} {% else %} style="visibility:hidden"{% endif %}>File</label>
+										<div class="bootstrap3-multi-input col-sm-8">
+											<input type="file" name="file" class="" title="" required id="id_file" value="C:/Users/owner/Documents/3 useful stuff/data/ata.gov us/Consumer_Complaints.csv" />
+										</div>
+									</div>
+									<br>
+									<br>
+									<div id="additional-specifications" class="greyed-out" {% if uploaded_dataset or errors %} {% else %} style="display:none"{% endif %}>
+										<div class="form-group row">  
+											<label for="sep" class="col-sm-4 col-form-label">Seperator</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control-plaintext" id="sep" name="sep" value=",">
+												<div class="help-block">The column delimiter to use</div>
+											</div>
+										</div> 
+										<div class="form-group row">  
+											<label for="encoding" class="col-sm-4 col-form-label">Encoding</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control-plaintext" id="encoding" name="encoding" value="utf-8">
+												<div class="help-block">The character encoding of the csv-file. Available encodings can be found <a href="https://docs.python.org/3/library/codecs.html#standard-encodings">here</a>.</div>
+											</div>
+										</div> 
+										<div class="form-group row">  
+											<label for="quotechar" class="col-sm-4 col-form-label">Quote character</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control-plaintext" id="quotechar" name="quotechar" value='"'>
+												<div class="help-block">If the column values are in quotes, specify the character used for the quotes.</div>
+											</div>
+										</div> 
+										<div class="form-group row">  
+											<label for="escapechar" class="col-sm-4 col-form-label">Escape character</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control-plaintext" id="escapechar" name="escapechar" value="\">
+												<div class="help-block">If the column values are in quotes, quotation marks within the values are probably escaped. Specify the used escape character.</div>
+											</div>
+										</div> 
+										<div class="form-group row">  
+											<label for="na_values" class="col-sm-4 col-form-label">NA values</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control-plaintext" id="na_values" name="na_values" value="">
+												<div class="help-block">Additional strings that should be recognized as NA/NaN values. The following strings are already recognized as NA values: ‘#N/A’, ‘#N/A N/A’, ‘#NA’, ‘-1.#IND’, ‘-1.#QNAN’, ‘-NaN’, ‘-nan’, ‘1.#IND’, ‘1.#QNAN’, ‘N/A’, ‘NA’, ‘NULL’, ‘NaN’, ‘n/a’, ‘nan’, ‘null’.</div>
+											</div>
+										</div> 
+										<div class="form-group row">  
+											<label for="skiprows" class="col-sm-4 col-form-label">Skip rows</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control-plaintext" id="skiprows" name="skiprows" value="">
+												<div class="help-block">The numbers of the lines to skip. E.g. use [0,302, 303] if the first line and the last linew aren't part of the table (for a table with 300 entries).</div>
+											</div>
+										</div> 
+										<div class="form-group row">  
+											<label for="header" class="col-sm-4 col-form-label">Header rows</label>
+											<div class="col-sm-8">
+												<input type="text" class="form-control-plaintext" id="header" name="header" value="infer">
+												<div class="help-block">The row number(s) of the row(s) with the column names (e.g. [0,1,3]). The default is [0]. If there are no column names, enter: None.</div>
+											</div>
+										</div> 
+									</div>
+									
+									<div class="form-group">
+										<button type="submit" class="btn btn-primary pull-right" id="upload-button">
+											<span class="glyphicon glyphicon-star"></span> Upload
+										</button>
+									</div>
+								</form>	
+							</div>
+						</div>
+						<div class="col-md-7">
+							<div class="overflowing-content" {% if uploaded_dataset.data_table_json %} {% else %} style="display:none"{% endif %}>			
+								<div class="table-box">
+									<p id="uploaded_table"></p>
+								</div>
+							</div>
+							{% if uploaded_dataset.id %}
+								<a class="btn btn-primary pull-right" href="{% url 'upload_data2' upload_id=uploaded_dataset.id %}" role="button" id="next-button">OK, Next</a>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="closed-frame"><div class="small-circle">2</div><div class="closed-frame-title">Data source</div></div>
+		<div class="closed-frame"><div class="small-circle">3</div><div class="closed-frame-title">Object type</div></div>
+		<div class="closed-frame"><div class="small-circle">4</div><div class="closed-frame-title">Meta data</div></div>
+		<div class="closed-frame"><div class="small-circle">5</div><div class="closed-frame-title">Object Attributes</div></div>
+		<div class="closed-frame"><div class="small-circle">6</div><div class="closed-frame-title">Match to existing entities</div></div>
+	</div>
+	
+
+	<div id="test"></div>
+	<div id="useful-things" style="display:none;">
+		<div id="data_table_json">{{ uploaded_dataset.data_table_json }}</div>
+	</div>
+	
+{% if uploaded_dataset.data_table_json %}
+	<script>
+		function CreateTableFromJSON() {
+		
+			// THE DATA
+			var data_table_json = {{ uploaded_dataset.data_table_json | safe }}
+
+			// GET HEADER VALUES
+			var table_headers = data_table_json["table_header"]
+			var table_body = data_table_json["table_body"]
+
+			// MAKE TABLE.
+			var table = document.createElement("table");
+			table.setAttribute("class", "table table-sm table-condensed");
+			table.setAttribute("style", "width: " + (151*table_headers.length + 20) + "px;");
+			
+			// MAKE TABLE HEADER
+			var theader = table.createTHead();
+			var tr = theader.insertRow(-1);                   // TABLE ROW.
+
+			for (var i = 0; i < table_headers.length; i++) {
+				var th = document.createElement("th");      // TABLE HEADER.
+				th.setAttribute("scope", "col");
+				//th.setAttribute("contenteditable", "true");	
+				th.innerHTML = table_headers[i];
+				tr.appendChild(th);
+			}
+			
+			// MAKE TABLE ROWS
+			var tbody = document.createElement('tbody')
+			var number_of_rows = Math.min(table_body[0].length, 200);
+			for (var i = 0; i < number_of_rows; i++) {
+				tr = tbody.insertRow(-1);
+
+				for (var j = 0; j < table_headers.length; j++) {
+					var tabCell = tr.insertCell(-1);
+					tabCell.innerHTML = table_body[j][i];
+					//tabCell.setAttribute("contenteditable", "true"); //ATTRIBUTE: contenteditable="true"
+				}
+			}
+			table.appendChild(tbody)
+
+			// ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+			var divContainer = document.getElementById("uploaded_table");
+			divContainer.innerHTML = "";
+			divContainer.appendChild(table);
+			
+		}
+		
+		
+		function DarkenAdditionalSpecifications() {
+			console.log("div was clicked")
+			$("#additional-specifications").attr('class', 'black');
+			$("#upload-button").css("background-color", "rgb(66, 139, 202)");
+			$("#upload-button").css("background-color", "rgb(53, 126, 189)");
+		}
+		/*========================================================================*/
+		/*========================================================================*/
+		/*========================================================================*/
+
+		window.onload = function() {
+
+			CreateTableFromJSON();
+			
+			var element = document.getElementById('additional-specifications');
+			element.addEventListener('click', DarkenAdditionalSpecifications, true);
+		  
+			{% if uploaded_dataset %}
+				$("#upload-button").css("background-color", "#CCC");
+				$("#upload-button").css("border-color", "#CCC");
+			{% endif %}
+		};
+	</script>
+{% endif %}
+
+	<script src="{% static 'js/jquery.js' %}"></script>
+
+{% endblock %}
+
+
+
+
+
+
+

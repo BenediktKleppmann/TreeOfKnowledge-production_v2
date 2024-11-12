@@ -1,0 +1,329 @@
+<!--                 EDIT OBJECT TYPE BEHAVIOUR MODAL                   -->
+<!-- This is used in edit_simulation -->
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+#
+# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+#####################################################################
+-->
+{% load staticfiles %}
+<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />-->
+
+		
+<style>	
+
+
+
+	/* --- Edit Attribute Modal -------------------------------------------- */
+	
+	#selectExecutionOrderModal .modal-dialog {
+		width: 858px;
+		position: initial;
+	}
+
+	#selectExecutionOrderModal .modal-header.row {
+		margin-right: 0px;
+		margin-left:0px;
+		padding:9px;
+		/*background: rgb(226, 226, 226);*/
+	}
+	
+	#selectExecutionOrderModal .modal-body {
+		padding-top: 12px;
+		padding-left: 20px;
+		padding-right:25px;
+		padding-bottom: 0px;
+		height: calc(100vh - 230px);
+	}
+	
+	#selectExecutionOrderModal .modal-footer {
+		padding: 8px;
+		margin-top: 23px;
+	}
+	
+	#selectExecutionOrderModal #modal-title {
+		display: inline-block;
+		font-size: 22px;
+		margin-top: 16px;
+		margin-left: 19px;
+	}
+
+	#selectExecutionOrderModal  #x-button {
+		display: inline-block;
+		float: right;
+		margin-top:14px; 
+		margin-right:24px;
+		font-size:29px
+	}
+	
+	/* ---------------------------------------------------------------------------*/
+	/*  List Execution Orders Panel  ---------------------------------------------*/
+	/* ---------------------------------------------------------------------------*/
+	#list-execution-orders-panel {
+		display: inline-block;
+		width: 257px;
+	}
+	
+	#execution-orders-list {
+		padding-inline-start: 0px;
+	}
+	
+	/* ---------------------------------------------------------------------------*/
+	/*  Info Panel  --------------------------------------------------------------*/
+	/* ---------------------------------------------------------------------------*/
+	
+	#execution-order-info-panel {
+		display: inline-block;
+		float: right;
+		width: 475px;
+	}
+	
+	#execution-order-name {
+	    width: 256px;
+		margin-left: 132px;
+		margin-top: 4px;
+		margin-bottom: 30px;
+	}
+	
+	#save-delete-buttons {
+		margin-top: 15px;
+	}
+	
+	#save-delete-buttons button{
+		margin-right: 5px;
+	}
+		
+	#select-cancel-buttons {
+		margin-top: 30px;
+	}
+	
+	#select-execution-order-button {
+	    margin-right: 5px;
+		margin-left: 328px;
+	}
+</style>
+
+
+	
+	<!-- Select Execution Order Modal -->
+	<div class="modal fade" id="selectExecutionOrderModal" tabindex="-1" role="dialog" aria-labelledby="selectExecutionOrderTitle" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header row">
+			<div class="modal-title object-type-name" id="modal-title">Select Model</div>
+			<button id="x-button" type="button col-md-1" class="close" data-dismiss="modal" aria-label="Close"  onclick="closeSelectExecutionOrderModal()">
+			  <span aria-hidden="true" >&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			  <div class="container-fluid">
+				<div class="form">
+					<div id="list-execution-orders-panel">
+						<ul id="execution-orders-list">
+						</ul>
+					</div>
+					<div id="execution-order-info-panel">
+					</div>
+				</div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	
+<script>
+
+//GLOBAL VARIABLES
+var selected_execution_order_id = execution_order_id;
+
+	
+	
+	/*========================================================================*/
+	/*======================    BUILD THE MODAL     ==========================*/
+	/*========================================================================*/
+	
+	function openSelectExecutionOrderModal(){
+	
+		$("#selectExecutionOrderModal").modal('show');
+		showExecutionOrdersList();
+		showExecutionOrderInfo(selected_execution_order_id);
+	}
+	
+	
+	
+	function showExecutionOrdersList(){
+		execution_orders_list_string = '';
+		available_execution_order_ids = Object.keys(available_execution_orders);
+		for (var i = 0; i < available_execution_order_ids.length ; i++) {
+			available_execution_order_id = available_execution_order_ids[i]
+				execution_orders_list_string +=	'<li class="list-group-item listed-var-item" onclick="showExecutionOrderInfo(' + String(available_execution_order_id) + ')" >' + available_execution_orders[available_execution_order_id]['name'] + '</li>';
+		}
+		$('#execution-orders-list').html(execution_orders_list_string);
+		
+		
+	}
+	
+	
+
+	function showExecutionOrderInfo(clicked_execution_order_id) {
+	
+		selected_execution_order_id = clicked_execution_order_id;
+		info_panel_string = '<input type="text" class="form-control" id="execution-order-name" name="execution-order-name" placeholder="Execution Order Name" value="' + available_execution_orders[clicked_execution_order_id]['name'] + '" onchange="showSaveDeleteButtons()">' +
+							'<div class="form-group row">' +
+								'<label for="execution-order-description" class="col-sm-2">Description</label>' +
+								'<div class="col-sm-10">' +
+									'<textarea class="form-control" id="execution-order-description" name="execution-order-description" rows="3" onchange="showSaveDeleteButtons()">' + available_execution_orders[clicked_execution_order_id]['description'] + '</textarea>' +
+								'</div>' +
+							'</div>' +
+							'<br>' +
+							'<div id="edit-instruction-text">' +
+								'The model specifies what object rules and attributes are used and in which order they are executed.<br>' +
+								"To inspect/edit the used rules: click on 'edit behaviour' in the right sidebar." +
+								'To inspect/edit the used attributes: right-click on an object in the left sidebar.<br>' +
+							'</div>' +
+							'<div id="save-delete-buttons" style="display:none;">' +
+								'<button id="save-execution-order-changes-button" type="button" class="btn btn-primary" onclick="saveExecutionOrderChanges();">Save Changes</button>' +
+								'<button id="save-execution-order-as-new-button" type="button" class="btn btn-success" onclick="saveExecutionOrderAsNew();">Save Changes as New</button>' +
+								'<button id="delete-execution-order-button" type="button" class="btn btn-danger" onclick="deleteExecutionOrder();">Delete</button>' +
+								'<button id="delete-execution-order-button" type="button" class="btn btn-secondary" onclick="cancelExecutionOrderSelection();">Cancel</button>' +
+							'</div>' +
+							'<div id="select-cancel-buttons">' +
+								'<button id="select-execution-order-button" type="button" class="btn btn-primary" onclick="selectExecutionOrder();">Select</button>' +
+								'<button id="cancel-execution-order-button" type="button" class="btn btn-secondary" onclick="cancelExecutionOrderModal();">Cancel</button>' +
+							'</div>';
+							
+		$('#execution-order-info-panel').html(info_panel_string);
+	}
+	
+	
+	
+	function showSaveDeleteButtons() {
+		$('#save-delete-buttons').css('display','block');
+	}
+
+	
+	/*========================================================================*/
+	/*=========    SAVE DELETE FUNCTIONS     =================================*/
+	/*========================================================================*/
+	
+
+	function saveExecutionOrderChanges() {
+		// local
+		new_execution_order_name = $('#execution-order-name').val();
+		new_execution_order_description = $('#execution-order-description').val();
+		available_execution_orders[selected_execution_order_id]['name'] = new_execution_order_name;
+		available_execution_orders[selected_execution_order_id]['description'] = new_execution_order_description;
+		showExecutionOrdersList();
+		
+		// remote
+		request_body = {'id':selected_execution_order_id, 'name':new_execution_order_name, 'description':new_execution_order_description}
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.open("POST", "/tool/save_changed_execution_order/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send(JSON.stringify(request_body));	
+	}
+	
+
+
+
+	function saveExecutionOrderAsNew() {
+		new_execution_order_name = $('#execution-order-name').val();
+		new_execution_order_description = $('#execution-order-description').val();
+		
+		if (new_execution_order_name != available_execution_orders[selected_execution_order_id]['name']) {
+			$('#execution-order-info-panel').html('');
+		
+			// remote
+			request_body = {
+				'id_to_copy': selected_execution_order_id,
+				'name': new_execution_order_name,
+				'description': new_execution_order_description
+			}
+			
+			var xmlhttp = new XMLHttpRequest();    
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					// local
+					new_execution_order_dict = JSON.parse(this.responseText);
+					available_execution_orders[new_execution_order_dict['id']] = {'name': new_execution_order_dict['name'], 'description':new_execution_order_dict['description']};
+					showExecutionOrdersList();
+				}
+			};		
+			xmlhttp.open("POST", "/tool/save_new_execution_order/");
+			xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+			xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+			xmlhttp.send(JSON.stringify(request_body));	
+		
+
+		} else {
+			alert('A new Execution Order Name is required to avoid confusion');
+		}
+	}
+	
+	
+	
+	function deleteExecutionOrder() {
+		// local
+		delete available_execution_orders[selected_execution_order_id];
+		showExecutionOrdersList();
+		$('#execution-order-info-panel').html('');
+		
+		
+		// remote
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.open("POST", "/tool/delete_execution_order/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send(selected_execution_order_id);	
+	}
+	
+	
+	function cancelExecutionOrderSelection() {
+		$('#execution-order-info-panel').html('');
+	}
+	
+	
+	/*========================================================================*/
+	/*=========    SELECT CANCEL FUNCTIONS     =================================*/
+	/*========================================================================*/
+	
+	function selectExecutionOrder() {
+		execution_order_id = selected_execution_order_id;
+		
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				execution_order = JSON.parse(this.responseText);
+			}
+		};
+		xhttp.open('GET', '/tool/get_execution_order?execution_order_id=' + execution_order_id , true);
+		xhttp.send();
+		
+		$('#open-execution-modal-button').html(available_execution_orders[selected_execution_order_id]['name']);
+		$('#execution-order-info-panel').html('');
+		$("#selectExecutionOrderModal").modal('hide');
+		updateThePageAfterChangingExecutionOrder();
+	}
+	
+	
+	function cancelExecutionOrderModal() {
+		$('#execution-order-info-panel').html('');
+		$("#selectExecutionOrderModal").modal('hide');
+	}
+	
+	
+	
+	
+	
+	
+</script>
+
+
