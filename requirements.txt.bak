@@ -16,7 +16,7 @@ cffi==1.11.5
 chardet==3.0.4
 colorama==0.3.9
 colour==0.1.5
-conda==4.3.13
+#conda==4.3.13
 cryptography==2.4.2
 cycler==0.10.0
 Cython==0.29.14
@@ -92,6 +92,7 @@ pytz==2020.1
 pywinpty==0.5.5
 PyYAML==3.11
 pyzmq==18.0.1
+pyzmq==21.0.1
 qtconsole==4.4.3
 requests==2.20.1
 rsa==3.4.2
