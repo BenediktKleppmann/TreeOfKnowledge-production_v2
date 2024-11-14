@@ -16,7 +16,7 @@ cffi==1.11.5
 chardet==3.0.4
 colorama==0.3.9
 colour==0.1.5
-conda==4.3.13
+#conda==4.3.13
 cryptography==2.4.2
 cycler==0.10.0
 Cython==0.29.14
