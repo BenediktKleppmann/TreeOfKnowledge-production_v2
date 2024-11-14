@@ -4,12 +4,11 @@
 <!-- 
 ####################################################################
 # This file is part of the Tree of Knowledge project.
-#
-# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+# Copyright (C) Benedikt Kleppmann - All Rights Reserved
 #
 # Unauthorized copying of this file, via any medium is strictly prohibited
 # Proprietary and confidential
-# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, February 2021
 #####################################################################
 -->
 
@@ -568,7 +567,7 @@
 								'</div>' +
 								'<div class="card">' +
 									'<div class="card-header" role="tab" id="accordion-left-header-1">' +
-										'<button class="btn left-panel-header collapsed accordion-toggle" data-parent="#accordion-left" href="#accordion-left-content-1" aria-expanded="false" aria-controls="accordion-left-content-1">Environment</button>' +
+										'<button class="btn left-panel-header collapsed accordion-toggle" data-parent="#accordion-left" href="#accordion-left-content-1" aria-expanded="false" aria-controls="accordion-left-content-1">Initialization</button>' +
 									'</div>' +
 									'<div id="accordion-left-content-1" class="collapse" role="tabpanel" aria-labelledby="accordion-left-header-1" data-parent="#accordion-left">' +
 										'<div class="card-body">' +
@@ -586,7 +585,7 @@
 													'</div>' +
 												'</div>' +
 													'<div class="form-group row">' +
-														'<label for="max_number_of_instances" class="col-sm-5">Max number of instances</label>' +
+														'<label for="max_number_of_instances" class="col-sm-5">Max number of simulated systems</label>' +
 														'<div class="col-sm-7">' +
 															'<input type="text" id="max_number_of_instances" class="form-control" value="2000">' +
 														'</div>' +
@@ -1294,7 +1293,7 @@
 	// hide the right sidebar if you click anywhere outside it   ----------
 	$('body').on('mousedown', function (e) {
 	
-		if ($('#right-sidebar').css('width') == '415px') {
+		if (['415px', '414px'].includes($('#right-sidebar').css('width'))) {
 			var right_sidebar = document.getElementById('right-sidebar');
 			var popover = document.getElementsByClassName('popover');
 			var edit_object_behaviour_modal = document.getElementById('editObjectBehaviourModal');

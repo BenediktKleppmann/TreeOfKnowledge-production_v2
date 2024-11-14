@@ -1,12 +1,12 @@
 ####################################################################
 # This file is part of the Tree of Knowledge project.
-#
-# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+# Copyright (C) Benedikt Kleppmann - All Rights Reserved
 #
 # Unauthorized copying of this file, via any medium is strictly prohibited
 # Proprietary and confidential
-# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, February 2021
 #####################################################################
+
 from django import forms
 from collection.models import Profile, Newsletter_subscriber, Simulation_model, Uploaded_dataset
 from django.contrib.auth.models import User

@@ -3,12 +3,11 @@
 <!-- 
 ####################################################################
 # This file is part of the Tree of Knowledge project.
-#
-# Copyright (c) Benedikt Kleppmann - All Rights Reserved
+# Copyright (C) Benedikt Kleppmann - All Rights Reserved
 #
 # Unauthorized copying of this file, via any medium is strictly prohibited
 # Proprietary and confidential
-# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, November 2024
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, February 2021
 #####################################################################
 -->
 
@@ -162,7 +161,7 @@
 		}
 	
 	
-		/* Entities/Entity Combinations ------------------------------------------*/
+		/* Systems ------------------------------------------*/
 		.run-selection-area {
 			padding-top: 19px;
 			margin-left: 15px;
@@ -500,20 +499,20 @@
 		</div>
 		<div class="card">
 			<div class="card-header" role="tab" id="accordion-left-header-2">
-				<button class="btn left-panel-header collapsed accordion-toggle" data-parent="#accordion-left" href="#accordion-left-content-2" aria-expanded="false" aria-controls="accordion-left-content-2">Entities/Entity Combinations</button>
+				<button class="btn left-panel-header collapsed accordion-toggle" data-parent="#accordion-left" href="#accordion-left-content-2" aria-expanded="false" aria-controls="accordion-left-content-2">Systems</button>
 			</div>
 			<div id="accordion-left-content-2" class="collapse" role="tabpanel" aria-labelledby="accordion-left-header-2" data-parent="#accordion-left">
 				<div class="card-body">
 					<div class="run-selection-area">
 						<div class="run-selection-box">
-							<button id="all-runs-button" class="btn btn-light run-selection-button" type="button" onclick="selectAllRuns()">All Entities</button>
+							<button id="all-runs-button" class="btn btn-light run-selection-button" type="button" onclick="selectAllRuns()">All Systems</button>
 							<div id="threshold_box">
 								<div id="threshold-label">Error Threshold:</div>	
 								<input type="text" id="error_threshold" class="form-control" value="0.5">							
 							</div>
 							<div id="correct_and_false_runs">
-								<button id="correct-runs-button" class="btn btn-light run-selection-button" type="button" onclick="selectCorrectRuns()">Correct Entities</button>
-								<button id="false-runs-button" class="btn btn-light run-selection-button" type="button" onclick="selectFalseRuns()">False Entities</button>
+								<button id="correct-runs-button" class="btn btn-light run-selection-button" type="button" onclick="selectCorrectRuns()">Accurately Simulated Systems</button>
+								<button id="false-runs-button" class="btn btn-light run-selection-button" type="button" onclick="selectFalseRuns()">Badly Simulated Systems</button>
 							</div>
 						</div>
 						<div id="initial-state-run-selection-buttons" class="run-selection-box"></div>
@@ -619,13 +618,15 @@
 					if (rule['learn_posterior']) {
 					
 						simulation_parameters_string += '<div class="rule-heading">' + objects_dict[object_numbers[i]]['object_name'] + '.[' + objects_dict[object_numbers[i]]['object_attributes'][attribute_ids[j]]['attribute_name'] + '], Rule ' + String(rule_ids[k]) + ':</div>';
-						if (!rule['has_probability_1']) {
+						if (!rule['has_probability_1'] && Object.keys(prior_dict).includes(rule_ids[k])) {
 							simulation_parameters_string += '<div class="parameter-value">Rule probaility = ' + prior_dict[rule_ids[k]]['probability'].toFixed(3) + '</div>';
 							simulation_parameters_string += '<div class="parameter-value">Rule probaility = ' + prior_dict[rule_ids[k]]['probability'].toFixed(3) + '</div>';
 						}
 						var used_parameter_ids = rule['used_parameter_ids'];
 						for (var l = 0; l < used_parameter_ids.length; l++) {
-							simulation_parameters_string += '<div class="parameter-value">' + parameter_info[used_parameter_ids[l]]["parameter_name"] + ' = ' + prior_dict[rule_ids[k]][used_parameter_ids[l]].toFixed(3) + '</div>';
+							if (Object.keys(prior_dict).includes(rule_ids[k])) {
+								simulation_parameters_string += '<div class="parameter-value">' + parameter_info[used_parameter_ids[l]]["parameter_name"] + ' = ' + prior_dict[rule_ids[k]][used_parameter_ids[l]].toFixed(3) + '</div>';
+							}
 						}
 					}
 					
@@ -639,7 +640,7 @@
 
 	//========================================================================
 	//========================================================================
-	//=========   LEFT PANEL - Entities/Entity Combinations    ===============
+	//=========   LEFT PANEL - Systems    ===============
 	//========================================================================
 	//========================================================================	
 										
@@ -664,7 +665,7 @@
 		
 		var individual_selection_buttons = '';
 		for (var i = 0; i < all_run_numbers.length; i++) {
-			individual_selection_buttons += '<button id="selection-button-' + all_run_numbers[i] + '" class="btn btn-light run-selection-button run-toggle" type="button" onclick="selectRun(\'' + all_run_numbers[i] + '\')">Entity ' + i + '</button>'
+			individual_selection_buttons += '<button id="selection-button-' + all_run_numbers[i] + '" class="btn btn-light run-selection-button run-toggle" type="button" onclick="selectRun(\'' + all_run_numbers[i] + '\')">System ' + i + '</button>'
 		}	
 		$('#individual-run-selection-buttons').html(individual_selection_buttons);
 		
