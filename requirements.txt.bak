@@ -8,7 +8,8 @@ backcall==0.1.0
 bleach==3.1.0
 boto==2.49.0
 boto3==1.14.12
-botocore==1.17.12
+#botocore==1.17.12
+botocore==1.13.39
 cement==2.8.2
 certifi==2020.4.5.1
 cffi==1.11.5
