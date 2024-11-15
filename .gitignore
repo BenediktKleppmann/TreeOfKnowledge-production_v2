@@ -19,6 +19,7 @@ collection/static/webservice files/db_backup/uploaded_dataset/xaf
 db.sqlite3
 collection/static/webservice files/db_backup/object.json
 collection/static/webservice files/db_backup/data_point.json
+.ssh/*
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
