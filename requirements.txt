@@ -20,7 +20,8 @@ colour==0.1.5
 #conda==4.3.13
 cryptography==2.4.2
 cycler==0.10.0
-Cython==0.29.14
+#Cython==0.29.14
+Cython==3.0.1
 DateTime==4.3
 decorator==4.4.0
 defusedxml==0.6.0
@@ -102,7 +103,8 @@ rsa==3.4.2
 #ruamel-yaml==0.15.46
 #ruamel.yaml==0.15.94
 s3transfer==0.2.1
-scikit-learn==0.21.2
+#scikit-learn==0.21.2
+scikit-learn==1.0.1
 scipy==1.7.1
 seaborn==0.9.0
 semantic-version==2.5.0
