@@ -1,25 +1,4 @@
-.env
-db.sqlite3
-collection/static/webservice files/runtime_data/*
-collection/static/webservice files/db_backup/object.json
-collection/static/webservice files/db_backup/simulation_model.json
-collection/static/webservice files/db_backup/data_point/test.json
-collection/static/webservice files/db_backup/data_point/xaa
-collection/static/webservice files/db_backup/data_point/xab
-collection/static/webservice files/db_backup/data_point/xac
-collection/static/webservice files/db_backup/data_point/xad
-collection/static/webservice files/db_backup/data_point/xae
-collection/static/webservice files/db_backup/data_point/xaf
-collection/static/webservice files/db_backup/uploaded_dataset/xaa
-collection/static/webservice files/db_backup/uploaded_dataset/xab
-collection/static/webservice files/db_backup/uploaded_dataset/xac
-collection/static/webservice files/db_backup/uploaded_dataset/xad
-collection/static/webservice files/db_backup/uploaded_dataset/xae
-collection/static/webservice files/db_backup/uploaded_dataset/xaf
-db.sqlite3
-collection/static/webservice files/db_backup/object.json
-collection/static/webservice files/db_backup/data_point.json
-.ssh/*
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
