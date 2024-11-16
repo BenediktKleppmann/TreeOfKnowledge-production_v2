@@ -19,6 +19,5 @@ from django.urls import path
 from collection import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='home'),
     path('admin/', admin.site.urls, name='inspect_database_records'),
 ]
