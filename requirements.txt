@@ -1,5 +1,17 @@
 asgiref==3.8.1
+boto==2.49.0
+boto3==1.10.39
+dj-database-url==0.5.0
 Django==3.0
+django-registration-redux==2.5
+jsonschema==2.5.1
+numpy==1.20.1
+pandas==1.3.4
+psycopg2-binary==2.9.1
+python-decouple==3.8
 pytz==2024.2
+scipy==1.7.1
 sqlparse==0.5.2
 typing_extensions==4.12.2
+whitenoise==3.2.1
+xlwt==1.3.0
