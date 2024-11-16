@@ -1,0 +1,346 @@
+{% extends 'layouts/base_admin.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+# Copyright (C) 2019-2040 Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, February 2021
+#####################################################################
+-->
+
+{% block title %}
+	ToK Admin - Various Scripts
+{% endblock %}
+
+{% block additionalcss %}
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<!--<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>-->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="{% static 'css/contextmenu.min.css' %}" rel="stylesheet" />
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="{% static 'js/contextmenu.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/upload_table_frame.css' %}" />
+
+
+
+<style>
+	/* --------------------------------------------------------------------------*/
+	/* Panels -------------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+	
+	.top-panel {
+		width: 100%;
+		border-bottom: 1px solid;
+	}
+
+	.bottom-panel {
+		padding: 35px;
+		padding-left: 44px;
+	}
+	
+	
+	/* --------------------------------------------------------------------------*/
+	/* Bottom Panel --------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+	
+	.section-title {
+		font-size: 18px;
+		font-weight: 600;
+	}
+	
+	.form-group {
+		margin-top: 10px;
+		margin-bottom: 8px;
+	}
+	
+	#script-description {
+		margin-left: 15px;
+	}
+	
+	
+	#start-script-button {
+		padding: 4px 12px;
+	}
+	
+
+
+				
+
+	
+</style>
+{% endblock %}
+
+
+	
+	
+
+{% block content %}
+
+	<div class="top-panel">
+		<div class="window-title-top">Various Scripts</div>
+		<br>
+	</div>
+	
+	
+	<div class="bottom-panel" class="form">
+		<div class="section-title">Run Regularly:</div>
+		<br>
+		<div class="form-group row">
+			<div id="script-description" class="col-sm-2">Remove NULL Datapoints</div>
+			<div class="col-sm-8">
+				<button id="start-script-button" type="button" class="btn btn-success" onclick="remove_null_datapoints()">Run</button>
+				<div id="response-remove-null-datapoints"></div>
+			</div>
+		</div>
+		<br>
+		<div class="form-group row">
+			<div id="script-description" class="col-sm-2">Remove Duplicate Datapoints</div>
+			<div class="col-sm-8">
+				<button id="start-script-button" type="button" class="btn btn-success" onclick="remove_duplicate_datapoints()">Run</button>
+				<div id="response-remove-duplicate-datapoints"></div>
+			</div>
+		</div>
+		<br>
+		<div class="form-group row">
+			<div id="script-description" class="col-sm-2">Identify most-commonly-used Object Types</div>
+			<div class="col-sm-8">
+				<button id="start-script-button" type="button" class="btn btn-success" onclick="identify_most_commonly_used_object_types(">Run</button>
+				<div id="response-identify-most-commonly-used-object-types"></div>
+			</div>
+		</div>
+		<br>
+		<div class="form-group row">
+			<div id="script-description" class="col-sm-2">Identify most-commonly-used Attributes</div>
+			<div class="col-sm-8">
+				<button id="start-script-button" type="button" class="btn btn-success" onclick="identify_most_commonly_used_attributes()">Run</button>
+				<div id="response-identify-most-commonly-used-attributes"></div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<div class="section-title">Database Administration:</div>
+		<br>
+		<div class="form-group row">
+			<div id="script-description" class="col-sm-2">Backup Database</div>
+			<div class="col-sm-8">
+				<button id="start-script-button" type="button" class="btn btn-success" onclick="backup_database()">Run</button>
+				<div id="response-backup-database"></div>
+			</div>
+		</div>
+		<br>
+		<div class="form-group row">
+			<div id="script-description" class="col-sm-2">Close all DB Connections</div>
+			<div class="col-sm-8">
+				<button id="start-script-button" type="button" class="btn btn-success" onclick="close_db_connections()">Run</button>
+				<div id="response-close-db-connections"></div>
+			</div>
+		</div>
+		<br>
+		<button id="show-dangerous-scripts-button" type="button" class="btn btn-danger" onclick="show_dangerous_scripts()">Dangerous Scripts</button>
+		<div id="dangerous-scripts"></div>
+		
+
+		
+
+		
+	</div>		
+	
+
+		
+
+
+	
+
+
+	
+
+<script>
+
+
+	function show_dangerous_scripts() {	
+		var dangerous_scripts_html ='<div class="form-group row">' + 
+									'	<div id="script-description" class="col-sm-2">Clear Database</div>' + 
+									'	<div class="col-sm-8">' + 
+									'		<button id="start-script-button" type="button" class="btn btn-danger" onclick="clear_database()">Run</button>' + 
+									'		<div id="response-clear-database"></div>' + 
+									'	</div>' + 
+									'</div>' + 
+									'<br>' + 
+									'<div class="form-group row">' + 
+									'	<div id="script-description" class="col-sm-2">Populate Database</div>' + 
+									'	<div class="col-sm-8">' + 
+									'		<button id="start-script-button" type="button" class="btn btn-danger" onclick="populate_database()">Run</button>' + 
+									'		<div id="response-populate-database"></div>' + 
+									'	</div>' + 
+									'</div>';
+		$('#dangerous-scripts').html(dangerous_scripts_html);
+		$('#show-dangerous-scripts-button').css('display', 'none');
+		
+	}
+	
+	
+	//====================================================================================================
+	//====  Scripts to run regularly  =================================================================================
+	//====================================================================================================
+	
+	//===  Remove Duplicate Datapoints  =============================================================================	
+    function remove_null_datapoints() {
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				$('#response-remove-null-datapoints').html(this.responseText);
+			}
+		};
+
+		xmlhttp.open("POST", "/admin/remove_null_datapoints/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send();	
+	}
+
+	
+	//===  Remove Duplicate Datapoints  =============================================================================	
+    function remove_duplicate_datapoints() {
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				$('#response-remove-duplicate-datapoints').html(this.responseText);
+			}
+		};
+
+		xmlhttp.open("POST", "/admin/remove_duplicate_datapoints/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send();	
+	}
+	
+	
+	//===  Identify most-commonly-used Object Types  =============================================================================	
+    function identify_most_commonly_used_object_types() {
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				$('#response-identify-most-commonly-used-object-types').html(this.responseText);
+			}
+		};
+
+		xmlhttp.open("POST", "/admin/identify_most_commonly_used_object_types/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send();	
+	}
+	
+	
+	
+	//===  Identify most-commonly-used Attributes  =============================================================================	
+    function identify_most_commonly_used_attributes() {
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				$('#response-identify-most-commonly-used-attributes').html(this.responseText);
+			}
+		};
+
+		xmlhttp.open("POST", "/admin/identify_most_commonly_used_attributes/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send();	
+	}
+	
+	
+	
+	//====================================================================================================
+	//====  Database Management Scripts  =================================================================================
+	//====================================================================================================
+	
+	
+	//===  Backup Database  =============================================================================	
+    function backup_database() {
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				$('#response-backup-database').html(this.responseText);
+			}
+		};
+
+		xmlhttp.open("POST", "/admin/backup_database/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send();	
+	}
+	
+	
+	//===  Close all DB Connections  =============================================================================	
+    function close_db_connections() {
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				$('#response-close-db-connections').html(this.responseText);
+			}
+		};
+
+		xmlhttp.open("POST", "/admin/close_db_connections/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send();	
+	}
+	
+	
+	//===  Clear Database  =============================================================================	
+    function clear_database() {
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				$('#response-clear-database').html(this.responseText);
+			}
+		};
+
+		xmlhttp.open("POST", "/admin/clear_database/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send();	
+	}
+	
+	//===  Populate Database  =============================================================================	
+    function populate_database() {
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				$('#response-populate-database').html(this.responseText);
+			}
+		};
+
+		xmlhttp.open("POST", "/admin/populate_database/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send();	
+	}
+	
+
+
+
+
+						
+	//====================================================================================================
+	//====  Main  ========================================================================================
+	//====================================================================================================
+
+	
+	
+
+</script>
+
+
+	
+{% endblock %}

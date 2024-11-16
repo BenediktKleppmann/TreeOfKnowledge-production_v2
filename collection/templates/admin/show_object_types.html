@@ -1,0 +1,54 @@
+{% extends 'layouts/base_admin.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+# Copyright (C) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, February 2021
+#####################################################################
+-->
+
+{% block title %}
+	ToK Admin - Object Types
+{% endblock %}
+
+
+{% block additionalcss %}
+	<link rel="stylesheet" href="{% static 'css/upload_table_frame.css' %}" />
+{% endblock %}
+
+
+{% block content %}
+	<br>
+	<div class="window-title-top">&nbsp;&nbsp;The Object Types:</div>
+	<br>
+	<br>
+	<table style="margin-left: 30px;">
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Parent</th>
+			<th>li_attr</th>
+			<th>a_attr</th>
+			<th>Object Type Icon</th>
+		</tr>
+		{% for object_type in object_types %}
+		<tr>
+			<td>{{  object_type.id  }}</td>
+			<td>{{  object_type.name  }}</td>
+			<td>{{  object_type.parent  }}</td>
+			<td>{{  object_type.li_attr  }}</td>
+			<td>{{  object_type.a_attr  }}</td>
+			<td>{{  object_type.object_type_icon  }}</td>
+		</tr>
+		{% endfor %}
+	</table> 
+	
+	
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% endblock %}

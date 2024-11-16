@@ -1,0 +1,246 @@
+ {% extends 'layouts/base_landing_pages.html' %}'
+{% load staticfiles %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+# Copyright (C) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, February 2021
+#####################################################################
+-->
+
+{% block title %}
+	Tree of Knowledge - Tutorial 1
+{% endblock %}
+
+{% block additionalcss %}
+	<style>
+		.box h2 {
+		    padding-top: 16px;
+			padding-left: 0px;
+			font-size: 26px;
+			margin-bottom: 7px;
+			display: block;
+			text-align: left;
+		}
+		
+		.left-side {
+			display: inline-block;
+			width: 700px;
+		}
+		
+		.right-side {
+			display: inline-block;
+			width: 350px;
+			float: right;
+		}
+		
+	</style>
+{% endblock %}	
+
+{% block content %}
+
+	<section id="background picture" class="carousel">
+		<div style="background-image: url(../static/images/brodgar_dark-min.jpg);
+					background-attachment: fixed;
+					background-size: 100%;
+					background-repeat: no-repeat;
+					padding: 200px 0;
+					background-position: 21% 29%;
+					margin-top:54px;">
+		</div>
+	</section>
+
+		
+	<section>
+		<div class="container">
+			<div class="box first last">
+				<br>
+				<div class="lead left-aligned">
+					The tutorials build upon each other, we therefore recommend starting with Tutorial 1.<br>
+					<br>
+					The tutorials 1-3 show how to use Tree of Knowledge to model childbearing behavior of American women. Specifically, the model determines a probability of giving birth for every woman that depends on her age, current number of children and marital status.
+					This model can then be used to make predictions about diverse topics from the development of an individual household, to the development of American population demographics.
+					<br>
+					<br>
+					<br>
+				</div>
+				
+				
+				<div id="setup" class="center">
+					<h1 class="yellowish">Setup</h2>
+				</div>
+				<div class="lead left-aligned">
+					To do the tutorials you need download <a href="https://github.com/BenediktKleppmann/TreeOfKnowledge-Tutorials">this GitHub repository</a>.<br>
+					You can do this with the following steps:<br>
+					<ol>
+						<li>in your browser navigate to <a href="https://github.com/BenediktKleppmann/TreeOfKnowledge-Tutorials">https://github.com/BenediktKleppmann/TreeOfKnowledge-Tutorials</a></li>
+						<li>click on "Code" and then on "Download ZIP" - see Image below</li>
+						<li>unzip the downloaded file into a folder of your choice</li>
+					</ol>
+					<br>
+					<a href="{% static 'images/tutorials/tutorial1_1.png'%}"><img id="object_hierachy-image" src="{% static 'images/tutorials/tutorial1_1.png'%}" class="img-responsive mr-3 img-thumbnail"></a><br>
+					<br>
+					<br>
+					<br>
+				</div>
+				
+				
+				
+				<div class="center">
+					<h1 class="yellowish">The Data</h2>
+				</div>	
+				<br>
+				<div class="lead left-aligned">	
+					Tree of Knowledge can not only simulate the behavior of complex agents, but it can also learn that behavior from a wide range of datasets. 
+					Therefore, the first step is often to upload a dataset that relates to behavior of interest - here childbearing. As we will see later, Tree of Knowledge is able to learn from practically any dataset for whose generation the phenomenon of interest (here: childbearing) played a role.
+					<br><br>
+				</div>	
+				<h2 class="yellowish">About the Data</h2>
+				<div id="about-the-data" class="lead left-aligned">	
+					One of the big innovations of Tree of Knowledge is that it can learn object behaviors from more than one dataset. In this tutorial we will use two datasets to learn the childbearing behavior:<br>
+					<br>
+					<ul>
+						<li data-toggle="tooltip" title="In reality there were two further groups of participants: 5 295 youths belonging to minorities such as Hispanic-Americans, Black-Americans and economically disadvantaged Americans; 1 280 youths that were serving in the military in 1978. We would like our results to be valid for all Americans and therefore restrict ourselves to the first 6 111 participants.">
+							<b>National Longitudinal Survey of Youth 1979</b><br>
+							This dataset tracks the lives of 6 111 Americans. <br>
+							In 1979, 6 111 youths were selected such that their distribution of ethnicity and sex corresponds that of America as a whole.
+							In 1979, the participants completed a survey with many questions about their current situation (e.g. family situation, profession, etc.). They repeated the same survey every 1-2 years until 2016. The survey data therefore allows us to track their development throughout their lives.
+							For more information on the data, please refer to <a href="https://www.nlsinfo.org/content/cohorts/nlsy79">https://www.nlsinfo.org/content/cohorts/nlsy79</a>. <br>
+							One of the questions in the survey asked the participants about the number of biological children they have. By tracking the number of biological children we can learn about their childbearing behavior.
+							<a href="{% static 'images/tutorials/tutorial1_2.png'%}"><img id="object_hierachy-image" src="{% static 'images/tutorials/tutorial1_2.png'%}" class="img-responsive mr-3 img-thumbnail"></a>
+						</li>
+						<br><br>
+						<li>
+							<b>Number of births by age of mother</b><br>
+							As you can see in the table below, this dataset contains the total number of births occurring in America every year. In the other columns, the total number is split up by age segments of the mother.<br>
+							This table allows us to learn about childbearing, because the age in which women choose to have their children affects the distribution across these age segments.<br>
+							<a href="{% static 'images/tutorials/tutorial1_3.png'%}"><img id="object_hierachy-image" src="{% static 'images/tutorials/tutorial1_3.png'%}" class="img-responsive mr-3 img-thumbnail"></a>
+						</li>
+					<ul>
+					
+				</div>
+				<div class="lead left-aligned">
+					<br>
+					For now we will focus on the fist dataset ('National Longitudinal Survey of Youth 1979'). The second dataset ('Number of births by age of mother') won't play a role until Tutorial 3.
+					<br>
+				</div>
+				<h2 class="yellowish">Preprocessing of the Data</h2>
+				<div class="lead left-aligned">	
+					The raw National-Longitudinal-Survey-data is not legible, as both columns and data values are encoded. The preprocessing decoded these values.
+					The exact details of the preprocessing are described in a Jupyter Notebook from the GitHub repository '1 - Birth Probability using National Longitudinal Survey of Youth/prepare_data.ipynb'. We will however work directly with the preprocessed file which is located at '1 - Birth Probability using National Longitudinal Survey of Youth/national_longitudinal_survey_of_youth_1979.csv'.
+				</div>
+				<br><br><br>
+				<div class="center">
+					<h1 class="yellowish">Upload the Data</h2>
+				</div>	
+				<div class="lead left-aligned">
+					The Data uploading consists of 6 steps. During these steps various details about the origin and the form of the data are specified. 
+					These specifications are needed for the data to be integrated with previously uploaded data in Tree of Knowledge's central knowledge base. Once in the knowledge base the data can be easily used for a large range of different tasks.
+					It is essential to be diligent when doing the uploading, so that the data will be integrated correctly.
+				</div>
+				<h2 class="yellowish">Log in</h2>
+				<div class="lead left-aligned">	
+					<ol>
+						<li>In your browser, open the website <a href="www.treeofknowledge.ai">www.treeofknowledge.ai</a></li>
+						<li>Click on "Sign up" (in the top right corner), enter your details and press "Submit". You will be redirected to the main menu.</li>
+						<li>On the main menu, click the box that says "Upload Data".</li>
+					</ol>
+				</div>
+				<h2 class="yellowish">Step 1: Select csv-file</h2> 
+				<div class="lead left-aligned">	
+					<ol>
+						<li>Click on "Choose File".</li>
+						<li>Navigate to the file "1 - Birth Probability using National Longitudinal Survey of Youth/national_longitudinal_survey_of_youth_1979.csv" and open it.</li>
+						<li>press "Upload".</li>
+						<li>Once the table has loaded, we check if it was loaded correctly and then press "OK, Next".</li>
+					</ol>
+					<br>
+					<a href="{% static 'images/tutorials/tutorial1_4.png'%}"><img id="object_hierachy-image" src="{% static 'images/tutorials/tutorial1_4.png'%}" class="img-responsive mr-3 img-thumbnail"></a>
+				</div>
+				<h2 class="yellowish">Step 2: Data source</h2> 
+				<div class="lead left-aligned">	
+					What institution generated the data? According to <the website (https://www.nlsinfo.org/content/cohorts/nlsy79)>, the National Longitudinal Survey is financed by the "US Bureau of Labor Statistics", so let's write that into the first field.
+					We leave the second field empty, because the table contains observations from many different points in time.
+					For 'Correctness of the data' we can guess a value. I personally believe that the US Bureau of Labor Statistics is an impartial institution, however doubt the data was checked very rigorously. Therefore I give it four stars.
+					<br><br>
+					<a href="{% static 'images/tutorials/tutorial1_5.png'%}"><img id="object_hierachy-image" src="{% static 'images/tutorials/tutorial1_5.png'%}" class="img-responsive mr-3 img-thumbnail"></a>
+				</div>
+				<h2 class="yellowish">Step 3: Object type</h2> 
+				<div class="lead left-aligned">	
+					Here we specify what type of objects are described by the data. The entities described by the data - here: the 6 111 Americans - generally belong to the same type of object - here: American. 
+					We search for "American" or find it below in the tree and select it. <br>
+					Next, we click "Choose".
+					<br><br>
+					<a href="{% static 'images/tutorials/tutorial1_6.png'%}"><img id="object_hierachy-image" src="{% static 'images/tutorials/tutorial1_6.png'%}" class="img-responsive mr-3 img-thumbnail"></a>
+				</div>
+				<h2 class="yellowish">Step 4: Meta data</h2> 
+				<div class="lead left-aligned">	
+					In this section we specify details of the sample. Were it a random sample from among all Americans? 
+					It is effectively a random sample from those Americans that were youth in 1979. We specify this sampling constraint by adding the two new facts "Age > 13" and "Age < 23" with valid times from 1979-01-01 to 1980-01-01 - see the figure below.<br>
+					Next, we click on "Next".
+					<br><br>
+					<a href="{% static 'images/tutorials/tutorial1_7.png'%}"><img id="object_hierachy-image" src="{% static 'images/tutorials/tutorial1_7.png'%}" class="img-responsive mr-3 img-thumbnail"></a>
+				</div>
+				<h2 class="yellowish">Step 5: Object Attributes</h2> 
+				<div class="lead left-aligned">	
+					Here we label the table columns.<br>
+					Above every column is a "Choose Attribute" button. Clicking on it will open an attribute-selection window, where we can specify what type of information (attribute) is in this column.<br><br>
+					Let's specify the columns as follows:
+					<ul>
+						<li>column 1  -> "Respondent ID of the National Longitudinal Survey 1979"</li>
+						<li>column 3  -> "Age" </li>
+						<li>column 4  -> "Sex" </li>
+						<li>column 5  -> "Marital Status" </li>
+						<li>column 6  -> "Educational Attainment" </li>
+						<li>column 7  -> "Employment Status" </li>
+						<li>column 8  -> "Hours Worked per Week" </li>
+						<li>column 9  -> "Weeks Worked in the last year" </li>
+						<li>column 10 -> "Number of biological children" </li>
+					</ul>
+					<br>
+					Note: For some of the columns a little notice appears: "xxx format mismatches". This is the number of values in this column, that do not uphold the format specified by the selected column. 
+					For instance the 9th column "Weeks Worked in the last year" has to be an integer between 0 and 52. Therefore the cells containing the value -4 are marked red and counted as format mismatch.
+					<br><br>
+					Column 2 contains the year in which that row's data was measured. There are multiple rows containing data about the same person (identified by the Respondent ID in the first column), each row containing data from a different year. 
+					We explain this to the website by choosing the attribute "Date/Time of Observation" for column 2 and changing the field "In the table, are there multiple rows with information on the same entity?" to 'Yes'. 
+					Now a new row of buttons appeared above the table. We click the "Object Id" button above column 1 to label it as the objects identifier.
+					<br><br>
+					<a href="{% static 'images/tutorials/tutorial1_8.png'%}"><img id="object_hierachy-image" src="{% static 'images/tutorials/tutorial1_8.png'%}" class="img-responsive mr-3 img-thumbnail"></a>
+					<br><br>
+					One thing remains: the "Date/Time of Observation" is supposed to not only contain the year of observation, but an exact date. To transform the second column into dates, we click on "Edit Column" button below it. 
+					In the window that opens we write the transformation "str(value) + '-01-01-01 00:00:00'" into the textarea. Then click on "Apply Transformation" and then on "Use transformed column".
+					<br><br>
+					<a href="{% static 'images/tutorials/tutorial1_9.png'%}"><img id="object_hierachy-image" src="{% static 'images/tutorials/tutorial1_9.png'%}" class="img-responsive mr-3 img-thumbnail"></a>
+				</div>
+				<h2 class="yellowish">Step 6: Match to existing entities</h2> 
+				<div class="lead left-aligned">	
+					This step would be relevant if Tree of Knowledge's knowledge base already contained data from the exact same people. The page allows us match the people from our dataset to the people already present in the knowledge base.
+					In our case we are however quite sure that no data about the survey participants is already in the knowledge base, also we don't know enough about them (e.g. name, social security number, etc.) to be able to reliably match them to people in the knowledge base.
+					We therefore skip this step by simply pressing "Upload the data!"
+					<br><br>
+					<a href="{% static 'images/tutorials/tutorial1_10.png'%}"><img id="object_hierachy-image" src="{% static 'images/tutorials/tutorial1_10.png'%}" class="img-responsive mr-3 img-thumbnail"></a>	
+					<div style="width: 50%; margin: 0 auto;">
+						<a href="{% static 'images/tutorials/tutorial1_11.png'%}"><img id="object_hierachy-image" src="{% static 'images/tutorials/tutorial1_11.png'%}" class="img-responsive mr-3 img-thumbnail"></a>
+					</div>
+				</div>
+				<br>
+				<div style="font-size: 27px;">Well done!!</div>
+				<br>
+				<br>
+				<br>
+				<br>
+				<a href="{% url 'tutorial2' %}">Continue with Tutorial 2 ></a>
+				<br>
+				<br>				
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
+
+
+

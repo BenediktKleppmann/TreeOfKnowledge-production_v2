@@ -1,0 +1,46 @@
+{% extends 'layouts/base_admin.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+# Copyright (C) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, February 2021
+#####################################################################
+-->
+
+{% block title %}
+	ToK Admin - Newsletter subscribers
+{% endblock %}
+
+
+{% block additionalcss %}
+	<link rel="stylesheet" href="{% static 'css/upload_table_frame.css' %}" />
+{% endblock %}
+
+
+{% block content %}
+	<br>
+	<div class="window-title-top">&nbsp;&nbsp;The Newslettre Subscribers:</div>
+	<br>
+	<br>
+	<table style="width:100%">
+		<tr>
+			<th>Subscriber_email</th>
+			<th>Subscriber_first_name</th>
+		</tr>
+		{% for subscriber in newsletter_subscribers %}
+		<tr>
+			<td>{{  subscriber.email  }}</td>
+			<td>{{  subscriber.first_name  }}</td>
+		</tr>
+		{% endfor %}
+	</table> 
+	
+	
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,213 @@
+{% extends 'layouts/base_admin.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+# Copyright (C) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, February 2021
+#####################################################################
+-->
+
+{% block title %}
+	ToK Admin - Inspect Logged Variables
+{% endblock %}
+
+{% block additionalcss %}
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<!--<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>-->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="{% static 'css/contextmenu.min.css' %}" rel="stylesheet" />
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="{% static 'js/contextmenu.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/upload_table_frame.css' %}" />
+
+
+
+<style>
+	/* --------------------------------------------------------------------------*/
+	/* Top Panel ----------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+	
+	.top-panel {
+		width: 100%;
+		border-bottom: 1px solid;
+	}
+
+	.form-group {
+		margin-top: 10px;
+		margin-bottom: 8px;
+	}
+	
+	#minutes-text-1 {
+		margin-top: 36px;
+		margin-left: 12px;
+		margin-bottom: 30px;
+		display: inline-block;
+	}
+	
+	#last_x_minutes {
+		width: 50px;
+	}
+
+	#minutes-text-2 {
+		display: inline-block;
+		margin-right: 10px;
+	}
+	
+	
+	#selected_variable {
+	    width: 190px;
+		display: inline-block;
+		margin-left: 30px;
+		margin-right: 5px;
+		margin-bottom: 11px;
+	}
+	
+	#show-button {
+		margin-bottom: 11px;
+	}
+	
+	
+	#variable-display {
+		padding:20px
+	}
+
+
+
+	
+</style>
+{% endblock %}
+
+
+	
+	
+
+{% block content %}
+
+	<div class="top-panel">
+		<div class="window-title-top">Inspect Logged Variables</div>
+		<br>
+		<div class="form">
+			<div id="minutes-text-1" class="form-group">Last</div>
+			<input id="last_x_minutes" type="text" name="last_x_minutes" value="10">
+			<div id="minutes-text-2" class="form-group"> minutes</div>
+			<button id="search-button" type="button" class="btn btn-primary" onclick="logged_variables_last_x_minutes()">Search</button>
+			<div id="variable-selection-box"></div>
+		</div>
+	</div>
+	<div id="variable-display"></div>
+	
+	
+
+	
+
+
+	
+
+<script>
+
+
+
+	
+	
+	//====================================================================================================
+	//====  Main window  =================================================================================
+	//====================================================================================================
+	var logged_variables = [];
+	
+	//===  Draw the table  =============================================================================	
+    function logged_variables_last_x_minutes() {
+
+		last_x_minutes = $('#last_x_minutes').val()
+		
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {	
+			
+				logged_variables = JSON.parse(this.responseText);
+				
+				variable_selection_dropdown_string = 	'<div id="select-variable-text"></div>' +
+														'<select class="form-control form-control-lg" id="selected_variable" name="selected_variable">';
+				for (var i = 0; i < logged_variables.length; i++) {
+					variable_selection_dropdown_string += 	'<option value="' + String(i) + '">' + logged_variables[i]['time_string'] + ' - ' + logged_variables[i]['variable_name'] + '</option>';
+				}
+				variable_selection_dropdown_string += 	'</select>' +
+														'<button id="show-button" type="button" class="btn btn-primary" onclick="show_selected_variable()">Show</button>';
+				$('#variable-selection-box').html(variable_selection_dropdown_string);
+
+			}
+		};
+		xhttp.open("GET", "/admin/get_logged_variables_last_x_minutes?last_x_minutes=" + last_x_minutes , true);
+		xhttp.send();	
+		
+		
+	}
+	
+	
+	
+	function show_selected_variable() {
+
+		var i = parseInt($('#selected_variable').val());
+		
+		try {
+			variable_value_dict = JSON.parse(logged_variables[i]['variable_value']);
+			
+			if ("table_data" in variable_value_dict) {
+				table_data = variable_value_dict["table_data"];
+				table_headers = variable_value_dict["table_headers"];
+				
+				var table_length = table_data.length;
+				if (table_length > 2000) {
+					table_html_string = 'This table has ' + String(table_data.length) + ' rows. Here are the first 2000 of them.';
+					table_length = 2000;
+				} else {
+					table_html_string = 'This table has ' + String(table_data.length) + ' rows.';
+				}
+				
+				table_html_string ='<div class="table-section">' +	
+										'<table class="table table-sm table-condensed data-table" style="width:' + (150*table_headers.length + 20) + 'px;">' +
+											'<thead>' +
+												'<tr>';
+
+				for (var j = 0; j < table_headers.length; j++) {
+					table_html_string +=  			'<th scope="col">' + table_headers[j] + '</th>';
+				}
+				
+				table_html_string +=  			'</tr>' +
+											'</thead>' +
+											'<tbody>';
+
+				for (var j = 0; j < table_length; j++) {
+					table_html_string +=  		'<tr>';
+					for (var k = 0; k < table_data[j].length; k++) {
+						table_html_string +=  		'<td>' + table_data[j][k] + '</td>';
+					}
+												'</tr>';
+				}
+
+				table_html_string += 		'</tbody>' +
+										'</table>';
+				$("#variable-display").html(table_html_string);	
+			} else {
+				document.getElementById("variable-display").textContent = JSON.stringify(variable_value_dict, undefined, 2);
+			}
+		} catch (e) {
+			$("#variable-display").html(logged_variables[i]['variable_value']);
+		}
+	}
+
+</script>
+
+
+	
+{% endblock %}

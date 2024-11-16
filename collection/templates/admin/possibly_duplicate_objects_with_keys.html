@@ -1,0 +1,399 @@
+{% extends 'layouts/base_admin.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+# Copyright (C) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, February 2021
+#####################################################################
+-->
+
+{% block title %}
+	ToK Admin - Duplicate Objects
+{% endblock %}
+
+{% block additionalcss %}
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<!--<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>-->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="{% static 'css/contextmenu.min.css' %}" rel="stylesheet" />
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="{% static 'js/contextmenu.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/upload_table_frame.css' %}" />
+
+
+
+<style>
+	/* --------------------------------------------------------------------------*/
+	/* Top Panel -------------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+	
+	.top-panel {
+		width: 100%;
+		border-bottom: 1px solid;
+	}
+
+	#finding-update {
+		display: inline-block;
+	}
+	
+	#are-duplicates-text {
+		float:right;
+		font-size: 16px;
+		margin-top: 24px;
+		margin-right: 24px;
+	}
+	
+
+
+
+				
+	/* --------------------------------------------------------------------------*/
+	/* Left Panel ---------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/	
+	
+	#left-panel1 {
+		float:left;
+		display: inline-block;
+		width: 256px;
+		height:calc(100vh - 106px);
+		background: rgb(226, 226, 226);
+	}
+	
+	#left-panel2 {
+		float:left;
+		display: none;
+		width: 256px;
+		height:calc(100vh - 106px);
+		background: rgb(226, 226, 226);
+	}
+	
+	.selection-area {
+	    margin-top: 34px;
+		margin-left: 15px;
+		width: 217px;
+	}	
+	
+	#object-selection-box {
+	    height: calc(100vh - 190px);
+		overflow-y: scroll;
+	}
+	
+	#key-selection-box {
+	    height: calc(100vh - 190px);
+		overflow-y: scroll;
+	}
+
+	.selection-area-title {
+		font-size: 16px;
+		margin-bottom: 4px;
+	}
+	
+	
+	.object-selection-button {
+		width: 100%;
+		background: rgb(248, 248, 248);
+		border: 1px solid rgb(210, 210, 210);
+	}
+	
+	.object-selection-button.active {
+		background: rgb(219, 219, 219)
+	}
+	
+	
+	/* --------------------------------------------------------------------------*/
+	/* Right Panel --------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/	
+	
+	.right-panel-container {
+		display: inline-block;
+		display: flex;
+		flex-direction: column;
+		border: 1px solid silver;
+		overflow: hidden;
+		xtouch-action: none; /* avoid browser level touch actions */
+		height:calc(100vh - 106px);
+	}
+	
+	#duplicate-tables {
+		overflow-x: hidden;
+		height: calc(100vh - 190px);
+		border-bottom: 1px solid rgb(220,220,220);
+	}
+	
+	.data-table {
+		margin-left: 30px;
+		margin-top: 48px;
+		border: 1px solid rgb(200,200,200);
+		display: inline-block;
+		max-height: 250px;
+		overflow-y: scroll;
+		max-width: calc(100vw - 280px);
+	}
+	
+	.checkbox-div {
+		display: inline-block;
+		float: right !important;
+		margin-right: 45px;
+		margin-top: 100px;
+	}
+	
+	/* --------------------------------------------------------------------------*/
+	/* Bottom Panel --------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/	
+	
+	#select-all-button {
+		display: inline-block;
+		float: right;
+		margin-right: 26px;
+		margin-top: 2px;
+	}
+	
+</style>
+{% endblock %}
+
+
+	
+	
+
+{% block content %}
+
+	<div class="top-panel">
+		<div class="window-title-top">Possibly Duplicate Objects</div><div id="finding-update"></div>
+		<div id="are-duplicates-text">Are Duplicates</div>
+		
+	</div>
+	
+	<div id="left-panel1">
+		<div class="selection-area">	
+			<div class="selection-area-title">Object Type:</div>
+			<div id="object-selection-box"></div>
+		</div>
+	</div>
+	<div id="left-panel2">
+		<div class="selection-area">	
+			<div class="selection-area-title">Key Column(s):</div>
+			<div id="key-selection-box"></div>
+		</div>
+	</div>
+	<div class="right-panel-container">
+		<div class="form">
+			<div class="form-group">
+				<div id="duplicate-tables"></div>
+				<button type="button" id="select-all-button" class="btn btn-secondary pull-right" onclick="select_all()">Select All</button>
+				<br><br>
+				<button type="button" class="btn btn-primary pull-right" onclick="delete_duplicates()" style="margin-right:5px;">Delete Duplicates</button>
+			</div>
+		</div>	
+	</div>
+
+	
+
+
+	
+
+<script>
+
+
+	// THE DATA
+	var possibly_duplicate_objects = []
+	var object_types_names = {{ object_types_names|safe }}
+	var select_all_clicked = false;
+
+
+	// GLOBAL VARIABLES ==========================================
+
+	var start_time__finding_possibly_duplicate_objects = 0
+	
+	
+	//====================================================================================================
+	//====  Main window  =================================================================================
+	//====================================================================================================
+	
+	
+	//===  Draw the table  =============================================================================	
+    function drawTheTable() {
+
+		var table_html_string = '';
+		for (var i = 0; i < possibly_duplicate_objects.length; i++) {
+			table_data = possibly_duplicate_objects[i]["table_data"];
+			table_headers = possibly_duplicate_objects[i]["table_headers"];
+			object_ids = possibly_duplicate_objects[i]["object_ids"];
+			
+		
+			table_html_string +='<div class="table-section">' +	
+									'<table class="table table-sm table-condensed data-table" style="width:' + (150*table_headers.length + 20) + 'px;">' +
+										'<thead>' +
+											'<tr>' + 
+												'<th scope="col">Object Id</th>';
+
+			for (var j = 0; j < table_headers.length; j++) {
+				table_html_string +=  			'<th scope="col">' + table_headers[j] + '</th>';
+			}
+			
+			table_html_string +=  			'</tr>' +
+										'</thead>' +
+										'<tbody>';
+
+			for (var j = 0; j < table_data.length; j++) {
+				table_html_string +=  		'<tr>' + 
+												'<td><a href="//www.treeofknowledge.ai/admin/inspect_object/' + object_ids[j] + '">' + object_ids[j] + '</a></td>';
+				
+				for (var k = 0; k < table_data[j].length; k++) {
+					table_html_string +=  		'<td>' + table_data[j][k] + '</td>';
+				}
+				table_html_string +=  		'</tr>';
+			}
+		
+			var checkbox_margin = Math.min(table_data.length * 14, 100);
+		
+			table_html_string += 		'</tbody>' +
+									'</table>' + 
+									'<div class="checkbox-div" style="margin-top: ' + String(checkbox_margin) + 'px;">' + 
+										'<input type="checkbox" id="duplicate-checkbox_' + i + '" class="duplicate-checkbox" value="">' +
+									'</div>' +
+								'</div>';
+									
+		}
+		
+		$("#duplicate-tables").html(table_html_string);
+	}
+
+	//===  "Select All Button pressed  ================================================================================================================================
+	function select_all() {
+		var checkboxes = document.getElementsByClassName("duplicate-checkbox");
+
+		if (select_all_clicked == false) {
+			select_all_clicked = true;
+			$('#select-all-button').addClass('active');
+			Array.prototype.forEach.call(checkboxes, function(checkbox) {
+				checkbox.checked = true;
+			});
+		} else {
+			select_all_clicked = false;
+			$('#select-all-button').removeClass('active');
+			Array.prototype.forEach.call(checkboxes, function(checkbox) {
+				checkbox.checked = false;
+			});
+		}
+	}
+	
+	
+	
+	//=== the "Delete Duplicates" Button is pressed  =============================================================================	
+	function delete_duplicates() {
+
+		to_be_deleted_objects = []
+		to_be_deleted_tables = []
+		for (var i = 0; i < possibly_duplicate_objects.length; i++) {
+			var this_tables_checkbox = document.getElementById("duplicate-checkbox_" + i);
+			if (this_tables_checkbox) {
+				if (this_tables_checkbox.checked == true) {
+					// add object_ids to to_be_deleted_objects
+					to_be_deleted_objects.push(...possibly_duplicate_objects[i]["object_ids"].slice(1));
+					to_be_deleted_tables.push(i);
+					
+				}
+			}
+		}
+		
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+
+				if (this.responseText == 'Objects deleted!') {
+					$("#duplicate-tables").html('');
+				}
+				
+			}
+		};
+
+		xmlhttp.open("POST", "/admin/delete_objects/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send(JSON.stringify(to_be_deleted_objects));	
+				
+
+	}
+
+						
+	//====================================================================================================
+	//====  Main  ========================================================================================
+	//====================================================================================================
+
+	
+	
+	window.onload = function() {
+		object_selection_buttons_string = '';
+		object_type_ids = Object.keys(object_types_names);
+		for (var i = 0; i < object_type_ids.length; i++) {
+			object_selection_buttons_string += '<button class="btn btn-light object-selection-button" type="button" onclick="display_object_attributes(\'' + object_type_ids[i] + '\')">' + object_types_names[object_type_ids[i]] + '</button>';
+		}
+		$('#object-selection-box').html(object_selection_buttons_string);
+
+
+	};
+	
+	
+	function display_object_attributes(object_type_id) {
+	
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var possible_attributes = JSON.parse(this.responseText);
+				
+				var key_selection_buttons_string = '';
+				for (var i = 0; i < possible_attributes.length; i++) {
+					key_selection_buttons_string += '<button class="btn btn-light object-selection-button" type="button" onclick="find_possibly_duplicate_objects(\'' + object_type_id + '\', ' + possible_attributes[i]['attribute_id'] + ')">' + possible_attributes[i]['attribute_name'] + '</button>';
+				}
+				$('#key-selection-box').html(key_selection_buttons_string);
+				$('#left-panel2').css('display','inline-block');
+			}
+		};
+
+		xhttp.open("GET", "/tool/get_possible_attributes?object_type_id=" + object_type_id , true);
+		xhttp.send();
+	}	
+	
+	
+	
+	
+	
+	function find_possibly_duplicate_objects(object_type_id, key_attribute_id) {
+	
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				possibly_duplicate_objects = JSON.parse(this.responseText)
+				drawTheTable()
+			}
+		};
+		xhttp.open("GET", "/admin/get_possibly_duplicate_objects_with_keys?object_type_id=" + object_type_id + "&key_attribute_id=" + String(key_attribute_id) , true);
+		xhttp.send();
+
+	}	
+	
+
+	
+	
+	
+
+	
+	
+	
+	
+</script>
+
+
+	
+{% endblock %}

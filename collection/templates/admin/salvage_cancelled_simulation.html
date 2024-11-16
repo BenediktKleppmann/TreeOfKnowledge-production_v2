@@ -1,0 +1,192 @@
+{% extends 'layouts/base_tool.html' %}'
+{% load staticfiles %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+# Copyright (C) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, February 2021
+#####################################################################
+-->
+
+{% block title %}
+	Salvage Cancelled Simulation
+{% endblock %}
+
+
+{% block additionalcss %}
+
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap-3.4.0.min.css' %}" />
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+<style>
+	
+					
+	/* --------------------------------------------------------------------------*/
+	/* Left Panel ---------------------------------------------------------------*/
+	/* --------------------------------------------------------------------------*/
+	#main-panel {}
+	
+	#buttons {
+		margin-left: 500px;
+		margin-top: 70px;
+	}
+	
+	.simulation-id-input {
+		margin-top: 5px;
+	}
+	
+	.form-control {
+		width: 200px;
+		display: inline-block;
+	}
+	
+	.simulation-id-input label {
+		width: 100px;
+	}
+	
+	#salvage-cancelled-sim-button {
+		margin-top: 12px;
+		margin-left: 40px;
+		margin-bottom: 10px;
+	}
+	
+	#show-results-button-frame {}
+	
+	#progress-bar-frame {
+		margin-top: 50px;
+	}
+
+	/* Info ------------------------------------------------------------------------ */
+
+	
+	
+</style>	
+
+
+
+{% endblock %}	
+
+{% block content %}
+<div id="main-panel">
+	<div id="buttons">
+		<div class="simulation-id-input">
+			<label for="simulation_id">Simulation ID:</label>
+			<input type="text" class="form-control" id="simulation_id" name="simulation_id" value="">
+		</div>
+		<div class="simulation-id-input">
+			<label for="run_number">Run Number:</label>
+			<input type="text" class="form-control" id="run_number" name="simulation_id" value="">
+		</div>
+		<button id="salvage-cancelled-sim-button" class="btn btn-success" type="button" onclick="salvageCancelledSimulation()">Salvage Cancelled Simulation</button>
+		<div id="show-results-button-frame"></div>
+	</div>
+	<div id="progress-bar-frame" style="display:none;">
+		<div id="progress-box" class="progress">
+			<div id="progress-bar" class="progress-bar" style="width:0%"></div>
+		</div>
+		<div id="progress-bar-description" class="progress-description"></div>
+	</div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+	//========================================================================
+	//========================================================================
+	//=========================   MAIN PANEL      ============================
+	//========================================================================
+	//========================================================================
+
+
+	
+	function salvageCancelledSimulation() {
+		
+		$('#salvage-cancelled-sim-button').prop('disabled',true)
+		$('#progress-bar-frame').css('display', 'block');
+		$('#progress-bar').attr('style','width:0%');
+		$('#progress-bar-description').html('');
+		
+		var simulation_id = $('#simulation_id').val();
+		var run_number = $('#run_number').val();
+		
+		
+		setTimeout('sendSimulationRequest(' + String(simulation_id) + ', ' + String(run_number) + ');', 10);
+		setTimeout('update_the_progress_bar();', 2000);
+	}
+	
+	
+	
+	
+	
+	async function sendSimulationRequest(simulation_id, run_number) {
+		run_simulation_post_request = new XMLHttpRequest();   // new HttpRequest instance
+		run_simulation_post_request.onreadystatechange = function() {
+		
+			if (this.readyState == 4 && this.status == 200) {
+				
+				$('#show-results-button-frame').html('<button id="display-results-button" type="button" class="btn" onclick="showSimulationResults(' + String(simulation_id) + ');" >Show Simulation Results</button>')
+				$('#salvage-cancelled-sim-button').prop('disabled',false)
+				
+			}
+		};
+		run_simulation_post_request.open("POST", "/tool/salvage_cancelled_simulation/" + String(simulation_id) + "/" + String(run_number) + "/", true);
+		run_simulation_post_request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		run_simulation_post_request.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		run_simulation_post_request.send();
+	}
+
+
+
+	
+	async function update_the_progress_bar() {
+		var progress = '0';
+
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				
+				var progress_dict = JSON.parse(this.responseText);
+				//progess-bar
+				if ('current_number' in progress_dict){
+					$('#progress-bar').attr('style','width:' + String(100 * progress_dict['current_number']/progress_dict['total_number']) + '%')
+					$('#progress-bar-description').html(progress_dict['text'] +  String(progress_dict['current_number']) + '/' + String(progress_dict['total_number']));				
+				}
+				
+				if (run_simulation_post_request.readyState < 4) {
+					window.setTimeout(() => { update_the_progress_bar();}, 1000);
+				}
+
+			}
+		};
+		xhttp.open("GET", "/tool/get_simulation_progress?simulation_id=" + simulation_id , true);
+		xhttp.send();
+		
+	}
+
+	
+	function showSimulationResults(simulation_id) {
+		var w = window.open("/tool/analyse_simulation/" + simulation_id + "/");
+		$('#simulationProgressModal').modal('hide');
+	}
+	
+
+</script>
+
+
+
+{% endblock %}
+
+
+

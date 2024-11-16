@@ -1,0 +1,2233 @@
+<!--                 EDIT  OBJECT BEHAVIOUR MODAL                     -->
+<!-- This is used in edit_simulation -->
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+# Copyright (C) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, February 2021
+#####################################################################
+-->
+{% load staticfiles %}
+	
+<link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css?hcode=be5162d915534272a57d0bb781d27f2b" rel="stylesheet" type="text/css">
+<link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css?hcode=be5162d915534272a57d0bb781d27f2b" rel="stylesheet" type="text/css">
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-gantt.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+
+
+<style>	
+	#editObjectBehaviourModal .modal-dialog {
+		width: 1454px;
+		position: initial;
+	}
+
+	#editObjectBehaviourModal .modal-header {
+		padding-top: 6px;
+	}
+
+	#editObjectBehaviourModal #modal-title {
+		display: inline-block;
+		font-size: 22px;
+		margin-top: 16px;
+		margin-left: 19px;
+	}
+	
+	#editObjectBehaviourModal #x-button {
+	    display: inline-block;
+		float: right;
+		margin-top: 6px;
+		margin-right: 8px;
+		font-size: 29px;
+	}
+	
+	#editObjectBehaviourModal .modal-header.row {
+		margin: 0px;
+	}
+	
+	.modal-body {
+		padding-left: 8px;
+		padding-right: 6px;
+		padding-top: 13px;
+		padding-bottom: 0px;
+	}
+	
+	/* -----------------------------------------------------*/
+	/* RULE PANELS -----------------------------------------*/
+	/* -----------------------------------------------------*/
+	
+	#editObjectBehaviourModal .learn-rule-title {
+		margin-left: 503px;
+		margin-bottom: 2px;
+		font-weight: 700;
+		text-align: center;
+	}
+	
+	#editObjectBehaviourModal #rule-panel {
+		display: inline-block;
+	}
+	
+	.rule-panel-body {
+		width: 612px;
+		height:calc(100vh - 260px);
+		overflow-y: auto;
+		padding: 2px;
+		-webkit-box-shadow: inset 1px 1px 9px 5px rgba(0,0,0,0.2);
+		-moz-box-shadow: inset 1px 1px 59px 5px rgba(0,0,0,0.2);
+		box-shadow: inset 1px 1px 9px 5px rgba(0,0,0,0.2);
+		background-color: rgb(190, 190, 190);
+		border-left: 5px solid rgb( 230, 230, 230);
+		border-top: 5px solid rgb( 218, 218, 218);
+		border-right: 5px solid rgb(250, 250, 250);
+		border-bottom: 5px solid rgb(250, 250, 250);
+	}
+	
+	#editObjectBehaviourModal #rules-list {
+		height: 375px;
+	}
+	
+	#editObjectBehaviourModal #not-used-rules-list {
+		height: 180px;
+	}
+	
+	#editObjectBehaviourModal #not-used-rules-title {
+		font-size: 17px;
+		margin-left: 5px;
+	}
+	
+	/* ----------------------------------------------------------*/
+	/* RULE PANEL ITEMS -----------------------------------------*/
+	/* ----------------------------------------------------------*/
+	
+	#editObjectBehaviourModal .rule-panel-body > .list-group-item {
+		height: 57px;
+		border-left: 9px solid rgb(252, 252, 252);
+		border-top: 9px solid rgb(255, 255, 255);
+		border-right: 9px solid rgb( 242, 242, 242);
+		border-bottom: 9px solid rgb( 235, 235, 235);
+		margin-bottom: 3px;
+		border-radius: 3px;
+		padding: 0px;
+		-webkit-box-shadow: 2px 4px 9px 3px rgba(0,0,0,0.18);
+		-moz-box-shadow: 2px 4px 9px 3px rgba(0,0,0,0.18);
+		box-shadow: 2px 4px 9px 3px rgba(0,0,0,0.18);
+		background-color: rgb(252, 252, 252);
+	}
+	
+	#editObjectBehaviourModal .rule-panel-body  img {
+		height: 33px;
+		width: 20px;
+		float: left;
+		margin-top: 2px;
+		display: inline-block;
+	}
+	
+	#editObjectBehaviourModal .rule-description {
+		width: 408px;
+		height: 46px;
+		display: inline-block;
+		float: left;
+	}
+	
+	#editObjectBehaviourModal .rule-description .btn {
+		display: inline-block;
+		background-color: rgb(252, 252, 252);
+		float: left;
+		padding-bottom: 11px;
+		width: 476px;
+		text-align: left;
+	}
+	
+	#editObjectBehaviourModal .rule-probability {
+		display: inline-block;
+		margin-top: 7px;
+		margin-left: 24px;
+	}
+	
+	#editObjectBehaviourModal .learn-probabililty-checkbox {
+		display: inline-block;
+		margin-left: 17px;
+	}
+	
+	#editObjectBehaviourModal #is_probabilitic_rule {
+	    margin-right: 4px;
+	}
+	
+	
+	#editObjectBehaviourModal .remove-rule-button {
+		display: inline-block;
+		float: right;
+		height: 18px;
+		width: 18px;
+		padding: 0px;
+		margin-top: 1px;
+		margin-right: 1px;
+		border-radius: 3px;
+		background-color: rgb(242, 242, 242);
+	}
+
+	#editObjectBehaviourModal .remove-rule-button-text {
+		margin-left: -1px;
+		margin-top: -2px;
+	}
+	
+	
+	#plus-button {
+		-webkit-box-shadow: 2px 4px 9px 3px rgba(0,0,0,0.3);
+		-moz-box-shadow: 2px 4px 9px 3px rgba(0,0,0,0.3);
+		box-shadow: 2px 4px 9px 3px rgba(0,0,0,0.3);
+	}
+	
+	#plus-button-list-group-item {
+		background-color: rgba(256, 256, 256, 0);
+		padding: 12px;
+		padding-left: 21px;
+	}
+	
+	
+	/* ----------------------------------------------------------*/
+	/* RULE DETAILS ---------------------------------------------*/
+	/* ----------------------------------------------------------*/
+	
+	#editObjectBehaviourModal #rule-info-top {
+		height: 373px;
+	}
+	
+	#editObjectBehaviourModal #rule-info {
+		display: inline-block;
+		float: right;
+	}
+	
+	
+	#editObjectBehaviourModal #rule-info-top-left-outer-box {
+		position: relative;
+		width: 518px;
+		height: 342px;
+		display: inline-block;
+		float: left;
+	}
+	
+	#editObjectBehaviourModal #rule-info-top-left {
+	    width: 491px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+	
+	#editObjectBehaviourModal #rule-info-top-left .form-control {
+		border-radius: 5px;
+	}
+	
+	
+	#rule-info-top-left label {
+	    margin-bottom: 1px;
+	}
+	
+
+	
+	#editObjectBehaviourModal .uncertainty-form-group {
+		margin-top: 25px;
+	}
+	
+
+	
+	
+
+	
+
+	
+	/* IF-THEN Condition ---------------*/
+
+	#editObjectBehaviourModal #if-textarea {
+		margin-left: 16px;
+	}
+
+	#editObjectBehaviourModal #then-textarea {
+		margin-top: 21px;
+	}
+
+	#editObjectBehaviourModal #has-if-condition-field {
+		width: 200px;
+		margin-top: 1px;
+	}
+	
+	
+	#editObjectBehaviourModal #then-text2 {
+		font-family: Garamond;
+		color: rgb(7, 16, 143);
+		font-size: 20px;
+		text-align: left;
+		font-weight: 700;
+	}
+	
+	#editObjectBehaviourModal #rule-effect-text
+	{
+		border-color: rgb(7, 16, 143);
+	}
+	
+	#editObjectBehaviourModal .hwt-container, #editObjectBehaviourModal #rule-condition-text, #editObjectBehaviourModal #rule-effect-text
+	{
+		width: 100%;
+	}
+	
+	#if-then-text {
+		border-color: rgb(7, 16, 143);
+	}
+	
+	
+
+	/* Aggregation ---------------*/
+	
+	#editObjectBehaviourModal #aggregation-field {
+		margin-top: 22px;
+	}
+
+	
+	#editObjectBehaviourModal #aggregation-details {
+		margin-left: 16px;
+		margin-top: -4px;
+	}
+	
+	
+	#editObjectBehaviourModal .aggregation-text {
+		display: inline-block;
+	}
+	
+	#editObjectBehaviourModal #aggregation_text {
+		display: inline-block;
+		width: 300px;
+		margin-left: 5px;
+		margin-right: 2px;
+	}
+	
+	
+	#editObjectBehaviourModal .aggregation-button {
+		background-color: white;
+		border-color: rgb(180,180,180);
+		padding: 2px 6px;
+		color: rgb(180,180,180);
+	}
+	
+	#editObjectBehaviourModal #aggregation-button-sum {
+		margin-right: 5px;
+	}
+
+
+	/* Cancel/Save Buttons ---------------*/
+	
+	#editObjectBehaviourModal #save-cancel-rule-buttons {
+		margin-top: 29px;
+	}
+	
+	#editObjectBehaviourModal #chooseRuleSaveButton {
+		margin-left: 5px;
+	}
+	
+	
+	/* ----------------------------------------------------------*/
+	/* AVAILABLE VARIABLES --------------------------------------*/
+	/* ----------------------------------------------------------*/
+		
+	
+	#editObjectBehaviourModal #available-variables-outer-block {
+		display: inline-block;
+	}
+	
+	#editObjectBehaviourModal #available-variables-error-message {
+		color: rgb(145, 20, 13);
+		width: 219px;
+	}
+	
+	#editObjectBehaviourModal #available-variables-main-block {
+	
+	}
+	
+	#editObjectBehaviourModal #available-variables-block {
+		display: inline-block;
+		overflow: hidden;
+		float: left;
+		width: 219px;
+	}
+	
+	#editObjectBehaviourModal .available-variable-frame {
+		width: 219px;
+		height: 323px;
+	}
+	
+	#editObjectBehaviourModal #available-relation-variables-block {
+		display: inline-block;
+		overflow: hidden;
+		width:0px;
+	}
+
+	.available-variables-label {
+		margin-top: 3px;
+		font-weight: 700;
+		font-size: 15px;
+		color: rgb(110, 110, 110);
+	} 
+	
+	.relations-variables-label {
+		display: inline-block;
+		font-weight: 700;
+		font-size: 15px;
+		color: rgb(50, 50, 50);
+		width: 186px;
+		float: right;
+		margin-bottom: 3px;
+	} 
+	
+	#remove-related-attributes-button {
+		display: inline-block;
+	}
+	
+	#selectAvailableVariable {
+		width: 179px;
+		margin-top: 2px;
+		margin-bottom: 5px;
+	}
+	
+	#selectRelatedAvailableVariable {
+		width: 179px;
+		margin-top: 2px;
+		margin-bottom: 5px;
+	}
+	
+	.available-variable-frame {
+		border: 1px solid rgb(202, 202, 202);
+		border-radius: 4px;
+		width: 195px;
+		height: 300px;
+		overflow: auto;
+	}
+	
+	.list-group-item.avail-var-item{
+		border-bottom: 1px solid rgb(202, 202, 202);
+		margin-bottom: 0px;
+		padding:0px;
+	}
+	
+	.list-group-item.related-var-item{
+		border-bottom: 1px solid rgb(202, 202, 202);
+		margin-bottom: 0px;
+		padding:0px;
+	}
+
+	.avail-var-button {
+		background: white;
+		width: 195px;
+	}
+
+	/* ----------------------------------------------------------*/
+	/* PARAMETERS PDF -------------------------------------------------*/
+	/* ----------------------------------------------------------*/
+
+
+	#parameter-details {
+		margin-left: 16px;
+		width: 723px;
+	}
+	
+	#parameter-button-group {
+		display: inline-block;
+		position: relative;
+		z-index:1;
+	}
+
+	.parameter-info-button{
+	    border: 1px solid rgb(205,205,205);
+		border-radius: 7px;
+		/*
+		border-top-left-radius: 7px;
+		border-top-right-radius: 7px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;*/
+		background:	white;
+	}
+	
+	.parameter-info-button.active{
+		box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.16);
+		border-bottom: 0px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+	}
+	
+	
+	.bg-colour0 {background: rgb(237, 234, 194)}
+	.bg-colour0.active {background: rgb(212, 207, 138)}
+	.bg-colour1 {background: rgb(182, 213, 219)}
+	.bg-colour1.active {background: rgb(149, 188, 196)}
+	.bg-colour2 {background: rgb(237, 208, 185)}
+	.bg-colour2.active {background: rgb(230, 172, 126)}
+	.bg-colour3 {background: rgb(197, 204, 230)}
+	.bg-colour3.active {background: rgb(158, 171, 219)}
+	.bg-colour4 {background: rgb(232, 212, 211)}
+	.bg-colour4.active {background: rgb(214, 179, 178)}
+	.bg-colour5 {background: rgb(222, 225, 227)}
+	.bg-colour5.active {background: rgb(187, 194, 201)}
+	.bg-colour6 {background: rgb(237, 223, 234)}
+	.bg-colour6.active {background: rgb(227, 191, 220)}
+	
+	
+	
+	
+	#add-parameter-button {
+		display: inline-block
+	}
+
+	#parameter-info-box {
+		margin-top:-1px;
+		margin-left: 1px;
+	    border: 1px solid rgb(205,205,205);
+		box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.16);
+		display: none;
+	}
+	
+	/* Parameter Settings -------------------*/
+	#parameter-settings {
+		width: 250px;
+		padding: 6px 3px 11px 15px;
+		display: inline-block;
+	}
+	
+	.first-parameter-settings-input {
+		margin-top: 10px;
+		width: 90%;
+	}
+	
+	.parameter-settings-input {
+		margin-top: 10px;
+		width: 90%;
+	}
+	
+	#parameter-settings label {
+		margin-bottom: 1px;
+	}
+	
+	#save-cancel-parameter-buttons{
+		margin-top: 13px;
+	}
+	
+	#save-cancel-parameter-buttons .btn {
+		padding: 6px 7px;
+	}
+	
+	#save-parameter-button {
+		margin-left: 4px;
+	}
+	
+	#delete-parameter-button {
+		margin-left: 4px;
+	}
+	
+	/* Parameter PDF Panel -------------------*/
+	#parameter-pdf-panel {
+		display: inline-block;
+		margin-right: 15px;
+		margin-top: 45px;
+		float: right;
+		width: 452px;
+	}
+	
+	
+	#parameter-pdf-graph-this-simulation {
+		height: 197px;
+		width: 288px;
+		margin-left: -48px;
+		margin-top: 0px;
+	}
+
+	#parameter-pdf-graph-all-simulations {
+		height: 178px;
+		width: 288px;
+		margin-left: -48px;
+		margin-top: -2px;
+	}
+	
+	#parameter-this-simulation-warning-message, #parameter-all-simulations-warning-message {
+		text-align: center;
+	}
+	/* ----------------------------------------------------------*/
+	/* RULE PDF -------------------------------------------------*/
+	/* ----------------------------------------------------------*/
+	
+	/* pdf description ------------*/
+	.rule-pdf-description {
+		color: rgb(160,160,160);
+		display: inline-block;
+		float: left;
+		margin-left: 5px;
+	}
+	
+	.rule-pdf-description-title {
+		font-weight: 700;
+		margin-left: 16px;
+	}
+
+	.rule-pdf-description-main {
+		margin-top: 1px;
+		width: 248px;
+		padding-right: 12px;
+		margin-left: 16px;
+	}
+	
+	
+	/* left pdf ------------*/
+	
+	.pdf-this-simulation {
+		display: inline-block;
+		margin-top: 3px;
+	}
+	
+	.outer-pdf-graph-container{
+		height: 134px;
+		width: 218px;
+		border: 1px solid rgb(240,240,240);
+		overflow: hidden;
+	}
+	
+	#pdf-graph-this-simulation {
+		height: 197px;
+		width: 288px;
+		margin-left: -48px;
+		margin-top: 0px;
+	}
+	
+	#this-simulation-warning-message {
+	    width: 219px;
+		text-align: center;
+		color: red;
+	}
+	
+	
+	/* right pdf ------------*/
+	.pdf-all-simulations {
+		display: inline-block;
+		margin-left: 17px;
+		float: right;
+		margin-top: 3px;
+	}
+	
+	#pdf-graph-all-simulations {
+		height: 178px;
+		width: 288px;
+		margin-left: -48px;
+		margin-top: -2px;
+	}
+	
+	.pdf-title {
+	    width: 100%;
+		text-align: center;
+		margin-top: -9px;
+	}
+	
+	.pdf-x-axis {
+		margin-top: -2px;
+		margin-left: -2px;
+		margin-right: -2px;
+		font-size: 12px;
+		width: 223px;
+	}
+	
+	.pdf-x-axis .left {
+		display: inline-block;
+	}
+	
+	.pdf-x-axis .right {
+	    display: inline-block;
+		float: right;
+	}
+	
+
+</style>
+
+
+	
+	<!-- Edit Object Behaviour Modal -->
+	<div class="modal fade" id="editObjectBehaviourModal" tabindex="-1" role="dialog" aria-labelledby="chooseAttributeTitle" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header row">
+			<div class="modal-title object-type-name" id="modal-title"></div>
+			<button id="x-button" type="button col-md-1" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true" >&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			  <div class="container-fluid">
+				<div class="form">
+
+					<div id="rule-panel">
+						<div class="learn-rule-title">Learn<br>Probability</div>
+						<ul id="rules-list" class="list-group rule-panel-body"></ul>
+						<div id="not-used-rules-title">Not Used Rules</div>
+						<ul id="not-used-rules-list" class="list-group rule-panel-body"></ul>
+					</div>
+					<div id="rule-info">
+						<div id="rule-info-top">
+							<div id="rule-info-top-left-outer-box">
+								<div id="rule-info-top-left"></div>
+							</div>
+							<div id="available-variables-outer-block">
+								<div id="available-variables-error-message"></div>
+								<div id="available-variables-main-block">
+									<div id="available-variables-block"></div>
+									<div id="available-relation-variables-block"></div>
+								</div>
+							</div>
+						</div>
+						<div id="rule-info-bottom"></div>
+						<div id="save-cancel-rule-buttons"></div>
+
+					</div>
+						
+				</div>
+			</div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-primary" id="editAttributeCloseButton" data-dismiss="modal">Close</button>
+
+		  </div>
+		  
+		</div>
+	  </div>
+	</div>
+	
+	
+
+	
+<script>
+
+//GLOBAL VARIABLES
+var new_rule_cursor_position = {'text_area_id':'rule-effect-text'};
+var parameter_info = {};
+	
+	
+	/*========================================================================*/
+	/*======================    BUILD THE MODAL     ==========================*/
+	/*========================================================================*/
+	
+	
+	
+	function openEditObjectBehaviourModal(object_number, rules_attribute_id, rules_attribute_name, rule_id){
+		$("#rule-info-top-left").html('');
+		$("#available-variables-block").html('');
+		$("#save-cancel-rule-buttons").html('');
+		$("#editObjectBehaviourModal").modal('show');
+		$("#rule-info-bottom").html('');
+
+		var object_name = objects_dict[object_number]['object_name'];
+		$("#editObjectBehaviourModal #modal-title").html('Rules for [' + rules_attribute_name + '] of ' + object_name);
+	
+		populateTheRulePanels(object_number, rules_attribute_id, rules_attribute_name);
+		
+		
+		// load parameter_info
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				parameter_info = JSON.parse(this.responseText);
+			}
+		};
+		xhttp.open('GET', '/tool/get_parameter_info', true);
+		xhttp.send();
+		
+		
+		// load parameter_info
+		/*
+		var rule_ids = execution_order['rule_execution_order'][String(rules_attribute_id)]['used_rule_ids'].concat(execution_order['rule_execution_order'][String(rules_attribute_id)]['not_used_rule_ids']);
+		for (var i = 0; i < rule_ids.length ; i++) {
+			var parameter_ids = objects_dict[object_number]['object_rules'][rules_attribute_id][rule_ids[i]]['used_parameter_ids'];	
+			for (var j = 0; j < parameter_ids.length ; j++) {
+				var parameter_id = parameter_ids[j];
+				if (!Object.keys(parameter_info).includes(parameter_id)) {
+					//get the Parameter Info
+					var xhttp = new XMLHttpRequest();       
+					xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+							response_dict = JSON.parse(this.responseText);
+							parameter_info[response_dict['id']] = response_dict;
+							
+							if (response_dict['is_last_parameter'] && rule_id) {
+								inspectRule(object_number, rules_attribute_id, rules_attribute_name, rule_id);
+							}
+						}
+					};
+					xhttp.open('GET', '/tool/get_parameter_info?parameter_id=' + parameter_id + '&is_last_parameter=' + String(j == (parameter_ids.length-1)), true);
+					xhttp.send();
+				}			
+			}	
+		}*/
+		
+	
+	}
+	
+	
+	
+	
+	
+	
+	function populateTheRulePanels(object_number, rules_attribute_id, rules_attribute_name) {
+		
+		
+		// populate rules-list -------------------------------------------------------------
+		rules_list_html_string = '';
+		
+		var rule_ids = execution_order['rule_execution_order'][String(rules_attribute_id)]['used_rule_ids'];
+		for (var i = 0; i < rule_ids.length ; i++) {
+			var rule_id = rule_ids[i];
+			if (Object.keys(objects_dict[object_number]['object_rules'][rules_attribute_id]).includes(String(rule_id))) {
+			
+				var rule = objects_dict[object_number]['object_rules'][rules_attribute_id][rule_id];
+				
+				if (rule['is_conditionless']) {
+					rule_text = "At every timestep: [" + rules_attribute_name + "] = " + rule['effect_text'];
+				} else {
+					rule_text = "IF " +  rule['condition_text'] + " THEN [" + rules_attribute_name + "] = " + rule['effect_text'];
+				}
+				
+				if (rule_text.length > 65) {
+					rule_text = rule_text.substring(0, 62) + '...';
+				}
+				
+				checked_string = '';
+				if (objects_dict[object_number]['object_rules'][rules_attribute_id][rule_id]['learn_posterior'] == true) {checked_string = 'checked';}
+				
+				if (rule['has_probability_1'] && rule['used_parameter_ids'].length ==0) {
+					rule_info =	'<div class="rule-probability"> known fact</div>';
+					
+				} else if (rule['has_probability_1'] && rule['used_parameter_ids'].length >0) {
+					rule_info =	'<div class="rule-probability"> known fact</div>' +	
+								'<div class="learn-probabililty-checkbox">' +
+									'<input type="checkbox" id="learn-probabililty--rule' + rule_id + '" name="learn-probabililty--rule' + rule_id + '" onchange="learnProbabilityChange(' + object_number + ',' + rules_attribute_id + ',' + rule_id + ')" ' + checked_string + '>' +
+								'</div>';	
+				
+				} else if (!rule['has_probability_1'] && rule['probability'] == null) {
+				
+					rule_info =	'<div class="rule-probability"> unknown</div>' + 
+								'<div class="learn-probabililty-checkbox">' +
+									'<input type="checkbox" id="learn-probabililty--rule' + rule_id + '" name="learn-probabililty--rule' + rule_id + '" onchange="learnProbabilityChange(' + object_number + ',' + rules_attribute_id + ',' + rule_id + ')" ' + checked_string + '>' +
+								'</div>';		
+				} else {
+					rule_info =	'<div class="rule-probability"> ' + Math.round(rule['probability'] * 100) + ' ±' + Math.round(rule['standard_dev'] * 100) + ' %</div>' + 
+								'<div class="learn-probabililty-checkbox">' +
+									'<input type="checkbox" id="learn-probabililty--rule' + rule_id + '" name="learn-probabililty--rule' + rule_id + '" onchange="learnProbabilityChange(' + object_number + ',' + rules_attribute_id + ',' + rule_id + ')" ' + checked_string + '>' +
+								'</div>';
+				}
+				
+
+				
+				
+				rules_list_html_string +=	'<li class="list-group-item new" id="rule' + rule_id + '" data-object-number=' + object_number + ' data-attribute-id=' + rules_attribute_id + ' data-rule-id=' + rule_id + '>' +
+												'<img src="{% static "images/drag-grip1.png" %}">' +
+												'<div class="rule-description">' +
+													'<button class="btn btn-outline-secondary" onclick="inspectRule(' + object_number + ',' + rules_attribute_id + ',\'' + rules_attribute_name + '\',' + rule_id +')" >' + rule_text + '</button>' +
+												'</div>' +
+												rule_info +
+												'<button type="button" class="btn btn-secondary remove-rule-button" onclick="removeBehaviourRule(' + object_number + ', ' + rules_attribute_id + ', ' + rule_id + ')"><div class="remove-rule-button-text">&times;</div></button>' +
+											'</li>';
+			}
+		}
+		
+		rules_list_html_string += 	'<li id="plus-button-list-group-item">' +
+										'<button id="plus-button" type="button" class="btn btn-outline" onclick="newBehaviourRule(' + object_number + ',' + rules_attribute_id + ',\'' + rules_attribute_name + '\')" >' +
+											'<i class="fas fa-plus"></i>' +
+										'</button>'
+									'</li>'
+		
+		$('#rules-list').html(rules_list_html_string);
+		
+		// populate not-used-rules-list -------------------------------------------------------------
+		
+		not_used_rules_list_html_string = ""
+		if (Object.keys(execution_order['rule_execution_order']).indexOf(String(rules_attribute_id)) == -1) {
+			execution_order['rule_execution_order'][String(rules_attribute_id)] = {'used_rule_ids': [], 'not_used_rule_ids': []}
+		}
+		
+		var not_used_rule_ids = execution_order['rule_execution_order'][String(rules_attribute_id)]['not_used_rule_ids'];
+		for (var i = 0; i < not_used_rule_ids.length ; i++) {
+			var rule_id = not_used_rule_ids[i];
+			var rule = objects_dict[object_number]['object_rules'][rules_attribute_id][rule_id];
+			
+			if (rule['is_conditionless']) {
+				rule_text = "At every timestep: [" + rules_attribute_name + "] = " + rule['effect_text'];
+			} else {
+				rule_text = "IF " +  rule['condition_text'] + " THEN [" + rules_attribute_name + "] = " + rule['effect_text'];
+			}
+			
+			if (rule_text.length > 65) {
+				rule_text = rule_text.substring(0, 62) + '...';
+			}
+			
+			checked_string = '';
+			if (objects_dict[object_number]['object_rules'][rules_attribute_id][rule_id]['learn_posterior'] == true) {checked_string = 'checked';}
+			
+			if (rule['has_probability_1'] && rule['used_parameter_ids'].length ==0) {
+				rule_info =	'<div class="rule-probability"> known fact</div>';
+				
+			} else if (rule['has_probability_1'] && rule['used_parameter_ids'].length >0) {
+				rule_info =	'<div class="rule-probability"> known fact</div>' +	
+							'<div class="learn-probabililty-checkbox">' +
+								'<input type="checkbox" id="learn-probabililty--rule' + rule_id + '" name="learn-probabililty--rule' + rule_id + '" onchange="learnProbabilityChange(' + object_number + ',' + rules_attribute_id + ',' + rule_id + ')" ' + checked_string + '>' +
+							'</div>';	
+			
+			} else if (!rule['has_probability_1'] && rule['probability'] == null) {
+			
+				rule_info =	'<div class="rule-probability"> unknown</div>' + 
+							'<div class="learn-probabililty-checkbox">' +
+								'<input type="checkbox" id="learn-probabililty--rule' + rule_id + '" name="learn-probabililty--rule' + rule_id + '" onchange="learnProbabilityChange(' + object_number + ',' + rules_attribute_id + ',' + rule_id + ')" ' + checked_string + '>' +
+							'</div>';		
+			} else {
+				rule_info =	'<div class="rule-probability"> ' + Math.round(rule['probability'] * 100) + ' ±' + Math.round(rule['standard_dev'] * 100) + ' %</div>' + 
+							'<div class="learn-probabililty-checkbox">' +
+								'<input type="checkbox" id="learn-probabililty--rule' + rule_id + '" name="learn-probabililty--rule' + rule_id + '" onchange="learnProbabilityChange(' + object_number + ',' + rules_attribute_id + ',' + rule_id + ')" ' + checked_string + '>' +
+							'</div>';
+			}
+			
+			
+
+			
+			
+			not_used_rules_list_html_string +=	'<li class="list-group-item new" id="rule' + rule_id + '" data-object-number=' + object_number + ' data-attribute-id=' + rules_attribute_id + ' data-rule-id=' + rule_id + '>' +
+											'<img src="{% static "images/drag-grip1.png" %}">' +
+											'<div class="rule-description">' +
+												'<button class="btn btn-outline-secondary" onclick="inspectRule(' + object_number + ',' + rules_attribute_id + ',\'' + rules_attribute_name + '\',' + rule_id +')" >' + rule_text + '</button>' +
+											'</div>' +
+											rule_info +
+											'<button type="button" class="btn btn-secondary remove-rule-button" onclick="removeBehaviourRule(' + object_number + ', ' + rules_attribute_id + ', ' + rule_id + ')"><div class="remove-rule-button-text">&times;</div></button>' +
+										'</li>';
+									
+		}
+		
+
+		
+		$('#not-used-rules-list').html(not_used_rules_list_html_string);
+	
+			
+	
+			
+	}
+	
+	
+	
+
+	
+	
+	
+	
+	
+	/*========================================================================*/
+	/*======================       RULE PANEL       ==========================*/
+	/*========================================================================*/
+	
+	
+	
+	
+	
+	function inspectRule(object_number, rules_attribute_id, rules_attribute_name, rule_id) {
+		$("#editObjectBehaviourModal").modal('show');
+
+
+		// Rule Details ------------------------------------------------------------
+		rule = objects_dict[object_number]['object_rules'][rules_attribute_id][rule_id];
+		
+		has_if_condition_string = rule['is_conditionless'] ? '': 'checked';
+		condition_text = rule['is_conditionless'] ? '': rule['condition_text'] ;
+		has_aggregation_checked_string = rule['aggregation_text'].length > 0 ? 'checked': '';
+		has_parameters_checked_string = rule['used_parameter_ids'].length > 0 ? 'checked': '';
+		is_probabilitic_rule_checked_string = rule['has_probability_1'] ? '': 'checked';		
+		
+		
+		rule_info_top_left_html = 	'<div id="has-if-condition-field">' +
+										'<input type="checkbox" class="form-check-input" id="has_if_condition" onchange="changeIfConditionCheckbox(' + object_number + ',' + rules_attribute_id + ',\'' + rules_attribute_name + '\', ' + rule_id + ')" ' + has_if_condition_string + '>' +
+										'<label class="form-check-label" for="has_if_condition">&nbsp;IF Condition</label>' +
+									'</div>' +
+									'<div id="if-textarea">' +
+										'<textarea cols="20" rows="2" class="form-control" id="rule-condition-text" onclick="rememberCursorPostion(\'rule-condition-text\')">' + condition_text + '</textarea>' +
+									'</div>' +
+									'<div id="aggregation-field">' +
+										'<input type="checkbox" class="form-check-input" id="is_aggregation" onchange="changeAggregateCheckbox()" ' + has_aggregation_checked_string + '>' +
+										'<label class="form-check-label" for="is_aggregation">&nbsp;Aggregation</label>' +
+									'</div>' +
+									'<div id="aggregation-details"  style="display: none;">' +
+										'<div class="aggregation-text" data-toggle="tooltip" title="∀x∈objects s.th. ">For all objects x where</div>' +
+										'<textarea cols="20" rows="1" class="form-control" id="aggregation_text" onclick="rememberCursorPostion(\'aggregation_text\')">' + rule['aggregation_text'] + '</textarea>' +
+										//'<input type="text" id="aggregation_text" class="form-control" value="' + rule['aggregation_text'] + '">' +
+										'<div class="aggregation-text"> :</div>' +
+										'<div id="aggregation-buttons">' + 
+											'<button id="aggregation-button-sum" class="btn aggregation-button" type="button" onclick="pressAggregateButton(\'sum\')">SUM</button>' +
+											'<button id="aggregation-button-count" class="btn aggregation-button" type="button" onclick="pressAggregateButton(\'count\')">COUNT</button>' +
+										'</div>' +
+									'</div>' +
+									'<div id="then-textarea" class="form-group">' + 
+										'<label for="rule-effect-text">' + 
+											'<div id="then-text2">[' + rules_attribute_name + '] = </div> </label>' +
+										'<textarea cols="20" rows="5" class="form-control" id="rule-effect-text" onclick="rememberCursorPostion(\'rule-effect-text\')">' + rule['effect_text'] + '</textarea>' +
+									'</div>';
+		$('#rule-info-top-left').html(rule_info_top_left_html);
+	
+		
+		
+		var parameter_ids = objects_dict[object_number]['object_rules'][rules_attribute_id][rule_id]['used_parameter_ids'];
+		rule_info_bottom_html = '<div class="parameter-form-group">' +
+									'<input type="checkbox" class="form-check-input" id="has_parameters" onchange="changeParameterCheckbox()" ' + has_parameters_checked_string + '>' +
+									'<label class="form-check-label" for="has_parameters">&nbsp;Parameters</label>' +
+								'</div>' +
+								'<div id="parameter-details" style="display:none;">' +
+									'<div id="parameter-button-group" class="btn-group" data-toggle="buttons">';
+		
+		for (var i = 0; i < parameter_ids.length ; i++) {
+			var parameter_id = parameter_ids[i];
+			var parameter_name = parameter_info[parameter_id]['parameter_name'];
+			rule_info_bottom_html += 	'<label id="parameter-info-button' + i + '" class="btn bg-colour' + i + ' parameter-info-button" onmouseover="highlightParameter(\'' + parameter_name + '\', ' + i + ')" onmouseout="un_highlight()" onclick="showParameterInfo(' + i + ',' + object_number + ', ' + rules_attribute_id + ', \'' + rules_attribute_name + '\', ' + rule_id + ', ' + parameter_id + ')">' + parameter_name + '</label>';
+		}	
+		
+		rule_info_bottom_html +=	'</div>' +
+									'<label id="add-parameter-button" class="btn" onclick="addParameter(' + object_number + ',' + rules_attribute_id + ',\'' + rules_attribute_name + '\',' + rule_id + ')">+ Add Parameter</label>' +
+									'<div id="parameter-info-box"></div>' + 
+								'</div>' +
+								'<div class="uncertainty-form-group" id="is-certain-fact-field">' +
+									'<input type="checkbox" class="form-check-input" id="is_probabilitic_rule" onchange="changeProbabilisticCheckbox(' + object_number + ',' + rule_id + ')" ' + is_probabilitic_rule_checked_string + '>' +
+									'<label class="form-check-label" for="is_probabilitic_rule">Uncertain/Probabilitic Rule</label>' +
+								'</div>' +
+								'<div id="rule-pdf-panel"></div>';
+		$('#rule-info-bottom').html(rule_info_bottom_html);
+		
+		
+		
+		
+		
+		// Available Variables ------------------------------------------------------------
+		var object_name = objects_dict[object_number]['object_name']
+		
+		available_variables_html = 	'<div class="available-variables-label">Available Variables:</div>' + 
+									'<input type="text" class="form-control" id="selectAvailableVariable" onkeyup="filterAvailableVariables();" placeholder=" Search">' + 
+									'<div class="available-variable-frame">' + 
+										'<ul id="available-variables" class="input-group list-group">';
+			
+		var object_attributes = objects_dict[object_number]['object_attributes'];
+		var attribute_ids = Object.keys(object_attributes);
+		for (var i = 0; i < attribute_ids.length ; i++) {
+			var attribute_id = attribute_ids[i];
+			var attribute_name = object_attributes[attribute_id]['attribute_name']
+			var attribute_data_type = object_attributes[attribute_id]['attribute_data_type']
+			if (attribute_data_type == 'relation') {
+				available_variables_html += 	'<li class="list-group-item avail-var-item"><button class="btn btn-outline-secondary avail-var-button" type="button" onclick="selectAvailableRelation(' + object_number + ', ' + attribute_id + ', \'' + attribute_name + '\')" scope="col">' + attribute_name + '</button></li>';
+			} else {
+				available_variables_html += 	'<li class="list-group-item avail-var-item"><button class="btn btn-outline-secondary avail-var-button" type="button" onclick="selectAvailableVariable(' + object_number + ',\'' + attribute_name + '\')" scope="col">' + attribute_name + '</button></li>';
+			}
+		}
+		for (var i = 0; i < delta_t_list.length ; i++) {
+			var delta_t_name = delta_t_list[i];
+			available_variables_html += 		'<li class="list-group-item avail-var-item"><button class="btn btn-outline-secondary avail-var-button" type="button" onclick="selectAvailableVariable(' + object_number + ',\'' + delta_t_name + '\')" scope="col">' + delta_t_name + '</button></li>';
+		}
+		
+		
+		available_variables_html += 	'</ul>' + 
+									'</div>';
+
+		$('#available-variables-block').html(available_variables_html);
+		
+		
+		
+		// Cancel/Save Buttons ------------------------------------------------------------
+		var save_button_html_string =  	'<button type="button" class="btn btn-secondary" id="cancelNewRuleButton" onclick="cancelRuleCreation()">Cancel</button>' +
+										'<button type="button" class="btn btn-primary" id="chooseRuleSaveButton" onclick="saveBehaviourRule(' + rule_id + ', ' + rules_attribute_id + ',\'' + rules_attribute_name + '\',' + object_number + ')">Save Rule</button>';
+		
+		$('#save-cancel-rule-buttons').html(save_button_html_string);		
+	
+
+		if (rule['has_probability_1']) {
+			$("#is_probabilitic_rule").prop("checked", false);
+		} else {
+			$("#is_probabilitic_rule").prop("checked", true);
+		}	
+		
+		changeIfConditionCheckbox(object_number, rules_attribute_id, rules_attribute_name, rule_id);
+		changeAggregateCheckbox();
+		changeParameterCheckbox();
+		changeProbabilisticCheckbox(object_number, rule_id);
+
+	
+	
+	}
+	
+	
+	
+	
+	// the '+'-Button
+	function newBehaviourRule(object_number, rules_attribute_id, rules_attribute_name) {
+
+		// Populate the Modal
+		//#rule-info-top-left
+		
+		rule_info_top_left_html = 	'<div id="has-if-condition-field">' +
+										'<input type="checkbox" class="form-check-input" id="has_if_condition" onchange="changeIfConditionCheckbox(' + object_number + ',' + rules_attribute_id + ',\'' + rules_attribute_name + '\', null)">' +
+										'<label class="form-check-label" for="has_if_condition">&nbsp;IF Condition</label>' +
+									'</div>' +
+									'<div id="if-textarea" style="display:none;">' +
+										'<textarea cols="20" rows="2" class="form-control" id="rule-condition-text" onclick="rememberCursorPostion(\'rule-condition-text\')"></textarea>' +
+									'</div>' +
+									'<div id="aggregation-field">' +
+										'<input type="checkbox" class="form-check-input" id="is_aggregation" onchange="changeAggregateCheckbox()">' +
+										'<label class="form-check-label" for="is_aggregation">&nbsp;Aggregation</label>' +
+									'</div>' +
+									'<div id="aggregation-details"  style="display: none;">' +
+										'<div class="aggregation-text" data-toggle="tooltip" title="∀x∈objects s.th. ">For all objects x where</div>' +
+										'<textarea cols="20" rows="1" class="form-control" id="aggregation_text" onclick="rememberCursorPostion(\'aggregation_text\')"></textarea>' +
+										'<div class="aggregation-text"> :</div>' +
+										'<div id="aggregation-buttons">' + 
+											'<button id="aggregation-button-sum" class="btn aggregation-button" type="button" onclick="pressAggregateButton(\'sum\')">SUM</button>' +
+											'<button id="aggregation-button-count" class="btn aggregation-button" type="button" onclick="pressAggregateButton(\'count\')">COUNT</button>' +
+										'</div>' +
+									'</div>' +
+									'<div id="then-textarea" class="form-group">' + 
+										'<label for="rule-effect-text"><div id="then-text2">[' + rules_attribute_name + '] = </div></label>' +
+										'<textarea cols="20" rows="5" class="form-control" id="rule-effect-text" onclick="rememberCursorPostion(\'rule-effect-text\')"></textarea>' +
+									'</div>';
+		$('#rule-info-top-left').html(rule_info_top_left_html);
+		
+		
+		changeIfConditionCheckbox(object_number, rules_attribute_id, rules_attribute_name, null);
+		
+		
+		//#available-variables-block
+		available_variables_html = 	'<div class="available-variables-label">Available Variables:</div>' + 
+									'<input type="text" class="form-control" id="selectAvailableVariable" onkeyup="filterAvailableVariables();" placeholder=" Search">' + 
+									'<div class="available-variable-frame">' + 
+										'<ul id="available-variables" class="input-group list-group">';
+			
+		var object_attributes = objects_dict[object_number]['object_attributes'];
+		var attribute_ids = Object.keys(object_attributes);
+		for (var i = 0; i < attribute_ids.length ; i++) {
+			var attribute_id = attribute_ids[i];
+			var attribute_name = object_attributes[attribute_id]['attribute_name']
+			var attribute_data_type = object_attributes[attribute_id]['attribute_data_type']
+			if (attribute_data_type == 'relation') {
+				available_variables_html += 	'<li class="list-group-item avail-var-item"><button class="btn btn-outline-secondary avail-var-button" type="button" onclick="selectAvailableRelation(' + object_number + ', ' + attribute_id + ', \'' + attribute_name + '\')" scope="col">' + attribute_name + '</button></li>';
+			} else {
+				available_variables_html += 	'<li class="list-group-item avail-var-item"><button class="btn btn-outline-secondary avail-var-button" type="button" onclick="selectAvailableVariable(' + object_number + ',\'' + attribute_name + '\')" scope="col">' + attribute_name + '</button></li>';
+			}
+		}
+		for (var i = 0; i < delta_t_list.length ; i++) {
+			var delta_t_name = delta_t_list[i];
+			available_variables_html += 		'<li class="list-group-item avail-var-item"><button class="btn btn-outline-secondary avail-var-button" type="button" onclick="selectAvailableVariable(' + object_number + ',\'' + delta_t_name + '\')" scope="col">' + delta_t_name + '</button></li>';
+		}
+		
+		
+		available_variables_html += 	'</ul>' + 
+									'</div>';
+									
+		$('#available-variables-block').html(available_variables_html);
+		
+		
+		//#rule-info-bottom
+		rule_info_bottom_html = '<div class="parameter-form-group">' +
+									'<input type="checkbox" class="form-check-input" id="has_parameters" onchange="changeParameterCheckbox()">' +
+									'<label class="form-check-label" for="has_parameters">&nbsp;Parameters</label>' +
+								'</div>' +
+								'<div id="parameter-details" style="display: none;">' +
+									'<div class="parameter-form-group">' +
+										'<label id="add-parameter-button" class="btn" onclick="disabedAddParameter()">+ Add Parameter</label>' +
+									'</div>' +
+									'<div id="parameter-info-box"></div>' +
+								'</div>' +
+								'<div class="uncertainty-form-group" id="is-certain-fact-field">' +
+									'<input type="checkbox" class="form-check-input" id="is_probabilitic_rule" onchange="changeProbabilisticCheckbox(null, null)">' +
+									'<label class="form-check-label" for="is_probabilitic_rule">Uncertain/Probabilitic Rule</label>' +
+								'</div>' +
+								'<div id="rule-pdf-panel"></div>';
+		$('#rule-info-bottom').html(rule_info_bottom_html);
+		
+		
+		//#save-cancel-rule-buttons
+		var save_button_html_string =  	'<button type="button" class="btn btn-secondary" id="cancelNewRuleButton" onclick="cancelRuleCreation()">Cancel</button>' +
+										'<button type="button" class="btn btn-primary" id="chooseRuleSaveButton" onclick="saveBehaviourRule(null, ' + rules_attribute_id + ',\'' + rules_attribute_name + '\',' + object_number + ')">Save Rule</button>';
+		
+		$('#save-cancel-rule-buttons').html(save_button_html_string);
+		
+
+		
+	}
+	
+	
+	
+	// X - Button  - when pressed from rules-list
+	function removeBehaviourRule(object_number, attribute_id, rule_id) {
+		
+		// if the Rule Item is in the rules-list, then move it to the not-used-rules-list
+		if (execution_order['rule_execution_order'][String(attribute_id)]['used_rule_ids'].includes(rule_id)) {
+			// move it in the data
+			old_index = execution_order['rule_execution_order'][String(attribute_id)]['used_rule_ids'].indexOf(rule_id);
+			execution_order['rule_execution_order'][String(attribute_id)]['used_rule_ids'].splice(old_index,1);
+			execution_order['rule_execution_order'][String(attribute_id)]['not_used_rule_ids'].push(rule_id);
+
+			// move it on the html
+			not_used_rules_list = document.getElementById('not-used-rules-list');
+			the_deleted_item = document.getElementById('rule' + rule_id);
+			not_used_rules_list.appendChild(the_deleted_item);
+		}
+		
+		// if the Rule Item is in the not-used-rules-list, delete it permanently
+		else {
+			var ok_given = confirm("Permanently delete this rule?");
+			if (ok_given == false){return;}
+			
+			// delete it from the backend
+			var xmlhttp = new XMLHttpRequest();  
+			xmlhttp.open("POST", "/tool/delete_rule/");
+			xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+			xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+			xmlhttp.send(JSON.stringify({'rule_id':rule_id}));
+			
+			// delete the rule's parameters
+			var used_parameter_ids = objects_dict[object_number]['object_rules'][attribute_id][rule_id]['used_parameter_ids'];
+			for (var i = 0; i < used_parameter_ids.length ; i++) {
+				var xmlhttp = new XMLHttpRequest();  
+				xmlhttp.open("POST", "/tool/delete_parameter/");
+				xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+				xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+				xmlhttp.send(JSON.stringify({'parameter_id':used_parameter_ids[i]}));
+			}
+
+			// delete it from the frontend
+			old_index = execution_order['rule_execution_order'][String(attribute_id)]['not_used_rule_ids'].indexOf(rule_id);
+			execution_order['rule_execution_order'][String(attribute_id)]['not_used_rule_ids'].splice(old_index,1);
+			the_deleted_item = document.getElementById('rule' + rule_id).remove();
+			
+
+			
+			// save the changes to objects_dict
+			saveSimulation()
+			
+			// clear the right side of the modal
+			cancelRuleCreation()
+		}
+	}
+	
+	
+	
+	// Learn-Probability Checkbox
+	function learnProbabilityChange(object_number,attribute_id, rule_id) {
+		var learn_posterior  = document.getElementById("learn-probabililty--rule" + rule_id).checked;
+		objects_dict[object_number]['object_rules'][attribute_id][rule_id]['learn_posterior'] = learn_posterior;
+	}
+	
+	
+	/*========================================================================*/
+	/*========================       PARMETERS       =========================*/
+	/*========================================================================*/
+	function addParameter(object_number, attribute_id, attribute_name, rule_id) {
+
+		$('.parameter-info-button').removeClass('active');
+				
+		parameter_info_box_html = '<div id="parameter-settings">' +
+										'<div class="first-parameter-settings-input">' + 
+											'<label for="parameter_name">Parameter Name:</label>' +
+											'<input type="text" class="form-control" id="parameter_name" name="parameter_name" placeholder="New Parameter">' +
+										'</div>' + 
+										'<div class="parameter-settings-input">' + 
+											'<label for="parameter_minimum_value">Min:</label>' +
+											'<input type="text" class="form-control" id="parameter_minimum_value" name="parameter_minimum_value" placeholder="0">' +
+										'</div>' + 
+										'<div class="parameter-settings-input">' + 
+											'<label for="parameter_maximum_value">Max:</label>' +
+											'<input type="text" class="form-control" id="parameter_maximum_value" name="parameter_maximum_value" placeholder="1">' +
+										'</div>' + 
+										'<div id="save-cancel-parameter-buttons">' +
+											'<button type="button" class="btn btn-secondary" onclick="cancelParameterCreation()">Cancel</button>' +
+											'<button type="button" id="save-parameter-button" class="btn btn-primary" onclick="saveParameter(' + object_number + ',' + attribute_id + ',\'' + attribute_name + '\',' + rule_id + ', null)">Save Parameter</button>' +
+										'</div>' +
+									'</div>' + 
+									'<div id="parameter-pdf-panel"></div>';;
+		$('#parameter-info-box').html(parameter_info_box_html);
+		$('#parameter-info-box').css('display','block');
+		
+	}
+
+	function disabedAddParameter() {
+		$('#parameter-info-box').html('Please first create the rule, and then add the Parameter to the existing rule.');
+		$('#parameter-info-box').css('display','block');
+	}
+	
+	
+	
+	
+	function highlightParameter(parameter_name, parameter_number) {
+		$('#rule-condition-text').highlightWithinTextarea({highlight:[{highlight: '[' + parameter_name + ']', className: 'bg-colour' + parameter_number}]});
+		$('#rule-effect-text').highlightWithinTextarea({highlight:[{highlight: '[' + parameter_name + ']', className: 'bg-colour' + parameter_number}]});
+	}
+	
+	function un_highlight() {
+		$('#rule-condition-text').highlightWithinTextarea({highlight:[]});
+		$('#rule-effect-text').highlightWithinTextarea({highlight:[]});
+	}
+	
+	
+	
+	
+	
+	
+	function showParameterInfo(parameter_number, object_number, attribute_id, attribute_name, rule_id, parameter_id) {
+		
+		$('.parameter-info-button').removeClass('active');
+		$('#parameter-info-button' + parameter_number).addClass('active');
+		
+		var parameter_name = parameter_info[parameter_id]['parameter_name']
+		var min_value = parameter_info[parameter_id]['min_value']
+		var max_value = parameter_info[parameter_id]['max_value']
+		
+		parameter_info_box_html = '<div id="parameter-settings">' +
+										'<div class="first-parameter-settings-input">' + 
+											'<label for="parameter_name">Parameter Name:</label>' +
+											'<input type="text" class="form-control" id="parameter_name" name="parameter_name" value="' + parameter_name + '">' +
+										'</div>' + 
+										'<div class="parameter-settings-input">' + 
+											'<label for="parameter_minimum_value">Min:</label>' +
+											'<input type="text" class="form-control" id="parameter_minimum_value" name="parameter_minimum_value" value="' + min_value + '">' +
+										'</div>' + 
+										'<div class="parameter-settings-input">' + 
+											'<label for="parameter_maximum_value">Max:</label>' +
+											'<input type="text" class="form-control" id="parameter_maximum_value" name="parameter_maximum_value" value="' + max_value + '">' +
+										'</div>' + 
+										'<div id="save-cancel-parameter-buttons">' +
+											'<button type="button" class="btn btn-secondary bg-colour' + parameter_number + '" onclick="selectAvailableVariable(' + object_number + ', \'' + parameter_name + '\')">Insert</button>' +
+											'<button type="button" id="save-parameter-button" class="btn btn-primary" onclick="saveParameter(' + object_number + ',' + attribute_id + ',\'' + attribute_name + '\', ' + rule_id + ', ' + parameter_id + ')">Save Changes</button>' +
+											'<button type="button" id="delete-parameter-button" class="btn btn-danger" onclick="deleteParameter(' + object_number + ',' + attribute_id + ',\'' + attribute_name + '\', ' + rule_id + ', ' + parameter_id + ')">Delete</button>' +
+										'</div>' +
+									'</div>' + 
+									'<div id="parameter-pdf-panel">' + 
+										'<div class="pdf-this-simulation">' +
+											'<div class="outer-pdf-graph-container">' +
+												'<div id="parameter-pdf-graph-this-simulation"></div>' +
+											'</div>' +
+											'<div class="pdf-x-axis"><div class="left">' + min_value + '</div><div class="right">' + max_value + '</div></div>' +
+											'<div class="pdf-title">Learned from this simulation</div>' +
+											'<div id="parameter-this-simulation-warning-message"></div>' +
+										'</div>' +
+										'<div class="pdf-all-simulations">' +
+											'<div class="outer-pdf-graph-container">' +
+												'<div id="parameter-pdf-graph-all-simulations"></div>' +
+											'</div>' +
+											'<div class="pdf-x-axis"><div class="left">' + min_value + '</div><div class="right">' + max_value + '</div></div>' +
+											'<div class="pdf-title" data-toggle="tooltip" title="">Learned from all simulations</div>' +
+											'<div id="parameter-all-simulations-warning-message"></div>' +
+										'</div>' +
+									'</div>';
+		$('#parameter-info-box').html(parameter_info_box_html);
+		$('#parameter-info-box').css('display','block');
+		
+		
+		var url_components = window.location.href.split("/");
+		var simulation_id = url_components[url_components.length - 2];
+		//get_single_pdf
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var pdf_data = [];
+				var message = '';
+				var response = JSON.parse(this.responseText);
+				if (response) {
+					pdf_data = response['pdf'];
+					//var pdf_data = scalePDFToParameterRange(pdf_data, min_value, max_value);
+					if (response['message']) {
+						message = response['message'] + '<br>';
+						$('#this-simulation-warning-message').css('color', 'red');
+					}
+				} else {
+					pdf_data = [[0.0, 1.0], [0.03333333333333333, 1.0], [0.06666666666666667, 1.0], [0.1, 1.0], [0.13333333333333333, 1.0], [0.16666666666666666, 1.0], [0.2, 1.0], [0.23333333333333334, 1.0], [0.26666666666666666, 1.0], [0.3, 1.0], [0.3333333333333333, 1.0], [0.36666666666666664, 1.0], [0.4, 1.0], [0.43333333333333335, 1.0], [0.4666666666666667, 1.0], [0.5, 1.0], [0.5333333333333333, 1.0], [0.5666666666666667, 1.0], [0.6, 1.0], [0.6333333333333333, 1.0], [0.6666666666666666, 1.0], [0.7, 1.0], [0.7333333333333333, 1.0], [0.7666666666666666, 1.0], [0.8, 1.0], [0.8333333333333334, 1.0], [0.8666666666666667, 1.0], [0.9, 1.0], [0.9333333333333333, 1.0], [0.9666666666666667, 1.0]];
+					message = 'Initial distribution: uniform<br>';
+					$('#this-simulation-warning-message').css('color', 'black');
+				}
+				
+					
+	
+				$('#parameter-pdf-graph-this-simulation').html('');
+				anychart.onDocumentReady(function () {
+					var dataSet = anychart.data.set(pdf_data);
+					var seriesData = dataSet.mapAs({'x': 0, 'value': 1});
+					var chart = anychart.area();
+					var series = chart.area(seriesData);
+					series.tooltip().enabled(false);
+
+					// axes settings
+					chart.yAxis();
+					var xAxis = chart.xAxis();
+					xAxis.title('Probability');
+					xAxis.labels().format("{%Value}%");
+
+					chart.container('parameter-pdf-graph-this-simulation');
+					chart.draw();
+				});
+				
+				$('#parameter-this-simulation-warning-message').html(message + '(' + response['nb_of_sim_in_which_rule_was_used'] + ' correct runs)');
+				
+			}
+		};
+		xhttp.open('GET', '/tool/get_single_pdf?simulation_id=' + simulation_id + '&execution_order_id=' + execution_order_id + '&object_number=' + object_number + '&rule_or_parameter_id=' + parameter_id + '&is_rule=false' , true);
+		xhttp.send();
+		
+		
+		//get_rules_pdf
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var pdf_data = [];
+				var response = JSON.parse(this.responseText);
+				if (response) {
+					pdf_data = response['pdf']
+					//pdf_data = scalePDFToParameterRange(pdf_data, min_value, max_value);
+				} else {
+					pdf_data = [[0.0, 1.0], [0.03333333333333333, 1.0], [0.06666666666666667, 1.0], [0.1, 1.0], [0.13333333333333333, 1.0], [0.16666666666666666, 1.0], [0.2, 1.0], [0.23333333333333334, 1.0], [0.26666666666666666, 1.0], [0.3, 1.0], [0.3333333333333333, 1.0], [0.36666666666666664, 1.0], [0.4, 1.0], [0.43333333333333335, 1.0], [0.4666666666666667, 1.0], [0.5, 1.0], [0.5333333333333333, 1.0], [0.5666666666666667, 1.0], [0.6, 1.0], [0.6333333333333333, 1.0], [0.6666666666666666, 1.0], [0.7, 1.0], [0.7333333333333333, 1.0], [0.7666666666666666, 1.0], [0.8, 1.0], [0.8333333333333334, 1.0], [0.8666666666666667, 1.0], [0.9, 1.0], [0.9333333333333333, 1.0], [0.9666666666666667, 1.0]];
+				}
+				
+				$('#parameter-pdf-graph-all-simulations').html('');
+				anychart.onDocumentReady(function () {
+					var dataSet = anychart.data.set(pdf_data);
+					var seriesData = dataSet.mapAs({'x': 0, 'value': 1});
+					var chart = anychart.area();
+					var series = chart.area(seriesData);
+					series.tooltip().enabled(false);
+
+					// axes settings
+					chart.yAxis();
+					var xAxis = chart.xAxis();
+					xAxis.labels().format("{%Value}%");
+
+					chart.container('parameter-pdf-graph-all-simulations');
+					chart.draw();
+				});
+				
+				if (response['nb_of_simulations']>1) {
+					$('.pdf-all-simulations .pdf-title').attr('title', 'This distribution was learned from ' + response['nb_of_simulations'] + ' different simulations');
+					$('[data-toggle="tooltip"]').tooltip()
+				}
+				$('#parameter-all-simulations-warning-message').html('(total: ' + response['nb_of_sim_in_which_rule_was_used'] + ' correct runs)');
+				
+			}
+		};
+		xhttp.open('GET', '/tool/get_rules_pdf?execution_order_id=' + execution_order_id + '&rule_or_parameter_id=' + parameter_id  + '&is_rule=false', true);
+		xhttp.send();
+	}
+	
+	
+	function saveParameter(object_number, rules_attribute_id, rules_attribute_name, rule_id, parameter_id) {
+	
+		var parameter_name = $('#parameter_name').val();
+		var min_value = $('#parameter_minimum_value').val();
+		var max_value = $('#parameter_maximum_value').val();
+		var url_components = window.location.href.split("/");
+		var simulation_id = url_components[url_components.length - 2];
+		
+
+		// Save to Backend =========================
+		if (!isNaN(min_value) && !isNaN(max_value) && parameter_name.length > 0 && parseFloat(min_value) < parseFloat(max_value)) {
+		
+			// new record in Rule_parameter		
+			var request_body = {
+				'simulation_id':simulation_id,
+				'execution_order_id':execution_order_id,
+				'object_number':object_number,
+				'rules_attribute_id': rules_attribute_id, 
+				'rules_attribute_name': rules_attribute_name, 
+				'rule_id': rule_id,
+				'new_parameter_dict' : {'rule_id': rule_id,
+										'parameter_name': parameter_name, 	
+										'min_value': parseFloat(min_value),
+										'max_value': parseFloat(max_value)
+										}
+			}
+				
+			
+			if (parameter_id != null) {
+				request_body['id'] = parameter_id;
+				if (parseFloat(min_value) != parameter_info[parameter_id]['min_value'] || parseFloat(max_value) != parameter_info[parameter_id]['max_value']) {
+					request_body['parameter_range_change'] = true;
+				} else {
+					request_body['parameter_range_change'] = false;
+				}
+			}
+		
+			var xmlhttp = new XMLHttpRequest(); 
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					
+					response_dict = JSON.parse(this.responseText);
+					response_request_body = response_dict['request_body'];
+
+					
+					if (response_dict['is_new']) {
+						
+						// new record in Likelihood_fuction
+						var new_likelihood_function_dict = {
+							'simulation_id': response_request_body['simulation_id'],
+							'object_number': response_request_body['object_number'],
+							'parameter_id': response_dict['parameter_id'],
+							'list_of_probabilities': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+							'nb_of_simulations': 0,
+							'nb_of_sim_in_which_rule_was_used': 0,
+							'nb_of_tested_parameters': 0,
+							'nb_of_tested_parameters_in_posterior': 0
+						}
+						
+						var xmlhttp = new XMLHttpRequest();   
+						xmlhttp.open("POST", "/tool/save_likelihood_function/");
+						xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+						xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+						xmlhttp.send(JSON.stringify(new_likelihood_function_dict));
+						
+						// Save to Frontend 
+						objects_dict[response_request_body['object_number']]['object_rules'][ response_request_body['rules_attribute_id']][response_request_body['rule_id']]['used_parameter_ids'].push(response_dict['parameter_id']);
+					} 
+					
+					// re-draw
+					parameter_info[response_dict['parameter_id']] = response_request_body['new_parameter_dict'];
+					populateTheRulePanels(response_request_body['object_number'], response_request_body['rules_attribute_id'], response_request_body['rules_attribute_name']);
+					inspectRule(response_request_body['object_number'], response_request_body['rules_attribute_id'], response_request_body['rules_attribute_name'], response_request_body['rule_id']); 
+					
+					// Empty the parameter-info-box
+					$('#parameter-info-box').html('');
+					$('#parameter-info-box').css('display','none');						
+				}
+			};			
+			xmlhttp.open("POST", "/tool/save_rule_parameter/");
+			xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+			xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+			xmlhttp.send(JSON.stringify(request_body));	
+		}
+	}
+	
+	
+	
+	function deleteParameter(object_number, rules_attribute_id, rules_attribute_name, rule_id, parameter_id) {
+
+		// delete it from the backend
+		var xmlhttp = new XMLHttpRequest();  
+		xmlhttp.open("POST", "/tool/delete_parameter/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send(JSON.stringify({'parameter_id':parameter_id}));
+		
+		
+		// Remove to Frontend 
+		delete parameter_info[parameter_id];
+		used_parameter_ids = objects_dict[object_number]['object_rules'][rules_attribute_id][rule_id]['used_parameter_ids'];
+		const index = used_parameter_ids.indexOf(parameter_id);
+		if (index > -1) {
+		  used_parameter_ids.splice(index, 1);
+		}
+		objects_dict[object_number]['object_rules'][rules_attribute_id][rule_id]['used_parameter_ids'] = used_parameter_ids;
+		
+		saveSimulation() // save the changed objects_dict
+		inspectRule(object_number, rules_attribute_id, rules_attribute_name, rule_id); //redraw rule
+		
+		// Empty the parameter-info-box
+		$('#parameter-info-box').html('');
+		$('#parameter-info-box').css('display','none');	
+	}
+
+	
+	/*========================================================================*/
+	/*======================       RULE CHECKBOXES       =====================*/
+	/*========================================================================*/
+	
+	
+	
+	function changeIfConditionCheckbox(object_number, attribute_id, attribute_name, rule_id) {
+		var has_if_condition = $('#has_if_condition').is(':checked');
+		
+		
+		if (has_if_condition){
+			
+			var condition_text = '';
+			if ((rule_id != null) && (Object.keys(objects_dict[object_number]["object_rules"][attribute_id]).includes(String(rule_id)))) {
+				condition_text = objects_dict[object_number]["object_rules"][attribute_id][rule_id]['condition_text']
+			}
+			
+			if (condition_text == '') {
+				var object_filter_facts = objects_dict[object_number]['object_filter_facts'] 
+				for (var i = 0; i < object_filter_facts.length ; i++) {
+					condition_text += '[' + object_filter_facts[i]['attribute'] + '] ' +  object_filter_facts[i]['operation'] + ' ' + object_filter_facts[i]['value'] + ' and '
+				}
+				var object_relations = objects_dict[object_number]['object_relations'] 
+				for (var i = 0; i < object_relations.length ; i++) {
+					var relation_filter_facts = objects_dict[object_relations[i]['target_object_number']]['object_filter_facts'] 
+					for (var i = 0; i < relation_filter_facts.length ; i++) {
+						condition_text += '[' + object_relations[i]['relation_name'] + '].[' + relation_filter_facts[i]['attribute'] + '] ' +  relation_filter_facts[i]['operation'] + ' ' + relation_filter_facts[i]['value'] + ' and '
+					}
+				}
+			}
+			
+			
+
+			$('#rule-condition-text').html(condition_text);
+			$('#if-textarea').css('display','block');
+
+
+		} else {	
+			$('#rule-condition-text').html('');
+			$('#if-textarea').css('display','none');
+		}
+	}
+	
+	
+	function changeProbabilisticCheckbox(object_number, rule_id) {
+	
+		var is_probabilitic_rule = $('#is_probabilitic_rule').is(':checked');
+		var has_if_condition = $('#has_if_condition').is(':checked');
+		if (!is_probabilitic_rule) {
+			// No PDF
+			$('#rule-pdf-panel').html('');
+		} else {
+			
+			if (has_if_condition){
+				var pdf_description = 'Instead of executing every time the IF-condition is fulfilled,'
+			} else {
+				var pdf_description = 'Instead of executing at every timestep,'
+			}
+			var rule_probability_html_string = '<div class="rule-pdf-description">' +
+													'<div class="rule-pdf-description-title">Rule Probability p:</div>' +
+													'<div class="rule-pdf-description-main">' + pdf_description + ' this uncertain rule executes with the probability p. On the right is the probability distribution of p.</div>' +
+												'</div>' +
+												'<div class="pdf-this-simulation">' +
+													'<div class="outer-pdf-graph-container">' +
+														'<div id="pdf-graph-this-simulation"></div>' +
+													'</div>' +
+													'<div class="pdf-x-axis"><div class="left">0%</div><div class="right">100%</div></div>' +
+													'<div class="pdf-title">Learned from this simulation</div>' +
+													'<div id="this-simulation-warning-message"></div>' +
+												'</div>' +
+												'<div class="pdf-all-simulations">' +
+													'<div class="outer-pdf-graph-container">' +
+														'<div id="pdf-graph-all-simulations"></div>' +
+													'</div>' +
+													'<div class="pdf-x-axis"><div class="left">0%</div><div class="right">100%</div></div>' +
+													'<div class="pdf-title" data-toggle="tooltip" title="">Learned from all simulations</div>' +
+													'<div id="parameter-all-simulations-warning-message"></div>' +
+												'</div>';
+												
+			$('#rule-pdf-panel').html(rule_probability_html_string);
+				
+
+				
+			var url_components = window.location.href.split("/");
+			var simulation_id = url_components[url_components.length - 2];
+			//get_single_pdf
+			var xhttp = new XMLHttpRequest();       
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var pdf_data = [];
+					var message = '';
+					var response = JSON.parse(this.responseText);
+					if (response) {
+						pdf_data = response['pdf'];
+						message = response['message'];
+						$('#this-simulation-warning-message').css('color', 'red');
+					} else {
+						pdf_data = [[0.0, 1.0], [0.03333333333333333, 1.0], [0.06666666666666667, 1.0], [0.1, 1.0], [0.13333333333333333, 1.0], [0.16666666666666666, 1.0], [0.2, 1.0], [0.23333333333333334, 1.0], [0.26666666666666666, 1.0], [0.3, 1.0], [0.3333333333333333, 1.0], [0.36666666666666664, 1.0], [0.4, 1.0], [0.43333333333333335, 1.0], [0.4666666666666667, 1.0], [0.5, 1.0], [0.5333333333333333, 1.0], [0.5666666666666667, 1.0], [0.6, 1.0], [0.6333333333333333, 1.0], [0.6666666666666666, 1.0], [0.7, 1.0], [0.7333333333333333, 1.0], [0.7666666666666666, 1.0], [0.8, 1.0], [0.8333333333333334, 1.0], [0.8666666666666667, 1.0], [0.9, 1.0], [0.9333333333333333, 1.0], [0.9666666666666667, 1.0]];
+						message = 'Initial distribution: uniform';
+						$('#this-simulation-warning-message').css('color', 'black');
+					}
+											
+					
+					$('#pdf-graph-this-simulation').html('');
+					anychart.onDocumentReady(function () {
+						var dataSet = anychart.data.set(pdf_data);
+						var seriesData = dataSet.mapAs({'x': 0, 'value': 1});
+						var chart = anychart.area();
+						var series = chart.area(seriesData);
+						series.tooltip().enabled(false);
+
+						// axes settings
+						chart.yAxis();
+						var xAxis = chart.xAxis();
+						xAxis.title('Probability');
+						xAxis.labels().format("{%Value}%");
+
+						chart.container('pdf-graph-this-simulation');
+						chart.draw();
+					});
+					
+					$('#this-simulation-warning-message').html(message);
+				}
+			};
+			xhttp.open('GET', '/tool/get_single_pdf?simulation_id=' + simulation_id + '&execution_order_id=' + execution_order_id + '&object_number=' + object_number + '&rule_or_parameter_id=' + rule_id  + '&is_rule=true', true);
+			xhttp.send();
+			
+			
+			//get_rules_pdf
+			var xhttp = new XMLHttpRequest();       
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var pdf_data = [];
+					var response = JSON.parse(this.responseText);
+					if (response) {
+						pdf_data = response;
+					} else {
+						pdf_data = [[0.0, 1.0], [0.03333333333333333, 1.0], [0.06666666666666667, 1.0], [0.1, 1.0], [0.13333333333333333, 1.0], [0.16666666666666666, 1.0], [0.2, 1.0], [0.23333333333333334, 1.0], [0.26666666666666666, 1.0], [0.3, 1.0], [0.3333333333333333, 1.0], [0.36666666666666664, 1.0], [0.4, 1.0], [0.43333333333333335, 1.0], [0.4666666666666667, 1.0], [0.5, 1.0], [0.5333333333333333, 1.0], [0.5666666666666667, 1.0], [0.6, 1.0], [0.6333333333333333, 1.0], [0.6666666666666666, 1.0], [0.7, 1.0], [0.7333333333333333, 1.0], [0.7666666666666666, 1.0], [0.8, 1.0], [0.8333333333333334, 1.0], [0.8666666666666667, 1.0], [0.9, 1.0], [0.9333333333333333, 1.0], [0.9666666666666667, 1.0]];
+					}
+					
+					$('#pdf-graph-all-simulations').html('');
+					anychart.onDocumentReady(function () {
+						var dataSet = anychart.data.set(pdf_data);
+						var seriesData = dataSet.mapAs({'x': 0, 'value': 1});
+						var chart = anychart.area();
+						var series = chart.area(seriesData);
+						series.tooltip().enabled(false);
+
+						// axes settings
+						chart.yAxis();
+						var xAxis = chart.xAxis();
+						xAxis.labels().format("{%Value}%");
+
+						chart.container('pdf-graph-all-simulations');
+						chart.draw();
+					});
+					
+				}
+			};
+			xhttp.open('GET', '/tool/get_rules_pdf?execution_order_id=' + execution_order_id + '&rule_or_parameter_id=' + rule_id + '&is_rule=true', true);
+			xhttp.send();
+		}
+	}
+	
+	
+	function changeParameterCheckbox() {
+		if ($('#has_parameters').is(':checked')) {
+			$('#parameter-details').css('display', 'block');
+		} else {
+			$('#parameter-details').css('display', 'none');
+		}
+	}
+	
+	function changeAggregateCheckbox() {
+		if ($('#is_aggregation').is(':checked')) {
+			$('#aggregation-details').css('display', 'block');
+		} else {
+			$('#aggregation-details').css('display', 'none');
+		}
+	}
+	
+	/*========================================================================*/
+	/*======================       RULE DETAILS       ==========================*/
+	/*========================================================================*/
+	
+	function cancelRuleCreation() {
+		$('#rule-info-top-left').html('');
+		$('#available-variables-block').html('');
+		$('#save-cancel-rule-buttons').html('');	
+		$('#rule-pdf-panel').html('');
+		$('#rule-info-bottom').html('');
+	}
+	
+	
+
+	function rememberCursorPostion(text_area_id) {
+		new_rule_cursor_position = {'text_area_id':text_area_id};	
+	}
+	
+	
+	function pressAggregateButton(button_string) {
+	
+		var string_to_insert = ""
+		if (button_string == 'sum') {
+			string_to_insert = 'SUM(x. )'
+		} else if (button_string == 'count') {
+			string_to_insert = 'COUNT(x)'
+		}
+		
+		var myElement = document.getElementById('rule-effect-text');
+		var startPosition = myElement.selectionStart;
+		var endPosition = myElement.selectionEnd;
+		var rule_effect_text = document.getElementById('rule-effect-text').value;
+		var new_rule_effect_text = rule_effect_text.substring(0, startPosition) + string_to_insert + rule_effect_text.substring(endPosition, rule_effect_text.length);
+		document.getElementById('rule-effect-text').value = new_rule_effect_text;
+	}
+	
+	function selectAvailableVariable(object_number, attribute_name) {
+		var myElement = document.getElementById(new_rule_cursor_position['text_area_id']);
+		var startPosition = myElement.selectionStart;
+		var endPosition = myElement.selectionEnd;
+	
+		$('#available-variables-error-message').html('');
+		var rule_text = document.getElementById(new_rule_cursor_position['text_area_id']).value;
+		var new_rule_text = rule_text.substring(0, startPosition) + '[' + attribute_name + ']' + rule_text.substring(endPosition, rule_text.length);
+		document.getElementById(new_rule_cursor_position['text_area_id']).value = new_rule_text;
+		document.getElementById(new_rule_cursor_position['text_area_id']).selectionStart = endPosition + attribute_name.length + 2;
+		document.getElementById(new_rule_cursor_position['text_area_id']).selectionEnd = endPosition + attribute_name.length + 2;
+		startPosition = endPosition + attribute_name.length + 2;
+		endPosition =  endPosition + attribute_name.length + 2;
+		
+		if 	($('#available-relation-variables-block').css('width') == '219px') {
+			$('#available-relation-variables-block').animate({width: '0px'}, 300, 'linear');
+			$('#available-variables-block').animate({width: '219px'}, 300, 'linear');
+		}
+	}
+	
+	
+	
+	function selectAvailableRelation(object_number, relation_id, relation_name) {
+		objects_relations = objects_dict[object_number]['object_relations']
+		var target_object_number = null;
+		for (var i = 0; i < objects_relations.length ; i++) {
+			if (objects_relations[i]['attribute_id'] == relation_id){
+				target_object_number = objects_relations[i]['target_object_number'];
+			}
+		}
+		
+		if (target_object_number == null) {
+			$('#available-variables-error-message').html('In the Scenario-view, please first link ' + objects_dict[object_number]['object_name'] + ' to another object using the --' + relation_name + '--&gt; relation');
+		} else {
+		
+			var object_name = objects_dict[target_object_number]['object_name']
+			var available_relation_variables_html = 	'<button type="button" class="btn btn-secondary" id="remove-related-attributes-button" onclick="removeRelatedAttributes()"><i class="fas fa-angle-left"></i></button>' + 
+														'<div class="relations-variables-label">' + object_name + '\'s Variables:</div>' + 
+														'<input type="text" class="form-control" id="selectRelatedAvailableVariable" onkeyup="filterRelatedVariables();" placeholder=" Search">' + 
+														'<div class="available-variable-frame">' + 
+															'<ul id="related-available-variables" class="input-group list-group">';
+			
+			var object_attributes = objects_dict[target_object_number]['object_attributes'];
+			var attribute_ids = Object.keys(object_attributes);
+			for (var i = 0; i < attribute_ids.length ; i++) {
+				var attribute_id = attribute_ids[i];
+				var attribute_name = object_attributes[attribute_id]['attribute_name']
+				var attribute_data_type = object_attributes[attribute_id]['attribute_data_type']
+				if (attribute_data_type == 'relation') {
+					available_relation_variables_html += 		'<li class="list-group-item related-var-item"><button class="btn btn-outline-secondary avail-var-button" type="button" onclick="selectAvailableRelation(' + object_number + ', ' + attribute_id + ', \'' + attribute_name + '\')" scope="col">' + attribute_name + '</button></li>';
+				} else {
+					available_relation_variables_html += 		'<li class="list-group-item related-var-item"><button class="btn btn-outline-secondary avail-var-button" type="button" onclick="selectAvailableVariable(' + object_number + ',\'' + attribute_name + '\')" scope="col">' + attribute_name + '</button></li>';
+				}
+			}
+			available_relation_variables_html += 			'</ul>' + 
+														'</div>';
+													
+			$('#available-relation-variables-block').html(available_relation_variables_html);
+			
+			// slide it into view
+			$('#available-variables-block').animate({width: '0px'}, 300, 'linear');
+			$('#available-relation-variables-block').animate({width: '219px'}, 300, 'linear');
+			
+			
+			// add to the Rule Text
+			var rule_text = document.getElementById(new_rule_cursor_position['text_area_id']).value;
+			var new_rule_text = rule_text.substring(0, new_rule_cursor_position['startPosition']) + '[' + relation_name + '].' + rule_text.substring(new_rule_cursor_position['endPosition'], rule_text.length);
+			document.getElementById(new_rule_cursor_position['text_area_id']).value = new_rule_text;
+			document.getElementById(new_rule_cursor_position['text_area_id']).selectionStart = new_rule_cursor_position['endPosition'] + relation_name.length + 3;
+			document.getElementById(new_rule_cursor_position['text_area_id']).selectionEnd = new_rule_cursor_position['endPosition'] + relation_name.length + 3;
+			new_rule_cursor_position['startPosition'] = new_rule_cursor_position['endPosition'] + relation_name.length + 3;
+			new_rule_cursor_position['endPosition'] =  new_rule_cursor_position['endPosition'] + relation_name.length + 3;
+		}
+	}
+	
+	
+	
+	function removeRelatedAttributes(){
+		$('#available-relation-variables-block').html('');
+		
+		$('#available-relation-variables-block').animate({width: '0px'}, 300, 'linear');
+		$('#available-variables-block').animate({width: '219px'}, 300, 'linear');
+		
+	}
+	
+	
+	
+	
+
+	
+		
+		
+		
+	/*========================================================================*/
+	/*=======================    SAVE RULE     ===============================*/
+	/*========================================================================*/
+	
+	
+	function make_executable(rule_text, object_number, rules_attribute_id, rule_id) {
+		var has_error = false;
+		var error_message = ""
+		var used_attribute_ids = []
+		
+		
+		// 0 CHECKS
+		// I know it is idiotic to do security checks on the client side - I'll move this to the backend asap
+		if (rule_text.length == 0) {
+			error_message += 'Rule text missing; ';
+			has_error = true;
+		} else if (rule_text.length >= 500) {
+			error_message += 'The Rule is ' + rule_text.length + ' characters long. Maximally 500 are allowed; ';
+			has_error = true;
+		}
+		
+		// Checking the Rule Text - only the commands in permitted_substrings are allowed==================
+		//1 - REMOVING/REPLACING DELTA_T
+		var executable = rule_text;
+		var stripped_rule_text = rule_text;
+		for (var i = 0; i < delta_t_list.length; i++) {
+			var search_value = '[' + delta_t_list[i] + ']';
+			executable = executable.split(search_value).join('(df.delta_t/' + timestep_units[i] +')');
+			stripped_rule_text = stripped_rule_text.split(search_value).join(' ');
+		}
+		
+		
+		//2 - REMOVING/REPLACING PARAMETERS
+		if (rule_id) {
+			var used_parameter_ids = objects_dict[object_number]['object_rules'][rules_attribute_id][rule_id]['used_parameter_ids'];
+			for (var i = 0; i < used_parameter_ids.length; i++) {
+				parameter_id = used_parameter_ids[i];
+				parameter_name = parameter_info[parameter_id]['parameter_name'];
+				executable = executable.split('['+parameter_name+']').join('df.param'+parameter_id);
+				stripped_rule_text = stripped_rule_text.split('['+parameter_name+']').join(' ');
+			}
+		}
+		
+		
+		//3 - REMOVING/REPLACING VARIABLES
+		var available_attribute_ids = [];
+		var available_attribute_names = [];
+		var available_attribute_datatypes = [];
+		var object_numbers = Object.keys(objects_dict);
+		for (var i = 0; i < object_numbers.length; i++) {
+			var objects_attribute_ids = Object.keys(objects_dict[object_numbers[i]]['object_attributes']);
+			for (var j = 0; j < objects_attribute_ids.length; j++) {
+				available_attribute_ids.push(objects_attribute_ids[j]);
+				available_attribute_names.push(objects_dict[object_numbers[i]]['object_attributes'][objects_attribute_ids[j]]['attribute_name']);
+				available_attribute_datatypes.push(objects_dict[object_numbers[i]]['object_attributes'][objects_attribute_ids[j]]['attribute_data_type'])
+			}
+		}
+			
+		//4 - REMOVING/REPLACING RELATED VARIABLES
+		for (var i = 0; i < available_attribute_ids.length; i++) {
+			var search_value = '[' + available_attribute_names[i] + ']';
+			if (executable.indexOf(search_value)>=0){
+			
+				//add the attribute to used_attribute_ids if it's an attribute of the first object (and not of a related object)
+				if ((' ' + executable).search(new RegExp('[^.]\[' + available_attribute_names[i].replace(/[.*+?^${}()|[\]\\-]/g, '\\$&') + '\]')) >=0) {
+					used_attribute_ids.push(available_attribute_ids[i]);
+				}
+				
+				var data_type = available_attribute_datatypes[i];
+				if (data_type == 'relation'){
+					// first replace the ones with dot before, then set the replacement for the replacing without dot (necessary for multiple relations)
+					executable = executable.split('x.' + search_value).join('x_df.rel' + String(available_attribute_ids[i]));
+					executable = executable.split('.' + search_value).join('.rel' + String(available_attribute_ids[i]));
+					executable = executable.split(search_value).join('df.rel' + String(available_attribute_ids[i]));
+				//} else if (['string', 'date'].includes(data_type)){
+				//	executable = executable.split('x.' + search_value).join('x_df.attr' + String(available_attribute_ids[i]) + '"');
+				//	executable = executable.split('.' + search_value).join('.attr' + String(available_attribute_ids[i]) + '"');
+				//	executable = executable.split(search_value).join('df.attr' + String(available_attribute_ids[i]) + '"');
+				} else {
+					executable = executable.split('x.' + search_value).join('x_df.attr' + String(available_attribute_ids[i]));
+					executable = executable.split('.' + search_value).join('.attr' + String(available_attribute_ids[i]));
+					executable = executable.split(search_value).join('df.attr' + String(available_attribute_ids[i]));
+				}
+
+				stripped_rule_text = stripped_rule_text.split(search_value).join(' ');
+			}	
+		}
+		
+		//match unmatched " 
+		var regex = /["a-zA-Z0-9\._]*"/g;
+		var words_ending_on_quote = executable.match(regex);
+		if (words_ending_on_quote){
+			for (var i = 0; i < words_ending_on_quote.length; i++) {
+			  if (words_ending_on_quote[i].substring(0,1) != '"') { //if they don't start with a quotationmark: add it
+				 executable = executable.split(words_ending_on_quote[i]).join('"' + words_ending_on_quote[i]);
+			  }
+			}
+		}
+			
+		
+		//5 - REMOVING THE REST
+		//function-characters
+		var permitted_characters = ['\\(','\\)','\\[','\\]','\\{','\\}','\\+','\\*','\\.','-','/','%','.',',',':'] 
+		for (var i = 0; i < permitted_characters.length; i++) {
+			stripped_rule_text = stripped_rule_text.replace(new RegExp(permitted_characters[i], 'g'), ' ');
+		}		
+		//removing permitted commands
+		var permitted_substrings = ['if','and','or', 'true', 'True', 'false', 'False']
+		for (var i = 0; i < permitted_substrings.length; i++) {
+			stripped_rule_text = stripped_rule_text.replace(new RegExp(permitted_substrings[i], 'g'), '');
+		}
+		
+		//removing aggregation expressions
+		var permitted_substrings = ['SUM','COUNT','x.']
+		for (var i = 0; i < permitted_substrings.length; i++) {
+			stripped_rule_text = stripped_rule_text.replace(new RegExp(permitted_substrings[i], 'g'), '');
+		}
+		
+		//removing empty spaces
+		stripped_rule__remaining_words = stripped_rule_text.split(" ");
+		for (var i =0; i < stripped_rule__remaining_words.length; i++){
+			if (stripped_rule__remaining_words[i] == ''){
+				stripped_rule__remaining_words.splice(i, );
+			}
+		}
+		//if there's still something remaining: ERROR
+		if (stripped_rule__remaining_words.length > 0) {
+			error_message += 'The following commands are not permitted in the Rule: ' + stripped_rule__remaining_words.join(',') + '; ';
+			has_error = true;
+		}
+		
+		
+		
+		executable_dict = { 'has_error':has_error,
+						'error_message': error_message,
+						'executable':executable,
+						'used_attribute_ids':used_attribute_ids};
+		return executable_dict;
+	}
+	
+	
+	
+	function saveBehaviourRule(rule_id, attribute_id, attribute_name, object_number) {
+		if (rule_id) {
+			var ok_given = confirm("The rule's probability distributions will be lost");
+			if (ok_given == false){return;}
+			rule_dict = objects_dict[object_number]['object_rules'][attribute_id][rule_id];
+		} else {
+			rule_dict = {};
+			rule_dict['used_parameter_ids'] = [];
+		}
+		
+		// setting: changed_var_attribute_id, has_probability_1, probability, standard_dev
+		rule_dict['changed_var_attribute_id'] = attribute_id;
+		rule_dict['changed_var_data_type'] = objects_dict[object_number]['object_attributes'][attribute_id]['attribute_data_type'];
+		rule_dict['has_probability_1'] = !$('#is_probabilitic_rule').is(':checked');
+		rule_dict['probability'] = null;
+		rule_dict['standard_dev'] = null;
+		rule_dict['learn_posterior'] = !rule_dict['has_probability_1'];
+		
+		// setting: condition_text, condition_exec, is_conditionless
+		var used_attribute_ids = []
+		
+		var has_if_condition = $('#has_if_condition').is(':checked');
+		if (has_if_condition){
+			var condition_text = $('#rule-condition-text').val();
+			condition_executable_dict = make_executable(condition_text, object_number, attribute_id, rule_id);
+			if (condition_executable_dict['has_error']) {
+				alert('Error with IF: ' + condition_executable_dict['error_message']);
+				return;
+			}
+			used_attribute_ids = condition_executable_dict['used_attribute_ids'];
+			rule_dict['condition_text'] = condition_text;
+			rule_dict['condition_exec'] = condition_executable_dict['executable'];
+			rule_dict['is_conditionless'] = false;
+	
+		} else {	
+			rule_dict['condition_text'] = '';
+			rule_dict['condition_exec'] = '';
+			rule_dict['is_conditionless'] = true;
+		}
+		
+		// setting: aggregation_text, aggregation_exec
+		var aggregation_text = $('#aggregation_text').val().trim();
+		if (aggregation_text.length > 0) {
+			aggregation_executable_dict = make_executable(aggregation_text, object_number, attribute_id, rule_id);
+			if (aggregation_executable_dict['has_error']) {
+				alert('Error with Aggregation: ' + aggregation_executable_dict['error_message']);
+				return;
+			}
+			rule_dict['aggregation_text'] = aggregation_text;
+			rule_dict['aggregation_exec'] = aggregation_executable_dict['executable'];
+			$.each(aggregation_executable_dict['used_attribute_ids'], function(i, el){    // append the new used_attribute_ids, if not found already in the list
+				if($.inArray(el, used_attribute_ids) === -1) used_attribute_ids.push(el);
+			});
+		} else {
+			rule_dict['aggregation_text'] = '';
+			rule_dict['aggregation_exec'] = '';
+		}
+		
+		
+		
+		// setting: effect_text, effect_exec
+		var effect_text = $('#rule-effect-text').val().trim();
+		effect_executable_dict = make_executable(effect_text, object_number, attribute_id, rule_id);
+		if (effect_executable_dict['has_error']) {
+			alert('Error with THEN: ' + effect_executable_dict['error_message']);
+			return;
+		}
+		rule_dict['effect_text'] = effect_text;
+		rule_dict['effect_exec'] = effect_executable_dict['executable'];
+		$.each(effect_executable_dict['used_attribute_ids'], function(i, el){    // append the new used_attribute_ids, if not found already in the list
+			if($.inArray(el, used_attribute_ids) === -1) used_attribute_ids.push(el);
+		});
+		
+		
+		rule_dict['used_attribute_ids'] = used_attribute_ids;
+		
+
+		// setting: effect_is_calculation
+		if (effect_executable_dict['executable'].indexOf('df.')>=0 || effect_executable_dict['executable'].indexOf('COUNT')>=0) {
+			rule_dict['effect_is_calculation'] = true;
+		} else {
+			rule_dict['effect_is_calculation'] = false;
+			var effect_exec = rule_dict['effect_exec'];
+			if (effect_exec[0] == "'" || effect_exec[0] == '"') {
+				effect_exec = effect_exec.substring(1, effect_exec.length - 1);
+			} else if (effect_exec.includes('.')){
+				effect_exec = parseFloat(effect_exec);
+			} else if (effect_exec.includes('rue') || effect_exec.includes('alse')){
+				effect_exec = (effect_exec.trim().toLowerCase()=='true');
+			} else {
+				effect_exec = parseInt(effect_exec);
+			}
+			rule_dict['effect_exec'] = JSON.stringify(effect_exec);
+			
+		}
+		
+
+
+		var xmlhttp = new XMLHttpRequest();  
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			
+				var new_rule_id = parseInt(this.responseText);
+				if (!rule_id) {
+					execution_order['rule_execution_order'][String(attribute_id)]['used_rule_ids'].push(new_rule_id);
+				}
+				
+
+				rule_dict['id'] = new_rule_id;
+				objects_dict[object_number]['object_rules'][attribute_id][new_rule_id] = rule_dict;
+				populateTheRulePanels(object_number, attribute_id, attribute_name);	
+			}
+		};
+		xmlhttp.open("POST", "/tool/save_rule/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send(JSON.stringify(rule_dict));
+		
+		
+		//load (all) Rule into objects_dict
+		getObjectRules(object_number, objects_dict[object_number]['object_type_id']);
+		
+		
+		// empty the right part of the modal
+		cancelRuleCreation();
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	/*========================================================================*/
+	/*====================    HELPER FUNCTIONS     ===========================*/
+	/*========================================================================*/
+	
+	function scalePDFToParameterRange(pdf, startValue, stopValue) {
+		var number_of_values = pdf.length;
+		var step = (stopValue - startValue) / (number_of_values - 1);
+		for (var i = 0; i < number_of_values; i++) {
+			pdf[i][0] = startValue + (step * i)
+		}
+		return pdf;
+	}
+	
+	
+	
+
+
+</script>
+
+
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+<script>
+	
+	// in array, move element from one position to another
+	function move(arr, old_index, new_index) {
+		while (old_index < 0) {
+			old_index += arr.length;
+		}
+		while (new_index < 0) {
+			new_index += arr.length;
+		}
+		if (new_index >= arr.length) {
+			var k = new_index - arr.length;
+			while ((k--) + 1) {
+				arr.push(undefined);
+			}
+		}
+		 arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);  
+	   return arr;
+	}
+	
+
+	jQuery(document).ready(function($){
+		
+		/*---------------------------------------------------------------*\
+		 * Drag & Drop  - for Variable selection/sorting in left panel
+		\*---------------------------------------------------------------*/
+		$(function() {
+			$( ".rule-panel-body" ).sortable({
+				connectWith: ".list-group",
+				update: function(event, ui) {
+					// move within rules-list
+					if (ui.sender == null && this.id == 'rules-list') {
+						// move the + button to the bottom
+						document.getElementById('rules-list').appendChild(document.getElementById('plus-button-list-group-item'));
+					
+						// update the execution_order
+						var object_number = parseInt(ui.item[0].getAttribute('data-object-number'));
+						var	attribute_id = parseInt(ui.item[0].getAttribute('data-attribute-id'));
+						var	rule_id = parseInt(ui.item[0].getAttribute('data-rule-id'));
+						used_rule_ids = execution_order['rule_execution_order'][String(attribute_id)]['used_rule_ids'];
+						old_index = used_rule_ids.indexOf(rule_id);
+						new_index = ui.item.index();
+						execution_order['rule_execution_order'][String(attribute_id)]['used_rule_ids'] = move(used_rule_ids, old_index, new_index);
+					}
+					
+				},
+				receive: function(event, ui) {					
+					var object_number = parseInt(ui.item[0].getAttribute('data-object-number'));
+					var	attribute_id = parseInt(ui.item[0].getAttribute('data-attribute-id'));
+					var	rule_id = parseInt(ui.item[0].getAttribute('data-rule-id'));
+					var sender = ui.sender[0].id;
+					var receiver = this.id;
+					
+					
+					// move from rules-list to not-used-rules-list
+					if (receiver == 'not-used-rules-list' && sender == 'rules-list') {			
+						var used_rule_ids = execution_order['rule_execution_order'][String(attribute_id)]['used_rule_ids'];
+						old_index = used_rule_ids.indexOf(rule_id);
+						new_index = ui.item.index();
+						execution_order['rule_execution_order'][String(attribute_id)]['used_rule_ids'].splice(old_index,1);
+						execution_order['rule_execution_order'][String(attribute_id)]['not_used_rule_ids'].splice(new_index,0,rule_id);
+						
+						//uncheck learn_probabilities checkbox
+						if ( $("#learn-probabililty--rule" + rule_id).length ) {
+							document.getElementById("learn-probabililty--rule" + rule_id).checked = false;
+						}
+					}
+					
+					// move from not-used-rules-list to rules-list
+					if (receiver == 'rules-list' && sender == 'not-used-rules-list') {	
+					
+						// move the + button to the bottom
+						document.getElementById('rules-list').appendChild(document.getElementById('plus-button-list-group-item'));
+						
+						// update the execution_order
+						var not_used_rule_ids = execution_order['rule_execution_order'][String(attribute_id)]['not_used_rule_ids'];
+						old_index = not_used_rule_ids.indexOf(rule_id);
+						new_index = ui.item.index();
+						execution_order['rule_execution_order'][String(attribute_id)]['not_used_rule_ids'].splice(old_index,1);
+						execution_order['rule_execution_order'][String(attribute_id)]['used_rule_ids'].splice(new_index,0,rule_id);
+					}
+				}         
+			}).disableSelection();
+		});
+		
+		
+	});
+</script>

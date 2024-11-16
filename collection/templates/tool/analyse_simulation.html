@@ -1,0 +1,1817 @@
+{% load staticfiles %}
+<!doctype html>
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+# Copyright (C) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, February 2021
+#####################################################################
+-->
+
+
+<html lang="en">
+<head>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151938988-1"></script>
+	<script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());    gtag('config', 'UA-151938988-1'); </script>
+
+
+	<meta charset="utf-8">
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="author" content="Benedikt Kleppmann">
+	<title>Analyse Simulation</title>
+	
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css?hcode=be5162d915534272a57d0bb781d27f2b" rel="stylesheet" type="text/css">
+  <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css?hcode=be5162d915534272a57d0bb781d27f2b" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/bootstrap-3.4.0.min.css' %}" />
+	
+	<style>
+		.content {
+			padding: 0px;
+		}
+
+
+
+		#score-box {
+			position: absolute;
+			right: 12px;
+			top: 0px;
+			padding: 6px 19px;
+			font-size: 15px;
+			border: 1px solid rgb(202,202,202);
+			z-index: 2;
+			border-radius: 0px 0px 8px 8px;
+			background: rgb(235, 235, 235);
+		}
+		
+		#simulation-score {
+			display: inline-block;
+		}
+
+
+		/* --------------------------------------------------------------------------*/
+		/* Panels -------------------------------------------------------------------*/
+		/* --------------------------------------------------------------------------*/
+		.left-panel {
+			float:left;
+			display: inline-block;
+			width: 256px;
+			height:calc(100vh);
+			background: rgb(226, 226, 226);
+		}
+		
+		/* Right */
+		.right-panel-container {
+			display: inline-block;
+			display: flex;
+			flex-direction: column;
+			border: 1px solid silver;
+			overflow: hidden;
+			xtouch-action: none; /* avoid browser level touch actions */
+			height:calc(100vh);
+		}
+
+		#top-panel {
+		  flex: 0 0 auto;  /* only manually resize */
+		  height: 55%;
+		  min-height: 150px;
+		  width: 100%;
+		  //white-space: nowrap;
+		}
+
+		#splitter {
+		  flex: 0 0 auto;
+		  height: 4px;  
+		  background: rgb(225, 225, 225);
+		  border: 1px solid rgb(200, 200, 200);
+		  cursor: row-resize; 
+		  //box-shadow: 0px  -2px 6px 0 rgba(0, 0, 0, 0.14);
+		  z-index: 1;
+		}
+
+		#bottom-panel {
+		  flex: 1 1 auto;   /* resizable */
+		  padding-right: 10px;
+		  min-height: 200px;
+		  width: 100%;
+		  height: 100%;
+		  overflow-x: scroll;
+		  background: rgb(255,255,255);
+		}
+		
+		/* Top Right */
+		
+		.top-right-panel-container {
+			height: 100%;
+			display: inline-block;
+			display: flex;
+			flex-direction: column;
+			border: 1px solid silver;
+			overflow: hidden;
+			xtouch-action: none; /* avoid browser level touch actions */
+			height:calc(100vh - 59px);
+		}
+
+
+						
+		/* --------------------------------------------------------------------------*/
+		/* Left Panel ---------------------------------------------------------------*/
+		/* --------------------------------------------------------------------------*/
+		
+		.card-header {
+			border-top: 1px solid rgb(180, 180, 180);
+			border-bottom: 1px solid rgb(180, 180, 180);
+		}
+		
+		.left-panel-header {
+			font-size: 15.5px;
+			background: rgb(226, 226, 226);
+			width: 100%;
+			padding-left: 20px;
+			text-align: left;
+			overflow: hidden;
+		}
+		
+		.card-body {
+			padding-left: 4px;
+			padding-right: 5px;
+			background-color: rgb(244, 244, 244);
+		}
+
+
+		/* Parameter Values -----------------------------------------------------*/
+		#simulation-parameter-box {
+			width: 400px;
+			padding-bottom: 10px;
+		}
+		
+		.rule-heading {
+			font-weight: 600;
+			margin-bottom: 1px;
+			padding-top: 6px;
+		}
+		
+		.parameter-value {
+			padding-left: 16px;
+		}
+	
+	
+		/* Systems ------------------------------------------*/
+		.run-selection-area {
+			padding-top: 19px;
+			margin-left: 15px;
+			width: 217px;
+			padding-bottom: 13px;
+		}
+		
+		#threshold_box {
+			margin-top: 17px;
+		}
+
+		
+		
+		#threshold-label {
+			margin-top: 8px;
+			padding-left: 27px;
+			width: 134px;
+			float: left;
+		}
+		
+		#error_threshold {
+			display: inline-block;
+			width: 53px;
+			height: 33px;
+			padding-bottom: 5px;
+			margin-bottom: 1px;
+		}
+		
+		#initial-state-run-selection-buttons {
+			display: none;                               /* REMOVE THIS TO GET BACK THE INITAL STATE SELECTION BUTTONS !!! (it's running in the background already) */
+			margin-top: 26px;
+			max-height: 132px;
+			overflow-y: auto;
+		}
+		
+		#individual-run-selection-buttons {
+			margin-top: 26px;
+			max-height: calc(100vh - 287px);
+			overflow-y: auto;
+		}
+		
+		.run-selection-button {
+			width: 100%;
+			background: rgb(248, 248, 248);
+			border: 1px solid rgb(210, 210, 210);
+		}
+		
+		.run-selection-button.active {
+			background: rgb(219, 219, 219)
+		}
+		
+		/* --------------------------------------------------------------------------*/
+		/* Bottom Panel -------------------------------------------------------------*/
+		/* --------------------------------------------------------------------------*/
+
+		#bottom-object-items {
+			list-style-type: none;
+			padding-inline-start: 0px;
+			margin: 17px;
+		}
+	 
+		#bottom-object-items li {
+			margin: 7px;
+			float: left;
+		}
+		
+		.bottom-object-outer-box {
+			background: rgb(220, 227, 250);
+			border: 1px solid rgb(202, 202, 202);
+			padding-top: 3px;
+			background: rgb(226, 226, 226);
+			box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.20);
+		}
+		
+		.bottom-object-name {
+			display: inline-block;
+		}
+		
+		.bottom-object-icon {
+			height: 33px;
+			margin-top: 4px;
+			margin-right: 10px;
+			margin-left: 12px;
+			border: 1px solid rgb(183, 183, 183);
+			border-radius: 4px;
+		}
+		
+		.collapse-triangle {
+			font-size: 9px;
+			padding: 12px;
+			padding-left: 22px;
+		}
+		
+		.bottom-object-inner-box {
+			margin-top: 3px;
+			background: rgb(255,255,255);
+			border-top: 1px solid rgb(202,202,202);
+			overflow: hidden;
+		}
+		
+		.bottom-object-data-row {
+			border-bottom: 1px solid rgb(190, 190, 190);
+			display: block;
+		}
+		
+		.bottom-attribute-name {
+			display: inline-block;
+			padding: 6px 0px 6px 8px;
+			background: rgb(242, 242, 242);
+			height: 100%;
+			border-right: 1px solid rgb(202, 202, 202);
+			/*border-bottom: 1px solid rgb(202, 202, 202);*/
+			width: 175px;
+			background: -webkit-gradient( linear, left top, left bottom, from(#f5f5f2), to(#ebeae6));
+						-moz-box-shadow: inset 0px 0px 3px rgba(255,255,255,0.9);
+						-webkit-box-shadow: inset 0px 0px 3px rgba(255,255,255,0.9);
+			box-shadow: inset 0px 0px 3px rgba(255,255,255,0.9);
+			float: left;
+		}
+		
+		.buffer-div {
+			display: inline-block;
+		}
+		
+		.bottom-attribute-values {
+			display: inline-block;	
+			/*float: right;*/
+		}
+		
+		
+		.attribute-value {
+			width: 55px;
+			display: inline-block;
+			text-align: center;
+			border-right: 1px solid rgb(190, 190, 190);
+			padding: 6px 0px 6px 0px;
+			color: rgb(95, 95, 95);
+		}
+		
+		
+		.attribute-value-span {
+			overflow: hidden;
+			width: 55px;
+		}
+		
+		/* --------------------------------------------------------------------------*/
+		/* Top Panel ----------------------------------------------------------------*/
+		/* --------------------------------------------------------------------------*/
+		
+		/* Dual Ring ----------------------------------------------------------------*/
+		.lds-dual-ring {
+		  margin: auto;
+		  margin-top: 125px;
+		  width: 50px;
+		  height: 50px;
+		  padding-top: 12px;
+		}
+		
+		.lds-dual-ring:after {
+		  content: " ";
+		  display: block;
+		  width: 50px;
+		  height: 50px;
+		  margin: 1px;
+		  border-radius: 50%;
+		  border: 4px solid #fed;
+		  border-color: rgb(80,80,80) transparent rgb(80,80,80) transparent;
+		  animation: lds-dual-ring 3.2s linear infinite;
+		}
+		
+		@keyframes lds-dual-ring {
+		  0% {
+			transform: rotate(0deg);
+		  }
+		  100% {
+			transform: rotate(360deg);
+		  }
+		}
+		
+		/* Graphs ----------------------------------------------------------------*/
+		
+		#graph-panel {
+			height: calc(100% - 45px);
+			width: 100%;
+		}
+		
+		#top-menu-bar {
+			height: 45px;
+			width: 100%;
+			background: rgb(226, 226, 226);
+			border-top: 1px solid rgb(202,202,202); 
+			position: relative;
+		}	
+
+		#vertically-centered {
+			margin: 0;
+			position: absolute;
+			top: 50%;
+			-ms-transform: translateY(-50%);
+			transform: translateY(-50%);
+			width: 100%;
+		}
+
+		#inlude-zero-menu {
+			display: inline-block;
+			margin-left: 25px;
+			margin-right: 15px;
+			margin-top: 8px;
+		}
+		
+		.menu-bar-error-message {
+			display: inline-block;
+			margin-left: 25px;
+		}
+		
+		#show-rules-button {
+			background: rgb(248, 248, 248);
+			border: 1px solid rgb(210, 210, 210);
+			margin-left: 14px;
+			margin-top: 1px;
+		}
+		
+		
+		/* --------------------------------------------------------------------------*/
+		/* Top Panel - RULES --------------------------------------------------------*/
+		/* --------------------------------------------------------------------------*/
+		
+		.color0 { background: #B9D7DA;}
+		.color1 { background: #B9D2DA;}
+		.color2 { background: #B9CEDA;}
+		.color3 { background: #B9CADA;}
+		.color4 { background: #B9C6DA;}
+		.color5 { background: #BAC2DA;}
+		.color6 { background: #BABEDA;}
+		.color7 { background: #BABADA;}
+		.color8 { background: #BEBADA;}
+		.color9 { background: #C3BBDA;}
+		.color10 { background: #C7BBDB;}
+		.color11 { background: #CBBBDB;}
+		.color12 { background: #CFBBDB;}
+		.color13 { background: #D4BCDB;}
+		.color14 { background: #D8BCDB;}
+		.color15 { background: #DBBCDA;}
+		.color16 { background: #DBBCD6;}
+		.color17 { background: #DBBDD3;}
+		.color18 { background: #DBBDCF;}
+		.color19 { background: #DBBDCB;}
+		.color20 { background: #DCBDC7;}
+		.color21 { background: #DCBEC4;}
+		.color22 { background: #DCBEC0;}
+		.color23 { background: #DCC0BE;}
+		.color24 { background: #DCC4BE;}
+		.color25 { background: #DCC8BF;}
+		.color26 { background: #DCCCBF;}
+		.color27 { background: #DCD0BF;}
+		.color28 { background: #DCD4BF;}
+		.color29 { background: #DDD8C0;}
+
+		
+		
+		#triggerd-rules-panel {
+			max-height: 146px;
+			/*padding-right: 18px;*/
+		}
+		
+		#triggerd-rules-title {
+			width: 118px;
+			height: 66px;
+			display: inline-block;
+			writing-mode: vertical-rl;
+			transform: rotate(180deg);
+			padding-right: 7px;
+			text-align: center;
+			float: left;
+		}
+		
+		#triggerd-rule-periods {
+			display: inline-block;
+			text-align: center;
+			width: calc(100% - 118px);
+		}
+		
+		.triggerd-rules-period {
+			padding: 2px 5px 0px 5px;
+			display: inline-block;
+		}
+		
+		.triggerd-rule {
+			padding-top: 2px;
+			/*border: 1px solid rgb(210, 210, 210);*/
+			max-width: 265px;
+			text-align: center;
+			margin-top: 2px; 
+			margin-left: auto;
+			margin-right: auto;
+			border-radius: 6px;
+		}
+		
+		
+		.triggerd-rule .rule-name {
+			display: inline-block;
+			font-weight: 600;
+		}
+		
+		.triggerd-rule .rule-prob {
+			display: inline-block;
+			font-size: 11.5px;
+			margin-left: 2px;
+		}
+		
+
+		
+		.triggerd-rule .rule-value {
+			display: inline-block;
+			margin-left: 6px;
+		}	
+	</style>
+	
+</head>
+
+
+
+<div id="score-box">Score: <div id="simulation-score"></div></div>
+<div class="left-panel">
+	<div class="accordion md-accordion" id="accordion-left" role="tablist" aria-multiselectable="true">	
+		<div class="card">
+			<div class="card-header" role="tab" id="accordion-left-header-1">
+				<button id="parameter-values-accordion-button" class="btn left-panel-header collapsed accordion-toggle" data-parent="#accordion-left" href="#accordion-left-content-1" aria-expanded="false" aria-controls="accordion-left-content-1" onclick="drawParameterValues()">Parameter Values</button>
+			</div>
+			<div id="accordion-left-content-1" class="collapse" role="tabpanel" aria-labelledby="accordion-left-header-1" data-parent="#accordion-left">
+				<div class="card-body">
+					<div id="simulation-parameter-box"></div>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header" role="tab" id="accordion-left-header-2">
+				<button class="btn left-panel-header collapsed accordion-toggle" data-parent="#accordion-left" href="#accordion-left-content-2" aria-expanded="false" aria-controls="accordion-left-content-2">Systems</button>
+			</div>
+			<div id="accordion-left-content-2" class="collapse" role="tabpanel" aria-labelledby="accordion-left-header-2" data-parent="#accordion-left">
+				<div class="card-body">
+					<div class="run-selection-area">
+						<div class="run-selection-box">
+							<button id="all-runs-button" class="btn btn-light run-selection-button" type="button" onclick="selectAllRuns()">All Systems</button>
+							<div id="threshold_box">
+								<div id="threshold-label">Error Threshold:</div>	
+								<input type="text" id="error_threshold" class="form-control" value="0.5">							
+							</div>
+							<div id="correct_and_false_runs">
+								<button id="correct-runs-button" class="btn btn-light run-selection-button" type="button" onclick="selectCorrectRuns()">Accurately Simulated Systems</button>
+								<button id="false-runs-button" class="btn btn-light run-selection-button" type="button" onclick="selectFalseRuns()">Badly Simulated Systems</button>
+							</div>
+						</div>
+						<div id="initial-state-run-selection-buttons" class="run-selection-box"></div>
+						<div id="individual-run-selection-buttons" class="run-selection-box"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="right-panel-container">
+	<div id="top-panel"><div class="lds-dual-ring"></div></div>
+	<div id="splitter"></div>
+	<div id="bottom-panel">	
+		<ul id="bottom-object-items"></ul>
+	</div>
+</div>
+
+
+
+		
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-gantt.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js?hcode=be5162d915534272a57d0bb781d27f2b"></script>
+ 
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="https://rawgit.com/RickStrahl/jquery-resizable/master/src/jquery-resizable.js"></script>
+
+
+
+ 
+<script type="text/javascript">
+	// GLOBAL VARIABLES:
+	var objects_dict = {{ simulation_model.objects_dict|safe }};
+	var y_value_attributes = {{ simulation_model.y_value_attributes|safe }};
+	var all_priors_df = {{ learn_parameters_result.all_priors_df|safe }};
+	
+	
+	var not_used_rules = {{ monte_carlo_result.not_used_rules|safe }};
+	var prior_dict = {{ monte_carlo_result.prior_dict|safe }};
+	var triggered_rules = {{ monte_carlo_result.triggered_rules|safe }};
+	var simulation_data = {{ monte_carlo_result.simulation_data|safe }};
+	var correct_values = {{ monte_carlo_result.correct_values|safe }};
+	var errors = {{ monte_carlo_result.errors|safe }};
+	
+	var is_timeseries_analysis = {{ simulation_model.is_timeseries_analysis|yesno:"true,false" }};
+	var simulation_start_time = {{ simulation_model.simulation_start_time }};
+    var simulation_end_time = {{ simulation_model.simulation_end_time }};
+    var timestep_size = {{ simulation_model.timestep_size }};
+	var simulation_name = '{{ simulation_model.simulation_name }}';
+	var execution_order_id = {{ execution_order.id }};
+	var execution_order = {{ execution_order.execution_order|safe }};
+	
+	var number_of_periods;
+	if (is_timeseries_analysis) {
+		//var number_of_periods = Math.ceil((simulation_end_time - simulation_start_time)/timestep_size);
+		number_of_periods = simulation_data[Object.keys(simulation_data)[0]]['null'].length
+	} else {
+		var number_of_periods = 1;
+	}
+
+
+	var selected_runs = new Set(); 
+	var all_runs_list = Object.keys(simulation_data);
+	var selected_object_attribute = null;
+	
+	
+	var clicked_selection_buttons = {'select_all_clicked': false, 'select_correct_clicked': false, 'select_false_clicked': false};
+	var delta_t_list = ['delta_t (years)', 'delta_t (months)', 'delta_t (days)', 'delta_t (hours)', 'delta_t (minutes)', 'delta_t (seconds)'];
+	var timestep_units = [31622400, 2635200, 604800, 86400, 3600, 60, 1];
+	var error_colours = ['#97CF99', '#97CF97', '#98CF97', '#9ACF97', '#9CCF97', '#9DCF97', '#9FCF97', '#A1CF97', '#A3CF97', '#A5CF97', '#A6CF97', '#A8CF97', '#AACF97', '#ACCF98', '#AECF98', '#AFCF98', '#B1CF98', '#B3CF98', '#B5CF98', '#B6CF98', '#B8CF98', '#BACF98', '#BCCF98', '#BDCF98', '#BFCF98', '#C1CF98', '#C2CF99', '#C4CF99', '#C6CF99', '#C8CF99', '#C9CF99', '#CBCF99', '#CDD099', '#CFD099', '#D0CF99', '#D0CD99', '#D0CC99', '#D0CA99', '#D0C89A', '#D0C79A', '#D0C59A', '#D0C39A', '#D0C29A', '#D0C09A', '#D0BF9A', '#D0BD9A', '#D0BB9A', '#D0BA9A', '#D0B89A', '#D0B79A', '#D0B59A', '#D0B39B', '#D0B29B', '#D0B09B', '#D0AF9B', '#D0AD9B', '#D0AB9B', '#D0AA9B', '#D0A89B', '#D0A79B', '#D0A59B', '#D0A49B', '#D0A29B', '#D1A19C']
+	var parameter_info = {};
+	
+
+
+
+
+	//========================================================================
+	//========================================================================
+	//================   LEFT PANEL - Parameter Values    ====================
+	//========================================================================
+	//========================================================================
+
+	
+	
+	function drawParameterValues() {
+	
+		var simulation_parameters_string = 	'';
+												
+		var object_numbers = Object.keys(objects_dict);
+		for (var i = 0; i < object_numbers.length; i++) {
+			
+			var attribute_ids = Object.keys(objects_dict[object_numbers[i]]['object_rules']);
+			for (var j = 0; j < attribute_ids.length; j++) {
+			
+				var rule_ids = Object.keys(objects_dict[object_numbers[i]]['object_rules'][attribute_ids[j]]);
+				for (var k = 0; k < rule_ids.length; k++) {
+				
+					var rule = objects_dict[object_numbers[i]]['object_rules'][attribute_ids[j]][rule_ids[k]]
+					if (rule['learn_posterior']) {
+					
+						simulation_parameters_string += '<div class="rule-heading">' + objects_dict[object_numbers[i]]['object_name'] + '.[' + objects_dict[object_numbers[i]]['object_attributes'][attribute_ids[j]]['attribute_name'] + '], Rule ' + String(rule_ids[k]) + ':</div>';
+						if (!rule['has_probability_1'] && Object.keys(prior_dict).includes(rule_ids[k])) {
+							simulation_parameters_string += '<div class="parameter-value">Rule probaility = ' + prior_dict[rule_ids[k]]['probability'].toFixed(3) + '</div>';
+							simulation_parameters_string += '<div class="parameter-value">Rule probaility = ' + prior_dict[rule_ids[k]]['probability'].toFixed(3) + '</div>';
+						}
+						var used_parameter_ids = rule['used_parameter_ids'];
+						for (var l = 0; l < used_parameter_ids.length; l++) {
+							if (Object.keys(prior_dict).includes(rule_ids[k])) {
+								simulation_parameters_string += '<div class="parameter-value">' + parameter_info[used_parameter_ids[l]]["parameter_name"] + ' = ' + prior_dict[rule_ids[k]][used_parameter_ids[l]].toFixed(3) + '</div>';
+							}
+						}
+					}
+					
+				}
+			}
+		}
+		$('#simulation-parameter-box').html(simulation_parameters_string);
+	
+
+	}
+
+	//========================================================================
+	//========================================================================
+	//=========   LEFT PANEL - Systems    ===============
+	//========================================================================
+	//========================================================================	
+										
+
+	//== draw buttons ================================================================================================
+	function drawLeftPanel() {
+	
+		initial_state_ids = []; 
+		var all_run_numbers = Object.keys(simulation_data);
+		for (var i = 0; i < all_run_numbers.length; i++) {
+			var initial_state_id = all_run_numbers[i].split('-')[0];
+			if (!initial_state_ids.includes(initial_state_id)) {
+				initial_state_ids.push(initial_state_id);
+			}
+		}	
+		
+		var initial_state_selection_buttons = '';
+		for (var i = 0; i < initial_state_ids.length; i++) {
+			initial_state_selection_buttons += '<button id="initial-state-btn' + i + '" class="btn btn-light run-selection-button" type="button" onclick="selectRunsWithInitialState(' + initial_state_ids[i] + ')">All with Intital State ' + initial_state_ids[i] + '</button>';
+		}	
+		$('#initial-state-run-selection-buttons').html(initial_state_selection_buttons);
+		
+		var individual_selection_buttons = '';
+		for (var i = 0; i < all_run_numbers.length; i++) {
+			individual_selection_buttons += '<button id="selection-button-' + all_run_numbers[i] + '" class="btn btn-light run-selection-button run-toggle" type="button" onclick="selectRun(\'' + all_run_numbers[i] + '\')">System ' + i + '</button>'
+		}	
+		$('#individual-run-selection-buttons').html(individual_selection_buttons);
+		
+		$('#top-panel').html('');
+	} 
+
+
+	
+	
+	
+	
+	
+	//All Runs -------------------------------  
+	
+	function selectAllRuns() {	
+		$('#all-runs-button').toggleClass('active');
+
+		if (clicked_selection_buttons['select_all_clicked']) {
+			clicked_selection_buttons['select_all_clicked'] = false;
+			
+			selected_runs = new Set()		
+			$('.run-toggle').removeClass('active');
+			$('#bottom-object-items').html('');
+			$('#graph-panel').html('');
+		} else {
+			clicked_selection_buttons['select_all_clicked'] = true;
+			
+			all_run_numbers = Object.keys(simulation_data);
+			for (var i = 0; i < all_run_numbers.length; i++) {
+				selected_runs.add(all_run_numbers[i]);
+			}		
+			$('.run-toggle').addClass('active');
+			
+			refreshRestOfScreen();
+		}
+	}
+	
+	//Correct Runs  -------------------------------
+	function selectCorrectRuns() {
+	
+		//determine correct_runs
+		var error_threshold = parseFloat($('#error_threshold').val());
+		var correct_runs = [];
+		var run_numbers = Object.keys(errors['all_errors']);
+		for (var i = 0; i < run_numbers.length; i++) {
+			if (errors['all_errors'][run_numbers[i]] < error_threshold) {
+				correct_runs.push(run_numbers[i]);
+			}
+		}
+		
+		//filter according to correct_runs
+		$('#correct-runs-button').toggleClass('active');
+		if (clicked_selection_buttons['select_correct_clicked']) {
+			clicked_selection_buttons['select_correct_clicked'] = false;
+			
+			for (var i = 0; i < correct_runs.length; i++) {
+				var run_number = correct_runs[i];
+				selected_runs.delete(run_number);
+				$('#selection-button-' + run_number).removeClass('active');
+			}
+				
+		} else {
+			clicked_selection_buttons['select_correct_clicked'] = true;
+			
+			for (var i = 0; i < correct_runs.length; i++) {
+				var run_number = correct_runs[i];
+				selected_runs.add(run_number);
+				$('#selection-button-' + run_number).addClass('active');
+			}
+		}
+		refreshRestOfScreen();
+	}
+	
+	//False Runs  -------------------------------
+	function selectFalseRuns() {
+	
+		//determine false_runs
+		var error_threshold = parseFloat($('#error_threshold').val());
+		var false_runs = [];
+		var run_numbers = Object.keys(errors['all_errors']);
+		for (var i = 0; i < run_numbers.length; i++) {
+			if (errors['all_errors'][run_numbers[i]] >= error_threshold) {
+				false_runs.push(run_numbers[i]);
+			}
+		}
+		
+		//filter according to false_runs
+		$('#false-runs-button').toggleClass('active');
+		if (clicked_selection_buttons['select_false_clicked']) {
+			clicked_selection_buttons['select_false_clicked'] = false;
+			
+			for (var i = 0; i < false_runs.length; i++) {
+				var run_number = false_runs[i];
+				selected_runs.delete(run_number);
+				$('#selection-button-' + run_number).removeClass('active');
+			}
+				
+		} else {
+			clicked_selection_buttons['select_false_clicked'] = true;
+			
+			for (var i = 0; i < false_runs.length; i++) {
+				var run_number = false_runs[i];
+				selected_runs.add(run_number);
+				$('#selection-button-' + run_number).addClass('active');
+			}
+		}
+		refreshRestOfScreen();
+	}
+	
+	//All with Initial State X  -------------------------------
+	function selectRunsWithInitialState(initial_state_id) {
+		$('#initial-state-btn' + initial_state_id).toggleClass('active');
+		if (clicked_selection_buttons['select_initial_state' + initial_state_id +'_clicked']) {
+			clicked_selection_buttons['select_initial_state' + initial_state_id +'_clicked'] = false;
+			
+			var all_run_numbers = Object.keys(simulation_data);
+			for (var i = 0; i < all_run_numbers.length; i++) {
+				if (all_run_numbers[i].split('-')[0] == String(initial_state_id)) {
+					selected_runs.delete(all_run_numbers[i]);
+					$('#selection-button-' + all_run_numbers[i]).removeClass('active');
+				}
+			}		
+		} else {
+			clicked_selection_buttons['select_initial_state' + initial_state_id +'_clicked'] = true;
+			
+			var all_run_numbers = Object.keys(simulation_data);
+			for (var i = 0; i < all_run_numbers.length; i++) {
+				if (all_run_numbers[i].split('-')[0] == String(initial_state_id)) {
+					selected_runs.add(all_run_numbers[i]);
+					$('#selection-button-' + all_run_numbers[i]).addClass('active');
+				}
+			}	
+		}
+		refreshRestOfScreen();
+	}
+	
+	//Run X  -------------------------------
+	function selectRun(run_number) {
+		if ($('#selection-button-' + run_number).hasClass('active')) {
+			selected_runs.delete(run_number);
+			$('#selection-button-' + run_number).removeClass('active');
+		} else {
+			selected_runs.add(run_number);
+			$('#selection-button-' + run_number).addClass('active');
+		}
+		refreshRestOfScreen();
+	}
+	
+	
+	
+	
+	function refreshRestOfScreen() {
+	
+		drawBottomPanel();
+		fillBottomPanel('mean');
+		if (selected_object_attribute != null) {
+			var object_number = selected_object_attribute['object_number']
+			var attribute_id = selected_object_attribute['attribute_id']
+			var period_number = selected_object_attribute['period_number']
+			if (period_number == null) {
+				drawTopPanel_Attribute(object_number, attribute_id);
+			} else {
+				drawTopPanel_AttributeValue(object_number, attribute_id, period_number);
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	//========================================================================
+	//========================================================================
+	//=====================    BOTTOM PANEL      =============================
+	//========================================================================
+	//========================================================================
+	
+	
+	// Draw Object Boxes  -------------------------------
+	function drawBottomPanel() {
+		var object_items_html = '';
+		
+		var selected_runs_list = Array.from(selected_runs);
+		if (selected_runs_list.length > 0) {
+			var object_numbers = Object.keys(objects_dict);
+			object_items_html = '';
+			for (var i = 0; i < object_numbers.length; i++) {
+				var object_number = object_numbers[i];
+				object_items_html += '<li class="bottom-object-item">' +
+										'<div class="bottom-object-outer-box">' + 
+											'<img class="bottom-object-icon" src="{% static "images/object_icons/" %}' + objects_dict[object_number]['object_icon'] + '.svg">' +
+											'<div class="bottom-object-name">' + objects_dict[object_number]['object_name'] + '</div>' + 
+											'<span id="object-box-triangle-' + object_number + '" class="glyphicon glyphicon-triangle-top collapse-triangle" onclick="collapseExpandObjectInnerBox(' + object_number + ');"></span>' +
+											'<div id="object-inner-box' + object_number + '" class="bottom-object-inner-box">';
+				
+				
+				var object_sorted_attributes = execution_order['attribute_execution_order'][objects_dict[object_number]['object_type_id']]['used_attributes'];
+				//attribute_ids = Object.keys(objects_dict[object_number]['object_attributes']);
+				for (var j = 0; j < object_sorted_attributes.length; j++) {
+					var attribute_id = object_sorted_attributes[j]['id'];
+					if (Object.keys(objects_dict[object_number]['object_attributes']).includes(String(attribute_id))) {
+					
+						object_items_html += 		'<div class="bottom-object-data-row" style="width:' + String(175 + 57*(number_of_periods)) + 'px;">' +
+														'<div class="bottom-attribute-name" onclick="drawTopPanel_Attribute(' + object_number + ',' + attribute_id + ')">' + objects_dict[object_number]['object_attributes'][attribute_id]['attribute_name'] + '</div>' +
+														'<div class="bottom-attribute-values">';
+							
+						for (var period_number = 0; period_number < number_of_periods; period_number++) {
+							object_items_html += 			'<div id="' + object_number + '-' + attribute_id + '-' + period_number + '" class="attribute-value" onclick="drawTopPanel_AttributeValue(' + object_number + ',' + attribute_id + ',' + period_number + ')"></div>';
+						}
+						object_items_html += 			'</div>	' +
+													'</div>';
+					}
+				}
+				object_items_html += 		'</div>	' +
+										'</div>' + 						
+									'</li>';
+			}
+		}
+		
+		$('#bottom-object-items').html(object_items_html);
+		
+		// make sure the height of .bottom-attribute-values fits even if the attribute name goes over two rows
+		var attribute_name_height = 20;
+		$( ".bottom-object-data-row" ).each(function() {
+		  attribute_name_height = $(this).children(".bottom-attribute-name" ).first().height();
+		  $(this).children(".bottom-attribute-values" ).first().height(attribute_name_height + 12);
+		  $(this).height(attribute_name_height + 12);
+		});
+
+	}
+	
+	
+	
+
+	
+	// Fill in Values  -------------------------------
+	function fillBottomPanel(metric) {
+		
+		var selected_runs_list = Array.from(selected_runs);
+		var object_numbers = Object.keys(objects_dict);
+		for (var i = 0; i < object_numbers.length; i++) {
+			var object_number = object_numbers[i];
+			
+			var first_simulation_key = Object.keys(simulation_data)[0]
+			var column_names = Object.keys(simulation_data[first_simulation_key]);
+			for (var j = 0; j < column_names.length; j++) {
+				var column_name = column_names[j];
+				if (column_name.includes('obj' + String(object_number) + 'attr') && !column_name.includes('object_id')) {
+					var attribute_id = parseInt(column_name.split('attr')[1]);
+					
+					for (var period_number = 0; period_number < number_of_periods; period_number++) {
+						
+						// values
+						var values = []
+						for (var k = 0; k < selected_runs_list.length; k++) {
+							var run_number = selected_runs_list[k];
+							values.push(simulation_data[run_number][column_name][period_number]);
+						}
+						
+						// calculate the resulting value
+						var resulting_value;
+						console.log(attribute_id);
+						console.log(column_name);
+						var datatype = objects_dict[object_number]['object_attributes'][attribute_id]['attribute_data_type'];
+						if (['real','int'].includes(datatype) && metric=='mean') { // -> average value
+							var sum_of_values = 0;
+							var number_of_values = 0;
+							for (var l = 0; l < values.length; l++) {
+								if (! isNaN(values[l])) {
+									sum_of_values += values[l];
+									number_of_values += 1;
+								}
+							}
+							resulting_value = sum_of_values/number_of_values;
+							if (resulting_value % 0.001 !== 0 ){
+								resulting_value = resulting_value.toPrecision(3);
+								/*
+								attribute_data_type = objects_dict[object_number]['object_attributes'][attribute_id]['attribute_data_type']
+								if (['int','relation'].includes(attribute_data_type)) {
+									resulting_value = resulting_value.toFixed(0);
+								} else {
+									resulting_value = resulting_value.toPrecision(3);
+								}
+								*/
+							}
+						}
+						
+						if (['string', 'relation', 'bool'].includes(datatype)) {  // -> most common value
+							var value_occurences = {}
+							for (var l = 0; l < values.length; l++) {
+								var value = String(values[l]);
+								if (Object.keys(value_occurences).includes(value)) {
+									value_occurences[value] += 1;
+								} else {
+									value_occurences[value] = 1;
+								}
+							}
+							
+							var max_count = 0;
+							var distinct_values = Object.keys(value_occurences);
+							
+							for (var l = 0; l < distinct_values.length; l++) {
+								if (value_occurences[distinct_values[l]] > max_count) {
+									resulting_value = distinct_values[l];
+									max_count = distinct_values[distinct_values[l]];
+								}
+							}
+						}
+						
+						// insert the resulting value
+						$('#' + object_number + '-' + attribute_id + '-' + period_number).html('<aside class="attribute-value-span">' + resulting_value + '</aside>');
+					}	
+				}
+			}
+		}
+	}
+		
+		
+		
+	// Expand/Collapse Triangle -------------------------------
+	function collapseExpandObjectInnerBox(object_number) {
+		var span = $('#object-box-triangle-' + object_number)
+		if (span.hasClass('glyphicon-triangle-top')) {
+			span.removeClass('glyphicon-triangle-top');
+			span.addClass('glyphicon-triangle-bottom');
+			$('#object-inner-box' + object_number).animate({height: '0px'}, 200, 'linear');
+			$('#object-inner-box' + object_number).css('border-width', '0px');
+		} else {
+			span.removeClass('glyphicon-triangle-bottom');
+			span.addClass('glyphicon-triangle-top');
+			$('#object-inner-box' + object_number).css('height', 'auto');
+			$('#object-inner-box' + object_number).css('border-width', '1px');
+		}
+	}
+	
+
+
+
+
+
+
+	//========================================================================
+	//========================================================================
+	//========================   TOP PANEL   =================================
+	//========================================================================
+	//========================================================================
+
+	
+
+	//========================  DRAW TOP PANEL   =================================
+		
+	function drawTopPanel_Attribute(object_number, attribute_id) {	
+		console.log('test1');
+		selected_object_attribute = {'object_number': object_number, 'attribute_id': attribute_id, 'period_number': null};
+		var attribute_name = objects_dict[object_number]['object_attributes'][attribute_id]['attribute_name'];
+		var object_name = objects_dict[object_number]['object_name'];
+		var attribute_data_type = objects_dict[object_number]['object_attributes'][attribute_id]['attribute_data_type'];
+		console.log('test2');
+		checked_string = '';
+		if (document.getElementById("include-zero")) {
+			if (document.getElementById("include-zero").checked) {
+				checked_string = ' checked';
+			}
+		}
+		
+		$('#top-panel').html(	'<div id="graph-panel"></div>' +
+								'<div id="triggerd-rules-panel">' + 
+									'<div id="triggerd-rules-title">Triggered Rules</div>' +
+									'<div id="triggerd-rule-periods"></div>' + 
+								'</div>' +
+								'<div id="top-menu-bar">' +
+									'<div id="vertically-centered">' +
+										//'<button id="show-rules-button"  style="display:none;" class="btn btn-secondary" type="button" onclick="showHideRules(' + object_number + ',' + attribute_id + ', null)">Triggerd Rules<span id="triggerd-rules-triangle" class="glyphicon glyphicon-triangle-top collapse-triangle"></span></button>' +
+										'<div id="inlude-zero-menu"></div>' +
+									'</div>' +
+								'</div>');
+
+		console.log('test3');
+		if (number_of_periods > 1) {
+
+			$('#inlude-zero-menu').html('<input type="checkbox" class="custom-control-input" id="include-zero" onchange="refreshRestOfScreen()"' + checked_string + '>' +
+										'<label class="custom-control-label" for="include-zero">&nbsp;Include 0 in Linegraph</label>');
+		
+			if (['real','int'].includes(attribute_data_type)) {
+				linegraph_data = prepareLineGraphData_Attribute(object_number, attribute_id);
+				plotLineGraph(false, object_name, attribute_name, linegraph_data);
+			
+			} else {
+				linegraph_data = prepareLineGraphData_Attribute(object_number, attribute_id);
+				plotLineGraph(true, object_name, attribute_name, linegraph_data);
+			} 	
+		} else {
+			if (['real','int'].includes(attribute_data_type)) {
+				histogram_data = prepareHistogramData(false, object_number, attribute_id, 0);
+				console.log('test8');
+				plotHistogram(object_name, attribute_name, histogram_data);
+			} else {
+				console.log('test9');
+				histogram_data = prepareHistogramData(true, object_number, attribute_id, 0);
+				console.log('test10');
+				plotHistogram(object_name, attribute_name, histogram_data);
+			}
+		}
+		
+		console.log('test11');
+		drawRulePanel(object_number, attribute_id, attribute_name,  null);
+		console.log('test12');
+		
+	}
+	
+	
+	function drawTopPanel_AttributeValue(object_number, attribute_id, period_number) {
+		selected_object_attribute = {'object_number': object_number, 'attribute_id': attribute_id, 'period_number': period_number};
+		var attribute_name = objects_dict[object_number]['object_attributes'][attribute_id]['attribute_name'];
+		var object_name = objects_dict[object_number]['object_name'];
+		var attribute_data_type = objects_dict[object_number]['object_attributes'][attribute_id]['attribute_data_type'];
+		
+		
+		$('#top-panel').html(	'<div id="graph-panel"></div>' +
+								'<div id="triggerd-rules-panel">' + 
+									'<div id="triggerd-rules-title">Triggered Rules</div>' +
+									'<div id="triggerd-rule-periods">' + 
+									'</div>' +
+								'</div>' +
+								'<div id="top-menu-bar">' +
+									'<div id="vertically-centered">' +
+										//'<button id="show-rules-button" style="display:none;" class="btn btn-secondary" type="button" onclick="showHideRules(' + object_number + ',' + attribute_id + ', null)">Triggerd Rules<span id="triggerd-rules-triangle" class="glyphicon glyphicon-triangle-top collapse-triangle"></span></button>' +
+										'<div id="inlude-zero-menu"></div>' +
+									'</div>' +
+								'</div>');
+								
+		
+		if (['real','int'].includes(attribute_data_type)) {
+			histogram_data = prepareHistogramData(false, object_number, attribute_id, period_number);
+			plotHistogram(object_name, attribute_name, histogram_data);
+		} else {
+			histogram_data = prepareHistogramData(true, object_number, attribute_id, period_number);
+			plotHistogram(object_name, attribute_name, histogram_data);
+		}
+		
+		drawRulePanel(object_number, attribute_id, attribute_name,  period_number);
+	}
+	
+
+	
+	
+	//========================  PREPARE DATA - TOP PANEL   =================================
+	
+	// Histogram Graph Data ------------------------
+	function prepareHistogramData(is_categorical, object_number, attribute_id, period_number) {
+	
+		var selected_runs_list = Array.from(selected_runs);
+		var column_name = 'obj' + String(object_number) + 'attr' + String(attribute_id);
+		var histogram_data = {};
+		
+		if (is_categorical) {
+			// value_occurences & value_labels
+			var value_occurences = {}
+			var value_labels = {}
+			for (var i = 0; i < selected_runs_list.length; i++) {
+				var value = String(simulation_data[selected_runs_list[i]][column_name][period_number]);
+				if (Object.keys(value_occurences).includes(value)) {
+					value_occurences[value] += 1;
+					value_labels[value] += 'Run' + all_runs_list.indexOf(selected_runs_list[i])  + '\n';
+				} else {
+					value_occurences[value] = 1;
+					value_labels[value] = 'Run' + all_runs_list.indexOf(selected_runs_list[i])  + '\n';
+				}
+			}
+			
+			// histogram_data
+			var data = []
+			var distinct_values = Object.keys(value_occurences);
+			for (var i = 0; i < distinct_values.length; i++) {
+				var value = distinct_values[i];
+				data.push([value, String(value_occurences[value])]);
+			}
+			histogram_data = { 'data': data, 'labels':value_labels};
+			
+			
+		} else {
+			// overall value range
+			var minimum_overall_value = 100000;
+			var maximum_overall_value = -100000;
+			var all_runs = Object.keys(simulation_data);
+			for (var i = 0; i < all_runs.length; i++) {
+				for (var period_nb = 0; period_nb < number_of_periods; period_nb++) {
+					var value = simulation_data[all_runs[i]][column_name][period_nb];
+					if (value > maximum_overall_value) {maximum_overall_value = value;}
+					if (value < minimum_overall_value) {minimum_overall_value = value;}
+				}
+			}
+			
+			//bin_lower_bounds
+			var bin_interval = (maximum_overall_value - minimum_overall_value)/40;
+			var bin_interval_order_of_magnitude = Math.pow(10, Math.floor(Math.log(bin_interval)/Math.log(10)));
+			var rounded_bin_interval = Math.ceil(bin_interval/bin_interval_order_of_magnitude) * bin_interval_order_of_magnitude
+			var bins_bottom_edge = Math.floor(minimum_overall_value/rounded_bin_interval) * rounded_bin_interval 
+			var bin_lower_bounds = []
+			for (var i = 0; i < 40; i++) {
+				bin_lower_bounds.push(bins_bottom_edge + i*rounded_bin_interval)
+			}
+			
+			// bin_occurences & bin_labels
+			bin_occurences = Array(40).fill(0);
+			bin_labels = Array(40).fill(''); 
+			for (var i = 0; i < selected_runs_list.length; i++) {
+				var value = simulation_data[selected_runs_list[i]][column_name][period_number];
+				var bin_number = 0;
+				for (var j = 0; j < bin_lower_bounds.length; j++) {
+					if (value > bin_lower_bounds[j]) { bin_number = j;	}
+				}
+				bin_occurences[bin_number] += 1;
+				bin_labels[bin_number] += 'Run' + all_runs_list.indexOf(selected_runs_list[i])  + ': ' + String(value) + '\n';
+			}
+			
+			// histogram_data
+			var data = []
+			for (var i = 0; i < bin_lower_bounds.length; i++) {
+				if (bin_occurences[i] > 0) {
+					data.push([String(bin_lower_bounds[i]), String(bin_occurences[i])]);
+				} else {
+					data.push([String(bin_lower_bounds[i]), null]);
+				}
+			}
+			histogram_data = {'data': data, 'labels':bin_labels};
+		}
+		
+		return histogram_data;
+	}
+	
+	
+	
+	// Line Graph Data ------------------------------------
+	function prepareLineGraphData_Attribute(object_number, attribute_id) {
+
+		var selected_runs_list = Array.from(selected_runs);
+		if (selected_runs_list.length > 20) {
+			selected_runs_list = selected_runs_list.slice(0, 20);
+		}
+		
+		var linegraph_data = [];
+		var max_value = -1000;
+		var min_value = 1000;
+		var distinct_values = new Set();
+		
+
+
+		for (var period_number = 0; period_number < number_of_periods; period_number++) {
+			
+			// Period's Time
+			var current_timestamp= simulation_start_time + (timestep_size * period_number);
+			var date_string = makeDateString(current_timestamp);
+			
+			var linegraph_data_row = [date_string];
+
+			// values
+			for (var k = 0; k < selected_runs_list.length; k++) {
+				var run_number = selected_runs_list[k];
+				var column_name = 'obj' + String(object_number) + 'attr' + String(attribute_id);
+				var value = simulation_data[run_number][column_name][period_number];
+				linegraph_data_row.push(value);
+				
+				// correct values
+				is_y_value_attribute = false;
+				for (var l = 0; l < y_value_attributes.length; l++) { 
+					if (y_value_attributes[l]['object_number']==object_number && y_value_attributes[l]['attribute_id']==attribute_id) {is_y_value_attribute = true;}
+				}
+				if (selected_runs_list.length == 1 && is_y_value_attribute) {
+					var initial_state_index = run_number.split('-')[0];
+					var correct_value = correct_values[column_name + 'period' + period_number][initial_state_index];
+					linegraph_data_row.push(correct_value);
+				}
+				
+				//distinct_values
+				if (value < min_value) {min_value = value;}
+				if (value > max_value) {max_value = value;}
+				distinct_values.add(value);
+			}
+			linegraph_data.push(linegraph_data_row);
+		}
+		
+		
+		// distinct_values
+		let distinct_values_list = Array.from(distinct_values);
+		
+		// run_numbers
+		run_numbers = []
+		for (var k = 0; k < selected_runs_list.length; k++) {
+			run_number = all_runs_list.indexOf(selected_runs_list[k]);
+			run_numbers.push(run_number);
+		}
+
+		return {'data':linegraph_data, 'min_value':min_value, 'max_value':max_value, 'distinct_values':distinct_values_list, 'run_numbers':run_numbers};
+	}
+	
+	
+	
+	
+	
+	
+	function makeDateString(current_timestamp) {
+		var current_date = new Date(current_timestamp*1000);
+		
+		var year = current_date.getUTCFullYear();
+		var month = current_date.getUTCMonth() + 1;
+		var day = current_date.getUTCDate();
+		var hours = current_date.getUTCHours();
+		var minutes = "0" + current_date.getUTCMinutes();
+		var seconds = "0" + current_date.getUTCSeconds();
+		
+		var date_string = '';
+		if (timestep_size >= 31622400) {
+			date_string = year;
+		} else if (timestep_size >= 2419198) {
+			date_string = year+'-'+month;
+		} else if (timestep_size >= 86398) {
+			date_string = year+'-'+month+'-'+day;
+		} else if (timestep_size >= 58) {
+			date_string = year+'-'+month+'-'+day+' '+hours + ':' + minutes.substr(-2);
+		} else {
+			date_string = year+'-'+month+'-'+day+' '+hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+		}
+		
+		return date_string;
+	}
+
+	//========================  PLOT GRAPH - TOP PANEL   =================================
+			
+	// Plot Line Histogram  -------------------------------------
+	function plotHistogram(object_name, attribute_name, histogram_data) {
+		anychart.onDocumentReady(function () {
+
+			var chart = anychart.column();
+			chart.title(object_name + '.[' + attribute_name + ']');
+			chart.yScale().ticks().allowFractional(false);
+			//chart.animation(true);
+
+
+			var series = chart.column(histogram_data['data']);
+
+			series.tooltip().titleFormat('{%X}');
+
+			series.tooltip()
+					.position('center-top')
+					.anchor('center-bottom')
+					.offsetX(0)
+					.offsetY(5);
+					
+			var tooltip = series.tooltip();
+			tooltip.format(function(){
+				/*var index = 0;
+				for (var i = 0; i < histogram_data['data'].length; i++) {
+					if (histogram_data['data'][i][0] == this.x) { index = i;}
+				}*/
+				return this.value + '\n\n' + histogram_data['labels'][this.x] ;
+			});
+
+
+			chart.barGroupsPadding(0);
+			chart.yScale().minimum(0);
+			chart.yAxis().labels().format('{%Value}{groupsSeparator: }');
+			chart.tooltip().positionMode('point');
+			chart.interactivity().hoverMode('by-x');
+
+			chart.xAxis().title(attribute_name);
+			chart.yAxis().title('Count');
+
+			// set container id for the chart
+			chart.container('graph-panel');
+			chart.draw();
+		});
+		
+	}
+	
+	
+
+
+	// Plot Line Graph  ----------------------------------
+	function plotLineGraph(is_categorical, object_name, attribute_name, linegraph_data) {
+	
+		var selected_runs_list = Array.from(selected_runs);
+		anychart.onDocumentReady(function () {
+			// load data
+			var dataSet = anychart.data.set(linegraph_data['data']);
+
+
+			// create line chart
+			var chart = anychart.line();
+			chart.title(object_name + '.[' + attribute_name + ']');
+			chart.animation(true);
+			chart.padding([10, 20, 5, 20]);
+			chart.crosshair()
+					.enabled(true)
+					.yLabel(false)
+					.yStroke(null);
+			chart.tooltip().positionMode('point');
+			chart.yAxis().title(attribute_name);
+			chart.xAxis().labels().padding(5);
+			
+			if (is_categorical) {
+				ordinalYScale = anychart.scales.ordinal();
+				ordinalYScale.names(linegraph_data['distinct_values'])
+				chart.yScale(ordinalYScale);
+			}
+			
+			//var include_zero = false;
+			var include_zero = document.getElementById("include-zero").checked;
+			var yScale = chart.yScale();
+			if (include_zero & linegraph_data['min_value'] > 0) {
+				yScale.minimum(0);
+			} else if (include_zero &  linegraph_data['max_value'] < 0) {
+				yScale.maximum(0);
+			}
+
+
+
+			//true values
+			if (selected_runs_list.length == 1 && linegraph_data['data'][0].length == 3) {
+				var series_1 = chart.jumpLine(dataSet.mapAs({'x': 0, 'value': 2}));
+				series_1.name('True values')
+						.stroke("4.5 #3ec400");
+				series_1.hovered().markers()
+						.enabled(true)
+						.type('circle')
+						.size(4);
+				series_1.tooltip()
+						.position('right')
+						.anchor('left-center')
+						.offsetX(5)
+						.offsetY(5);
+			}
+			
+
+
+			for (var i = 0; i < selected_runs_list.length; i++) {
+				// create first series with mapped data
+				var series_2;
+				if (is_categorical) {
+					series_2 = chart.stepLine(dataSet.mapAs({'x': 0, 'value': i+1}));
+				} else {
+					series_2 = chart.line(dataSet.mapAs({'x': 0, 'value': i+1}));
+				}
+				series_2.name('Run' + linegraph_data['run_numbers'][i])
+						.stroke("1.5 #4c82d9");
+				series_2.hovered().markers()
+						.enabled(true)
+						.type('circle')
+						.size(4);
+				series_2.tooltip()
+						.position('right')
+						.anchor('left-center')
+						.offsetX(5)
+						.offsetY(5);
+			}
+			
+			
+			// turn the legend on
+			chart.legend()
+					.enabled(true)
+					.fontSize(13)
+					.padding([0, 0, 10, 0])
+					.positionMode("inside")
+					.position("top");
+
+			// set container id for the chart
+			chart.container('graph-panel');
+			chart.draw();
+			
+	
+			
+			chart.listen("chartDraw", function() {
+				//y_axis_offset 
+				y_axis_offset = 118;
+				found_value = false;		
+				$("g[role='article']").children('path').each(function () {
+					if ($(this)[0].hasAttribute("d") && !found_value) {
+						path_starting_point = parseInt($(this).attr('d').split(' ')[1]);
+						if (path_starting_point > 5) {
+							y_axis_offset = path_starting_point;
+							found_value = true;
+						}
+					}
+				});
+				$('#triggerd-rules-title').css('width', y_axis_offset + 'px');
+				$('#triggerd-rule-periods').css('width', 'calc(100% - ' + y_axis_offset + 'px)');
+				$('#triggerd-rule-periods').css('overflow-y', 'scroll');
+			});	
+		});
+		
+		
+
+
+	}
+	
+	
+	//========================================================================
+	//=====================    TRIGGERD RULES      ===========================
+	//========================================================================
+	
+	function drawRulePanel(object_number, attribute_id, attribute_name,  period_number){
+	
+		var max_number_of_rules = 0;
+		var selected_runs_list = Array.from(selected_runs);
+		if (selected_runs_list.length == 1) {
+			var run_id = selected_runs_list[0];
+		
+			if (period_number == null) {
+				triggerd_rules_html = '';
+				for (var period_number = 0; period_number < number_of_periods; period_number++) {
+					var triggerd_rules_period_html = getTriggeredRulePeriodString(run_id, object_number, attribute_id, attribute_name,  period_number, false);
+					triggerd_rules_html += triggerd_rules_period_html[0];
+					if (triggerd_rules_period_html[1] > max_number_of_rules) {max_number_of_rules = triggerd_rules_period_html[1];}
+				}
+				$('#triggerd-rule-periods').html(triggerd_rules_html);
+				$('.triggerd-rules-period').css('width', (100/(number_of_periods)).toFixed(3) + '%');
+			} else {
+				triggerd_rules_html = getTriggeredRulePeriodString(run_id, object_number, attribute_id, attribute_name,  0, true);
+				$('#triggerd-rule-periods').html(triggerd_rules_html[0]);
+				if (triggerd_rules_html[1] > max_number_of_rules) {max_number_of_rules = triggerd_rules_html[1];}
+			}
+			
+			var rule_height = Math.max(24 * max_number_of_rules, 66);
+			$('#triggerd-rules-panel').css('border', '1px solid rgb(210, 210, 210)');
+			$('#triggerd-rules-panel').css('height', rule_height + 'px');
+			$('#triggerd-rules-title').css('display', 'inline-block');
+			$('#triggerd-rule-periods').css('height', rule_height + 'px');
+			$('#graph-panel').css('height','calc(100% - ' + (45 + rule_height) + 'px)');
+			
+			
+		} else {
+			$('#triggerd-rule-periods').html('');
+			$('#triggerd-rules-panel').css('height', '0px');
+			$('#triggerd-rules-panel').css('border', '0px');
+			$('#triggerd-rules-title').css('display', 'none');
+			$('#triggerd-rule-periods').css('height', '0px');
+			$('#graph-panel').css('height','calc(100% - 45px)');
+		}
+
+
+		
+	}
+	
+	
+	
+	function getTriggeredRulePeriodString(run_id, object_number, attribute_id, attribute_name,  period_number, is_single_period){
+	
+		var number_of_rules = 0;
+		var column_name = 'obj' + String(object_number) + 'attr' + String(attribute_id);
+		triggerd_rules_period_html  = '<div class="triggerd-rules-period">';
+		if (Object.keys(triggered_rules[run_id]).includes(column_name)) {
+			if (Object.keys(triggered_rules[run_id][column_name]).includes(String(period_number))) {
+				var triggered_rule_infos = triggered_rules[run_id][column_name][period_number]['rules'];
+				for (var i = 0; i < triggered_rule_infos.length; i++) {
+					var triggered_rule_info = triggered_rule_infos[i];
+					var rule_id = triggered_rule_info['id'];
+					var rule = objects_dict[object_number]['object_rules'][attribute_id][rule_id];
+					
+					//text_decoration
+					if (triggered_rule_info['pt']){
+						text_decoration = ''
+					} else {
+						text_decoration = ' style="text-decoration: line-through;" ';
+					}
+					
+					// rule_number
+					rule_number = execution_order['rule_execution_order'][String(attribute_id)]['used_rule_ids'].indexOf(rule_id) + 1;
+					//rule_number = objects_dict[object_number]['object_rules'][attribute_id]['execution_order'].indexOf(rule_id) + 1;
+							
+					// tooltip_text
+					tooltip_text = "current value=|" + triggered_rule_info['v'] + "|  vs.  correct value=|" + String(triggered_rules[run_id][column_name][period_number]['correct_value']) + "|";  // v = new_value
+					
+
+					//probability_html
+					if (rule['has_probability_1']) {
+						probability_html = '';
+					} else {
+						if (triggered_rule_info['pt']){ //pt = probability_triggered
+							probability_html = '<span class="rule-prob" >(prob=' + Math.round(triggered_rule_info['tp']*100) + '%&#10004;)</span>';  // tp = trigger_probability
+						} else {
+							probability_html = ' <span class="rule-prob" style="text-decoration: line-through;"> (prob=' + Math.round(triggered_rule_info['tp']) + '%&#10008;)</span>'; // tp = trigger_probability
+						}
+						
+					}
+					
+					//new_value_html
+					if ((is_single_period || number_of_periods < 11) & triggered_rule_info['pt']) {//pt = probability_triggered
+						if (['real','int'].includes(objects_dict[object_number]['object_attributes'][attribute_id]['attribute_data_type'])) {
+							new_value_html = '<span class="rule-value"> =>' + triggered_rule_info['v'] + '</span>'; // v = new_value
+						} else {
+							new_value_html = '<span class="rule-value"> =>\'' + triggered_rule_info['v'] + '\'</span>'; // v = new_value
+						}
+					} else {
+						new_value_html = '';
+					}
+
+					
+
+					
+	
+					var error_colour = '#f0f0f0';
+					if ('error' in triggered_rule_info) {
+						var error_colour =  error_colours[Math.round(triggered_rule_info['error']*63)];
+					}
+					triggerd_rules_period_html  += 	'<div class="triggerd-rule" style="background: '+ error_colour +'" data-toggle="tooltip" title="' + tooltip_text + '" onclick="openEditObjectBehaviourModal(' + object_number + ', ' + attribute_id + ', \'' + attribute_name + '\', ' + triggered_rule_info['id'] + ')">' +
+														'<span class="rule-name" ' + text_decoration + '>Rule ' + rule_number + ' </span>' +
+														probability_html +
+														new_value_html +
+													'</div>';
+					number_of_rules += 1;
+				}
+				
+				triggerd_rules_period_html += 	'</div>';
+				
+
+				return [triggerd_rules_period_html, number_of_rules];
+				
+			} else {
+				return ['<div class="triggerd-rules-period"></div>', 0];
+			}
+		} else {
+			return ['<div class="triggerd-rules-period"></div>', 0];
+		}
+	}
+	
+	
+	
+	//========================================================================
+	//========================================================================
+	//=======================    Re-Run Simulation      ======================
+	//========================================================================
+	//========================================================================
+	
+	function run() {
+		saveSimulation();
+		
+		form_html_string =	"<form role='form' action='' method='post' class='form' enctype='multipart/form-data'>" + 
+								"{% csrf_token %}" +
+							"</form>";
+		$(form_html_string).appendTo("body").submit();
+		
+	}
+	
+	
+	function saveSimulation() {
+		// get run_id
+		var url_components = window.location.href.split("/");
+		var run_id = url_components[url_components.length - 2];
+			
+		
+		request_body = {
+			'run_id': run_id,
+			'is_timeseries_analysis': is_timeseries_analysis,
+			'objects_dict': objects_dict,
+			'y_value_attributes': y_value_attributes,
+			'object_type_counts': {{ simulation_model.object_type_counts|safe }},
+			'total_object_count': {{ simulation_model.total_object_count }},
+			'number_of_additional_object_facts': {{ simulation_model.number_of_additional_object_facts }},
+			'simulation_start_time': simulation_start_time,
+			'simulation_end_time': simulation_end_time,
+			'timestep_size': timestep_size
+		}
+		
+		var xmlhttp = new XMLHttpRequest();       
+		xmlhttp.open("POST", "/tool/save_changed_simulation/");
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+		xmlhttp.send(JSON.stringify(request_body));	
+	}
+	
+	
+	
+	
+
+	//========================================================================
+	//========================================================================
+	//========================    MAIN      ==================================
+	//========================================================================
+	//========================================================================	
+		
+	drawLeftPanel();
+	
+	score = errors['score'] * 100;
+	nb_of_decimal_places = Math.max(1-Math.floor(Math.log(score)/Math.log(10)) ,1);
+	score_text = String(Math.floor(score * (10**nb_of_decimal_places))/ (10**nb_of_decimal_places)) + '%';
+	$('#simulation-score').html(score_text);
+
+
+	// make the Top Panel resizable
+	 $("#top-panel").resizable({
+	   handleSelector: "#splitter",
+	   resizeHeight: true
+	 });
+	 
+
+
+	//load execution order
+	/*
+	var xhttp = new XMLHttpRequest();       
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			execution_order = JSON.parse(this.responseText);
+		}
+	};
+	xhttp.open('GET', '/tool/get_execution_order?execution_order_id=' + execution_order_id , true);
+	xhttp.send();*/
+	
+	
+	//get missing object_dict attributes
+	request_body = {}
+	var sim_key0 = Object.keys(simulation_data)[0]
+	var simulation_data_columns = Object.keys(simulation_data[sim_key0])
+	var object_numbers = Object.keys(objects_dict);
+	for (var i = 0; i < object_numbers.length; i++) {
+		var simulated_columns_for_this_object = [];
+		for (var j = 0; j < simulation_data_columns.length; j++) {
+			if (simulation_data_columns[j].includes('obj' + String(object_numbers[i]) + 'attr')) {
+				simulated_columns_for_this_object.push(simulation_data_columns[j])
+			}
+		}
+		request_body[object_numbers[i]] = {'simulation_data_columns':simulated_columns_for_this_object, 'objects_dict_attribute_ids': Object.keys(objects_dict[object_numbers[i]]["object_attributes"])};
+	}
+	
+	var xmlhttp = new XMLHttpRequest();    
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var response = JSON.parse(this.responseText);
+			var object_numbers = Object.keys(response);
+			for (var i=0; i < object_numbers.length; i++) {
+				var missing_attribute_ids = Object.keys(response[object_numbers[i]]);
+				for (var j=0; j < missing_attribute_ids.length; j++) {
+					objects_dict[object_numbers[i]]['object_attributes'][missing_attribute_ids[j]] = response[object_numbers[i]][missing_attribute_ids[j]];
+				}
+			}
+		}
+	};	
+	xmlhttp.open("POST", "/tool/get_missing_objects_dict_attributes/");
+	xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	xmlhttp.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+	xmlhttp.send(JSON.stringify(request_body));	
+		
+		
+		
+		
+		
+		
+	window.onload = function() {	
+		// make the accordion in the left sidebar collapseable
+		$('.accordion-toggle').click(function() {
+			content_element = $($(this).attr('href'));
+			if (content_element.hasClass('in')) {
+				content_element.hide();
+				content_element.removeClass('in')
+			} else {
+				content_element.show();
+				content_element.addClass('in')
+			}
+		});
+		
+		$('#accordion-left-content-2').show();
+		$('#accordion-left-content-2').addClass('in');
+		
+		
+				
+		// load parameter_info
+		var xhttp = new XMLHttpRequest();       
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				parameter_info = JSON.parse(this.responseText);
+			}
+		};
+		xhttp.open('GET', '/tool/get_parameter_info', true);
+		xhttp.send();
+		
+		
+		// load parameter_info
+		/*
+		var object_numbers = Object.keys(objects_dict);
+		for (var i = 0; i < object_numbers.length; i++) {
+			
+			var attribute_ids = Object.keys(objects_dict[object_numbers[i]]['object_rules']);
+			for (var j = 0; j < attribute_ids.length; j++) {
+			
+				var rule_ids = Object.keys(objects_dict[object_numbers[i]]['object_rules'][attribute_ids[j]]);
+				for (var k = 0; k < rule_ids.length; k++) {
+				
+					var rule = objects_dict[object_numbers[i]]['object_rules'][attribute_ids[j]][rule_ids[k]]
+					if (rule['learn_posterior']) {
+					
+						var used_parameter_ids = rule['used_parameter_ids'];
+						for (var l = 0; l < used_parameter_ids.length; l++) {
+							//get the Parameter Info
+							var xhttp = new XMLHttpRequest();       
+							xhttp.onreadystatechange = function() {
+								if (this.readyState == 4 && this.status == 200) {
+									response_dict = JSON.parse(this.responseText);
+									parameter_info[response_dict['id']] = response_dict;
+								}
+							};
+							xhttp.open('GET', '/tool/get_parameter_info?parameter_id=' + String(used_parameter_ids[l]) + '&is_last_parameter=' + String(l == (used_parameter_ids.length-1)), true);
+							xhttp.send();
+						}
+					}
+					
+				}
+			}
+		}*/
+		
+		
+		// add parameter number
+		var url_components = window.location.href.split("/");
+		var parameter_number = url_components[url_components.length - 2];
+		$('#parameter-values-accordion-button').html('Parameter Values ' + parameter_number)
+		
+	}
+	
+</script>
+
+
+<!--<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>-->
+
+
+{% include "tool/includes/edit_object_behaviour_modal.html" %} 
+<script type="text/javascript" src="{% static 'js/bootstrap-3.4.0.min.js' %}"></script>
+
+<script>
+	jQuery(document).ready(function($){
+		 $(function () {
+			$("#bottom-object-items").sortable({
+					/*start: function (event, ui) {
+							ui.item.toggleClass("highlight");
+					},
+					stop: function (event, ui) {
+							ui.item.toggleClass("highlight");
+					}*/
+			});
+			$("#bottom-object-items").disableSelection();
+		});
+	});
+</script>
+	 
+
+
+
+

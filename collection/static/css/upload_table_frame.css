@@ -1,0 +1,86 @@
+	/*  Frame  ------------------------------------------- */
+	.content {
+		height: calc(100% - 58px);
+		padding: 0px;
+	}
+
+	.container-fluid {
+		height: 100%;
+	}
+	
+	.frame {
+		display: inline-block;
+		height: 100%;
+		background-color: rgb(245, 245, 245);
+		padding-left: 22px;
+		width: calc(100% - 125px);
+		float: left;
+		box-shadow: inset 5px -5px 33px 10px rgba(0,0,0,0.08);
+		border-left: 1px solid rgb(160,160,160);
+	}
+
+	.window-title-top {
+		display: inline-block;
+		font-size: 26px;
+		padding: 5px;
+		padding-left: 13px;
+	}
+
+	.big-circle {
+		border-radius: 50%;
+		background: rgb(183, 211, 235);
+		padding: 0px 11px;
+		margin-left: 13px;
+		display: inline-block;
+		font-size: 24px;
+	}
+	
+	.window {
+		height: calc(100% - 48px);
+		//border: 1px solid rgb(180,180,180);
+		border-right: none;
+		border-top: 6px solid rgb(220,220,220);
+		border-left: 6px solid rgb(228,228,228);
+	}
+	
+	.window-inner {
+		height: 100%;
+		background: white;
+		border-right: none;
+		border-top: 1px solid rgb(200,200,200);
+		border-left: 1px solid rgb(200,200,200);
+		padding-left: 14px;
+		padding-right: 25px;
+	}
+	
+	.closed-frame {
+		display: inline-block;
+		height: 100%;
+		width: 25px;
+		border: 1px solid rgb(160,160,160);
+		float: left;
+		padding: 3px;
+		//background-color: rgb(240, 240, 240);
+		background: linear-gradient(90deg,rgb(252, 252, 252) 0%,rgb(233, 233, 233) 96.48217237937519%);
+	}
+	
+	.small-circle {
+		border-radius: 50%;
+		background: rgb(183, 211, 235);
+		padding: 0px 5px;
+		margin-bottom: 9px;
+		margin-top: 8px;
+		width: 19px;
+	}
+	
+	.closed-frame-title {
+		writing-mode: vertical-rl;
+		display: inline-block;
+	}
+	
+	.h1 {
+		
+		font-size: 29px;
+    margin-left: 8px;
+		
+	}

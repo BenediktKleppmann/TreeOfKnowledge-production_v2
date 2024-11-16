@@ -1,0 +1,98 @@
+{% extends 'layouts/base_landing_pages.html' %}'
+{% load staticfiles %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+# Copyright (C) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, February 2021
+#####################################################################
+-->
+
+{% block title %}
+	Tree of Knowledge - News
+{% endblock %}
+
+
+
+
+{% block additionalcss %}
+	<style>
+		.box {
+			background-color:rgb(66, 67, 62);
+		}
+		
+		label{
+			font-weight:100;
+		}
+		
+		.form-control {width:400px;}
+	</style>
+{% endblock %}	
+
+
+
+
+
+
+{% block content %}
+	<section id="background picture" class="carousel">
+		<div style="background-image: url(../static/images/dawn-min2.png);
+					background-attachment: fixed;
+					background-size: 100%;
+					background-repeat: no-repeat;
+					padding: 200px 0;
+					background-position: 35% 14%;
+					margin-top:53px">
+		</div>
+	</section>
+
+
+	<section>
+		<div class="container">
+			<div class="box first last">
+				<div class="lead left-aligned">
+					<br><br>
+					
+					{% if error_occured == True %}
+						<p style="color:white">
+							<b>An Error occured</b><br>
+							Most likely causes:
+							<ul style="color:white">
+								<li>the email has been added already</li>
+								<li>it was not a valid email adress</li>
+							</ul><br><br>
+						</p>
+					{% else %}{% endif %}
+					
+					If you want to learn more or would be interested in participating, please consider joining the mailing-list.
+					<br><br><br>
+					
+					<form role="form" action="" method="post"> 
+						{% csrf_token %}
+						
+						<div class="form-group">
+							<label for="first_name">First Name</label>
+							<input type="text" class="form-control" name="first_name" placeholder="First Name" >
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="text" class="form-control" name="email" placeholder="Email">
+						</div>
+						<button type="submit" class="btn btn-success" style="margin-top: 8px;font-size:19px; line-height:40px">Join the mailing-list</button>	  
+					</form>
+				<br><br><br>
+
+			  </div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+
+
+
+
+
