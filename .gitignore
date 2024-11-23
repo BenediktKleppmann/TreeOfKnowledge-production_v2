@@ -1,6 +1,6 @@
 .env
 db.sqlite3
-collection/static/webservice files/runtime_data/*
+#collection/static/webservice files/runtime_data/*
 collection/static/webservice files/db_backup/object.json
 collection/static/webservice files/db_backup/simulation_model.json
 collection/static/webservice files/db_backup/data_point/test.json
