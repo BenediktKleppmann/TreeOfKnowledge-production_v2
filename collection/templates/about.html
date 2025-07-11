@@ -38,14 +38,283 @@
 
 		h1 {
 			margin-top: 52px;
-			margin-bottom: 32px;
+			margin-bottom: 20px;
+		}
+
+		.btn-email {
+			background-color: #67452e;
+			border-color: #433226;
+			color: rgb(226, 221, 204);
+		}
+
+		.btn-email:hover, .btn-email:focus, .btn-email.active.focus, .btn-email.active:focus, 
+		.btn-email.active:hover, .btn-email:active.focus, 
+		.btn-email:active:focus, .btn-email:active:hover {
+			background-color: #523725;
+			border-color: #2e221a;
+			color: rgb(226, 221, 204);
 		}
 		
 		.col-md-3 {
 			padding-left: 4%;
 			padding-right: 4%;
 		}
+
+		/* Advantages  ------------------------------------------------------ */
+
+
+		.icon-frame {
+			border: 3px solid white;
+			border-radius: 5px;
+			/*border-color: rgb(255, 242, 204);*/
+			border-color: rgb(249 246 241);
+			color: rgb(249 246 241);
+			font-size:30px;
+			padding-left:1px;
+			padding-right:0px;
+			padding-top:1px;
+			height:51px;
+			width:51px;
+		}
+
+
+
+		.main-container h1 {
+			color: rgb(247, 238, 202);
+			font-family: 'AvenirLTProMedium', Calibri;
+			font-size: 45px;
+			margin-bottom: 48px;
+    		margin-top: 79px;
+		}
+
+		.how-it-works-title {
+			text-align: left;
+			margin-left: 13px;
+			margin-bottom: 25px;
+		}
 		
+		h2.yellowish {
+			padding-top: 20px;
+			color: rgb(237 221 195);
+			font-size: 29px;
+			padding-top: 13px;
+			padding-left: 65px;
+		}
+
+		h2.advantage {
+			padding-top: 20px;
+			color: rgb(249 246 241);
+			font-size: 29px;
+			padding-top: 13px;
+			padding-left: 65px;
+		}
+		
+		.how-it-works-block {
+			text-align: left;
+			margin-left: 20px;
+		}
+
+		
+
+
+		/* Accordion   ------------------------------------------------------ */
+
+		.panel {
+			/*background: rgb(51, 51, 39);*/
+			border-color: #43423e;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			box-shadow: none;
+			border-width: 0px;
+			background-color: #43423e;
+		}
+
+		.panel-heading .accordion-toggle:after {
+			color: #474641 !important;
+		}
+
+		.panel-title {
+			font-size: 19px;
+		}
+
+		.panel-default>.panel-heading {
+			color: rgb(224, 223, 218);
+			background-color: rgb(67 66 62);
+			/*border-color: rgb(67 66 62);*/
+		}
+
+		.panel-body {
+			background: rgb(67 66 62);
+			border-width: 0px !important;
+		}
+
+		/* Accordion Outer Heading Button  ------------------------------------------------------ */
+
+		.panel-title {
+			font-size: 19px;
+		}
+
+		.btn-outer-heading{
+			background-color:  rgb(226, 221, 204);
+			border-color:  rgb(226, 221, 204);
+			color: rgb(67 66 62);
+			font-size: 19px;
+			border-radius: 23px;
+			padding: 9px 20px;
+		}
+
+		.btn-outer-heading.collapsed {
+			background-color: rgb(67 66 62);
+			border-color: rgb(226, 221, 204);
+			color: rgb(226, 221, 204);
+		}
+
+		.btn-outer-heading:hover, .secondary-primary:focus, .btn-outer-heading.active.focus, .btn-outer-heading.active:focus, 
+		.btn-outer-heading.active:hover, .btn-outer-heading:active.focus, 
+		.btn-outer-heading:active:focus, .btn-outer-heading:active:hover {
+			background-color:  rgb(226, 221, 204);
+			border-color:  rgb(226, 221, 204);
+			color: rgb(67 66 62);
+		}
+
+
+		/* Accordion Inner Heading Button  ------------------------------------------------------ */
+		
+		.inner-group .panel{
+			background: rgb(67 66 62);
+		}
+
+		.inner-group .panel-title {
+			text-align: left;
+		}
+
+		.inner-group .panel-heading {
+			padding: 0px;
+		}
+
+		.panel-line-on-left {
+			border-left: 1px solid rgb(226, 221, 204);
+			margin-left: 101px;
+		}
+
+		.btn-inner-heading{
+			background-color:  rgb(226, 221, 204);
+			border-color:  rgb(226, 221, 204);
+			color: rgb(67 66 62);
+			font-size: 19px;
+			border-radius: 0px;
+			padding: 9px 20px;
+		}
+
+		.btn-inner-heading.collapsed {
+			background-color: rgb(67 66 62);
+			border-color: rgb(226, 221, 204);
+			color: rgb(226, 221, 204);
+		}
+
+		.btn-inner-heading:hover, .secondary-primary:focus, .btn-inner-heading.active.focus, .btn-inner-heading.active:focus, 
+		.btn-inner-heading.active:hover, .btn-inner-heading:active.focus, 
+		.btn-inner-heading:active:focus, .btn-inner-heading:active:hover {
+			background-color:  rgb(226, 221, 204);
+			border-color:  rgb(226, 221, 204);
+			color: rgb(67 66 62);
+		}
+
+
+
+		/* Flex advantages  ------------------------------------------------------ */
+
+
+
+		.flex-containter {
+			display:flex; 
+			flex-wrap: wrap; 
+			align-content: flex-start; 
+			gap: 1em;
+			margin-left: 37px;
+    		margin-top: 10px;
+		}
+
+		.advantage-flex-box  {
+			height: auto;
+			width: 420px;
+			border: 1px solid rgb(249 246 241);;
+			border-radius: 15px;
+		}
+
+		.advantage-flex-box.truncated {
+			height: 350px;
+			width: 253px;
+		}
+
+		.icon-image {
+			height: 73px;
+			width: 73px;
+			margin-top: 15px;
+		}
+		
+		.flex-box-title {
+			padding-top: 0px;
+			min-height: 57px;
+			margin-bottom: 11px;
+		}
+
+
+		.flex-box-text {
+			text-align: left;
+			margin-left: 20px;
+			height: auto;
+			margin-bottom: 12px;
+    		margin-right: 12px;
+		}
+
+		.truncated .flex-box-text {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			height: 166px;
+			display: -webkit-box;
+			-webkit-line-clamp: 6;
+			-webkit-box-orient: vertical;
+			text-overflow: ellipsis;
+		}
+
+		/* Advantage Text  ------------------------------------------------------ */
+
+		.advantage-block {
+			display: flex;
+			padding-top: 37px;
+			padding-bottom: 30px;
+			padding-left: 20px;
+		}
+
+		.advantage-title {
+			width: 70px;
+		}
+
+		.advantage-h2 {
+			margin-top: 0px;
+			color: rgb(249 246 241);
+			font-size: 29px;
+			padding-left: 0px;
+			text-align: left;
+    		padding-top: 0px;
+		}
+
+		.advantage-text {
+			padding-left: 17px;
+		}
+
+		.advantage-text-main {
+			text-align: left;
+		}
+
+		.advantage-icon {
+			height: 68px;
+			width: 68px;
+
+		}
+
+
 		/* Bottom  ------------------------------------------------------ */
 		
 		#bottom-logo {
@@ -63,6 +332,23 @@
 			margin-bottom: 24px;
 		}
 	</style>
+
+
+	<script>
+
+
+		function toggleTruncation(clickedElement){
+
+			if (clickedElement.classList.contains('truncated')) {
+				clickedElement.classList.remove('truncated');
+			} else {
+				clickedElement.classList.add('truncated');
+			}
+
+		}
+
+	</script>
+
 {% endblock %}	
 
 
@@ -70,56 +356,34 @@
 
 
 {% block content %}
-	<section id="background-picture-outer" class="carousel">
-		<div id="background-picture-inner" style="height:453px">
-			<div style="background-image: url(../static/images/old_tree_dark-min-min.png);
-						background-attachment: fixed;
-						background-size: 100%;
-						background-repeat: no-repeat;
-						padding: 200px 0;
-						background-position: 35% 0%;
-						position: absolute;
-						top:54px;
-						width:100%;
-						z-index:-1;">
-			</div>
-		</div>
-	</section>
+	<div style="height:400px">
+		<img src="{% static 'images/ai_tree.jpg'%}" style="width:100%; object-fit: cover; height:400px; object-position: 50% 70%;" alt="Big old tree" width="100%">
+	</div>
+
 
 	
 
 	<div class="container-fluid" style="background-color: rgb(122, 81, 56);">
 		<div class="teaser-text">
 			<h1>Our Mission</h1>
-			---&nbsp;&nbsp; We hope to one day transform public policy making into a science &nbsp;&nbsp;---<br>
-			<br>
 
-			We are concerned about the long term well-being of the planet and its inhabitants and we strongly believe that the decisions that shape this world should be based on real facts and transparency instead of rhetoric and feelings. <br>
-			<!--
-			We are concerned about issues like global warming, natural habitat loss and social justice. 
-			But, more importantly, we believe that disscussions about such important issues should be based on real facts and complete transparency instead of rethorics and feelings. <br>
-			-->
-			<br>
-			Public policies are chosen on the basis of their predicted effects.
-			In this complex world it is impossible to make any 100% accurate predictions, but it <i>is</i> possible to make predictions that are as <i>good as theoretically possible</i> 
-			
-			<!--The real world is extremely complex and it is impossible to make 100% accurate predictions, but it <i>is</i> possible to make predictions that are as <i>good as theoretically possible</i> -->
-			i.e. predictions that take into account all existing knowledge and exactly quantify all uncertainties. If used correctly, Tree of Knowledge does exactly this (whereby it only takes into account the specific factual knowledge which users have entered).<br>
-			Tree of Knowledge's goal is to empower politicians to exactly model and compare the effect of different policies. We want to give them the power to create undeniable arguments: if anybody disagrees with the predictions made by the Tree of Knowledge and they have additional facts/data, they can add them to the model and observe the changes. 
-			If they don't have any additional facts/data, they are not presenting a valid argument.
-			
-			<!--
-			The mission of the Tree of Knowledge is to create the best possible models of the economy/society 
-			and to empower NGOs 
-			enable more transparency political decision making
-			
+			We love science and its power to improve lives and transform the world.<br>
+			We are in awe of how the exact fundamental theories in physics and chemistry have allowed engineers to completely revolutionize the world with all the modern technology we rely on every day. We believe that creating exact fundamental theories of social agents could have a similarly profound impact and lead to significant advancements in areas such as public policy making, economics, clinical psychology, educational psychology and much more.
+
+			<h1>Our Mission</h1>
 			The mission of the Tree of Knowledge is to enable truly fact-based decision making to be applied to the world’s most pressing problems 
 			and thereby minimizing the role of rhetoric, prejudice and misinformation. 
 			We believe that objective solutions to these problems in the environment and society can only be found by creating accurate models of the world 
 			that reflect the true complexity and uncertainty of the world!<br>
-			<p>For this goal we are building a novel and very powerful simulation-modelling environment.</p>
-			-->
+
+			<h1>Join in!</h1>
+			If you are a social science researcher and like the idea of this platform, please don't hesitate to contact us.<br>
+			We will gladly help you with anything. Be it small things like sovling a problem or helping you get started on the platform. Or bigger things like collaborating with you
+			to model the systems and phenomena you're interested in and answering your research questions.<br>
+			We would love to work together with you!
+			
 			<br>
+			<a href="mailto:support@treeofknowledge.ai" target="_blank" class="btn btn-email" style="margin-top:10px">Email Us</a>
 			<br>		
 			<br>
 			<br>		
@@ -128,62 +392,1320 @@
 	
 	
 
-	<div class="container" style="background:rgb(66, 67, 62)"><!-- rgb(51, 51, 39)-->
-		<br>
-		<h1>Functionality<!--Capabilities of the tool--></h1>
-		<div class="lead left-aligned" style="text-align: left;">	
-			<br>
-			<a href="https://arxiv.org/abs/2103.03666">Research paper about Tree of Knowledge</a>
-			<br>
-			<br>
-			To find out about Tree of Knowledge's functionality we suggest signing up (top right of this screen) and trying it out.
-			It is free for everyone to use. The user accounts are only for personalisation and to identify users who are being actively harmful to the holistic model.<br><br>
-			Anyway, here is what you can do with Tree of Knowledge:
-			<br>
-			<br>
-			<div class="row" style="display:flex; align-items:center;">
-				<div class="col-md-9">
-					<p class="lead left-aligned">	
-					
-						<h2 class="yellowish">Model your system</h2>
-						Whether you are interested in international trade, a country's macroeconomic developments or consumer behaviour&nbsp;-&nbsp;whatever your system of interest&nbsp;&nbsp;-&nbsp;you can model your system in less than 10 minutes.
-						
-						All you need to do is set the scene i.e. through drag&amp;dropping, specify the agents/actors of the system and how they relate and press 'play' to observe the system unfold.
-						To improve the model, you can easily change the agents' initial values and the default behaviour, which the system provided.
-			
-			
-						<h2 class="yellowish">Evaluate models</h2>
-						If you upload data relating to your system to the knowledge base, Tree of Knowledge will automatically use this data to score the simulation, set the initial values of the agents to those of your system and refine the simulation rules.
-						
 
-						<h2 class="yellowish">Understand your system</h2>
-						In the analysis environment you can gain a full understanding of your system by watching the simulations unfold. 
-						You can inspect any aspect of the simulations. <!--For simulations with many agents, you can e.g. create summary statistics and follow their evolution.--><br>
-						
-						
-						<h2 class="yellowish">Test hypotheses</h2>
-						To check whether a relation or causal dependency holds, you only have to formulate it as a new rule. The system automatically learns with what probability this new rule holds.
-						
-						<h2 class="yellowish">Make predictions</h2>
-						To see what the future will look like, you only need to run the simulation. Due to the Bayesian probability distributions and Monte-Carlo simulations, there are accurate error-margins for all predictions.
-						
-						<h2 class="yellowish">Simulate new scenarios</h2>
-						You can easily simulate new scenarios, by changing some of the initial values e.g. a tax rate or the price of a product.
-						
-						<h2 class="yellowish">Find optimum strategies</h2>
-						This has not been implemented yet, but in future you will be able to e.g. determine the best tax rate or price of a product. For this you have to specify what you want to optimize for and 
-						the system learns which tax rate/product price optimizes this metric.			
-					</p>
+	<div class="container main-container" style="background:rgb(67 66 62);">
+		<br>
+		<h1>Further advantages of this platform</h1>		
+		<div class="panel-group" id="outer-group">
+<!-- 
+			<!- easy to use->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+				<h4 class="panel-title">
+					<button type="button" class="btn btn-outer-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#outer-group" href="#collapseOne">
+						easy to use
+					</button>
+				</h4>
 				</div>
-				<div class="col-md-3">
+				<div id="collapseOne" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="panel-group inner-group" id="inner-group1">
+
+						<!- easy to use | Bayesian Framework ->
+						<div class="panel">
+							<div class="panel-heading">
+							<h4 class="panel-title">
+								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseOneOne">
+									Advantages from<br>the Bayesian Framework
+								</button>
+							</h4>
+							</div>
+							<div id="collapseOneOne" class="panel-collapse collapse panel-line-on-left">
+							<div class="panel-body">
+
+								<div class="how-it-works-title">
+									<span class="icon-frame" style="float:left;">
+										<img src="/static/images/advantage_icons_v2/1.1_no_programming_required.svg" style="height:47px;width:47px; margin-bottom:3px">
+									</span>
+									<h2 class="advantage-h2">No programming required </h2>
+								</div>
+								<div class="how-it-works-block">
+									Data transformations are handled automatically by the knowledge base (see below) and inference & evaluation are done by the Bayesian framework (see below).
+								</div>
+								<br>
+
+								<div class="how-it-works-title">
+									<span class="icon-frame" style="float:left;">
+										<img src="/static/images/advantage_icons_v2/1.2_avoid_errors.svg" style="height:47px;width:47px;margin-bottom:3px">
+									</span>
+									<h2 class="advantage">Avoid errors</h2>
+								</div>
+								<div class="how-it-works-block">
+									The automatic data transformation, model inference and result calculation reduces the possibility of human errors in these steps
+								</div>
+								<br>
+
+								<div class="how-it-works-title">
+									<span class="icon-frame" style="float:left;">
+										<img src="/static/images/advantage_icons_v2/1.3_easy_statistics.svg" style="height:47px;width:47px;margin-bottom:3px">
+									</span>
+									<h2 class="advantage">Publish data with one click</h2>
+								</div>
+								<div class="how-it-works-block">
+									Tree of Knowledge has at its core an extremely powerful knowledge base (see below) which manages all data and related meta data. <br>
+									This Knowledge base not only allows the inference framework to automatically retrieve the right information. It also allows the data and meta data to be published in an extremely easily findable and retrievable manner.
+
+								</div>
+							</div>
+							</div>
+						</div>
+						<br>
+
+						<!- easy to use | Simulations with pre-trained agents ->
+						<div class="panel panel-default">
+							<div class="panel-heading">
+							<h4 class="panel-title">
+								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseOneTwo">
+									Advantages from<br>running Simulations<br>with pre-trained Agents
+								</button>
+							</h4>
+							</div>
+							<div id="collapseOneTwo" class="panel-collapse collapse panel-line-on-left">
+								<div class="panel-body">
+
+
+										
+									<div class="how-it-works-title">
+										<span class="icon-frame" style="float:left;">
+											<img src="/static/images/advantage_icons_v2/1.4_fast.svg" style="height:47px;width:47px; margin-bottom:3px">
+										</span>
+										<h2 class="advantage">Fast</h2>
+									</div>
+									<div class="how-it-works-block">
+										Create a model in seconds - by clicking together pre-trained agents.
+									</div>
+									<br>
+
+									<div class="how-it-works-title">
+										<span class="icon-frame" style="float:left;">
+											<img src="/static/images/advantage_icons_v2/1.5_fun.svg" style="height:47px;width:47px">
+										</span>
+										<h2 class="advantage">Fun</h2>
+									</div>
+									<div class="how-it-works-block">
+										Not only are the simulation models intuitive and visually appealing, working with them can also be as fun as playing an economic simulation game.
+									</div>
+									<br>
+
+									<div class="how-it-works-title">
+										<span class="icon-frame" style="float:left;">
+											<img src="/static/images/advantage_icons_v2/1.6_easy_predictions.svg" style="height:47px;width:47px; margin-bottom:3px">
+										</span>
+										<h2 class="advantage">Easy predictions</h2>
+									</div>
+									<div class="how-it-works-block">
+										With a few clicks you can bring different actors/agents into the right configuration and model the scenario you're interested in.
+									</div>
+									<br>
+
+									<div class="how-it-works-title">
+										<span class="icon-frame" style="float:left;">
+											<img src="/static/images/advantage_icons_v2/1.7_easy_communication_of_results.svg" style="height:47px;width:47px; margin-bottom:3px">
+										</span>
+										<h2 class="advantage">Easy communication of results</h2>
+									</div>
+									<div class="how-it-works-block">
+										Due to their intuitive and visual nature, the simulation models can also be easily communicated.
+									</div>
+		
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<!- easy to use | Online Platform ->
+						<div class="panel panel-default">
+							<div class="panel-heading">
+							<h4 class="panel-title">
+								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseOneThree">
+									Advantages from<br>being an Online Platform
+								</button>
+							</h4>
+							</div>
+							<div id="collapseOneThree" class="panel-collapse collapse panel-line-on-left">
+								<div class="panel-body">
+
+
+									<div class="how-it-works-title">
+										<span class="icon-frame" style="float:left;">
+											<img src="/static/images/advantage_icons_v2/1.8_publish_data.svg" style="height:47px;width:47px; margin-bottom:3px">
+										</span>
+										<h2 class="advantage">Publish data with one click</h2>
+									</div>
+									<div class="how-it-works-block">
+										Tree of Knowledge has at its core an extremely powerful knowledge base (see below) which manages all data and related meta data. <br>
+										This Knowledge base not only allows the inference framework to automatically retrieve the right information. It also allows the data and meta data to be published in an extremely easily findable and retrievable manner.
+									</div>
+									<br>
+
+									<div class="how-it-works-title">
+										<span class="icon-frame" style="float:left;">
+											<img src="/static/images/advantage_icons_v2/1.9_publish_analysis.svg" style="height:47px;width:47px; margin-bottom:3px">
+										</span>
+										<h2 class="advantage">Punish analyses with one click</h2>
+									</div>
+									<div class="how-it-works-block">
+										Pubish your models and analyses with one click.
+									</div>
+									<br>
+
+									<div class="how-it-works-title">
+										<span class="icon-frame" style="float:left;">
+											<img src="/static/images/advantage_icons_v2/1.10_online_platform.svg" style="height:47px;width:47px; margin-bottom:3px">
+										</span>
+										<h2 class="advantage">Online Platform</h2>
+									</div>
+									<div class="how-it-works-block">
+										As it's an online platform, it needs no installation and can be used from any device.
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
 					<br>
+				</div>
+				</div>
+			</div>
+
+
+
+
+
+			
+			<!- easy to use v2->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+				<h4 class="panel-title">
+					<button type="button" class="btn btn-outer-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#outer-group" href="#collapseSix">
+						easy to use
+					</button>
+				</h4>
+				</div>
+				<div id="collapseSix" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="panel-group inner-group" id="inner-group1">
+
+							<!- easy to use v2 | Bayesian Framework ->
+							<div class="panel">
+								<div class="panel-heading">
+								<h4 class="panel-title">
+									<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseSixOne">
+										Advantages from<br>the Bayesian Framework
+									</button>
+								</h4>
+								</div>
+								<div id="collapseSixOne" class="panel-collapse collapse">
+									<div class="panel-body">
+
+										<div class="flex-containter">
+											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+												<span>
+													<img class="icon-image" src="/static/images/advantage_icons_v2/1.1_no_programming_required.svg">
+												</span>
+												<h2 class="flex-box-title">No programming required </h2>
+												<div class="flex-box-text">
+													Data transformations are handled automatically by the knowledge base (see below) and inference & evaluation are done by the Bayesian framework (see below).
+												</div>
+											</div>
+											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+												<span>
+													<img class="icon-image" src="/static/images/advantage_icons_v2/1.2_avoid_errors.svg">
+												</span>
+												<h2 class="flex-box-title">Avoid errors</h2>
+												<div class="flex-box-text">
+													The automatic data transformation, model inference and result calculation reduces the possibility of human errors in these steps
+												</div>
+											</div>
+											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+												<span>
+													<img class="icon-image" src="/static/images/advantage_icons_v2/1.3_easy_statistics.svg">
+												</span>
+												<h2 class="flex-box-title">Publish data with one click</h2>						
+												<div class="flex-box-text">
+													Tree of Knowledge has at its core an extremely powerful knowledge base (see below) which manages all data and related meta data. <br>
+													This Knowledge base not only allows the inference framework to automatically retrieve the right information. It also allows the data and meta data to be published in an extremely easily findable and retrievable manner.
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<br>
+
+							<!- easy to use v2 | Simulations with pre-trained agents ->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+								<h4 class="panel-title">
+									<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseSixTwo">
+										Advantages from<br>running Simulations<br>with pre-trained Agents
+									</button>
+								</h4>
+								</div>
+								<div id="collapseSixTwo" class="panel-collapse collapse">
+									<div class="panel-body">
+
+
+										<div class="flex-containter">
+											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+												<span>
+													<img class="icon-image" src="/static/images/advantage_icons_v2/1.4_fast.svg">
+												</span>
+												<h2 class="flex-box-title">Fast</h2>
+												<div class="flex-box-text">
+													Create a model in seconds - by clicking together pre-trained agents.
+												</div>
+											</div>
+											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+												<span>
+													<img class="icon-image" src="/static/images/advantage_icons_v2/1.5_fun.svg">
+												</span>
+												<h2 class="flex-box-title">Fun</h2>
+												<div class="flex-box-text">
+													Not only are the simulation models intuitive and visually appealing, working with them can also be as fun as playing an economic simulation game.
+												</div>
+											</div>
+											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+												<span>
+													<img class="icon-image" src="/static/images/advantage_icons_v2/1.6_easy_predictions.svg">
+												</span>
+												<h2 class="flex-box-title">Easy predictions</h2>
+												<div class="flex-box-text">
+													With a few clicks you can bring different actors/agents into the right configuration and model the scenario you're interested in.
+												</div>
+											</div>
+											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+												<span>
+													<img class="icon-image" src="/static/images/advantage_icons_v2/1.7_easy_communication_of_results.svg">
+												</span>
+												<h2 class="flex-box-title">Easy communication of results</h2>
+												<div class="flex-box-text">
+													Due to their intuitive and visual nature, the simulation models can also be easily communicated.
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<br>
+
+							<!- easy to use v2 | Online Platform ->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+								<h4 class="panel-title">
+									<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseSixThree">
+										Advantages from<br>being an Online Platform
+									</button>
+								</h4>
+								</div>
+								<div id="collapseSixThree" class="panel-collapse collapse">
+									<div class="panel-body">
+										<div class="flex-containter">
+											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+												<span>
+													<img class="icon-image" src="/static/images/advantage_icons_v2/1.8_publish_data.svg">
+												</span>
+												<h2 class="flex-box-title">Publish data with one click</h2>
+												<div class="flex-box-text">
+													Tree of Knowledge has at its core an extremely powerful knowledge base (see below) which manages all data and related meta data. <br>
+													This Knowledge base not only allows the inference framework to automatically retrieve the right information. It also allows the data and meta data to be published in an extremely easily findable and retrievable manner.
+												</div>
+											</div>
+											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+												<span>
+													<img class="icon-image" src="/static/images/advantage_icons_v2/1.9_publish_analysis.svg">
+												</span>
+												<h2 class="flex-box-title">Punish analyses with one click</h2>
+												<div class="flex-box-text">
+													Pubish your models and analyses with one click.
+												</div>
+											</div>
+											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+												<span>
+													<img class="icon-image" src="/static/images/advantage_icons_v2/1.10_online_platformv2.svg">
+												</span>
+												<h2 class="flex-box-title">Online Platform</h2>
+												<div class="flex-box-text">
+													As it's an online platform, it needs no installation and can be used from any device.
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+			
+			
+			<!- easy to use v3->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+				<h4 class="panel-title">
+					<button type="button" class="btn btn-outer-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#outer-group" href="#collapseSeven">
+						easy to use
+					</button>
+				</h4>
+				</div>
+				<div id="collapseSeven" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="panel-group inner-group" id="inner-group1">
+
+							<div class="flex-containter">
+								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+									<span>
+										<img class="icon-image" src="/static/images/advantage_icons_v2/1.1_no_programming_required.svg">
+									</span>
+									<h2 class="flex-box-title">No programming required </h2>
+									<div class="flex-box-text">
+										Data transformations are handled automatically by the knowledge base (see below) and inference & evaluation are done by the Bayesian framework (see below).
+									</div>
+								</div>
+								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+									<span>
+										<img class="icon-image" src="/static/images/advantage_icons_v2/1.2_avoid_errors.svg">
+									</span>
+									<h2 class="flex-box-title">Avoid errors</h2>
+									<div class="flex-box-text">
+										The automatic data transformation, model inference and result calculation reduces the possibility of human errors in these steps
+									</div>
+								</div>
+								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+									<span>
+										<img class="icon-image" src="/static/images/advantage_icons_v2/1.3_easy_statistics.svg">
+									</span>
+									<h2 class="flex-box-title">Publish data with one click</h2>						
+									<div class="flex-box-text">
+										Tree of Knowledge has at its core an extremely powerful knowledge base (see below) which manages all data and related meta data. <br>
+										This Knowledge base not only allows the inference framework to automatically retrieve the right information. It also allows the data and meta data to be published in an extremely easily findable and retrievable manner.
+									</div>
+								</div>
+								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+									<span>
+										<img class="icon-image" src="/static/images/advantage_icons_v2/1.4_fast.svg">
+									</span>
+									<h2 class="flex-box-title">Fast</h2>
+									<div class="flex-box-text">
+										Create a model in seconds - by clicking together pre-trained agents.
+									</div>
+								</div>
+								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+									<span>
+										<img class="icon-image" src="/static/images/advantage_icons_v2/1.5_fun.svg">
+									</span>
+									<h2 class="flex-box-title">Fun</h2>
+									<div class="flex-box-text">
+										Not only are the simulation models intuitive and visually appealing, working with them can also be as fun as playing an economic simulation game.
+									</div>
+								</div>
+								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+									<span>
+										<img class="icon-image" src="/static/images/advantage_icons_v2/1.6_easy_predictions.svg">
+									</span>
+									<h2 class="flex-box-title">Easy predictions</h2>
+									<div class="flex-box-text">
+										With a few clicks you can bring different actors/agents into the right configuration and model the scenario you're interested in.
+									</div>
+								</div>
+								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+									<span>
+										<img class="icon-image" src="/static/images/advantage_icons_v2/1.7_easy_communication_of_results.svg">
+									</span>
+									<h2 class="flex-box-title">Easy communication of results</h2>
+									<div class="flex-box-text">
+										Due to their intuitive and visual nature, the simulation models can also be easily communicated.
+									</div>
+								</div>
+								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+									<span>
+										<img class="icon-image" src="/static/images/advantage_icons_v2/1.8_publish_data.svg">
+									</span>
+									<h2 class="flex-box-title">Publish data with one click</h2>
+									<div class="flex-box-text">
+										Tree of Knowledge has at its core an extremely powerful knowledge base (see below) which manages all data and related meta data. <br>
+										This Knowledge base not only allows the inference framework to automatically retrieve the right information. It also allows the data and meta data to be published in an extremely easily findable and retrievable manner.
+									</div>
+								</div>
+								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+									<span>
+										<img class="icon-image" src="/static/images/advantage_icons_v2/1.9_publish_analysis.svg">
+									</span>
+									<h2 class="flex-box-title">Punish analyses with one click</h2>
+									<div class="flex-box-text">
+										Pubish your models and analyses with one click.
+									</div>
+								</div>
+								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
+									<span>
+										<img class="icon-image" src="/static/images/advantage_icons_v2/1.10_online_platformv2.svg">
+									</span>
+									<h2 class="flex-box-title">Online Platform</h2>
+									<div class="flex-box-text">
+										As it's an online platform, it needs no installation and can be used from any device.
+									</div>
+								</div>
+							</div>
+						</div>
+						<br>
+					</div>
+				</div>
+			</div>
+
+
+-->
+
+			<!-- easy to use -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+				<h4 class="panel-title">
+					<button type="button" class="btn btn-outer-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#outer-group" href="#collapseOne">
+						easy to use
+					</button>
+				</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="panel-group inner-group" id="inner-group1">
+
+						<!-- easy to use | Bayesian Framework -->
+						<div class="panel">
+							<div class="panel-heading">
+							<h4 class="panel-title">
+								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseOneOne">
+									Advantages from<br>the Bayesian Framework
+								</button>
+							</h4>
+							</div>
+							<div id="collapseOneOne" class="panel-collapse collapse panel-line-on-left">
+							<div class="panel-body">
+								
+								<div class="advantage-block">
+									<div class="advantage-title">
+										<span style="float:left;">
+											<img class="advantage-icon" src="/static/images/advantage_icons/1.1_no_programming_required.svg">
+										</span>
+									</div>
+									<div class="advantage-text">
+										<h2 class="advantage-h2">No programming required </h2>
+										<div class="advantage-text-main">
+											Data transformations are handled automatically by the knowledge base (see below) and inference & evaluation are done by the Bayesian framework (see below).
+										</div>
+									</div>
+								</div>
+								<div class="advantage-block">
+									<div class="advantage-title">
+										<span style="float:left;">
+											<img class="advantage-icon" src="/static/images/advantage_icons/1.2_avoid_errors.svg">
+										</span>
+									</div>
+									<div class="advantage-text">
+										<h2 class="advantage-h2">Avoid errors</h2>
+										<div class="advantage-text-main">
+											The automatic data transformation, model inference and result calculation reduces the possibility of human errors in these steps
+										</div>
+									</div>
+									<br>
+								</div>
+								<div class="advantage-block">
+									<div class="advantage-title">
+										<span style="float:left;">
+											<img class="advantage-icon" src="/static/images/advantage_icons/1.3_easy_statistics.svg">
+										</span>
+									</div>
+									<div class="advantage-text">
+										<h2 class="advantage-h2">Publish data with one click</h2>
+										<div class="advantage-text-main">
+											Tree of Knowledge has at its core an extremely powerful knowledge base (see below) which manages all data and related meta data. <br>
+											This Knowledge base not only allows the inference framework to automatically retrieve the right information. It also allows the data and meta data to be published in an extremely easily findable and retrievable manner.
+										</div>
+									</div>
+								</div>									
+							</div>
+							</div>
+						</div>
+						<br>
+
+						<!-- easy to use | Simulations with pre-trained agents -->
+						<div class="panel panel-default">
+							<div class="panel-heading">
+							<h4 class="panel-title">
+								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseOneTwo">
+									Advantages from<br>running Simulations<br>with pre-trained Agents
+								</button>
+							</h4>
+							</div>
+							<div id="collapseOneTwo" class="panel-collapse collapse panel-line-on-left">
+								<div class="panel-body">
+
+
+															
+									<div class="advantage-block">
+										<div class="advantage-title">
+											<span style="float:left;">
+												<img class="advantage-icon" src="/static/images/advantage_icons/1.4_fast.svg">
+											</span>
+										</div>
+										<div class="advantage-text">
+											<h2 class="advantage-h2">Fast</h2>
+											<div class="advantage-text-main">
+												Create a model in seconds - by clicking together pre-trained agents.
+											</div>
+										</div>
+									</div>
+									<div class="advantage-block">
+										<div class="advantage-title">
+											<span style="float:left;">
+												<img class="advantage-icon" src="/static/images/advantage_icons/1.5_fun.svg">
+											</span>
+										</div>
+										<div class="advantage-text">
+											<h2 class="advantage-h2">Fun</h2>
+											<div class="advantage-text-main">
+												Not only are the simulation models intuitive and visually appealing, working with them can also be as fun as playing an economic simulation game.
+											</div>
+										</div>
+									</div>
+									<div class="advantage-block">
+										<div class="advantage-title">
+											<span style="float:left;">
+												<img class="advantage-icon" src="/static/images/advantage_icons/1.6_easy_predictions.svg">
+											</span>
+										</div>
+										<div class="advantage-text">
+											<h2 class="advantage-h2">Easy predictions</h2>
+											<div class="advantage-text-main">
+												With a few clicks you can bring different actors/agents into the right configuration and model the scenario you're interested in.
+											</div>
+										</div>
+									</div>
+									<div class="advantage-block">
+										<div class="advantage-title">
+											<span style="float:left;">
+												<img class="advantage-icon" src="/static/images/advantage_icons/1.7_easy_communication_of_results.svg">
+											</span>
+										</div>
+										<div class="advantage-text">
+											<h2 class="advantage-h2">Easy communication of results</h2>
+											<div class="advantage-text-main">
+												Due to their intuitive and visual nature, the simulation models can also be easily communicated.
+											</div>
+										</div>
+									</div>
+		
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<!-- easy to use | Online Platform -->
+						<div class="panel panel-default">
+							<div class="panel-heading">
+							<h4 class="panel-title">
+								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseOneThree">
+									Advantages from<br>being an Online Platform
+								</button>
+							</h4>
+							</div>
+							<div id="collapseOneThree" class="panel-collapse collapse panel-line-on-left">
+								<div class="panel-body">
+
+									<div class="advantage-block">
+										<div class="advantage-title">
+											<span style="float:left;">
+												<img class="advantage-icon" src="/static/images/advantage_icons/1.8_publish_data.svg">
+											</span>
+										</div>
+										<div class="advantage-text">
+											<h2 class="advantage-h2">Publish data with one click</h2>
+											<div class="advantage-text-main">
+												Tree of Knowledge has at its core an extremely powerful knowledge base (see below) which manages all data and related meta data. <br>
+												This Knowledge base not only allows the inference framework to automatically retrieve the right information. It also allows the data and meta data to be published in an extremely easily findable and retrievable manner.
+											</div>
+										</div>
+									</div>
+									<div class="advantage-block">
+										<div class="advantage-title">
+											<span style="float:left;">
+												<img class="advantage-icon" src="/static/images/advantage_icons/1.9_publish_analysis.svg">
+											</span>
+										</div>
+										<div class="advantage-text">
+											<h2 class="advantage-h2">Punish analyses with one click</h2>
+											<div class="advantage-text-main">
+												Pubish your models and analyses with one click.
+											</div>
+										</div>
+									</div>
+									<div class="advantage-block">
+										<div class="advantage-title">
+											<span style="float:left;">
+												<img class="advantage-icon" src="/static/images/advantage_icons/1.10_online_platformv2.svg">
+											</span>
+										</div>
+										<div class="advantage-text">
+											<h2 class="advantage-h2">Online Platform</h2>
+											<div class="advantage-text-main">
+												As it's an online platform, it needs no installation and can be used from any device.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 					<br>
-					<br>
-					<a href="{% static 'images/tree_of_knowledge_schematic.png'%}"><img id="object_hierachy-image" src="{% static 'images/tree_of_knowledge_schematic.png'%}" class="img-responsive mr-3 img-thumbnail"></a><br>
-					The Tree of Knowledge grows as more datasets are added to the knowledge base and as more behaviours are modelled and evaluated.
+				</div>
+				</div>
+			</div>
+
+
+
+
+
+
+			<!-- better statistics-->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+				<h4 class="panel-title">
+					<button type="button" class="btn btn-outer-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#outer-group" href="#collapseTwo">
+						better statistics
+					</button>
+				</h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="panel-group inner-group" id="inner-group2">
+
+
+						<!-- better statistics | Many Datasets -->
+						<div class="panel">
+							<div class="panel-heading">
+							<h4 class="panel-title">
+								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group2" href="#collapseTwoOne">
+									Advantages from <br>
+									being trained on <br>
+									many datasets
+								</button>
+							</h4>
+							</div>
+							<div id="collapseTwoOne" class="panel-collapse collapse panel-line-on-left">
+							<div class="panel-body">
+								
+								<div class="advantage-block">
+									<div class="advantage-title">
+										<span style="float:left;">
+											<img class="advantage-icon" src="/static/images/advantage_icons/2.1 universal.svg">
+										</span>
+									</div>
+									<div class="advantage-text">
+										<h2 class="advantage-h2">Universal</h2>
+										<div class="advantage-text-main">
+											Due to being tested in such diverse range of scenarios, the fundamental theories are proven to be truly generalisable/universally applicable.
+										</div>
+									</div>
+								</div>
+								<div class="advantage-block">
+									<div class="advantage-title">
+										<span style="float:left;">
+											<img class="advantage-icon" src="/static/images/advantage_icons/2.2 accurate_and_reliable.svg">
+										</span>
+									</div>
+									<div class="advantage-text">
+										<h2 class="advantage-h2">Accurate and Reliable</h2>
+										<div class="advantage-text-main">
+											Due to being trained on such a large and diverse collection of datasets, the fundamental theories are vastly more proven, reliable and accurate.
+										</div>
+									</div>
+									<br>
+								</div>
+								<div class="advantage-block">
+									<div class="advantage-title">
+										<span style="float:left;">
+											<img class="advantage-icon" src="/static/images/advantage_icons/2.3 free from bias.svg">
+										</span>
+									</div>
+									<div class="advantage-text">
+										<h2 class="advantage-h2">Free from bias</h2>
+										<div class="advantage-text-main">
+											Nearly every single dataset is subject to some sort of bias (e.g. selection bias, subject bias, etc.). When training on many datasets, these biases however cancel out.
+										</div>
+									</div>
+								</div>	
+								<div class="advantage-block">
+									<div class="advantage-title">
+										<span style="float:left;">
+											<img class="advantage-icon" src="/static/images/advantage_icons/2.4_powerful_model_selection.svg">
+										</span>
+									</div>
+									<div class="advantage-text">
+										<h2 class="advantage-h2">Powerful model selection</h2>
+										<div class="advantage-text-main">
+											<i>“Most models will fit to a single dataset, but only the truly correct model will fit all datasets”</i> – By evaluating models on hundreds of datasets, we get a truly reliable measure of their accuracy.
+										</div>
+									</div>
+								</div>																	
+							</div>
+							</div>
+						</div>
+						<br>
+
+						<!-- better statistics | Universal Theories -->
+						<div class="panel panel-default">
+							<div class="panel-heading">
+							<h4 class="panel-title">
+								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group2" href="#collapseTwoTwo">
+									Advantages from<br>being a universal theory
+								</button>
+							</h4>
+							</div>
+							<div id="collapseTwoTwo" class="panel-collapse collapse panel-line-on-left">
+								<div class="panel-body">
+
+
+															
+									<div class="advantage-block">
+										<div class="advantage-title">
+											<span style="float:left;">
+												<img class="advantage-icon" src="/static/images/advantage_icons/2.5_powerful_predictions.svg">
+											</span>
+										</div>
+										<div class="advantage-text">
+											<h2 class="advantage-h2">Powerful Predictions</h2>
+											<div class="advantage-text-main">
+												Unlike other models, the fundamental theories allow us to accurately model and predict absolutely any social system.
+											</div>
+										</div>
+									</div>
+									<div class="advantage-block">
+										<div class="advantage-title">
+											<span style="float:left;">
+												<img class="advantage-icon" src="/static/images/advantage_icons/2.6_counter_factual_analysis.svg">
+											</span>
+										</div>
+										<div class="advantage-text">
+											<h2 class="advantage-h2">Counterfactual analysis and system optimisation</h2>
+											<div class="advantage-text-main">
+												With these theories we can model any social system. This allows us to investigate how well slightly modified systems would perform and ultimately, allows us to find the system configuration that works best.
+											</div>
+										</div>
+									</div>	
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<!-- better statistics | Knowledge Base -->
+						<div class="panel panel-default">
+							<div class="panel-heading">
+							<h4 class="panel-title">
+								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group2" href="#collapseTwoThree">
+									Advantages from<br>the Knowledge Base
+								</button>
+							</h4>
+							</div>
+							<div id="collapseTwoThree" class="panel-collapse collapse panel-line-on-left">
+								<div class="panel-body">
+
+									<div class="advantage-block">
+										<div class="advantage-title">
+											<span style="float:left;">
+												<img class="advantage-icon" src="/static/images/advantage_icons/2.7_data quality.svg">
+											</span>
+										</div>
+										<div class="advantage-text">
+											<h2 class="advantage-h2">Data Quality</h2>
+											<div class="advantage-text-main">
+												Automatic data quality checking by the knowledge base
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+			<!-- new statistics-->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+				<h4 class="panel-title">
+					<button type="button" class="btn btn-outer-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#outer-group" href="#collapseThree">
+						new statistics
+					</button>
+				</h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="panel-group inner-group" id="inner-group3">
+
+
+
+							<!-- new statistics | Pre-trained Models -->
+							<div class="panel">
+								<div class="panel-heading">
+								<h4 class="panel-title">
+									<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group3" href="#collapseThreeOne">
+										Advantages from with <br>
+										pre-trained models
+									</button>
+								</h4>
+								</div>
+								<div id="collapseThreeOne" class="panel-collapse collapse panel-line-on-left">
+									<div class="panel-body">
+										
+										<div class="advantage-block">
+											<div class="advantage-title">
+												<span style="float:left;">
+													<img class="advantage-icon" src="/static/images/advantage_icons/3.1_cancelling_out_noise.svg">
+												</span>
+											</div>
+											<div class="advantage-text">
+												<h2 class="advantage-h2">Cancelling out noise</h2>
+												<div class="advantage-text-main">
+													Noise in datasets comes from un-accounted-for effects in the observed system. As the theories in tree of knowledge already include many pre-trained effects, many of the previously un-accounted-for effects are now automatically included in the model, which significantly reduces the noise.
+												</div>
+											</div>
+										</div>
+										<div class="advantage-block">
+											<div class="advantage-title">
+												<span style="float:left;">
+													<img class="advantage-icon" src="/static/images/advantage_icons/3.2_studying_hidden_effects.svg">
+												</span>
+											</div>
+											<div class="advantage-text">
+												<h2 class="advantage-h2">Studying hidden effects</h2>
+												<div class="advantage-text-main">
+													The internal mechanisms of complex systems are often not directly observable. The pre-trained effects in tree of knowledge make it possible to strip away most the surrounding effects and thereby revealing the hidden one.
+												</div>
+											</div>
+											<br>
+										</div>
+										<div class="advantage-block">
+											<div class="advantage-title">
+												<span style="float:left;">
+													<img class="advantage-icon" src="/static/images/advantage_icons/3.3_observational_datasets_v2.svg">
+												</span>
+											</div>
+											<div class="advantage-text">
+												<h2 class="advantage-h2">Observational datasets</h2>
+												<div class="advantage-text-main">
+													The largest openly available datasets are observational datasets. Up until now most of them couldn't be used for research, because the interesting phenomena are only indirectly observed. The above-mentioned ability to extract hidden/indirectly observed effects can however help out.
+												</div>
+											</div>
+										</div>	
+																									
+									</div>
+								</div>
+							</div>
+							<br>
+
+							<!-- new statistics | Simulation models -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+								<h4 class="panel-title">
+									<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group3" href="#collapseThreeTwo">
+										Advantages from having<br>
+										Simulation Models
+									</button>
+								</h4>
+								</div>
+								<div id="collapseThreeTwo" class="panel-collapse collapse panel-line-on-left">
+									<div class="panel-body">
+										
+										<div class="advantage-block">
+											<div class="advantage-title">
+												<span style="float:left;">
+													<img class="advantage-icon" src="/static/images/advantage_icons/3.4_mechanistic_inference_v2.svg">
+												</span>
+											</div>
+											<div class="advantage-text">
+												<h2 class="advantage-h2">Mechanistic inference</h2>
+												<div class="advantage-text-main">
+													Causal inference is a growing area of interest, because the inferred casual relationships teach us more about the world than simple corporations. Tree of knowledge goes further still - with mechanistic inference we can even infer from data the exact mechanism governing a system.
+												</div>
+											</div>
+										</div>
+			
+
+
+									</div>
+								</div>
+							</div>
+							<br>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+			<!-- clear insights-->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+				<h4 class="panel-title">
+					<button type="button" class="btn btn-outer-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#outer-group" href="#collapseFour">
+						clear insights
+					</button>
+				</h4>
+				</div>
+				<div id="collapseFour" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="panel-group inner-group" id="inner-group4">
+
+					
+
+							<!-- clear insights | Bayesain Framework -->
+							<div class="panel">
+								<div class="panel-heading">
+								<h4 class="panel-title">
+									<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group4" href="#collapseFourOne">
+										Advantages from the <br>
+										Bayesian Framework
+									</button>
+								</h4>
+								</div>
+								<div id="collapseFourOne" class="panel-collapse collapse panel-line-on-left">
+									<div class="panel-body">
+										
+										<div class="advantage-block">
+											<div class="advantage-title">
+												<span style="float:left;">
+													<img class="advantage-icon" src="/static/images/advantage_icons/4.1_understandable_rules.svg">
+												</span>
+											</div>
+											<div class="advantage-text">
+												<h2 class="advantage-h2">Understandable rules</h2>
+												<div class="advantage-text-main">
+													Frequentist statistics require rules/models  be a generalized linear model. The Bayesian framework underlying this platform however allows any rule including non-continuous ones (e.g. with if-then conditions).
+												</div>
+											</div>
+										</div>
+										<div class="advantage-block">
+											<div class="advantage-title">
+												<span style="float:left;">
+													<img class="advantage-icon" src="/static/images/advantage_icons/4.2_test_concrete_hypotheses.svg">
+												</span>
+											</div>
+											<div class="advantage-text">
+												<h2 class="advantage-h2">Test concrete hypotheses</h2>
+												<div class="advantage-text-main">
+													Being able to specify any rule, allows us to encode and evaluate any mental model we may have.
+												</div>
+											</div>
+											<br>
+										</div>
+										<div class="advantage-block">
+											<div class="advantage-title">
+												<span style="float:left;">
+													<img class="advantage-icon" src="/static/images/advantage_icons/4.3_understandable_parameters.svg">
+												</span>
+											</div>
+											<div class="advantage-text">
+												<h2 class="advantage-h2">Understandable parameters</h2>
+												<div class="advantage-text-main">
+													If we encode mental models as rules, instead of blindly fitting a linear model to everything, the model parameters will have a real-world meaning and training then will teach us a lot about the world.
+												</div>
+											</div>
+										</div>	
+																				
+									</div>
+								</div>
+							</div>
+							<br>
+
+							<!-- clear insights | Monte-Carlo Simulations -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+								<h4 class="panel-title">
+									<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group4" href="#collapseFourTwo">
+										Advantages from working<br>
+										with Monte-Carlo Simulations
+									</button>
+								</h4>
+								</div>
+								<div id="collapseFourTwo" class="panel-collapse collapse panel-line-on-left">
+									<div class="panel-body">
+
+
+																
+										<div class="advantage-block">
+											<div class="advantage-title">
+												<span style="float:left;">
+													<img class="advantage-icon" src="/static/images/advantage_icons/4.4_detailled_mechanics.svg">
+												</span>
+											</div>
+											<div class="advantage-text">
+												<h2 class="advantage-h2">Detailed mechanics</h2>
+												<div class="advantage-text-main">
+													By watching simulations you can understand how the individual interactions drive the dynamics of a system. It also allows you to spot important features, such as inefficiencies, bottlenecks and transitions.
+												</div>
+											</div>
+										</div>
+										<div class="advantage-block">
+											<div class="advantage-title">
+												<span style="float:left;">
+													<img class="advantage-icon" src="/static/images/advantage_icons/4.5_predictions_with_exactly_understood_uncertainty.svg">
+												</span>
+											</div>
+											<div class="advantage-text">
+												<h2 class="advantage-h2">Predictions with exactly understood uncertainty</h2>
+												<div class="advantage-text-main">
+													When simulating a system, the uncertainty of the rules is accurately propagated through the simulation and is reflected as easy-to-understand probability distribution of simulation outcomes.
+												</div>
+											</div>
+										</div>	
+									</div>
+								</div>
+							</div>
+							<br>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+			<!-- streamlining the sciences-->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+				<h4 class="panel-title">
+					<button type="button" class="btn btn-outer-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#outer-group" href="#collapseFive">
+						streamlining the sciences
+					</button>
+				</h4>
+				</div>
+				<div id="collapseFive" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="panel-group inner-group" id="inner-group5">
+
+
+
+						
+						<!-- better statistics | Many Datasets -->
+						<div class="panel">
+							<div class="panel-heading">
+							<h4 class="panel-title">
+								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group5" href="#collapseFiveOne">
+									Advantages from<br>
+									being a collaborative <br>
+									online platform
+								</button>
+							</h4>
+							</div>
+							<div id="collapseFiveOne" class="panel-collapse collapse panel-line-on-left">
+							<div class="panel-body">
+								
+								<div class="advantage-block">
+									<div class="advantage-title">
+										<span style="float:left;">
+											<img class="advantage-icon" src="/static/images/advantage_icons/5.1_standardisation_of_measures.svg">
+										</span>
+									</div>
+									<div class="advantage-text">
+										<h2 class="advantage-h2">Standardization of measures</h2>
+										<div class="advantage-text-main">
+											There are many ways to measure things such as ‘someone's happiness’. Tree of knowledge provides a big incentive to use the same measure as other people do, because not doing so will introduce a lot of uncertainty to your results - see "Mapping measures".
+										</div>
+									</div>
+								</div>
+								<div class="advantage-block">
+									<div class="advantage-title">
+										<span style="float:left;">
+											<img class="advantage-icon" src="/static/images/advantage_icons/5.2_integrating_disciplines.svg">
+										</span>
+									</div>
+									<div class="advantage-text">
+										<h2 class="advantage-h2">Integrating disciplines</h2>
+										<div class="advantage-text-main">
+											On this platform researchers from across the human sciences (psychology, economics, political science, sociology, behavioral science etc) can collaborate to create a powerful shared theory.
+										</div>
+									</div>
+									<br>
+								</div>
+								<div class="advantage-block">
+									<div class="advantage-title">
+										<span style="float:left;">
+											<img class="advantage-icon" src="/static/images/advantage_icons/5.3_easier_collaboration.svg">
+										</span>
+									</div>
+									<div class="advantage-text">
+										<h2 class="advantage-h2">Easier collaboration</h2>
+										<div class="advantage-text-main">
+											Being an online platform, you can easily share your data, models and analyses in colleagues, allowing them to see what exactly you're working on or even join in.
+										</div>
+									</div>
+								</div>																	
+							</div>
+							</div>
+						</div>
+						<br>
+
+						<!-- better statistics | Universal Theories -->
+						<div class="panel panel-default">
+							<div class="panel-heading">
+							<h4 class="panel-title">
+								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group5" href="#collapseFiveTwo">
+									Advantages from<br>being a shared theory
+								</button>
+							</h4>
+							</div>
+							<div id="collapseFiveTwo" class="panel-collapse collapse panel-line-on-left">
+								<div class="panel-body">
+
+
+															
+									<div class="advantage-block">
+										<div class="advantage-title">
+											<span style="float:left;">
+												<img class="advantage-icon" src="/static/images/advantage_icons/5.4_immediate_adoption.svg">
+											</span>
+										</div>
+										<div class="advantage-text">
+											<h2 class="advantage-h2">Immediate adoption</h2>
+											<div class="advantage-text-main">
+												If you find a better model for some phenomenon, this better model will automatically be integrated into the default theory in tree of knowledge and will be immediately used by the majority of researchers using this platform.
+											</div>
+										</div>
+									</div>
+									<div class="advantage-block">
+										<div class="advantage-title">
+											<span style="float:left;">
+												<img class="advantage-icon" src="/static/images/advantage_icons/5.5_resolving_long_standing_disagreements.svg">
+											</span>
+										</div>
+										<div class="advantage-text">
+											<h2 class="advantage-h2">Resolving long standing disagreements</h2>
+											<div class="advantage-text-main">
+												Showing that a model performs better than another on hundreds of different datasets is the only objective way of showing that the model is indeed better. We are convinced that many long standing disagreements/schools of thought can be resolved this way.
+											</div>
+										</div>
+									</div>	
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<!-- better statistics | Knowledge Base -->
+						<div class="panel panel-default">
+							<div class="panel-heading">
+							<h4 class="panel-title">
+								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group5" href="#collapseFiveThree">
+									Advantages from having<br>pre-defined rules
+								</button>
+							</h4>
+							</div>
+							<div id="collapseFiveThree" class="panel-collapse collapse panel-line-on-left">
+								<div class="panel-body">
+
+									<div class="advantage-block">
+										<div class="advantage-title">
+											<span style="float:left;">
+												<img class="advantage-icon" src="/static/images/advantage_icons/5.6_mapping_measures.svg">
+											</span>
+										</div>
+										<div class="advantage-text">
+											<h2 class="advantage-h2">Mapping measures</h2>
+											<div class="advantage-text-main">
+												There are many ways to measure things such as ‘someone's happiness’. When researchers use different measures for the same thing, then this research can only be integrated/combined if there is a way to map from one measure to the other. Tree of Knowledge has many such mapping functions predefined.
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div> 
+
+					</div>
+				</div>
 				</div>
 			</div>
 		</div>
+
+
+
+
+		<h1>The Technologies that make it possible</h1>
+
+
+		<br>
+
+		<br>
+
+		<!-- 
+		<div class="how-it-works-title">
+			<span class="icon-frame" style="float:left;">
+				<img src="/static/images/si-glyph-cursor.svg" style="height:36px;width:36px; margin-bottom:3px">
+			</span>
+			
+			<h2 class="yellowish">Easy to use</h2>
+		</div>
+		<div class="how-it-works-block">
+			<ul>
+				<li><b>Work with existing theories</b>, instead of building models from scratch</li>
+				<li><b>No programming required</b> due to the simple interface and automatic data transformations</li>
+				<li><b>Publish</b> your data and/or work <b>with one click</b></li>
+			</ul>
+		</div>
+		<br>
+		<div class="how-it-works-title">
+			<span class="icon-frame" style="float:left;padding-top:3px;";>
+				<i class="fas fa-ruler" aria-hidden="true"></i>
+			</span>
+			<h2 class="yellowish">Make powerful analyses</h2>
+		</div>
+		<div class="how-it-works-block">
+			The Tree of Knowledge uses likelihood-free Bayesian inference and Bayesian updating to determine the rule probabilities. 
+			This is a robust, statistically rigorous formalism that captures all uncertainties (those originating from imperfect knowledge of the world, and those from inherent randomness).
+			<br><br>
+			When making predictions with Tree of Knowledge, the Monte-Carlo simulation engine captures and propagates all previously learned uncertainties => the predicted outcomes and the uncertainty of these predictions correspond exactly to the true uncertainty.
+			<br><br>
+		</div>
+		<br>
+		<div class="how-it-works-title">
+			<span class="icon-frame" style="float:left;padding-top:3px;";>
+				<i class="fas fa-ruler" aria-hidden="true"></i>
+			</span>
+			<h2 class="yellowish">Easy to understand</h2>
+		</div>
+		<div class="how-it-works-block">
+			The Tree of Knowledge uses likelihood-free Bayesian inference and Bayesian updating to determine the rule probabilities. 
+			This is a robust, statistically rigorous formalism that captures all uncertainties (those originating from imperfect knowledge of the world, and those from inherent randomness).
+			<br><br>
+			When making predictions with Tree of Knowledge, the Monte-Carlo simulation engine captures and propagates all previously learned uncertainties => the predicted outcomes and the uncertainty of these predictions correspond exactly to the true uncertainty.
+			<br><br>
+		</div>-->
 		<br>
 		<br>
 		<br>

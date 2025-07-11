@@ -56,8 +56,14 @@ import re
 def landing_page(request):
     return render(request, 'landing_page.html')
 
+def landing_page_old(request):
+    return render(request, 'landing_page_old.html')
+
 def about(request):
     return render(request, 'about.html')
+
+def about_old(request):
+    return render(request, 'about_old.html')
 
 def tutorial_overview(request):
     return render(request, 'tutorial_overview.html')

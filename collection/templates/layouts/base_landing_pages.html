@@ -31,10 +31,17 @@
 	<link rel="stylesheet" href="{% static 'css/main.css' %}" />
 	<link rel="stylesheet" href="{% static 'css/landing_page.css' %}" />
 
-	<link rel="shortcut icon" href="{% static 'images/logo.png'%}">
+	<link rel="shortcut icon" href="{% static 'images/logo_with_background.png'%}">
 	<style>
 	.box {
 		background-color:rgb(66, 67, 62);
+	}
+
+	@font-face {
+		font-family: 'AvenirLTProMedium';
+		src: url('{% static 'fonts/AvenirLTProMedium.eot'%}'),  url('{% static 'fonts/AvenirLTProMedium.otf'%}') format('opentype'), url('{% static 'fonts/AvenirLTProMedium.ttf'%}') format('truetype'), url('{% static 'fonts/AvenirLTProMedium.svg'%}') format('svg');
+		font-weight: normal;
+		font-style: normal;
 	}
 	</style>
 

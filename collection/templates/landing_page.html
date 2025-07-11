@@ -24,12 +24,6 @@
 			background-color: rgb(29, 29, 27);
 		}
 
-		@font-face {
-			font-family: 'AvenirLTProMedium';
-			src: url('{% static 'fonts/AvenirLTProMedium.eot'%}'),  url('{% static 'fonts/AvenirLTProMedium.otf'%}') format('opentype'), url('{% static 'fonts/AvenirLTProMedium.ttf'%}') format('truetype'), url('{% static 'fonts/AvenirLTProMedium.svg'%}') format('svg');
-			font-weight: normal;
-			font-style: normal;
-		}
 		
 		/* top 4 arguments ------------------------------------------------------ */
 		.top-4-argument-row {
@@ -78,6 +72,21 @@
 		.container {
 			width: 75% !important;
 		}
+
+		.icon-frame {
+			border: 3px solid white;
+			border-radius: 5px;
+			/*border-color: rgb(255, 242, 204);*/
+			border-color: rgb(249 246 241);
+			color: rgb(249 246 241);
+			font-size:30px;
+			padding-left:5px;
+			padding-right:4px;
+			padding-top:0px;
+			height:51px;
+			width:51px;
+		}
+
 		
 		#how-it-works-overall-title {
 			color:rgb(196, 189, 168);
@@ -88,8 +97,8 @@
 
 		.how-it-works-title {
 			text-align: left;
-			margin-left: 23px;
-			margin-bottom: 10px;
+			margin-left: 13px;
+			margin-bottom: 25px;
 		}
 		
 		h2.yellowish {
@@ -105,8 +114,30 @@
 			margin-left: 20px;
 		}
 
-
+		.video-container {
+			position: relative;
+			width: 100%;
+			padding-bottom: 56.25%;
+			margin-bottom: 15px;
+		}
 		
+		.video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
+		}
+
+		.video-description {
+			padding-top: calc(30% - 120px);
+		}
+
+		.video-description > h3 {
+			margin-top: 8px;
+		}
+
 		
 		/* Bottom  ------------------------------------------------------ */
 		
@@ -204,11 +235,11 @@
 			<div class="col-sm-8">
 				<div class="intro-text" style="text-align: left; color: rgb(247, 246, 243); margin-top:15px">
 					Statistics is the main tool for doing quantitative social science research.<br>
-					Unfortunately, it is very badly suited for dealing with the complex social systems and phenomena that exist in the real world:
+					Unfortunately, it is badly suited for dealing with the complex social systems and phenomena that exist in the real world:
 					<ul>
-						<li>Statistical analyses are always based on only a single dataset, making them <b>unreliable/not well proven</b> and <b>not generalisable</b>.</li>
-						<li>Statical models cannot deal with real-world complexities, limiting us to analysing studies made in very <b>artificial environments</b>.</li>						
-						<li>The individual analyses and the resulting findings are completely <b>disconnected</b> from each other. Instead of our understanding progressing, we therefore just get an ever-growing <b>jumble of inconclusive and partially-contradictory findings</b>.</li>
+						<li>Statistical analyses are usually based on only a single dataset, making them <b>unreliable/not well proven</b> and <b>not generalisable</b>.</li>
+						<li>Statistical models cannot deal with real-world complexities, limiting us to analysing studies made in <b>artificial environments</b>.</li>						
+						<li>The individual analyses and the resulting findings are <b>disconnected</b> from each other. Instead of our understanding progressing, we therefore just get an ever-growing collection <b>partially-contradictory findings</b>.</li>
 					</ul>
 					<!--
 					In Social Science research, statistics is used for making individual ad-hoc analyses. 
@@ -228,7 +259,7 @@
 			<div class="col-sm-8" style="padding-left:0px">
 				<div class="arrows" style="border-left:solid; border-left-color:rgb(103 101 97);border-left-width:1px; margin-top: -11px; padding-top:11px;"><!--rgb(171 166 147);-->
 					<div class="intro-text" style="text-align: left;color: rgb(247, 246, 243); margin-left:15px; margin-top:15px">
-						This online platform enables a completely new approach to statistics - instead working on isolated findings, researchers can now collaborate to develop a powerful fundamental theory that <b>fits all datasets</b>.
+						This online platform enables a completely new approach to statistics - instead working on isolated findings, researchers can now collaborate to develop a powerful fundamental theory that <b>fits to all datasets</b>.
 
 					</div>
 						<h2 style="text-align: left;padding-left:0px; color:rgb(103 101 97) ;position: relative; top: 11px; margin-top: 9px;font-size: 24px;margin-left: -2px;" >
@@ -236,7 +267,7 @@
 					<div class="intro-text" style="text-align: left;color: rgb(247, 246, 243); margin-left:15px; margin-top:20px">
 						<ul>
 							<li>Training a model on many datasets - instead of just a single dataset - gives us insights which are vastly more <b>proven</b>, <b>accurate</b> and <b>generalisable</b>.</li>
-							<li>By integrating with the work from other researchers, you can model and capture highly <b>complex phenomena</b> and get a <b>detailed and insightful understanding</b>.</li>
+							<li>By integrating your work with the work from other researchers, you can model and capture highly <b>complex phenomena</b> and get a <b>detailed and insightful understanding</b>.</li>
 							<li>Through modelling datasets on this platform, you are automatically helping to improve and extend the <b>world's first</b> exact fundamental theory of human behavior.</li>
 						</ul>
 
@@ -247,7 +278,8 @@
 				</div>
 				<div class="intro-text" style="text-align: left;color: rgb(247, 246, 243); margin-left:30px; margin-top:20px; float: left; width: 150%;">
 					Fundamental theories are extremely powerful! <br>
-					For example, a fundamental theory of human behavior would not only give us an <b>accurate and complete understanding</b> of human behavior. It would also allow us to <b>predict the exact behavior of any absolutely social system</b> - thereby automatically solving most social science research questions. 
+					For example, a fundamental theory of human behavior would not only give us an <b>accurate and complete understanding</b> of human behavior. It would also allow us to <b>predict the exact behavior of any absolutely social system</b> - thereby automatically solving most social science research questions. <br>
+					You can take part in this quest!
 				</div>
 				
 			</div>
@@ -276,8 +308,9 @@
 		<br>
 		<br>
 		<br>
-		<br>
-		The powerful fundamental theory will continue to improve over time,<br>but even from the very start there are massive advantages to this new approach. <br>Such as...
+		
+		(More details can be found in <a href="https://arxiv.org/abs/2103.03666">this paper</a>.)<br><br>
+		The powerful fundamental theory will continue to improve over time,<br>but even from the very start there are huge advantages to this new approach. <br>Such as...
 		<br>
 		<br>
 		<br>
@@ -285,24 +318,25 @@
 		<div class="row row-eq-height" >
 			<div class="col-sm-7">
 				<div class="how-it-works-title">
-					<span class="icon-frame" style="float:left; padding-top:5px;";>
+					<span class="icon-frame" style="float:left; padding-top:4px;";>
 						<i class="fas fa-signal" style="margin-left:-1px"></i>
 					</span>
 					<h2 class="yellowish">Continuous & Measurable Progress</h2>
 				</div>
 			</div>
 		</div>
-		<br>
-		<div class="row row-eq-height" >
+		<div class="row row-eq-height" style="margin-left: 0px;">
 			<div class="col-sm-7" style="min-width: 530px;">
-				<iframe width="650" height="365.625" src="https://www.youtube-nocookie.com/embed/0qIf1Ixnd5A?si=9BijhBLp4RQuN36i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				<div class="video-container">
+					<iframe  class="video" src="https://www.youtube-nocookie.com/embed/0qIf1Ixnd5A?si=9BijhBLp4RQuN36i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					<!--width="650" height="365.625" -->
+				</div>
 			</div>	
-
 			<div class="col-sm-5" style="min-width: 370px;">
-				<div class="standard-text" style="text-align: left; margin-top:15px">
-					<h3 style="padding-top: 3px;">Video Summary:</h3>
+				<div class="standard-text video-description" style="text-align: left; margin-top:15px">
+					<h3>Video Summary:</h3>
 					Working with a fundamental theory is a lot <b>easier and less work</b> than having to make sense of a large collection of individual insights. 
-					It gives us a <b>cohesive and complete understanding</b> and allows us to make <b>exact predictions for any scenario</b>.<br>
+					It gives us a <b>cohesive and complete understanding</b> and allows us to make <b>accurate predictions for any scenario</b>.<br>
 					Most importantly, the rigorous evaluation framework allows us to objectively determine which candidate theory is the best - this is the key to <b>real</b>, <b>measurable</b> and <b>lasting scientific progress</b>!
 				</div>
 			</div>
@@ -310,21 +344,22 @@
 		<br>
 		<br>
 		<div class="how-it-works-title">
-			<span class="icon-frame" style="float:left; padding: 0px 2px 0px 4px;";>
+			<span class="icon-frame" style="float:left;";>
 				<img src="{% static 'images/si-glyph-global.svg'%}" style="height:36px;width:36px; margin-bottom:1px">
 			</span>
 			<h2 class="yellowish">Reliable & Universal</h2>
 		</div>
-		<br>
-		<div class="row row-eq-height" >
+		<div class="row row-eq-height"  style="margin-left: 0px;">
 			<div class="col-sm-7" style="min-width: 530px;">
-				<iframe width="650" height="365.625" src="https://www.youtube-nocookie.com/embed/q83nEhP_lvs?si=xGuL9Mf9P-WalLIo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				<div class="video-container ">
+					<iframe class="video" src="https://www.youtube-nocookie.com/embed/q83nEhP_lvs?si=xGuL9Mf9P-WalLIo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				</div>
 			</div>	
 			<div class="col-sm-5" style="min-width: 370px;">
-				<div class="standard-text" style="text-align: left; color: margin-top:15px">
-					<h3 style="padding-top: 3px;">Video Summary:</h3>
+				<div class="standard-text video-description" style="text-align: left; color: margin-top:15px">
+					<h3>Video Summary:</h3>
 					Confidence in scientific findings comes from the finding but from it being shown to hold true in many circumstances. <br>
-					Tree of knowledge tests hypotheses in <b>hundreds of different scenarios</b>, making them <b>orders of magnitudes more reliable and trustworthy</b> than the findings from normal statistical analyses. 
+					Tree of knowledge tests hypotheses in <b>hundreds of different scenarios</b>, making them <b>immensely more reliable and trustworthy</b> than the findings from normal statistical analyses. 
 					Also, this rigorous testing assures the <b>general applicability/universality</b> of these results.	
 				</div>
 			</div>
@@ -337,19 +372,18 @@
 			</span>
 			<h2 class="yellowish">Understanding complex systems</h2>
 		</div>
-		<br>
-		<div class="row row-eq-height" >
+		<div class="row row-eq-height"  style="margin-left: 0px;">
 			<div class="col-sm-7" style="min-width: 530px;">
-				<iframe width="650" height="365.625" src="https://www.youtube-nocookie.com/embed/HJF_TdsqEdQ?si=-KmOkmsV8T7yFa0c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				<div class="video-container">
+					<iframe class="video" src="https://www.youtube-nocookie.com/embed/HJF_TdsqEdQ?si=-KmOkmsV8T7yFa0c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				</div>
 			</div>	
 			<div class="col-sm-5" style="min-width: 370px;">
-				<div class="standard-text" style="text-align: left; color: margin-top:15px">
-					<h3 style="padding-top: 3px;margin-top: 10px;">Video Summary:</h3>
-					With current statistics it is very hard to model complex systems - instead of creating complex models, we make simple models and rely on randomisation to cancel out all the "disrupting effects" (such as differences between study participants).
-					While this is a viable approach, the randomisation introduces incredible amounts of noise to the data - making the study of most phenomena impossible.
-					<br>
-					With all the already-modelled phenomena in Tree of Knowledge, it becomes very easy to make complex models that <b>capture all the complexity</b> and no longer rely on randomisation.<br>
-					<b>Opening up for study: vast, previously-too-noisy areas of reseach.</b>
+				<div class="standard-text video-description" style="text-align: left; color: margin-top:15px">
+					<h3>Video Summary:</h3>
+						Most complex systems cannot be studied due to the many different effects that are going on simultaneously. These intertwined effects make it impossible to clearly measure and model any single effect.  <br>
+						Tree of knowledge solves this problem - With all the already-modelled phenomena on the platform, it becomes very easy to make models that allow us to <b>peer through this complexity</b> by <b>capturing all the different effects</b> in the model.<br>
+						<b>Opening up for study: vast, previously-too-complex areas of reseach.</b>
 					
 				</div>
 			</div>
