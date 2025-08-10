@@ -60,6 +60,14 @@
 			padding-right: 4%;
 		}
 
+		/* Mission and Join in  ------------------------------------------------------ */
+
+		.mission-text {
+			max-width: 1019px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
 		/* Advantages  ------------------------------------------------------ */
 
 
@@ -314,7 +322,70 @@
 
 		}
 
+		#conclusion-text {
+			max-width: 800px;
+			margin-top: 29px;
+			margin-left: auto; 
+			margin-right: auto
+		}
 
+
+
+
+
+		/* Popover/ The Technologies that make it possible  ------------------------------------------------------ */
+
+
+		.popover-item{
+			position: relative;
+		}
+		#popover-content{
+			display:none;
+			position: absolute;
+			left: 105%;
+			display: none;
+			font-size: 1.2rem;
+			background-color: rgba(230, 230, 230, 1);
+			padding: 10px 20px;
+			border-radius: 16px;
+			font-family: Tahoma, Verdana, Segoe, sans-serif;
+			font-weight: normal;
+			z-index:111;
+			width:600px;
+			color:black
+		}
+		#popover-content:hover{
+			display:none!important;
+		}
+		.popover-item:hover #popover-content{
+			display: block;
+		}
+		#popover-content h1 {
+			font-family: "Segoe UI",'AvenirLTProMedium', Calibri;
+			font-weight: 700;
+			font-size:18px;
+			margin:3px;
+			margin-bottom:10px;
+			color:black
+		}
+		#popover-content p {
+			text-align: left;
+			font-size: 14px;
+			font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+		}
+		#popover-content li{
+			text-align: left;
+			font-size: 14px;
+			font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+		}
+/*
+		.popover-title {
+
+		}
+		.popover-text{
+
+		}
+*/
 		/* Bottom  ------------------------------------------------------ */
 		
 		#bottom-logo {
@@ -344,8 +415,85 @@
 			} else {
 				clickedElement.classList.add('truncated');
 			}
-
 		}
+
+
+
+		function check_if_position_in_area(pos_X, pos_y, area_top_left, area_bottom_right) {
+			area_top_left_X = area_top_left[0]
+			area_top_left_Y = area_top_left[1]
+			area_bottom_right_X = area_bottom_right[0]
+			area_bottom_right_Y = area_bottom_right[1]
+
+			if ((area_top_left_X <= pos_X) && (pos_X <= area_bottom_right_X) && (area_top_left_Y <= pos_y) && (pos_y <= area_bottom_right_Y)) {
+				return true;
+			} else {
+				return false;
+			};
+		}
+
+
+		technology_map_regions =   [{top_left:[16.8, 0.2], bottom_right:[34.5, 9], html: '<h1>Version Control</h1><p>There are multiple versions of the agents. The default version is the most accurate version (i.e. the one that most accurately reproduces the real-world behavior from all uploaded & modeled datasets). You can however create your own version - if it turns out to be better, it becomes the new default.</p>'},
+									{top_left:[69, 0.5], bottom_right:[97.5, 17.5], html: '<h1>Simulate New Systems</h1><p>Having been trained and evaluated in hundreds of different scenarios, the agents have been proven to have universally accurate behavior. I.e. we can use them to make accurate predictions of absolutely any system.<br><br><u>It\'s Easy:</u> simply put the agents into the correct initial configuration and press pay.<br><br><u>It\'s Accurate:</u> the resulting Monte-Carlo simulation takes account of the exact uncertainties associated with the agents - the prediction uncertainties accurately reflect our true knowledge of the world.</p>'},
+									{top_left:[52.95, 11.33], bottom_right:[59.9, 20.8], html: '<h1>Drag & Drop</h1><p>Create models by drag & dropping the existing agents</p>'},
+									{top_left:[4.3, 15.1], bottom_right:[43.9, 38.5], html: '<h1>Shared, Universal Agents</h1><p>The only way to get a powerful universal theory of humans (and of other complex agents), is by training and evaluating the rules in many different scenarios.<br>In Tree of Knowledge this is achieved by all researchers using the same agents with the same rules to model their systems of interest.<br>With this setup, a powerful, theory-level evaluation can be done in minutes: you just exchange some of the agent’s rules and see if the accuracy increases in the many models that use this agent.</p>'},
+									{top_left:[54, 28.3], bottom_right:[61.2, 37], html: '<h1>Drag & Drop</h1><p>Create models by drag & dropping the existing agents</p>'},
+									{top_left:[67.4, 20.2], bottom_right:[98, 40.5], html: '<h1>Model your Dataset</h1><p>Below, you can see a study that captured observations/data from a classroom. In Tree of Knowledge, you can use the exciting agents to easily make a realistic model/digital twin of the observed system.<br>This model/digital twin will be automatically fitted to the real-world data captured in the study. This allows you to:<ul><li>Get a full, detailed understanding of the interactions and dynamics that drive the system (here: classroom)</li><br><li>Learn the important underlying metrics/features of the system</li></ul></p>'},
+									{top_left:[0.1, 40.2], bottom_right:[23.8, 56.1], html: '<h1>Behavior Rules</h1><p>As you can see, the agents are made up of a collection of behavior rules. <br>Any agent behavior can be encoded with these simple behavior rules.<br>These rules might make use of unknown rule parameters, which are automatically inferred from hundreds of datasets.</p>'},
+									{top_left:[60.7, 50.4], bottom_right:[97.68, 61.8], html: '<h1>Inference Engine</h1><p>The inference engine runs behind the scenes. It fits the digital twin model to the data from the corresponding real world system. More specifically, it finds the parameter values with which the digital twin most accurately mimics the real world system. <br>This simulation-based, Bayesian inference engine not only gives us the best performing parameter values, it also determines the exact uncertainty around these parameter values.<br><br><u>Bayesian updating:</u><br>Every time a new digital twin is trained this way, our understanding of the parameter values improves and the uncertainty decreases. The final probability distributions includes the learnings from all datasets.</p>'},
+									{top_left:[3.76, 67.2], bottom_right:[16.3, 74.4], html: '<h1>Open Data Portal</h1><p>At any point in time, researchers can choose to make the data they\'ve uploaded to Tree of Knowledge openly available on the Open Data Portal.<br>Tree of Knowledge‘s Open Data Portal is however very different to existing data portals: The Knowledge Base’s special data structure (/knowledge representation) not only allows for the automatic integration and manipulation of data, it also makes it very easy to find, retrieve and integrate exactly the data you\'re looking for.</p>'},
+									{top_left:[14.8, 78.2], bottom_right:[71.6, 99.3], html: '<h1>Knowledge Base</h1><p>Uploading data to Tree of Knowledge involves answering some questions about the data. This little extra work is however very worth it, at it unlocks some very powerful features:<ul><li>Data integration: In the knowledge base all data is integrated (e.g. new data about some countries is seamlessly combined with the existing data about these countries), giving us an increasingly good picture of the state of the world at different times.</li><br><li>Automatic data manipulating: after uploading the data, you no longer have to deal with the data, the platform does it all for you. Sure to the questions, the platform knows all there is to know about the data and automatically handles everything for you (model inference, simulation initialization, etc.)</li><br><li>Rich models: The combination of the other two advantages mean that you and your models can work with a much richer understanding of the world than is possible with just a single dataset</li></ul></p>'},
+									{top_left:[79.9, 81.5], bottom_right:[96.5, 95], html: '<h1>Study</h1><p>All datasets (datasets coming from a study & observational datasets) contain observations from a specific system e.g. a classroom.<br>All models (statistical, machine learning, ODE, etc.) can be understood as digital twins/mathematical replicas of this real-world system. <br>We believe that Tree of Knowledge allows you to create the most realistic, insightful and accurate models/real-world replicas - above you can see how existing agents can be dag & dropped to create a simulation of the same classroom.</p>'}
+		];
+
+		window.onload = function() {
+			/* Script for popover positioning */ 
+			document.getElementById("overview_of_technologies").addEventListener('mousemove', function(e) {
+
+				window.screen.width
+
+				horizontalOffset = 5;
+				verticalOffset = 5;
+				pos_X = e.offsetX + horizontalOffset;
+				pos_Y = e.offsetY + verticalOffset;
+				width_of_image = document.getElementById("overview_of_technologies").offsetWidth;
+				height_of_image = document.getElementById("overview_of_technologies").offsetHeight;
+
+				pos_X_percentage = (e.offsetX * 100)/ width_of_image;
+				pos_Y_percentage = (e.offsetY * 100)/ height_of_image;
+				//var rightSpace = document.body.clientWidth - e.pageX;
+
+			/*
+				document.getElementById("popover-content").innerHTML = '<h1>Tooltip/Popover</h1>' + 
+																		'<p>The mouse is currently at the following position: ' + 
+																			'left: ' + pos_X_percentage + '%; ' +
+																			'top: ' +  pos_Y_percentage + '%; }'+ 
+																		'</p>';
+				
+					*/
+				document.getElementById("popover-content").style.display = 'none';
+																
+				for (var i = 0; i < technology_map_regions.length; i++) { 
+
+					area_top_left = technology_map_regions[i]['top_left']
+					area_bottom_right = technology_map_regions[i]['bottom_right']
+					if (check_if_position_in_area(pos_X_percentage, pos_Y_percentage, area_top_left, area_bottom_right)) {
+						document.getElementById("popover-content").innerHTML = technology_map_regions[i]['html']
+						document.getElementById("popover-content").style.display = 'block';
+					}
+
+				}
+
+				var newRule = '#overview_of_technologies:hover #popover-content {  ' + 
+								'right:auto; left: ' + pos_X_percentage + '%; ' +
+								'top: ' +  pos_Y_percentage + '%; }';
+				let countCssRules = document.styleSheets[0].cssRules.length;
+				document.styleSheets[0].insertRule(newRule, countCssRules);
+			});
+		}
+
+
+
 
 	</script>
 
@@ -357,7 +505,7 @@
 
 {% block content %}
 	<div style="height:400px">
-		<img src="{% static 'images/ai_tree.jpg'%}" style="width:100%; object-fit: cover; height:400px; object-position: 50% 70%;" alt="Big old tree" width="100%">
+		<img src="{% static 'images/ai_tree.png'%}" style="width:100%; object-fit: cover; height:400px; object-position: 50% 70%;" alt="Big old tree" width="100%">
 	</div>
 
 
@@ -366,25 +514,27 @@
 	<div class="container-fluid" style="background-color: rgb(122, 81, 56);">
 		<div class="teaser-text">
 			<h1>Our Mission</h1>
-
-			We love science and its power to improve lives and transform the world.<br>
-			We are in awe of how the exact fundamental theories in physics and chemistry have allowed engineers to completely revolutionize the world with all the modern technology we rely on every day. We believe that creating exact fundamental theories of social agents could have a similarly profound impact and lead to significant advancements in areas such as public policy making, economics, clinical psychology, educational psychology and much more.
-
+			<div class="mission-text">
+				We love science and its power to improve lives and transform the world.<br>
+				We are in awe of how the exact fundamental theories in physics and chemistry have allowed engineers to completely revolutionize the world with all the modern technology we rely on every day. We believe that creating exact fundamental theories of social agents could have a similarly profound impact and lead to significant advancements in areas such as public policy making, economics, clinical psychology, educational psychology and much more.
+			</div>
+<!--
 			<h1>Our Mission</h1>
 			The mission of the Tree of Knowledge is to enable truly fact-based decision making to be applied to the world’s most pressing problems 
 			and thereby minimizing the role of rhetoric, prejudice and misinformation. 
 			We believe that objective solutions to these problems in the environment and society can only be found by creating accurate models of the world 
 			that reflect the true complexity and uncertainty of the world!<br>
-
-			<h1>Join in!</h1>
-			If you are a social science researcher and like the idea of this platform, please don't hesitate to contact us.<br>
-			We will gladly help you with anything. Be it small things like sovling a problem or helping you get started on the platform. Or bigger things like collaborating with you
-			to model the systems and phenomena you're interested in and answering your research questions.<br>
-			We would love to work together with you!
-			
+		-->
 			<br>
-			<a href="mailto:support@treeofknowledge.ai" target="_blank" class="btn btn-email" style="margin-top:10px">Email Us</a>
-			<br>		
+			<h1>Join in!</h1>
+			<div class="mission-text">
+				If you are a social science researcher and see the power of having a fundamental theory, please don't hesitate to contact us.<br>
+				We will gladly help you with anything. Be it small things like sovling a problem or helping you get started on the platform. Or bigger things like collaborating with you
+				to model the systems and phenomena you're researching.<br>
+				We would love to work together with you!
+			</div>
+			<a href="mailto:support@treeofknowledge.ai" target="_blank" class="btn btn-email" style="margin-top:10px">Email Us</a>		
+			<br>
 			<br>
 			<br>		
 		</div>
@@ -397,480 +547,6 @@
 		<br>
 		<h1>Further advantages of this platform</h1>		
 		<div class="panel-group" id="outer-group">
-<!-- 
-			<!- easy to use->
-			<div class="panel panel-default">
-				<div class="panel-heading">
-				<h4 class="panel-title">
-					<button type="button" class="btn btn-outer-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#outer-group" href="#collapseOne">
-						easy to use
-					</button>
-				</h4>
-				</div>
-				<div id="collapseOne" class="panel-collapse collapse">
-				<div class="panel-body">
-					<div class="panel-group inner-group" id="inner-group1">
-
-						<!- easy to use | Bayesian Framework ->
-						<div class="panel">
-							<div class="panel-heading">
-							<h4 class="panel-title">
-								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseOneOne">
-									Advantages from<br>the Bayesian Framework
-								</button>
-							</h4>
-							</div>
-							<div id="collapseOneOne" class="panel-collapse collapse panel-line-on-left">
-							<div class="panel-body">
-
-								<div class="how-it-works-title">
-									<span class="icon-frame" style="float:left;">
-										<img src="/static/images/advantage_icons_v2/1.1_no_programming_required.svg" style="height:47px;width:47px; margin-bottom:3px">
-									</span>
-									<h2 class="advantage-h2">No programming required </h2>
-								</div>
-								<div class="how-it-works-block">
-									Data transformations are handled automatically by the knowledge base (see below) and inference & evaluation are done by the Bayesian framework (see below).
-								</div>
-								<br>
-
-								<div class="how-it-works-title">
-									<span class="icon-frame" style="float:left;">
-										<img src="/static/images/advantage_icons_v2/1.2_avoid_errors.svg" style="height:47px;width:47px;margin-bottom:3px">
-									</span>
-									<h2 class="advantage">Avoid errors</h2>
-								</div>
-								<div class="how-it-works-block">
-									The automatic data transformation, model inference and result calculation reduces the possibility of human errors in these steps
-								</div>
-								<br>
-
-								<div class="how-it-works-title">
-									<span class="icon-frame" style="float:left;">
-										<img src="/static/images/advantage_icons_v2/1.3_easy_statistics.svg" style="height:47px;width:47px;margin-bottom:3px">
-									</span>
-									<h2 class="advantage">Publish data with one click</h2>
-								</div>
-								<div class="how-it-works-block">
-									Tree of Knowledge has at its core an extremely powerful knowledge base (see below) which manages all data and related meta data. <br>
-									This Knowledge base not only allows the inference framework to automatically retrieve the right information. It also allows the data and meta data to be published in an extremely easily findable and retrievable manner.
-
-								</div>
-							</div>
-							</div>
-						</div>
-						<br>
-
-						<!- easy to use | Simulations with pre-trained agents ->
-						<div class="panel panel-default">
-							<div class="panel-heading">
-							<h4 class="panel-title">
-								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseOneTwo">
-									Advantages from<br>running Simulations<br>with pre-trained Agents
-								</button>
-							</h4>
-							</div>
-							<div id="collapseOneTwo" class="panel-collapse collapse panel-line-on-left">
-								<div class="panel-body">
-
-
-										
-									<div class="how-it-works-title">
-										<span class="icon-frame" style="float:left;">
-											<img src="/static/images/advantage_icons_v2/1.4_fast.svg" style="height:47px;width:47px; margin-bottom:3px">
-										</span>
-										<h2 class="advantage">Fast</h2>
-									</div>
-									<div class="how-it-works-block">
-										Create a model in seconds - by clicking together pre-trained agents.
-									</div>
-									<br>
-
-									<div class="how-it-works-title">
-										<span class="icon-frame" style="float:left;">
-											<img src="/static/images/advantage_icons_v2/1.5_fun.svg" style="height:47px;width:47px">
-										</span>
-										<h2 class="advantage">Fun</h2>
-									</div>
-									<div class="how-it-works-block">
-										Not only are the simulation models intuitive and visually appealing, working with them can also be as fun as playing an economic simulation game.
-									</div>
-									<br>
-
-									<div class="how-it-works-title">
-										<span class="icon-frame" style="float:left;">
-											<img src="/static/images/advantage_icons_v2/1.6_easy_predictions.svg" style="height:47px;width:47px; margin-bottom:3px">
-										</span>
-										<h2 class="advantage">Easy predictions</h2>
-									</div>
-									<div class="how-it-works-block">
-										With a few clicks you can bring different actors/agents into the right configuration and model the scenario you're interested in.
-									</div>
-									<br>
-
-									<div class="how-it-works-title">
-										<span class="icon-frame" style="float:left;">
-											<img src="/static/images/advantage_icons_v2/1.7_easy_communication_of_results.svg" style="height:47px;width:47px; margin-bottom:3px">
-										</span>
-										<h2 class="advantage">Easy communication of results</h2>
-									</div>
-									<div class="how-it-works-block">
-										Due to their intuitive and visual nature, the simulation models can also be easily communicated.
-									</div>
-		
-								</div>
-							</div>
-						</div>
-						<br>
-
-						<!- easy to use | Online Platform ->
-						<div class="panel panel-default">
-							<div class="panel-heading">
-							<h4 class="panel-title">
-								<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseOneThree">
-									Advantages from<br>being an Online Platform
-								</button>
-							</h4>
-							</div>
-							<div id="collapseOneThree" class="panel-collapse collapse panel-line-on-left">
-								<div class="panel-body">
-
-
-									<div class="how-it-works-title">
-										<span class="icon-frame" style="float:left;">
-											<img src="/static/images/advantage_icons_v2/1.8_publish_data.svg" style="height:47px;width:47px; margin-bottom:3px">
-										</span>
-										<h2 class="advantage">Publish data with one click</h2>
-									</div>
-									<div class="how-it-works-block">
-										Tree of Knowledge has at its core an extremely powerful knowledge base (see below) which manages all data and related meta data. <br>
-										This Knowledge base not only allows the inference framework to automatically retrieve the right information. It also allows the data and meta data to be published in an extremely easily findable and retrievable manner.
-									</div>
-									<br>
-
-									<div class="how-it-works-title">
-										<span class="icon-frame" style="float:left;">
-											<img src="/static/images/advantage_icons_v2/1.9_publish_analysis.svg" style="height:47px;width:47px; margin-bottom:3px">
-										</span>
-										<h2 class="advantage">Punish analyses with one click</h2>
-									</div>
-									<div class="how-it-works-block">
-										Pubish your models and analyses with one click.
-									</div>
-									<br>
-
-									<div class="how-it-works-title">
-										<span class="icon-frame" style="float:left;">
-											<img src="/static/images/advantage_icons_v2/1.10_online_platform.svg" style="height:47px;width:47px; margin-bottom:3px">
-										</span>
-										<h2 class="advantage">Online Platform</h2>
-									</div>
-									<div class="how-it-works-block">
-										As it's an online platform, it needs no installation and can be used from any device.
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-					</div>
-					<br>
-				</div>
-				</div>
-			</div>
-
-
-
-
-
-			
-			<!- easy to use v2->
-			<div class="panel panel-default">
-				<div class="panel-heading">
-				<h4 class="panel-title">
-					<button type="button" class="btn btn-outer-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#outer-group" href="#collapseSix">
-						easy to use
-					</button>
-				</h4>
-				</div>
-				<div id="collapseSix" class="panel-collapse collapse">
-					<div class="panel-body">
-						<div class="panel-group inner-group" id="inner-group1">
-
-							<!- easy to use v2 | Bayesian Framework ->
-							<div class="panel">
-								<div class="panel-heading">
-								<h4 class="panel-title">
-									<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseSixOne">
-										Advantages from<br>the Bayesian Framework
-									</button>
-								</h4>
-								</div>
-								<div id="collapseSixOne" class="panel-collapse collapse">
-									<div class="panel-body">
-
-										<div class="flex-containter">
-											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-												<span>
-													<img class="icon-image" src="/static/images/advantage_icons_v2/1.1_no_programming_required.svg">
-												</span>
-												<h2 class="flex-box-title">No programming required </h2>
-												<div class="flex-box-text">
-													Data transformations are handled automatically by the knowledge base (see below) and inference & evaluation are done by the Bayesian framework (see below).
-												</div>
-											</div>
-											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-												<span>
-													<img class="icon-image" src="/static/images/advantage_icons_v2/1.2_avoid_errors.svg">
-												</span>
-												<h2 class="flex-box-title">Avoid errors</h2>
-												<div class="flex-box-text">
-													The automatic data transformation, model inference and result calculation reduces the possibility of human errors in these steps
-												</div>
-											</div>
-											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-												<span>
-													<img class="icon-image" src="/static/images/advantage_icons_v2/1.3_easy_statistics.svg">
-												</span>
-												<h2 class="flex-box-title">Publish data with one click</h2>						
-												<div class="flex-box-text">
-													Tree of Knowledge has at its core an extremely powerful knowledge base (see below) which manages all data and related meta data. <br>
-													This Knowledge base not only allows the inference framework to automatically retrieve the right information. It also allows the data and meta data to be published in an extremely easily findable and retrievable manner.
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<br>
-
-							<!- easy to use v2 | Simulations with pre-trained agents ->
-							<div class="panel panel-default">
-								<div class="panel-heading">
-								<h4 class="panel-title">
-									<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseSixTwo">
-										Advantages from<br>running Simulations<br>with pre-trained Agents
-									</button>
-								</h4>
-								</div>
-								<div id="collapseSixTwo" class="panel-collapse collapse">
-									<div class="panel-body">
-
-
-										<div class="flex-containter">
-											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-												<span>
-													<img class="icon-image" src="/static/images/advantage_icons_v2/1.4_fast.svg">
-												</span>
-												<h2 class="flex-box-title">Fast</h2>
-												<div class="flex-box-text">
-													Create a model in seconds - by clicking together pre-trained agents.
-												</div>
-											</div>
-											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-												<span>
-													<img class="icon-image" src="/static/images/advantage_icons_v2/1.5_fun.svg">
-												</span>
-												<h2 class="flex-box-title">Fun</h2>
-												<div class="flex-box-text">
-													Not only are the simulation models intuitive and visually appealing, working with them can also be as fun as playing an economic simulation game.
-												</div>
-											</div>
-											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-												<span>
-													<img class="icon-image" src="/static/images/advantage_icons_v2/1.6_easy_predictions.svg">
-												</span>
-												<h2 class="flex-box-title">Easy predictions</h2>
-												<div class="flex-box-text">
-													With a few clicks you can bring different actors/agents into the right configuration and model the scenario you're interested in.
-												</div>
-											</div>
-											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-												<span>
-													<img class="icon-image" src="/static/images/advantage_icons_v2/1.7_easy_communication_of_results.svg">
-												</span>
-												<h2 class="flex-box-title">Easy communication of results</h2>
-												<div class="flex-box-text">
-													Due to their intuitive and visual nature, the simulation models can also be easily communicated.
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<br>
-
-							<!- easy to use v2 | Online Platform ->
-							<div class="panel panel-default">
-								<div class="panel-heading">
-								<h4 class="panel-title">
-									<button type="button" class="btn btn-inner-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#inner-group1" href="#collapseSixThree">
-										Advantages from<br>being an Online Platform
-									</button>
-								</h4>
-								</div>
-								<div id="collapseSixThree" class="panel-collapse collapse">
-									<div class="panel-body">
-										<div class="flex-containter">
-											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-												<span>
-													<img class="icon-image" src="/static/images/advantage_icons_v2/1.8_publish_data.svg">
-												</span>
-												<h2 class="flex-box-title">Publish data with one click</h2>
-												<div class="flex-box-text">
-													Tree of Knowledge has at its core an extremely powerful knowledge base (see below) which manages all data and related meta data. <br>
-													This Knowledge base not only allows the inference framework to automatically retrieve the right information. It also allows the data and meta data to be published in an extremely easily findable and retrievable manner.
-												</div>
-											</div>
-											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-												<span>
-													<img class="icon-image" src="/static/images/advantage_icons_v2/1.9_publish_analysis.svg">
-												</span>
-												<h2 class="flex-box-title">Punish analyses with one click</h2>
-												<div class="flex-box-text">
-													Pubish your models and analyses with one click.
-												</div>
-											</div>
-											<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-												<span>
-													<img class="icon-image" src="/static/images/advantage_icons_v2/1.10_online_platformv2.svg">
-												</span>
-												<h2 class="flex-box-title">Online Platform</h2>
-												<div class="flex-box-text">
-													As it's an online platform, it needs no installation and can be used from any device.
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<br>
-					</div>
-				</div>
-			</div>
-
-
-
-
-
-			
-			
-			<!- easy to use v3->
-			<div class="panel panel-default">
-				<div class="panel-heading">
-				<h4 class="panel-title">
-					<button type="button" class="btn btn-outer-heading collapsed" class="accordion-toggle" data-toggle="collapse" data-parent="#outer-group" href="#collapseSeven">
-						easy to use
-					</button>
-				</h4>
-				</div>
-				<div id="collapseSeven" class="panel-collapse collapse">
-					<div class="panel-body">
-						<div class="panel-group inner-group" id="inner-group1">
-
-							<div class="flex-containter">
-								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-									<span>
-										<img class="icon-image" src="/static/images/advantage_icons_v2/1.1_no_programming_required.svg">
-									</span>
-									<h2 class="flex-box-title">No programming required </h2>
-									<div class="flex-box-text">
-										Data transformations are handled automatically by the knowledge base (see below) and inference & evaluation are done by the Bayesian framework (see below).
-									</div>
-								</div>
-								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-									<span>
-										<img class="icon-image" src="/static/images/advantage_icons_v2/1.2_avoid_errors.svg">
-									</span>
-									<h2 class="flex-box-title">Avoid errors</h2>
-									<div class="flex-box-text">
-										The automatic data transformation, model inference and result calculation reduces the possibility of human errors in these steps
-									</div>
-								</div>
-								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-									<span>
-										<img class="icon-image" src="/static/images/advantage_icons_v2/1.3_easy_statistics.svg">
-									</span>
-									<h2 class="flex-box-title">Publish data with one click</h2>						
-									<div class="flex-box-text">
-										Tree of Knowledge has at its core an extremely powerful knowledge base (see below) which manages all data and related meta data. <br>
-										This Knowledge base not only allows the inference framework to automatically retrieve the right information. It also allows the data and meta data to be published in an extremely easily findable and retrievable manner.
-									</div>
-								</div>
-								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-									<span>
-										<img class="icon-image" src="/static/images/advantage_icons_v2/1.4_fast.svg">
-									</span>
-									<h2 class="flex-box-title">Fast</h2>
-									<div class="flex-box-text">
-										Create a model in seconds - by clicking together pre-trained agents.
-									</div>
-								</div>
-								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-									<span>
-										<img class="icon-image" src="/static/images/advantage_icons_v2/1.5_fun.svg">
-									</span>
-									<h2 class="flex-box-title">Fun</h2>
-									<div class="flex-box-text">
-										Not only are the simulation models intuitive and visually appealing, working with them can also be as fun as playing an economic simulation game.
-									</div>
-								</div>
-								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-									<span>
-										<img class="icon-image" src="/static/images/advantage_icons_v2/1.6_easy_predictions.svg">
-									</span>
-									<h2 class="flex-box-title">Easy predictions</h2>
-									<div class="flex-box-text">
-										With a few clicks you can bring different actors/agents into the right configuration and model the scenario you're interested in.
-									</div>
-								</div>
-								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-									<span>
-										<img class="icon-image" src="/static/images/advantage_icons_v2/1.7_easy_communication_of_results.svg">
-									</span>
-									<h2 class="flex-box-title">Easy communication of results</h2>
-									<div class="flex-box-text">
-										Due to their intuitive and visual nature, the simulation models can also be easily communicated.
-									</div>
-								</div>
-								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-									<span>
-										<img class="icon-image" src="/static/images/advantage_icons_v2/1.8_publish_data.svg">
-									</span>
-									<h2 class="flex-box-title">Publish data with one click</h2>
-									<div class="flex-box-text">
-										Tree of Knowledge has at its core an extremely powerful knowledge base (see below) which manages all data and related meta data. <br>
-										This Knowledge base not only allows the inference framework to automatically retrieve the right information. It also allows the data and meta data to be published in an extremely easily findable and retrievable manner.
-									</div>
-								</div>
-								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-									<span>
-										<img class="icon-image" src="/static/images/advantage_icons_v2/1.9_publish_analysis.svg">
-									</span>
-									<h2 class="flex-box-title">Punish analyses with one click</h2>
-									<div class="flex-box-text">
-										Pubish your models and analyses with one click.
-									</div>
-								</div>
-								<div class="advantage-flex-box truncated" onclick="toggleTruncation(this)">	
-									<span>
-										<img class="icon-image" src="/static/images/advantage_icons_v2/1.10_online_platformv2.svg">
-									</span>
-									<h2 class="flex-box-title">Online Platform</h2>
-									<div class="flex-box-text">
-										As it's an online platform, it needs no installation and can be used from any device.
-									</div>
-								</div>
-							</div>
-						</div>
-						<br>
-					</div>
-				</div>
-			</div>
-
-
--->
 
 			<!-- easy to use -->
 			<div class="panel panel-default">
@@ -1652,60 +1328,72 @@
 				</div>
 			</div>
 		</div>
-
-
-
-
-		<h1>The Technologies that make it possible</h1>
-
-
-		<br>
-
-		<br>
-
-		<!-- 
-		<div class="how-it-works-title">
-			<span class="icon-frame" style="float:left;">
-				<img src="/static/images/si-glyph-cursor.svg" style="height:36px;width:36px; margin-bottom:3px">
-			</span>
-			
-			<h2 class="yellowish">Easy to use</h2>
+		<div id="conclusion-text">
+		Due to these many advantages, we believe <b>Fundamental Theory Building</b> 
+		not only the <u>theoretically optimal</u> approach for learning the behavior of complex systems (such as humans), but also <u>superior in practice</u>.
 		</div>
-		<div class="how-it-works-block">
+		<!--
+		<h1>Use Cases</h1>
+		<br>
+		<h2 class="yellowish">Analyse your Dataset</h2>
+		<div class="use-case-image">
+			Fig: 
+		</div>
+		<div class="use-case-text">
+			Datasets contain measurements from a real-world systems.<br>
+			In Tree of Knowledge you can create a model of the real-world system(s) that produced this data - easily, by dragging-and-dropping existing agents<br>
+			<br>
+			This digital-twin simulation model allows you to 
 			<ul>
-				<li><b>Work with existing theories</b>, instead of building models from scratch</li>
-				<li><b>No programming required</b> due to the simple interface and automatic data transformations</li>
-				<li><b>Publish</b> your data and/or work <b>with one click</b></li>
+			<li>Gain an exact understanding of the mechanisms driving your system</li>
+			<li>Learn important metrics about your system</li>
+			<li>Improve your system by testing how slightly modified versions of the system perform</li>
 			</ul>
 		</div>
 		<br>
-		<div class="how-it-works-title">
-			<span class="icon-frame" style="float:left;padding-top:3px;";>
-				<i class="fas fa-ruler" aria-hidden="true"></i>
-			</span>
-			<h2 class="yellowish">Make powerful analyses</h2>
+		<h2 class="yellowish">Improve the Theory of Human Behavior</h2>
+		<div class="use-case-image">
+			Fig: Testing a theory in many different scenarios
 		</div>
-		<div class="how-it-works-block">
-			The Tree of Knowledge uses likelihood-free Bayesian inference and Bayesian updating to determine the rule probabilities. 
-			This is a robust, statistically rigorous formalism that captures all uncertainties (those originating from imperfect knowledge of the world, and those from inherent randomness).
-			<br><br>
-			When making predictions with Tree of Knowledge, the Monte-Carlo simulation engine captures and propagates all previously learned uncertainties => the predicted outcomes and the uncertainty of these predictions correspond exactly to the true uncertainty.
-			<br><br>
+		<div class="use-case-text">
+			Many researchers have modelled their systems of interest in Tree of Knowledge using the same inbuilt, universal agents.<br>
+			This gives us a unique opportunity to thouroughly test and evaluate new theorys of human behaviour:<br>
+			<br>
+			The theory of human behavior is the set of behavior rules that drive the human agent that is used in all these models.
+			With Tree of Knowledge, we can simply try out new agent behavior rules (= a new theory) and see if the agents with these new rules 
+			performs more accurately in all these models.<br>
+			<br>
+			By evaluating new theories in such a vast range of different scenarios, we not only have the most thorough evalutionation imaginable - 
+			orders of magnitude more thourough than anything else out there. 
+			It also allows us to it definitively and objectively identify the best theory.
+		</div>
+
+		<br>
+		<br>-->
+
+	
+		<br>
+		<br>
+		<br>
+
+		<h1>The Technologies that make it possible</h1>
+
+		<br>
+		<br>
+		<div style="margin-left: -35px;" >
+			<div id="overview_of_technologies" class="popover-item" style="width: 85%; max-width: 900px; margin-left: auto; margin-right: auto" >
+				<img src="/static/images/overview_of_technologies_v4.svg" style="width: 100%">
+				<div id="popover-content">
+					<h1>Tooltip/Popover</h1>
+					<p>This is not working on your browser. It should display further information about the different sections of the diagram</p>
+				</div>
+			</div>
 		</div>
 		<br>
-		<div class="how-it-works-title">
-			<span class="icon-frame" style="float:left;padding-top:3px;";>
-				<i class="fas fa-ruler" aria-hidden="true"></i>
-			</span>
-			<h2 class="yellowish">Easy to understand</h2>
-		</div>
-		<div class="how-it-works-block">
-			The Tree of Knowledge uses likelihood-free Bayesian inference and Bayesian updating to determine the rule probabilities. 
-			This is a robust, statistically rigorous formalism that captures all uncertainties (those originating from imperfect knowledge of the world, and those from inherent randomness).
-			<br><br>
-			When making predictions with Tree of Knowledge, the Monte-Carlo simulation engine captures and propagates all previously learned uncertainties => the predicted outcomes and the uncertainty of these predictions correspond exactly to the true uncertainty.
-			<br><br>
-		</div>-->
+
+	
+		<br>
+		<br>
 		<br>
 		<br>
 		<br>
