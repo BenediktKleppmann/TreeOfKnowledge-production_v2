@@ -1,0 +1,4 @@
+load -1 $1
+discover
+bin -rex CompanyName
+by CompanyName

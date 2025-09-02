@@ -1,0 +1,3 @@
+cat3
+"; artificial_intelligence; criminal_law; eDiscovery;"
+"; criminal_law; eDiscovery; litigation;"

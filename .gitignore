@@ -24,3 +24,5 @@ collection/static/webservice files/db_backup/data_point.json
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+collection/static/images/news page/2020-10-15/presentation1.pptx
+collection/static/images/news page/2020-10-15/presentation2.pptx

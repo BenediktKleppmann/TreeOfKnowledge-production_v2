@@ -1,0 +1,12 @@
+-----  EB Deploy  ----------------
+
+1. open normal windows terminal
+2. navigate to this folder (cd C:\Users\Ben\Documents\6 github repositories\TreeOfKnowledge-production_v2)
+3. activate eb-env environment (.\eb-env\Scripts\activate)
+4. run "eb deploy"
+
+
+----- Start Webservice locally  ----------------
+1. open any terminal
+2. navigate to this folder (cd C:\Users\Ben\Documents\6 github repositories\TreeOfKnowledge-production_v2)
+3. run "python manage.py runserver"

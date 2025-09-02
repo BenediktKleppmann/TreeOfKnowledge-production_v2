@@ -1,0 +1,433 @@
+; criminal_law; data_services; dispute_resolution; eDiscovery; prediction; software
+; data_services; online; search; smart; software
+; eDiscovery; online; software
+; education; search
+; compliance; criminal_law; data_services; education; eDiscovery; litigation; online; research; risk; search; software
+; criminal_law; data_services; documentation; eDiscovery; litigation; online; practice_management; search; software
+; criminal_law; data_services; eDiscovery; litigation
+; employment; finance; immigration; online; platform; search; software
+; civil_law; community; dispute_resolution; finance; software
+; practice_management; prediction
+; data_services; risk
+; documentation; education; intellectual_property; litigation; search
+; data_services; eDiscovery
+; civil_law; criminal_law; data_services; dispute_resolution; documentation; finance; intellectual_property; legal services; platform; practice_management; software
+; data_services; documentation; eDiscovery; litigation; online; practice_management; software
+; compliance; data_services; finance; intellectual_property; online; software
+; contract; data_services; intellectual_property; platform; software
+; data_services; online; platform; practice_management; prediction; software
+; civil_law; contract; dispute_resolution; finance; online
+; civil_law; criminal_law; identity_services; legal services; search
+; compliance; contract
+; company_law; finance; online
+; education; finance; marketplace; real_estate; risk
+; artificial_intelligence; contract; data_services; finance; platform; smart; software
+; civil_law; dispute_resolution; search
+; finance; intellectual_property; research; software
+; company_law; contract; data_services; dispute_resolution; education; eDiscovery; finance; intellectual_property; litigation; platform; practice_management; risk
+; compliance; criminal_law; data_services; document_management; eDiscovery; litigation; platform; practice_management; smart; software
+; intellectual_property; online
+; blockchain; data_services; document_management; identity_services; online; risk; smart; software
+; platform; search
+; criminal_law; data_services; litigation; online; platform
+; artificial_intelligence; community; data_services; eDiscovery; finance; platform; search; software
+; immigration; intellectual_property; software
+; data_services; finance; risk; software
+; civil_law; criminal_law; legal services; litigation; online; platform; search
+; compliance; criminal_law; data_services; eDiscovery; intellectual_property; litigation; search; smart; software
+; community; platform; search
+; civil_law; criminal_law; document_management; finance; legal services; online; platform; practice_management; software
+; contract; finance; search
+; compliance; data_services; education; eDiscovery; intellectual_property; risk; software
+; education; eDiscovery; litigation; software
+; community; contract; data_services; risk; search
+; data_services; dispute_resolution; finance; litigation; marketplace; platform; smart; software
+; civil_law; data_services; finance; online; platform; search; smart; software
+; community; finance; litigation; online; risk
+; criminal_law; data_services; online; software
+; documentation; platform; smart
+; documentation; research
+; civil_law; compliance; data_services; document_management; eDiscovery; litigation; platform; practice_management; prediction; research; search; smart; software
+; dispute_resolution; software
+; civil_law; criminal_law; data_services; eDiscovery; finance; software
+; criminal_law; platform
+; civil_law; data_services; dispute_resolution; finance; litigation
+; company_law; finance; research
+; data_services; eDiscovery; litigation; online; platform; practice_management; software
+; community; litigation; platform; research; search
+; community; dispute_resolution; finance; online; platform; search; smart; software
+; data_services; dispute_resolution; finance; litigation
+; data_services; intellectual_property; platform
+; community; contract; data_services; documentation; education; online; search; smart; software
+; compliance; contract; data_services; document_management; documentation; finance; online; platform; practice_management; risk; smart; software
+; artificial_intelligence; data_services; intellectual_property; platform; practice_management; research; smart; software
+; contract; document_management; identity_services; online; smart; software
+; documentation; immigration; online; software
+; company_law; finance
+; civil_law; criminal_law; data_services; legal services
+; data_services; identity_services; platform; practice_management; smart; software
+; online; platform; practice_management; software
+; blockchain; company_law; intellectual_property; online
+; contract; identity_services
+; dispute_resolution; litigation; online
+; data_services; eDiscovery; finance; litigation; online; platform; risk; search; smart; software
+; civil_law; criminal_law; legal services
+; criminal_law; data_services; document_management; eDiscovery; litigation; online; platform; software
+; data_services; document_management; education; finance; platform; software
+; eDiscovery; litigation; software
+; eDiscovery; litigation; platform; practice_management; software
+; data_services; education; online; smart
+; data_services; document_management; education; eDiscovery; litigation; online; platform; research; risk; software
+; community; data_services; online; platform; search; software
+; data_services; eDiscovery
+; contract; data_services; document_management; documentation; education; finance; identity_services; online; platform; practice_management; search; smart; software
+; compliance; contract; identity_services; online; platform; risk; smart; software
+; contract; data_services; research; software
+; company_law; contract; smart
+; data_services; risk
+; company_law; education
+; data_services; document_management; intellectual_property; online; platform; practice_management; search; software
+; civil_law; criminal_law; legal services; search
+; civil_law; criminal_law; intellectual_property; legal services; search
+; criminal_law; data_services; document_management; practice_management; research
+; civil_law; compliance; finance; platform
+; criminal_law; data_services; education; eDiscovery; litigation; online; platform; practice_management; prediction; search; smart; software
+; education; finance; online; practice_management; search; software
+; civil_law; criminal_law; data_services; documentation; education; eDiscovery; litigation; platform; prediction; software
+; data_services; document_management; software
+; company_law; finance
+; data_services; eDiscovery; litigation; prediction; software
+; data_services; eDiscovery; litigation; platform; search
+; civil_law; compliance; data_services; education; eDiscovery; litigation; risk; search; smart
+; civil_law; criminal_law; data_services; eDiscovery; legal services; litigation; search
+; education; eDiscovery; search
+; civil_law; criminal_law; data_services; dispute_resolution; document_management; education; finance; search
+; data_services; documentation; finance
+; civil_law; data_services; litigation; online; research; search; software
+; contract; online
+; contract; documentation; software
+; artificial_intelligence; dispute_resolution; online
+; litigation; online
+; civil_law; company_law; criminal_law; data_services; dispute_resolution; finance; intellectual_property; litigation; platform; research; search; software
+; compliance; data_services; document_management; eDiscovery; finance; platform; software
+; community; criminal_law; data_services; eDiscovery; finance; platform; practice_management; software
+; criminal_law; data_services; eDiscovery
+; criminal_law; eDiscovery; litigation
+; artificial_intelligence; contract; documentation; real_estate; research
+; litigation; platform; software
+; data_services; eDiscovery; litigation; platform; practice_management; risk; software
+; compliance; contract; data_services; identity_services
+; criminal_law; data_services; eDiscovery; litigation; smart; software
+; eDiscovery; litigation; online
+; compliance; data_services; dispute_resolution; finance; risk; software
+; civil_law; compliance; criminal_law; data_services; eDiscovery; legal services; litigation; risk; software
+; community; compliance; data_services; eDiscovery; identity_services; platform; search; software
+; data_services; eDiscovery; finance; software
+; community; criminal_law; data_services; education; eDiscovery; litigation; online; practice_management; smart; software
+; company_law; data_services; documentation; eDiscovery; finance; litigation; practice_management; research; software
+; civil_law; criminal_law; data_services; eDiscovery; litigation; platform; search
+; artificial_intelligence; civil_law; compliance; data_services; eDiscovery; online; platform; prediction; search; software
+; civil_law; compliance; criminal_law; data_services; document_management; education; eDiscovery; litigation; platform; research; risk
+; data_services; documentation; education; finance; online; smart; software
+; contract; criminal_law; data_services; finance; litigation; practice_management
+; blockchain; civil_law; contract; data_services; dispute_resolution; document_management; eDiscovery; finance; online; platform; prediction; risk; search; smart; software
+; data_services; eDiscovery; litigation; platform; smart; software
+; criminal_law; dispute_resolution; eDiscovery; litigation
+; criminal_law; data_services
+; civil_law; criminal_law; data_services; eDiscovery; legal services; litigation; platform; software
+; civil_law; contract; criminal_law; data_services; dispute_resolution; legal services; search; software
+; document_management; platform; software
+; civil_law; criminal_law; document_management; eDiscovery; legal services; litigation; practice_management; smart; software
+; litigation
+; documentation; online; platform
+; eDiscovery
+; civil_law; document_management; documentation; online; research; smart; software
+; data_services; document_management; documentation; eDiscovery; litigation; online; platform; search; software
+; data_services; document_management; finance; platform; practice_management; search; software
+; finance; online; platform
+; compliance; document_management; practice_management; smart; software
+; civil_law; dispute_resolution
+; civil_law; company_law; compliance; contract; criminal_law; dispute_resolution; documentation; education; employment; finance; identity_services; immigration; intellectual_property; legal services; litigation; marketplace; online; real_estate; research; search; software
+; civil_law; dispute_resolution; finance; online; risk
+; criminal_law; finance; risk
+; compliance; criminal_law; data_services; software
+; criminal_law; data_services; eDiscovery; litigation; marketplace
+; data_services; education; finance; real_estate; risk
+; civil_law; company_law; data_services; education; finance; online; research; search; software
+; artificial_intelligence; criminal_law; eDiscovery; 
+; data_services; document_management; eDiscovery; platform; prediction; research; risk; search; software
+; data_services; documentation; platform; practice_management; real_estate; software
+; data_services; intellectual_property; online
+; criminal_law; data_services; education; eDiscovery; finance; platform; risk; search; smart; software
+; compliance; criminal_law; data_services; document_management; education; eDiscovery; litigation; platform; practice_management; risk; search; software
+; data_services; search
+; compliance; criminal_law; dispute_resolution; eDiscovery; litigation
+; data_services; education; risk; smart; software
+; data_services; documentation; identity_services; marketplace; software
+; compliance; data_services; platform
+; civil_law; contract; data_services; finance; online
+; education; finance
+; practice_management; software
+; dispute_resolution; intellectual_property; online; software
+; data_services; online; software
+; data_services; online; research; search; software
+; criminal_law; data_services; education; eDiscovery; online; software
+; civil_law; dispute_resolution; identity_services; online
+; community; data_services; document_management; documentation; education; marketplace; platform; research; search; smart; software
+; eDiscovery; online; software
+; criminal_law; data_services; eDiscovery; online
+; contract; data_services; documentation; eDiscovery; online; platform; research; smart
+; online; practice_management; software
+; data_services; education; eDiscovery; litigation; platform; software
+; document_management; documentation
+; contract; data_services; document_management; eDiscovery; litigation; marketplace; platform; research; search; software
+; dispute_resolution; litigation
+; intellectual_property; marketplace; search; software
+; criminal_law; data_services; education; eDiscovery; litigation; prediction; search; software
+; data_services; intellectual_property; litigation; practice_management; prediction; software
+; community; data_services; education; eDiscovery; litigation; marketplace; prediction; risk; software
+; contract; data_services; finance; software
+; compliance; data_services; education; platform; risk; search; software
+; compliance; eDiscovery; software
+; data_services; finance; intellectual_property; platform; research; search
+; data_services; intellectual_property; online; smart
+; company_law; contract; document_management; smart
+; civil_law; criminal_law; data_services; dispute_resolution; intellectual_property; litigation; platform; smart; software
+; compliance; data_services; documentation; education; software
+; civil_law; search
+; data_services; online; platform; smart; software
+; documentation; intellectual_property; platform; search; software
+; civil_law; data_services; research; search; software
+; compliance; data_services; finance
+; data_services; dispute_resolution; intellectual_property; prediction; search; software
+; contract ; identity_services; platform
+; documentation; practice_management
+; civil_law; company_law; contract; criminal_law; documentation; finance; immigration; intellectual_property; litigation; online; real_estate; search
+; community; platform; search
+; civil_law; company_law; criminal_law; legal services; search
+; civil_law; contract; dispute_resolution; online
+; civil_law; criminal_law; eDiscovery; legal services; online; search
+; criminal_law; eDiscovery; litigation; software
+; data_services
+; data_services; eDiscovery; finance; platform; software
+; compliance; contract; data_services; document_management; real_estate; software
+; contract; documentation; online; platform
+; civil_law; data_services; finance; research; smart
+; data_services; education; online; software
+; data_services; eDiscovery; finance; online; risk; search; software
+; civil_law; criminal_law; data_services; eDiscovery; legal services
+; civil_law; criminal_law; eDiscovery
+; civil_law; criminal_law; data_services; document_management; finance; legal services; online; platform; search
+; civil_law; company_law; contract; criminal_law; data_services; dispute_resolution; finance; immigration; intellectual_property; legal services; litigation; online; platform; real_estate; search
+; contract; data_services
+; contract; platform
+; civil_law; documentation; platform; practice_management; smart; software
+; data_services; documentation; identity_services; online
+; civil_law; company_law; compliance; contract; criminal_law; data_services; dispute_resolution; documentation; education; employment; finance; identity_services; immigration; intellectual_property; legal services; litigation; online; real_estate; research; risk; search; smart; software
+; software
+; civil_law; data_services; finance; online; platform; prediction; search; smart; software
+; community; contract
+; artificial_intelligence; contract; data_services; online
+; contract; real_estate
+; civil_law; community; contract; criminal_law; documentation; immigration; intellectual_property; legal services; litigation; marketplace; search
+; finance; litigation; real_estate; search
+; artificial_intelligence; civil_law; criminal_law; data_services; education; legal services; marketplace; search; software
+; platform; research; search
+; compliance; data_services; document_management; documentation; finance; intellectual_property; online; platform; search; software
+; compliance; finance; practice_management; search; software
+; documentation; finance; immigration; intellectual_property; online; search; software
+; civil_law; criminal_law; finance; legal services; platform
+; data_services; documentation; platform; software
+; civil_law; criminal_law; legal services; marketplace
+; platform; research; search; smart
+; data_services; litigation; search
+; dispute_resolution; litigation; platform
+; marketplace; search
+; data_services; eDiscovery
+; compliance; contract; data_services; education; eDiscovery; intellectual_property; litigation; practice_management; software
+; civil_law; criminal_law; data_services; research; search
+; online; platform; software
+; data_services; education; eDiscovery; litigation; platform; search; software
+; intellectual_property; smart; software
+; civil_law; compliance; contract; criminal_law; finance; immigration; intellectual_property; legal services; online; real_estate; search
+; finance; online; platform
+; document_management; search; software
+; civil_law; criminal_law; documentation; finance; legal services; risk
+; artificial_intelligence; compliance; contract; data_services; documentation; practice_management; risk; smart; software
+; civil_law; criminal_law; legal services; online; platform; search; software
+; civil_law; employment; finance; online; search
+; civil_law; document_management; platform; search
+; contract; documentation; online; platform
+; civil_law; dispute_resolution; finance; litigation; search
+; documentation; finance; intellectual_property; online
+; data_services; finance; practice_management; smart
+; artificial_intelligence; contract; data_services; finance; risk; search; software
+; artificial_intelligence; community; data_services; documentation; software
+; civil_law; contract; criminal_law; dispute_resolution; employment; intellectual_property; legal services; litigation; online; smart
+; contract; documentation; finance; intellectual_property; online; real_estate; risk; search; software
+; litigation; platform
+; civil_law; criminal_law; documentation; legal services
+; civil_law; criminal_law; document_management; legal services; online
+; civil_law; contract; criminal_law; data_services; document_management; documentation; education; finance; identity_services; online; platform; risk; search
+; data_services; eDiscovery; litigation
+; data_services; document_management; documentation; eDiscovery; litigation; platform; software
+; online; platform; practice_management; smart; software
+; compliance; data_services; identity_services; practice_management; risk
+; company_law; data_services; dispute_resolution; employment; finance; immigration; intellectual_property; litigation; online; search
+; document_management; platform
+; community; online; platform; prediction
+; contract; data_services; dispute_resolution; finance; intellectual_property; litigation; marketplace; online; platform; real_estate; risk
+; compliance; education; risk; search; software
+; education; eDiscovery
+; compliance; criminal_law; data_services; document_management; eDiscovery; litigation; platform; prediction; software
+; criminal_law; eDiscovery; litigation;
+; data_services; eDiscovery; finance; litigation; online; platform; practice_management; risk; search; software
+; artificial_intelligence; contract; criminal_law; data_services; finance; litigation; search; software
+; civil_law; document_management; finance; search; software
+; civil_law; document_management; documentation; eDiscovery; litigation; practice_management; software
+; data_services; document_management; eDiscovery; platform; risk; smart; software
+; data_services; document_management; documentation; online; smart; software
+; finance; research; software
+; data_services; finance; platform; practice_management; smart; software
+; criminal_law; data_services; eDiscovery
+; community; eDiscovery; platform; smart; software
+; civil_law; contract; criminal_law; documentation; eDiscovery; legal services; litigation; research
+; criminal_law; data_services; eDiscovery; intellectual_property; platform; search
+; compliance; practice_management; software
+; data_services; finance
+; artificial_intelligence; data_services
+; criminal_law; data_services; education; eDiscovery; platform; software
+; civil_law; education; immigration; online; practice_management; software
+; company_law; documentation; finance
+; data_services; intellectual_property; online; practice_management; smart
+; data_services; online
+; artificial_intelligence; compliance; education; software
+; civil_law; online
+; data_services
+; data_services; eDiscovery; litigation; platform; smart; software
+; civil_law; company_law; data_services; documentation; finance; online; platform; practice_management; software
+; data_services; eDiscovery; litigation; platform; smart; software
+; data_services; finance; online; software
+; civil_law; criminal_law; legal services; marketplace; platform
+; identity_services; online; search; software
+; data_services; document_management
+; civil_law; compliance; criminal_law; data_services; eDiscovery; litigation; platform; software
+; data_services; dispute_resolution; eDiscovery; litigation
+; civil_law; dispute_resolution
+; litigation; search; software
+; criminal_law; data_services; eDiscovery; practice_management; research
+; criminal_law; data_services; eDiscovery; litigation
+; data_services; document_management; eDiscovery; litigation; software
+; data_services; finance; platform; risk; software
+; civil_law; criminal_law; data_services; dispute_resolution; finance; legal services; litigation; platform; research; search; software
+; data_services; documentation; education; eDiscovery; search; software
+; contract; document_management; marketplace
+; civil_law; data_services
+; contract; data_services; documentation; identity_services; platform; smart
+; criminal_law; platform; software
+; contract; dispute_resolution; finance; online; search; smart; software
+; contract; data_services; documentation; smart; software
+; intellectual_property; search
+; intellectual_property; marketplace; search
+; data_services; intellectual_property
+; company_law; data_services; documentation; finance; online
+; civil_law; compliance; data_services; documentation; finance; online; platform; practice_management; risk; search; smart; software
+; artificial_intelligence; civil_law; contract; data_services; eDiscovery; finance; litigation; prediction; search; smart; software
+; data_services; finance; intellectual_property; online; prediction; research; software
+; data_services; eDiscovery
+; document_management
+; civil_law; practice_management; software
+; contract ; documentation; identity
+; criminal_law; data_services; eDiscovery; finance; litigation; search; software
+; artificial_intelligence; prediction
+; data_services; online
+; community; finance; search; software
+; artificial_intelligence; data_services; education; eDiscovery; prediction; smart; software
+; data_services; eDiscovery; litigation; software
+; data_services; finance; practice_management; risk; search; smart; software
+; criminal_law
+; finance; prediction
+; online; software
+; criminal_law; data_services; education; eDiscovery; litigation; practice_management
+; data_services; platform; search; software
+; artificial_intelligence; data_services; risk; software
+; civil_law; data_services; document_management; education; finance; online; research; software
+; civil_law; compliance; contract; data_services; eDiscovery; finance; litigation; online; risk; search
+; compliance; contract; document_management; documentation; platform
+; data_services; eDiscovery
+; software
+; compliance; contract; document_management; documentation; identity_services; online; software
+; education; platform; practice_management; research; search
+; finance; intellectual_property; real_estate; search; software
+; data_services; eDiscovery; finance
+; artificial_intelligence; compliance; contract; data_services; document_management; eDiscovery; platform; risk; search; software
+; data_services; platform; research
+; data_services; dispute_resolution; finance; online
+; civil_law; education; intellectual_property; online; search; smart; software
+; artificial_intelligence; compliance; data_services; document_management; eDiscovery; platform; prediction; software
+; contract; identity_services
+; data_services; education
+; data_services; eDiscovery; platform; software
+; contract; documentation; marketplace; online; search
+; education; immigration; platform
+; data_services; finance; smart; software
+; data_services; document_management; identity_services; immigration; intellectual_property; search; smart
+; data_services; eDiscovery
+; compliance; data_services; eDiscovery; finance; online; platform; risk
+; blockchain; contract; data_services; online; smart
+; dispute_resolution; intellectual_property; litigation; search
+; dispute_resolution; finance; software
+; blockchain; criminal_law; data_services; eDiscovery; platform; risk; search; software
+; compliance; data_services; document_management; eDiscovery; finance; litigation; platform; risk; software
+; blockchain; community; data_services; platform; research; software
+; criminal_law; eDiscovery; litigation; risk; software
+; data_services; research
+; criminal_law; data_services; document_management; eDiscovery; software
+; data_services; online; search; software
+; data_services; eDiscovery
+; eDiscovery; litigation; search
+; community; criminal_law; data_services; document_management; eDiscovery; intellectual_property; litigation
+; data_services; dispute_resolution; litigation
+; civil_law; finance; intellectual_property; marketplace; risk; search; smart; software
+; compliance; data_services; eDiscovery; finance; intellectual_property; online; research; search; smart; software
+; data_services; document_management; platform; search; software
+; civil_law; dispute_resolution
+; education; online; software
+; data_services; intellectual_property
+; dispute_resolution; finance; litigation; search
+; data_services; online
+; data_services; online; software
+; platform; practice_management; research; search; software
+; compliance; data_services; education; eDiscovery; online; practice_management; smart
+; data_services; intellectual_property; litigation; online; platform; research; risk; search; software
+; document_management; finance; intellectual_property; platform; risk; smart; software
+; compliance; data_services; finance; litigation; platform
+; civil_law; contract; eDiscovery; litigation
+; artificial_intelligence; data_services; intellectual_property; platform; risk
+; dispute_resolution; litigation; risk
+; compliance; data_services; dispute_resolution; finance; risk; software
+; compliance; litigation
+; data_services; education; eDiscovery; finance; intellectual_property; litigation; marketplace; research; risk; software
+; criminal_law; dispute_resolution; education; employment; online; search
+; civil_law; criminal_law; finance; legal services
+; civil_law; compliance; contract; criminal_law; documentation; finance; intellectual_property; legal services; online; platform; search; software
+; eDiscovery; software
+; data_services; eDiscovery; platform; software
+; eDiscovery
+; data_services; online; platform; smart; software
+; online; research
+; civil_law; compliance; data_services; document_management; intellectual_property; research; risk; software
+; civil_law; compliance; criminal_law; data_services; document_management; education; eDiscovery; identity_services; intellectual_property; litigation; online; platform; software
+; compliance; online; research
+; civil_law; education; finance; identity_services; intellectual_property; online; prediction; search
+; community; education; search
+; data_services; documentation; education; eDiscovery; search; software
+; civil_law; criminal_law; eDiscovery; legal services; litigation; risk
+; contract; documentation; litigation; software
+; civil law; community; dispute_resolution; online; platform
+; criminal_law; dispute_resolution; finance
+; community; compliance; data_services; education; eDiscovery; online; platform; practice_management; risk; smart; software
+; marketplace; online; search
+; data_services; document_management; eDiscovery; platform; risk; software
+; data_services; eDiscovery
+; data_services; eDiscovery; finance; search; software
