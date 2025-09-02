@@ -58,7 +58,7 @@ def landing_page(request):
 
 def landing_page_old(request):
     return render(request, 'landing_page_old.html')
-
+    
 def about(request):
     return render(request, 'about.html')
 
@@ -77,7 +77,7 @@ def tutorial2(request):
 def tutorial3(request):
     return render(request, 'tutorial3.html')
 
-def subscribe(request):
+def news(request):
     if request.method == 'POST':
         form_class = Subscriber_registrationForm
         form = form_class(request.POST)
@@ -96,9 +96,9 @@ def subscribe(request):
             email_message.send()
             return redirect('subscriber_page', userid=subscriber.userid)
         else:
-            return render(request, 'subscribe.html', {'error_occured': True,})
+            return render(request, 'news.html', {'error_occured': True,})
     else:
-        return render(request, 'subscribe.html', {'error_occured': False,})
+        return render(request, 'news.html', {'error_occured': False,})
 
 
 def contact(request):
