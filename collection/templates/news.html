@@ -1,0 +1,1002 @@
+{% extends 'layouts/base_landing_pages.html' %}'
+{% load static %}
+
+<!-- 
+####################################################################
+# This file is part of the Tree of Knowledge project.
+# Copyright (C) Benedikt Kleppmann - All Rights Reserved
+#
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Benedikt Kleppmann <benedikt@kleppmann.de>, February 2021
+#####################################################################
+-->
+
+{% block title %}
+	Tree of Knowledge - News
+{% endblock %}
+
+
+
+
+{% block additionalcss %}
+	<style>
+		.box {
+			background-color:rgb(55, 56, 53);
+		}
+		
+		label{
+			font-weight:100;
+		}
+		
+		.form-control {width:400px;}
+
+		.title {
+			color: rgb(247, 238, 202);
+			font-family: 'AvenirLTProMedium', Calibri;
+			font-size: 45px;
+			text-align: center;
+			margin-bottom: 33px;
+			margin-top: 17px;
+		}
+
+		/*  News Boxes   --------------------------------*/
+		.year {
+			font-size: 25px;
+			margin-left: -4px;
+			margin-top: 16px;
+    		margin-bottom: 15px;
+		}
+
+		.inter-year-section {
+			margin-left:23px;
+		}
+
+		.news-box {
+			background-color: rgb(76, 77, 73);
+			border: 1px solid rgb(88, 88, 85);
+			border-radius: 25px;
+			box-shadow: 10px 5px 15px black; /*the numbers are: right-shift  bottom-shift  fuzziness*/
+			padding: 21px 22px;
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+
+		.news-title {
+			font-size: 29px;
+			font-family: AvenirLTProMedium, Calibri;
+			text-align: center;
+			/*margin-top: -11px;
+			margin-bottom: 20px;*/
+			cursor: pointer;
+			user-select: none;
+			transition: background 0.2s;
+			position: relative;
+		}
+
+		.news-title:hover {
+			color: rgb(128,201,241);
+		}
+
+		.collapsible-content {
+			display: none;
+			animation: fadeIn 0.3s;
+			animation: fadeOut 0.3s;
+		}
+		
+
+
+
+		.chevron-indicator {
+			position: absolute;
+			right: 18px;
+			top: 50%;
+			transform: translateY(-50%) rotate(-90deg);
+			width: 24px;
+			height: 24px;
+		/*  width: 18px;
+   			height: 18px; */
+			pointer-events: none;
+			transition: transform 0.2s;
+			display: inline-block;
+		}
+
+		.chevron-indicator::before {
+			content: '';
+			display: block;
+			width: 16px;
+			height: 16px;
+			border-right: 5px solid rgb(226, 221, 204);
+			border-bottom: 5px solid rgb(226, 221, 204);
+			border-radius: 2px;
+			transform: rotate(45deg);
+			margin: auto;
+			transition: border-color 0.2s;
+		}
+
+		.news-box.active .chevron-indicator {
+			transform: translateY(-50%) rotate(0deg);
+		}
+
+
+		.news-box.active .collapsible-content {
+			display: block;
+		}
+
+		@keyframes fadeIn {
+			from { opacity: 0; }
+			to   { opacity: 1; }
+		}
+
+
+		.news-date {
+			font-size: 17px;
+			margin-top: -6px;
+		}
+
+		.news-main {
+			margin-top: 39px;
+		}
+
+		.narrow-text {
+			padding: 0px 2%;
+		}
+
+
+
+
+	
+		
+	/*  News Item: Redesign of landing pages  --------------------------------*/
+		.flex-box {
+			margin-top: 12px;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1%;
+		}
+
+		.flex-box > div {
+			flex: 0 1 500px; 
+			max-width:500px;
+			border: 1px solid rgb(99 97 93);;
+			border-radius: 10px;
+			padding:1%;
+			margin-bottom: 1%;
+		}
+
+
+		.website-screenshot {
+			width : 30%;
+			vertical-align: top;
+		}
+
+		.white-arrow {
+			width: 5%;
+    		margin-top: 29%;
+		}
+
+		.image-caption {
+			display: inline-block;
+			text-align: center;
+		}
+
+		.image-caption img {
+			max-width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		.image-caption figcaption {
+			font-size: 17px;
+			color: rgb(195 189 172);
+			margin-bottom: 2px;
+    		margin-top: 1px;
+		}
+
+		/* Video    ---------------------------------------*/
+		.video-container {
+			margin-top: 15px;
+			width: 100%;
+  			text-align: center; 
+		}
+
+
+		.video {
+			display: inline-block; 
+			width: calc(50vw * 1.066666);
+    		height: calc(50vw * 0.6);
+		}
+
+		/* Video-small    ---------------------------------------*/
+		.video-container-small {
+			width: 100%;
+  			text-align: center; 
+		}
+
+
+		.video-small {
+			display: inline-block; 
+			width: 477px;
+    		height: 268.3px;
+		}
+
+		.video-description {
+			margin: 0px 4px;
+		}
+
+		.video-description-header {
+			text-align: center;
+			font-weight: 700;
+			margin-bottom: 3px;
+		}
+
+		/* other pictures    ---------------------------------------*/
+		#architecture-diagram {
+			margin: 25px 10px;
+			width: 100%;
+		}
+
+		.image-research{
+			margin-top: 20px;
+			margin-left: 13px;
+			margin-right: 13px;
+			width: auto;
+		}
+
+		.image-research figcaption {
+			margin-left: 8px;
+			margin-right: 8px;
+		}
+
+		.image-birth-prob {
+			margin-top: 13px;
+			margin-left: 8px;
+			margin-right: 8px;
+			width: auto;
+		}
+
+		.image-full-width {
+			margin-top: 38px;
+			margin-left: 18px;
+			margin-right: 18px;
+			width: auto;
+		}
+
+		/*  Newsletter Box   --------------------------------*/
+		.newsletter-box {
+			margin: 0px 8%;
+		}
+
+
+	</style>
+
+
+	<script>
+		function toggleCollapse(titleElem) {
+			const box = titleElem.parentElement;
+			box.classList.toggle('active');
+		}
+				</script>
+{% endblock %}	
+
+
+
+
+
+
+{% block content %}
+	<section id="background picture" class="carousel">
+		<div style="background-image: url(../static/images/dawn-min2.png);
+					background-attachment: fixed;
+					background-size: 100%;
+					background-repeat: no-repeat;
+					padding: 200px 0;
+					background-position: 35% 14%;
+					margin-top:53px">
+		</div>
+	</section>
+
+
+	<section>
+		<div class="container">
+			<div class="box first last">
+				<div class="lead left-aligned">
+					<br>
+					<div class="title">Milestones</div>
+					<div class="year">2025</div>
+
+					<div class="inter-year-section">
+						<div class="news-box">
+							<div class="news-date">30th August 2025</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Redesign of landing pages<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">In order to better explain Fundamental Theory building and how this platform works the Home-, About- and News- pages were redesigned:</div>
+								<div class="flex-box">
+									<div>
+										<a href="{% static 'images/news page/2025-08-30/landing_page_old.png'%}">
+											<figure class="image-caption website-screenshot">
+												<figcaption>Old Home Page</figcaption>
+												<img src="{% static 'images/news page/2025-08-30/landing_page_old.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+										<img class="white-arrow" src="{% static 'images/news page/2025-08-30/white_arrow.svg'%}"> 
+										<a href="{% static 'images/news page/2025-08-30/landing_page_new.png'%}">
+											<figure class="image-caption website-screenshot">
+												<figcaption>New version (light)</figcaption>
+												<img src="{% static 'images/news page/2025-08-30/landing_page_new.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+										<a href="{% static 'images/news page/2025-08-30/landing_page_new.png'%}">
+											<figure class="image-caption website-screenshot">
+												<figcaption>Old version (dark)</figcaption>
+												<img src="{% static 'images/news page/2025-08-30/landing_page_new.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+									</div>
+									<div>
+										<a href="{% static 'images/news page/2025-08-30/about_page_old.png'%}">
+											<figure class="image-caption website-screenshot">
+												<figcaption>Old About Page</figcaption>
+												<img src="{% static 'images/news page/2025-08-30/about_page_old.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+										<img class="white-arrow" src="{% static 'images/news page/2025-08-30/white_arrow.svg'%}"> 
+										<a href="{% static 'images/news page/2025-08-30/about_page_new.png'%}">
+											<figure class="image-caption website-screenshot">
+												<figcaption>New version (light)</figcaption>
+												<img src="{% static 'images/news page/2025-08-30/about_page_new.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+										<a href="{% static 'images/news page/2025-08-30/about_page_new.png'%}">
+											<figure class="image-caption website-screenshot">
+												<figcaption>Old version (dark)</figcaption>
+												<img src="{% static 'images/news page/2025-08-30/about_page_new.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+									</div>
+									<div>
+										<a href="{% static 'images/news page/2025-08-30/news_page_old.png'%}">
+											<figure class="image-caption website-screenshot">
+												<figcaption>Old News Page</figcaption>
+												<img src="{% static 'images/news page/2025-08-30/news_page_old.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+										<img class="white-arrow" src="{% static 'images/news page/2025-08-30/white_arrow.svg'%}"> 
+										<a href="{% static 'images/news page/2025-08-30/news_page_old.png'%}">
+											<figure class="image-caption website-screenshot">
+												<figcaption>New version (light)</figcaption>
+												<img src="{% static 'images/news page/2025-08-30/news_page_old.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+										<a href="{% static 'images/news page/2025-08-30/news_page_old.png'%}">
+											<figure class="image-caption website-screenshot">
+												<figcaption>Old version (dark)</figcaption>
+												<img src="{% static 'images/news page/2025-08-30/news_page_old.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+									</div>
+								</div>	
+							
+							</div>
+						</div>
+						
+						
+						<div class="news-box">
+							<div class="news-date">16th May 2025</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">New video: "Make Measurable Progress"<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">This New video shows how Fundamental Theory Building allows the social sciences to move away 
+									from making individual, disjoint ad-hoc investigations of specific phenomena and towards collaboratively working on a powerful, shared fundamental theory.</div>
+								<div class="video-container">
+									<iframe  class="video" src="https://www.youtube-nocookie.com/embed/0qIf1Ixnd5A?si=9BijhBLp4RQuN36i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								</div>
+							</div>
+						</div>
+						<div class="news-box">
+							<div class="news-date">18th April 2025</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">New video: "How it Works"<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">This New video gives a general introduction to Tree of Knowledge and explains all the basic concepts and ideas that make this technology work</div>
+								<div class="video-container">
+									<iframe  class="video" src="https://www.youtube-nocookie.com/embed/7h0p-7VHgp8?si=9BijhBLp4RQuN36i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								</div>
+							</div>
+						</div>
+						<div class="news-box">
+							<div class="news-date">16th March 2025</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">New video: "Overview of Advantages"<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">This video compares the fundamental theories that are created in Tree of Knowledge to conventional statistical models and explains the 10 biggest advantages of fundamental theories</div>
+								<div class="video-container">
+									<iframe  class="video" src="https://www.youtube-nocookie.com/embed/7dQbDD6MHds?si=TeIk-0_Cs6l2FnhW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="year">2024</div>
+
+					<div class="inter-year-section">
+						<div class="news-box">
+							<div class="news-date">3rd November 2024</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">New video: "Filter out the Noise"<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">In this video the biggest obstacle to studying complex systems is explained: not being able to isolate phenomena and the resulting noise. The video also shows how Tree of Knowledge can help deal with this obstacle and thereby open up many areas of research that have sofar been too complex to study</div>
+								<div class="video-container">
+									<iframe  class="video" src="https://www.youtube-nocookie.com/embed/HJF_TdsqEdQ?si=VujAWaluIEwm5mmG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								</div>
+							</div>
+						</div>
+						<div class="news-box">
+							<div class="news-date">12th October 2024</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">New video: "Reliable & Universal Insights "<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">This video shows what a game changer Fundamental Theory Building is: where conventional statistics leads to very unreliable findings (see replication crisis), fundamental theories are highly reliable, rigorously proven and universal</div>
+								<div class="video-container">
+									<iframe  class="video" src="https://www.youtube-nocookie.com/embed/q83nEhP_lvs?si=395jyN5XwLyfycuf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="news-box">
+							<div class="news-date">11th May 2024</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">New video: "How it works v1 "<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">This video is the predecessor of the "How it works" video published on 18th April 2025. It's not quite as good as misses a good Intro.<br>
+									Creating this video involved learning to use the softwares: Inkscape (for vectorgraphics) and Sozi (vectorgraphic animation).</div>
+								<div class="video-container">
+									<iframe  class="video" src="https://www.youtube-nocookie.com/embed/bqDouGN7cXs?si=Xg0HCBhgW8NmMsaj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								</div>
+							</div>
+						</div>
+
+						
+						<div class="news-box">
+							<div class="news-date">7th April 2024</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">New video: "Building Exact Social Sciences"<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">This video looks at what is special about exact/hard sciences and shows how the Fundamental Theory Building approach is able to produce exact Social Sciences.<br> 
+									Creating this video involved learning to use the softwares: Blender, Elevenlabs and VideoPad Editor.</div>
+								<div class="video-container">
+									<iframe  class="video" src="https://www.youtube-nocookie.com/embed/p5zIYzzOnvA?si=YPwoAnHuIPA9RffC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="year">2023</div>
+
+					<div class="year">2022</div>
+					<div class="year">2021</div>
+
+					<div class="inter-year-section">
+						<div class="news-box">
+							<div class="news-date">March - November 2021</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Practical application in research<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">
+									The software Tree of Knowledge was used in two different research projects:
+									<ul>
+										<li>A project involving modelling people's satisfaction in doing tasks of varying complexity, resulting in <a src="https://link.springer.com/chapter/10.1007/978-3-030-92843-8_16">this paper</a></li>
+										<li><a src="https://caius.informatik.uni-mannheim.de/">This other project</a> focussed on traffic simulation</li>
+									</ul>
+									The main take away from these projects is that the further work is required to make this software easily usable in any scenario
+								</div>
+								<div class="flex-box">
+									<div>
+										<figcaption style="text-align: center;">Research project "Modelling people's satisfaction in doing tasks of varying complexity"</figcaption>
+
+										<figure class="image-research website-screenshot">
+											<a href="{% static 'images/news page/2021-08/Ahrweiler1.png'%}">
+												<img src="{% static 'images/news page/2021-08/Ahrweiler1.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>The published paper</figcaption>
+										</figure>
+										<figure class="image-research website-screenshot">
+											<a href="{% static 'images/news page/2021-08/Ahrweiler3.png'%}">
+												<img src="{% static 'images/news page/2021-08/Ahrweiler3.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Satisfaction for different complexities</figcaption>
+										</figure>
+										<figure class="image-research website-screenshot">
+											<a href="{% static 'images/news page/2021-08/Ahrweiler2.png'%}">
+												<img src="{% static 'images/news page/2021-08/Ahrweiler2.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Correlation matrix</figcaption>
+										</figure>
+									</div>
+									<div>
+										<figcaption style="text-align: center;">Research project "Traffic simulation"</figcaption>
+
+										<figure class="image-research website-screenshot">
+											<a href="{% static 'images/news page/2021-08/CAIUS1.png'%}">
+												<img src="{% static 'images/news page/2021-08/CAIUS1.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Scraped car park occupancy numbers</figcaption>
+										</figure>
+										<figure class="image-research website-screenshot">
+											<a href="{% static 'images/news page/2021-08/CAIUS2.png'%}">
+												<img src="{% static 'images/news page/2021-08/CAIUS2.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Spacial clustering of road-side parking</figcaption>
+										</figure>
+										<figure class="image-research website-screenshot">
+											<a href="{% static 'images/news page/2021-08/CAIUS3.png'%}">
+												<img src="{% static 'images/news page/2021-08/CAIUS3.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Price curve</figcaption>
+										</figure>
+									</div>
+								</div>	
+							</div>
+						</div>
+
+
+						<div class="news-box">
+							<div class="news-date">Jan - August 2021</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Creating 6 new videos<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">
+									In order to explain the novel Fundamental Theory Building approach and it's overwhelming advantages, six different videos were created, each highlighting a different aspect of this approach.
+									These are:
+								</div>
+								<div class="flex-box">
+									<div>
+										<div class="video-container-small">
+											<iframe  class="video-small" src="https://www.youtube-nocookie.com/embed/shbLeC4ForM?si=kKe11ZxKaV9-TbXr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+										</div>
+										<div class="video-description"><div class="video-description-header">"Inspired by human understanding"</div>This video shows how Tree of Knowledge mimicks the way we humans create models of how the complex and hidden inner mechanisms of people work. It compiles and reconciles many different experiences in the same way.</div>
+									</div>
+									<div>
+										<div class="video-container-small">
+											<iframe  class="video-small" src="https://www.youtube-nocookie.com/embed/j-IIEyUguug?si=YVRoadEADW63Poyg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+										</div>
+										<div class="video-description" style="text-align: center;">2-minute-long introduction video</div>
+									</div>
+									<div>
+										<div class="video-container-small">
+											<iframe  class="video-small" src="https://www.youtube-nocookie.com/embed/3hLGAuMqfCI?si=gcUa91OTcQhVA_-x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+										</div>
+										<div class="video-description"><div class="video-description-header">"Advantages for Data Scientists"</div>This video looks at all kinds of models that are available to data scientists, specifically those focused at gaining an understanding of the underlying system.</div>
+									</div>
+									<div>
+										<div class="video-container-small">
+											<iframe  class="video-small" src="https://www.youtube-nocookie.com/embed/ODitbLdZmU0?si=8oD1cv0GlczAQg8I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+										</div>
+										<div class="video-description"><div class="video-description-header">"Advantages for Psychologists"</div>This video focuses on the advantages for Psychologists such as:
+											<ul>
+												<li>getting robust & generalisable results by combining many studies</li>
+												<li>being able to use observational datasets</li>
+												<li>having your findings be used in many fields</li>
+											</ul>
+										</div>
+									</div>
+									<div>
+										<div class="video-container-small">
+											<iframe  class="video-small" src="https://www.youtube-nocookie.com/embed/a1RHE64jTTI?si=EISCXDifD4yf9kWa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+										</div>
+										<div class="video-description"><div class="video-description-header">"Advantages for Sociologists"</div>This video highlights the advantages of doing Approximate Bayesian Computation for agent-based models and the immense value if you reuse the same agents in many models.</div>
+									</div>
+									<div>
+										<div class="video-container-small">
+											<iframe  class="video-small" src="https://www.youtube-nocookie.com/embed/p02T1JjpbVM?si=KiOVgRYe6YsR0MRs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+										</div>
+										<div class="video-description"><div class="video-description-header">"Overview"</div>This video provides an overview of how tree of knowledge works. The different functionalitites are explained, using the example of determining the probability of a women to birth a child in any given year.</div>
+									</div>
+
+								</div>	
+								
+							</div>
+						</div>
+
+
+						<div class="news-box">
+							<div class="news-date">Jan 2021</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Autoscaling worker pool for large-scale parallelization<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">
+									For doing Bayesian Inference, Tree of Knowledge has to run simulations over and over again with different parameter values. For large simulations and simulations with many unknown parameters, this can take quite some time. <br>
+									To speed up this process, I implemented an architecture where the Tree of Knowledge backend puts simulation tasks on a celery queue and there is a pool of workers (servers) that take tasks from the queue and run the simulations - see diagram below. <br>
+									If the simulation is very big, then automatically further workers are started and join in.<br>
+									The code for these workers can be found in <a src="https://github.com/BenediktKleppmann/TreeOfKnowledge-Backend">this GitHub repository</a>.
+
+									<img id="architecture-diagram" src="{% static 'images/news page/2021-01-11/architecture_diagram.png'%}">
+								</div>
+																
+							</div>
+						</div>
+
+
+
+					</div>
+					<div class="year">2000</div>
+
+					<div class="inter-year-section">
+						<div class="news-box">
+							<div class="news-date">15th October 2020</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Practical application: Birth probabilities<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">
+									There already had been great work done in modelling the probability of a woman to give birth to a child in any given year. 
+									For example, <a src="https://www.econstor.eu/bitstream/10419/111441/1/766359212.pdf">this research</a> used a dataset called the "National Longitudinal Survey of Youth" to model this "birth probability". <br><br>
+									In order to demonstrate Tree of Knowledge's ability to get more accurate and reliable insights by training on multiple datasets, a very basic test was done - 
+									the same birth probability was modelled, but was trained on two datasets instead of the one:
+									<ul>
+										<li><a src="https://www.nlsinfo.org/content/cohorts/nlsy79">National Longitudinal Survey of Youth</a></li>
+										<li><a src="https://www.cdc.gov/nchs/nvss/birth_methods.htm">Fertility rate by age of mother</a></li>
+									</ul>
+									You can see that this is very different to a meta analysis, as the two datasets are very different: the National Longitudinal Survey of Youth contains data on individual people; the fertility rate data contains data on age-range-groups.<br>
+									The test was a success, you can see some of the results below.
+									
+								</div>
+								<div class="flex-box">
+									<div>
+										<figcaption style="text-align: center;">Images from the birth probability analysis</figcaption>
+										<a href="{% static 'images/news page/2020-10-15/full_result_page.png'%}">
+											<figure class="image-birth-prob website-screenshot" style="display: block;">
+												<img src="{% static 'images/news page/2020-10-15/full_result_page.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+										<a href="{% static 'images/news page/2020-10-15/weight_age_squared.png'%}">
+											<figure class="image-birth-prob website-screenshot" style="display: block;">
+												<img src="{% static 'images/news page/2020-10-15/weight_age_squared.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+										<a href="{% static 'images/news page/2020-10-15/weight_age_squared2.png'%}">
+											<figure class="image-birth-prob website-screenshot" style="display: block;">
+												<img src="{% static 'images/news page/2020-10-15/weight_age_squared2.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+										<a href="{% static 'images/news page/2020-10-15/weight_two_children.png'%}">
+											<figure class="image-birth-prob website-screenshot" style="display: block;">
+												<img src="{% static 'images/news page/2020-10-15/weight_two_children.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+									</div>
+									<div>
+										<figcaption style="text-align: center;">Images from presentations about this<br>(<a href="{% static 'images/news page/2020-10-15/presentation1.pptx'%}" download>presentation1</a>, <a href="{% static 'images/news page/2020-10-15/presentation2.pptx'%}" download>presentation2</a>)</figcaption>
+										<a href="{% static 'images/news page/2020-10-15/presentation1.png'%}">
+											<figure class="image-birth-prob website-screenshot" style="display: block;">
+												<img src="{% static 'images/news page/2020-10-15/presentation1.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+										<a href="{% static 'images/news page/2020-10-15/presentation4.png'%}">
+											<figure class="image-birth-prob website-screenshot" style="display: block;">
+												<img src="{% static 'images/news page/2020-10-15/presentation4.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+										<a href="{% static 'images/news page/2020-10-15/presentation3.png'%}">
+											<figure class="image-birth-prob website-screenshot" style="display: block;">
+												<img src="{% static 'images/news page/2020-10-15/presentation3.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</figure>
+										</a>
+									</div>
+								</div>	
+							</div>
+						</div>
+
+
+						<div class="news-box">
+							<div class="news-date">3rd July 2020</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Enable more complex behavior rules<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">
+									Behavior rules calculate the next timestep's value for a variable, using any of the current actor's own attributes or attributes of an agent related to the current actor.<br>
+									When creating behavior rules you had the option to use one or more of the following options:
+									<ul>
+										<li>"If Condition" - condition that has to be satisfied for the rule to fire</li>
+										<li>"Parameters" - unknown rule parameters that will be inferred using Bayesian Inference</li>
+										<li>"Uncertain/Probabilistic rule" - probability for the rule to trigger; also inferred with Bayesian Inference</li>
+									</ul><br>
+									Now, the additional option "Aggregation" was added. This allows variables such as a country's "Average fertility rate" to be calculated as aggregated value from many people/population groups.<br>
+
+									As far as we can tell, you now are able to define absolutely any behavior rule you could think of.
+								</div>
+								<div class="flex-box">
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/rule_settings.png'%}">
+												<img src="{% static 'images/news page/2020-07/rule_settings.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Rule creation view</figcaption>
+										</figure>
+									</div>
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}">
+												<img src="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Example rule with aggregation</figcaption>
+										</figure>
+									</div>
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}">
+												<img src="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Example simulation in which aggregation matters</figcaption>
+										</figure>
+									</div>
+								</div>				
+							</div>
+						</div>
+
+
+						
+						<div class="news-box">
+							<div class="news-date">12th November 2019</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Migration from Heroku to AWS<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">
+									This webservice/online platform had been hosted on servers from the Cloud Provider "Heroku". 
+									The server was getting too slow for running intensive simulations and Heroku however only offers limited options for scaling. It was therefore necessary to migrate the webservice to AWS.
+								</div>
+								<figure class="image-full-width website-screenshot" style="display: block;">
+									<a href="{% static 'images/news page/2019-11-12/AWS_diagram.png'%}">
+										<img src="{% static 'images/news page/2019-11-12/AWS_diagram.png'%}" class="img-responsive mr-3 img-thumbnail">
+									</a>
+									<figcaption style="margin-left: 5px;">Diagram of the architecture on AWS</figcaption>
+								</figure>
+
+								<figure class="image-full-width website-screenshot" style="display: block;">
+									<a href="{% static 'images/news page/2019-11-12/AWS_console.png'%}">
+										<img src="{% static 'images/news page/2019-11-12/AWS_console.png'%}" class="img-responsive mr-3 img-thumbnail">
+									</a>
+									<figcaption style="margin-left: 5px;">Screenshot of AWS console</figcaption>
+								</figure>
+								<br>
+							</div>
+						</div>
+
+						
+
+
+						<div class="news-box">
+							<div class="news-date">23rd February 2020</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Admin Pages completed<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">
+									In order to monitor and manage this online platform (especially the Knowledge Base), specific Admin pages were created which are only accessible for users with admin rights.
+								</div>
+
+										<figure class="image-full-width website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2019-10-11/display_Attributes.png'%}">
+												<img src="{% static 'images/news page/2019-10-11/display_Attributes.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>All Attributes view</figcaption>
+										</figure>
+
+										<figure class="image-full-width website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2019-10-11/possibly_duplicate_objects.png'%}">
+												<img src="{% static 'images/news page/2019-10-11/possibly_duplicate_objects.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Identify possibly duplicate objects</figcaption>
+										</figure>
+
+										<figure class="image-full-width website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2019-10-11/django_admin.png'%}">
+												<img src="{% static 'images/news page/2019-10-11/django_admin.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Django admin</figcaption>
+										</figure>
+
+										<figure class="image-full-width website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2019-10-11/various_scripts.png'%}">
+												<img src="{% static 'images/news page/2019-10-11/various_scripts.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Run pre-prepared scripts</figcaption>
+										</figure>
+
+			
+							</div>
+						</div>
+
+
+						
+						<div class="news-box">
+							<div class="news-date">30th November 2019</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Result Inspector & Simulation Inspector created<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">
+									A new page was created that
+								</div>
+								<div class="flex-box">
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/rule_settings.png'%}">
+												<img src="{% static 'images/news page/2020-07/rule_settings.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Rule creation view</figcaption>
+										</figure>
+									</div>
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}">
+												<img src="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Example rule with aggregation</figcaption>
+										</figure>
+									</div>
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}">
+												<img src="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Example simulation in which aggregation matters</figcaption>
+										</figure>
+									</div>
+								</div>				
+							</div>
+						</div>
+
+						
+						
+						<div class="news-box">
+							<div class="news-date">30th November 2019</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Rule editor created<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">
+									Behavior rules calculate the next timestep's value for a variable, using any of the current actor's own attributes or attributes of an agent related to the current actor.<br>
+									When creating behavior rules you had the option to use one or more of the following options:
+									As far as we can tell, you now are able to define absolutely any behavior rule you could think of.
+								</div>
+								<div class="flex-box">
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/rule_settings.png'%}">
+												<img src="{% static 'images/news page/2020-07/rule_settings.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Rule creation view</figcaption>
+										</figure>
+									</div>
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}">
+												<img src="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Example rule with aggregation</figcaption>
+										</figure>
+									</div>
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}">
+												<img src="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Example simulation in which aggregation matters</figcaption>
+										</figure>
+									</div>
+								</div>				
+							</div>
+						</div>
+
+						
+
+						<div class="news-box">
+							<div class="news-date">12th August 2019</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Simulation editor created<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">
+									Behavior rules calculate the next timestep's value for a variable, using any of the current actor's own attributes or attributes of an agent related to the current actor.<br>
+									When creating behavior rules you had the option to use one or more of the following options:
+									As far as we can tell, you now are able to define absolutely any behavior rule you could think of.
+								</div>
+								<div class="flex-box">
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/rule_settings.png'%}">
+												<img src="{% static 'images/news page/2020-07/rule_settings.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Rule creation view</figcaption>
+										</figure>
+									</div>
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}">
+												<img src="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Example rule with aggregation</figcaption>
+										</figure>
+									</div>
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}">
+												<img src="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Example simulation in which aggregation matters</figcaption>
+										</figure>
+									</div>
+								</div>				
+							</div>
+						</div>
+
+
+						
+						<div class="news-box">
+							<div class="news-date">12th January 2019</div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Knowledge base created<span class="chevron-indicator"></span></div>
+							<div class="news-main collapsible-content">
+								<div class="narrow-text">
+									Behavior rules calculate the next timestep's value for a variable, using any of the current actor's own attributes or attributes of an agent related to the current actor.<br>
+									When creating behavior rules you had the option to use one or more of the following options:
+									As far as we can tell, you now are able to define absolutely any behavior rule you could think of.
+								</div>
+								<div class="flex-box">
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/rule_settings.png'%}">
+												<img src="{% static 'images/news page/2020-07/rule_settings.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Rule creation view</figcaption>
+										</figure>
+									</div>
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}">
+												<img src="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Example rule with aggregation</figcaption>
+										</figure>
+									</div>
+									<div>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}">
+												<img src="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Example simulation in which aggregation matters</figcaption>
+										</figure>
+									</div>
+								</div>				
+							</div>
+						</div>
+
+					</div>
+
+
+					<br>
+					<br>
+					<hr style="border: 1px solid rgb(107 107 106);;">
+					<br>
+					
+					<div class="title">Newsletter</div>
+					<br>
+					<div class="newsletter-box">
+						{% if error_occured == True %}
+							<p style="color:white">
+								<b>An Error occured</b><br>
+								Most likely causes:
+								<ul style="color:white">
+									<li>the email has been added already</li>
+									<li>it was not a valid email adress</li>
+								</ul><br><br>
+							</p>
+						{% else %}{% endif %}
+						If you want to learn more or would be interested in participating, please consider joining the mailing-list.
+						<br><br>
+						
+						<form role="form" action="" method="post"> 
+							{% csrf_token %}
+							
+							<div class="form-group">
+								<label for="first_name">First Name</label>
+								<input type="text" class="form-control" name="first_name" placeholder="First Name" >
+							</div>
+							<div class="form-group">
+								<label for="email">Email</label>
+								<input type="text" class="form-control" name="email" placeholder="Email">
+							</div>
+							<button type="submit" class="btn btn-success" style="margin-top: 8px;font-size:19px; line-height:40px">Join the mailing-list</button>	  
+						</form>
+					</div>
+					<br><br><br>
+
+			  	</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+
+
+
+
+

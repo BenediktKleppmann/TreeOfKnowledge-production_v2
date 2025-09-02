@@ -48,14 +48,14 @@ urlpatterns = [
     # THE WEBSITE  
     # ==================================================
     url(r'^$', views.landing_page, name='landing_page'),
-    url(r'^old/$', views.landing_page_old, name='landing_page_old'),    
+    url(r'^old/$', views.landing_page_old, name='landing_page_old'), 
     url(r'^about/$', views.about, name='about'),
     url(r'^about_old/$', views.about_old, name='about_old'),
     url(r'^tutorial_overview/$', views.tutorial_overview, name='tutorial_overview'),
     url(r'^tutorial1/$', views.tutorial1, name='tutorial1'),
     url(r'^tutorial2/$', views.tutorial2, name='tutorial2'),
     url(r'^tutorial3/$', views.tutorial3, name='tutorial3'),
-    url(r'^subscribe/$', views.subscribe, name='subscribe'),
+    url(r'^news/$', views.news, name='news'),
     url(r'^contact/$', views.contact, name='contact'),
     url(r'^subscriber/(?P<userid>[-\d]+)/$', views.subscriber_page, name='subscriber_page'),
 
