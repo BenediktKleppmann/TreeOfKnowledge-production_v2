@@ -513,7 +513,7 @@
 			}
 		}
 	
-		var csrf_token = "{% csrf_token %}"
+		var csrf_token = '{% csrf_token %}'
 		$(	"<form role='form' action='' method='post' class='form' enctype='multipart/form-data'>" + 
 				csrf_token +
 				"<input type='hidden' name='meta_data_facts' value='" + JSON.stringify(meta_data_facts_list) + "'>" +

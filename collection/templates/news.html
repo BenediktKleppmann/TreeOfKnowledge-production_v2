@@ -90,7 +90,7 @@
 		.chevron-indicator {
 			position: absolute;
 			right: 18px;
-			top: 50%;
+			top: 35%;
 			transform: translateY(-50%) rotate(-90deg);
 			width: 24px;
 			height: 24px;
@@ -100,6 +100,7 @@
 			transition: transform 0.2s;
 			display: inline-block;
 		}
+
 
 		.chevron-indicator::before {
 			content: '';
@@ -689,33 +690,43 @@
 										<li>"Parameters" - unknown rule parameters that will be inferred using Bayesian Inference</li>
 										<li>"Uncertain/Probabilistic rule" - probability for the rule to trigger; also inferred with Bayesian Inference</li>
 									</ul><br>
-									Now, the additional option "Aggregation" was added. This allows variables such as a country's "Average fertility rate" to be calculated as aggregated value from many people/population groups.<br>
+									<u>New option "Aggregation"</u> <br>This allows variables such as a country's "Average fertility rate" to be calculated as aggregated value from many people/population groups.<br><br>
+									<u>New option "Random Number"</u> <br>This allows for random values anywhere in the rule - see example below. The number is drawn from a uniform distribution between 0 and 1.
+									This allows variables such as a country's "Average fertility rate" to be calculated as aggregated value from many people/population groups.<br><br>
 
-									As far as we can tell, you now are able to define absolutely any behavior rule you could think of.
+									
 								</div>
 								<div class="flex-box">
 									<div>
+										<figcaption style="text-align: center;"><u>Aggregation</u></figcaption>
 										<figure class="image-birth-prob website-screenshot" style="display: block;">
 											<a href="{% static 'images/news page/2020-07/rule_settings.png'%}">
 												<img src="{% static 'images/news page/2020-07/rule_settings.png'%}" class="img-responsive mr-3 img-thumbnail">
 											</a>
 											<figcaption>Rule creation view</figcaption>
 										</figure>
-									</div>
-									<div>
 										<figure class="image-birth-prob website-screenshot" style="display: block;">
 											<a href="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}">
 												<img src="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}" class="img-responsive mr-3 img-thumbnail">
 											</a>
 											<figcaption>Example rule with aggregation</figcaption>
 										</figure>
-									</div>
-									<div>
 										<figure class="image-birth-prob website-screenshot" style="display: block;">
 											<a href="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}">
 												<img src="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}" class="img-responsive mr-3 img-thumbnail">
 											</a>
 											<figcaption>Example simulation in which aggregation matters</figcaption>
+										</figure>
+									</div>
+									<div>
+										<figcaption style="text-align: center;"><u>Random Number</u></figcaption>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2020-07/rule_dependent_on_random_number.png'%}">
+												<img src="{% static 'images/news page/2020-07/rule_dependent_on_random_number.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption><br>In the above example, [Birth probability] is a value between 0 and 1 that gives the probability of a woman to give birth this year.Let's say, that the [Birth probability] is 0.05 (i.e. a 5% chance to give birth this year).<br>Now, every year this rule is executed once and everytime a new randomNumber between 0 and 1 is drawn.<br><br>
+												  This means that for any given year there is a 5% chance that the condition is fullfilled (randomNumber < [Birth probability]) and the woman's number of children is incremented by one
+												</figcaption>
 										</figure>
 									</div>
 								</div>				
@@ -796,37 +807,85 @@
 						
 						<div class="news-box">
 							<div class="news-date">30th November 2019</div>
-							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Result Inspector & Simulation Inspector created<span class="chevron-indicator"></span></div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Result Inspector & Simulation Inspector completed<span class="chevron-indicator"></span></div>
 							<div class="news-main collapsible-content">
 								<div class="narrow-text">
-									A new page was created that
+									<u>Result Inspector</u><br>
+									These pages allow you to inspect the details of the Bayesian Inference. <br>
+									Notably, they allow you to see
+									<ul>
+										<li>How well each simulation performed - how accurately the simulations mimicked the real world/ how well it reproduced the observed data. </li>
+										<li>The parameter values that led to specific simulations working well/not so well</li>
+										<li>Posterior distributions depending on the threshold ε<br>
+											According to Approximate Bayesian Computation (ABC) logic, you can try out different values for the threshold ε and see how the posterior distribution is affected by this threshold.</li>
+									</ul>
+
+									<u>Simulation Inspector</u><br>
+									Simulation rules sometimes have unexpected consequences. It is therefore very important to be able to inspect every/any simulation in detail and see where it potentially went wrong...<br>
+									From the Result Inspector pages (see last paragraph) you can select a simulation to be shown in more detail. The system will then re-run this simulation while exactly logging everything that occurs, 
+									and display the folllowing simulation details in the Simulation Inspector pages:
+									<ul>
+										<li>Comprehensive table of all values at all timesteps</li>
+										<li>Graph to show the evolution of an attribute. It can also show this attribute evolution for many simulations simultaneously - allowing for comparisons and trend analysis</li>
+										<li>Executed rules<br>
+											For every timestep, it shows exactly which rules were executed in which order - allowing for detailled debugging</li>
+									</ul>
+									
 								</div>
 								<div class="flex-box">
 									<div>
+										<figcaption style="text-align: center;"><u>Images from the Result Inspector</u></figcaption>
 										<figure class="image-birth-prob website-screenshot" style="display: block;">
-											<a href="{% static 'images/news page/2020-07/rule_settings.png'%}">
-												<img src="{% static 'images/news page/2020-07/rule_settings.png'%}" class="img-responsive mr-3 img-thumbnail">
+											<a href="{% static 'images/news page/2019-09-10/result_inspection1.png'%}">
+												<img src="{% static 'images/news page/2019-09-10/result_inspection1.png'%}" class="img-responsive mr-3 img-thumbnail">
 											</a>
-											<figcaption>Rule creation view</figcaption>
+											<figcaption>Parameter values behind a simulation</figcaption>
+										</figure>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2019-09-10/result_inspection2.png'%}">
+												<img src="{% static 'images/news page/2019-09-10/result_inspection2.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Posterior depending on threshold ε</figcaption>
+										</figure>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2019-09-10/result_inspection3.png'%}">
+												<img src="{% static 'images/news page/2019-09-10/result_inspection3.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>View of how the posteriors from multiple datasets(+models) are combined</figcaption>
 										</figure>
 									</div>
 									<div>
+										<figcaption style="text-align: center;"><u>Images from the Simulation Inspector</u></figcaption>
 										<figure class="image-birth-prob website-screenshot" style="display: block;">
-											<a href="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}">
-												<img src="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}" class="img-responsive mr-3 img-thumbnail">
+											<a href="{% static 'images/news page/2019-09-10/simulation_inspection1.png'%}">
+												<img src="{% static 'images/news page/2019-09-10/simulation_inspection1.png'%}" class="img-responsive mr-3 img-thumbnail">
 											</a>
-											<figcaption>Example rule with aggregation</figcaption>
+											<figcaption>Simulation Inspection page</figcaption>
+										</figure>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2019-09-10/simulation_inspection2.png'%}">
+												<img src="{% static 'images/news page/2019-09-10/simulation_inspection2.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>(A) Full table containing all values at all timesteps<br>
+														(B) Graph showing the evolution of whatever attribute you selected in table (A)<br></figcaption>
+										</figure>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2019-09-10/simulation_inspection3.png'%}">
+												<img src="{% static 'images/news page/2019-09-10/simulation_inspection3.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>The blue line shows the simulated values; the green segments show the true values from the real people</figcaption>
+										</figure>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2019-09-10/simulation_inspection4.png'%}">
+												<img src="{% static 'images/news page/2019-09-10/simulation_inspection4.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>If you select additional simulations, then the lines from these simulations are added to the evolution graph - allowing for contrasting and comparisons</figcaption>
 										</figure>
 									</div>
-									<div>
-										<figure class="image-birth-prob website-screenshot" style="display: block;">
-											<a href="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}">
-												<img src="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}" class="img-responsive mr-3 img-thumbnail">
-											</a>
-											<figcaption>Example simulation in which aggregation matters</figcaption>
-										</figure>
-									</div>
-								</div>				
+								</div>	
+
+								
+									
 							</div>
 						</div>
 
@@ -834,36 +893,75 @@
 						
 						<div class="news-box">
 							<div class="news-date">30th November 2019</div>
-							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Rule editor created<span class="chevron-indicator"></span></div>
+							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Rule Editor & Rule Parameters completed<span class="chevron-indicator"></span></div>
 							<div class="news-main collapsible-content">
 								<div class="narrow-text">
-									Behavior rules calculate the next timestep's value for a variable, using any of the current actor's own attributes or attributes of an agent related to the current actor.<br>
-									When creating behavior rules you had the option to use one or more of the following options:
-									As far as we can tell, you now are able to define absolutely any behavior rule you could think of.
+									The agent's behavior rules is what makes everything run. Tree of Knowledge's core mission is to find the correct behavior rules for humans and other social agents. <br><br>
+									A Rule is a calculation of the next timestep's value for an attribute. To allow you to create versatile and expressive behavior rules, you have the following options:
+									<ul>
+										<li>"If Condition" - condition that has to be satisfied for the rule to fire</li>
+										<li>"Parameters" - unknown rule parameters that will be inferred using Bayesian Inference</li>
+										<li>"Uncertain/Probabilistic rule" - probability for the rule to trigger; also inferred with Bayesian Inference</li>
+									</ul>
+									The below images will give you more details on the new rule creation interface.
 								</div>
 								<div class="flex-box">
 									<div>
+										<figcaption style="text-align: center;"><u>Rules</u></figcaption>
 										<figure class="image-birth-prob website-screenshot" style="display: block;">
-											<a href="{% static 'images/news page/2020-07/rule_settings.png'%}">
-												<img src="{% static 'images/news page/2020-07/rule_settings.png'%}" class="img-responsive mr-3 img-thumbnail">
+											<a href="{% static 'images/news page/2019-08-09/accessing_behavior_editor.png'%}">
+												<img src="{% static 'images/news page/2019-08-09/accessing_behavior_editor.png'%}" class="img-responsive mr-3 img-thumbnail">
 											</a>
-											<figcaption>Rule creation view</figcaption>
+											<figcaption>How to get to the rules</figcaption>
+										</figure>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2019-08-09/Inspect_rule2.png'%}">
+												<img src="{% static 'images/news page/2019-08-09/Inspect_rule2.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Inspect_rule</figcaption>
+										</figure>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2019-08-09/change_execution_order1.png'%}">
+												<img src="{% static 'images/news page/2019-08-09/change_execution_order1.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Change execution order of rules<br>
+														During the simulation, rules are executed after each other from top to bottom. By drag&dropping them, you can change the execution order or completely remove them from the next run.
+											</figcaption>
+										</figure>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2019-08-09/creating_a_rule.png'%}">
+												<img src="{% static 'images/news page/2019-08-09/creating_a_rule.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Create new rule by clicking on the '+'</figcaption>
 										</figure>
 									</div>
 									<div>
+										<figcaption style="text-align: center;"><u>Rule Parameters</u></figcaption>
 										<figure class="image-birth-prob website-screenshot" style="display: block;">
-											<a href="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}">
-												<img src="{% static 'images/news page/2020-07/example_rule_with_aggregation.png'%}" class="img-responsive mr-3 img-thumbnail">
+											<a href="{% static 'images/news page/2019-08-09/create_parameter.png'%}">
+												<img src="{% static 'images/news page/2019-08-09/create_parameter.png'%}" class="img-responsive mr-3 img-thumbnail">
 											</a>
-											<figcaption>Example rule with aggregation</figcaption>
+											<figcaption>Create a new rule parameter - you can specify the name and the range of the prior.<br>Currently, all rule parameters start off with a uniform prior in the predefined range (this might be extended in future). The prior distribution will however get updated with by the different inference runs (= dataset+models).</figcaption>
 										</figure>
-									</div>
-									<div>
 										<figure class="image-birth-prob website-screenshot" style="display: block;">
-											<a href="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}">
-												<img src="{% static 'images/news page/2020-07/simulation_environment_in_which_aggregation_matters.png'%}" class="img-responsive mr-3 img-thumbnail">
+											<a href="{% static 'images/news page/2019-08-09/display_parameter_info2.png'%}">
+												<img src="{% static 'images/news page/2019-08-09/display_parameter_info2.png'%}" class="img-responsive mr-3 img-thumbnail">
 											</a>
-											<figcaption>Example simulation in which aggregation matters</figcaption>
+											<figcaption>Display parameter details by clicking on it.<br> As you can see, the inferred posterior is displayed, too</figcaption>
+										</figure>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2019-08-09/parameter_highlighting2.png'%}">
+												<img src="{% static 'images/news page/2019-08-09/parameter_highlighting2.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>For ledgibility, hover on a parameter to see where it appears in the rule.</figcaption>
+										</figure>
+										<figure class="image-birth-prob website-screenshot" style="display: block;">
+											<a href="{% static 'images/news page/2019-08-09/select_for_inference.png'%}">
+												<img src="{% static 'images/news page/2019-08-09/select_for_inference.png'%}" class="img-responsive mr-3 img-thumbnail">
+											</a>
+											<figcaption>Selecting the parameters of this rule to be inferred by the next Bayesian inference run. <br>
+														By selecting only 1-2 rules for inference, the number of to-be-inferred parameters is kept low. This is critical for keeping the inference time low, which starts balooning with more than seven parameters.
+											</figcaption>
 										</figure>
 									</div>
 								</div>				
@@ -877,6 +975,12 @@
 							<div class="news-title collapsible-title" onclick="toggleCollapse(this)">Simulation editor created<span class="chevron-indicator"></span></div>
 							<div class="news-main collapsible-content">
 								<div class="narrow-text">
+									With the Simulation Editor, you can specify the initial configuration of a simulation<br>
+									This can be down for two reasons: 
+									<ol><li>Make a simulation that mimicks the real-world environment in which a dataset was captured</li>
+									</ol>
+
+
 									Behavior rules calculate the next timestep's value for a variable, using any of the current actor's own attributes or attributes of an agent related to the current actor.<br>
 									When creating behavior rules you had the option to use one or more of the following options:
 									As far as we can tell, you now are able to define absolutely any behavior rule you could think of.
