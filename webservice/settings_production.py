@@ -44,5 +44,11 @@ ALLOWED_HOSTS  = ['*', 'Treeofknowledge-production-5.eba-ffmsq3fy.eu-central-1.e
 DEBUG = False
 
 # Static asset configuration
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATIC_URL = '/static/'
+STATIC_ROOT = '/var/app/current/static/'
 
