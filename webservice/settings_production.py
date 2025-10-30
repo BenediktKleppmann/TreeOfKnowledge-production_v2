@@ -43,12 +43,15 @@ ALLOWED_HOSTS  = ['*', 'Treeofknowledge-production-5.eba-ffmsq3fy.eu-central-1.e
 # Set debug to False
 DEBUG = False
 
-# Static asset configuration
+# ----- middleware: prepend whitenoise, don't replace -----
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
-]
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+] + MIDDLEWARE  # use the list from base settings
+
+
+# ----- static -----
 STATIC_URL = '/static/'
 STATIC_ROOT = '/var/app/current/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
