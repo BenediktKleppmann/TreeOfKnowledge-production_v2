@@ -20,53 +20,10 @@
 
 {% block additionalcss %}
 	<style>
-		/* carousel ------------------------------------------------------ */
-		.carousel-container {
-			width:100%;
-			height:600px;
-			padding: 0px;
+		body {
+			background-color: rgb(29, 29, 27);
 		}
-		.carousel-text-field {
-			width:auto;
-			height:600px;
-			overflow:hidden;
-			padding: auto;
-		}
-		.carousel-image {
-			height: 600px !important;
-			width: auto !important;
-			float:right;
-			max-width: calc(100vw - 200px);
-		}
-		
-		.carousel-title {
-			font-size: 40px !important;
-			margin-top: 100px;
-			margin-left: auto;
-		}
-		
-		#first-carousel-text {
-			margin-top: 190px;
 
-		}
-		
-		#first-carousel-text h1 {		
-			font-family: Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times New Roman, serif;
-			font-weight:100;
-			font-size:48px;
-			margin-bottom:38px
-		}
-		
-		#first-carousel-image {
-			height: 600px !important;
-			width: 829px !important;
-			margin-right: auto;
-		}
-		
-		.carousel-indicators {
-			top: 665px;
-			left: 50%;
-		}
 		
 		/* top 4 arguments ------------------------------------------------------ */
 		.top-4-argument-row {
@@ -77,16 +34,38 @@
 			padding: 15px 39px;
 		}
 		
-		.top-4-argument-title {
+		.blue-title {
 			font-size: 34px;
 			font-family:Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-			color:rgb(195, 214, 227);
+			color: rgb(122 180 219);
+			/* color:rgb(195, 214, 227);*/
+			text-align: left;
+		}
+
+		.benefit-title {
+			text-align: left;
+			padding-left:0px; 
+			background-image: linear-gradient(rgb(0 0 0), rgb(243 237 224), rgb(217 207 167), rgb(205 205 204)); 
+			color: transparent;
+			background-clip: text; 
+			-webkit-text-stroke: 0.1px black;
+			font-weight: 700;
 		}
 		
-		
-		.top-4-argument-text {
-		
+		.intro-text {
+			color: rgb(247, 246, 243);
 		}
+
+		.standard-text {
+			color: rgb(224, 223, 218);
+		}
+
+		b {
+			color: rgb(149 212 255);
+			font-weight: 500;
+			/* color: rgb(195, 214, 227);*/
+		}
+
 		
 		/* How it works  ------------------------------------------------------ */
 		
@@ -101,9 +80,9 @@
 			border-color: rgb(249 246 241);
 			color: rgb(249 246 241);
 			font-size:30px;
-			padding-left:4px;
+			padding-left:5px;
 			padding-right:4px;
-			padding-top:1px;
+			padding-top:0px;
 			height:51px;
 			width:51px;
 		}
@@ -118,31 +97,47 @@
 
 		.how-it-works-title {
 			text-align: left;
-			margin-left: 23px;
-			margin-bottom: 10px;
+			margin-left: 13px;
+			margin-bottom: 25px;
 		}
 		
 		h2.yellowish {
 			padding-top: 20px;
+			color: rgb(237 221 195);
+			font-size: 29px;
+			padding-top: 13px;
+			padding-left: 65px;
 		}
 		
 		.how-it-works-block {
 			text-align: left;
 			margin-left: 20px;
 		}
-		
-		#object_hierachy-image {
-			margin-top: 10px;
-			height: 280px;
-			margin-bottom: 4px;
+
+		.video-container {
+			position: relative;
+			width: 100%;
+			padding-bottom: 56.25%;
+			margin-bottom: 15px;
 		}
 		
-		#probability_distribution-image {
-			margin-top: 10px;
-			height: 130px;
-			margin-bottom: 4px;
+		.video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
 		}
-		
+
+		.video-description {
+			padding-top: calc(30% - 120px);
+		}
+
+		.video-description > h3 {
+			margin-top: 8px;
+		}
+
 		
 		/* Bottom  ------------------------------------------------------ */
 		
@@ -160,6 +155,56 @@
 			color: rgb(31, 31, 28);
 			margin-bottom: 24px;
 		}
+
+		.ytp-gradient-top {
+			display: none;
+		}
+
+
+
+		/* Accordion   ------------------------------------------------------ */
+
+		.panel-group {
+			margin: 20px;
+		}
+
+		.panel {
+			text-align: left;
+			background: rgb(51, 51, 39);
+			border-color: #474641;
+		}
+
+		.panel-heading .accordion-toggle:after {
+			color: #474641 !important;
+		}
+
+		.panel-title {
+			font-size: 19px;
+		}
+
+		.panel-default>.panel-heading {
+			color: rgb(224, 223, 218);
+			background-color: rgb(51, 51, 39);
+			border-color: #ddd;
+		}
+
+		.panel-body {
+			background: rgb(45 45 31);
+		}
+
+		.panel-heading .accordion-toggle:after {
+			/* symbol for "opening" panels */
+			font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+			content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+			float: right;        /* adjust as needed */
+			color: grey;         /* adjust as needed */
+		}
+		.panel-heading .accordion-toggle.collapsed:after {
+			/* symbol for "collapsed" panels */
+			content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+		}
+
+
 	</style>
 {% endblock %}	
 
@@ -171,140 +216,76 @@
 {% block content %}
 
 
-	<!--Carousel-->
-	<!--
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
-		<ol class="carousel-indicators">
-		  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		  <li data-target="#myCarousel" data-slide-to="1"></li>
-		  <li data-target="#myCarousel" data-slide-to="2"></li>
-		  <li data-target="#myCarousel" data-slide-to="3"></li>
-		  <li data-target="#myCarousel" data-slide-to="4"></li>
-		  <li data-target="#myCarousel" data-slide-to="5"></li>
-		</ol>
 
-		<div class="carousel-inner">
-			<div class="item active">
-				<div class="row row-eq-height">
-					<div id="first-carousel-text" class="col-sm-6">
-						<h1 style="font-size:60px;color:rgb(242, 198, 124);">&nbsp;Tree of Knowledge</h1>
-						This online platform allows you to create and share<br>the most accurate and powerful economic models<br><br>
-						<a class="btn btn-lg btn-success" href="../../components/#navbar" role="button">Sign up for free</a><br>
-					</div>
-					<div class="col-sm-6" style="margin-top:55px;padding:0px;">
-						<img id="first-carousel-image" src="{% static 'images/logo_collage.png'%}" alt="collage of machine learning- and statistics- tool logos"  style="width:100%; height:100%;">
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="carousel-container">
-					<img class="carousel-image" src="{% static 'images/Screenshot1.png'%}" alt="screenshot of edit simulation screen">
-					<div class="carousel-text-field">
-						<h1 class="carousel-title"> Complex interaction modelling</h1>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="carousel-container">
-					<img class="carousel-image" src="{% static 'images/Screenshot5.png'%}" alt="screenshot of analyse simulation screen">
-					<div class="carousel-text-field">
-						<h1 class="carousel-title"> Bayesian Inference</h1>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="carousel-container">
-					<img class="carousel-image" src="{% static 'images/Screenshot2.png'%}" alt="screenshot of analyse simulation screen">
-					<div class="carousel-text-field">
-						<h1 class="carousel-title"> Exact model evaluation</h1>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="carousel-container">
-					<img class="carousel-image" src="{% static 'images/Screenshot3.png'%}" alt="screenshot of analyse simulation screen">
-					<div class="carousel-text-field">
-						<h1 class="carousel-title"> Sophisticated model integration</h1>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="carousel-container">
-					<img class="carousel-image" src="{% static 'images/Screenshot4.png'%}" alt="screenshot of analyse simulation screen">
-					<div class="carousel-text-field">
-						<h1 class="carousel-title"> Advanced data portal</h1>
-					</div>
-				</div>
-			</div>
+	<div class="container" style="background:rgb(49, 49, 47); color:rgb(247, 246, 243); padding: 40px 0px 72px 0px;">
+		
+		<div class="col-md-5" style="padding:6px">
+			<img src="{% static 'images/Screenshots1.png'%}" style="margin: 68px 0px 4px 15px;width: 100%; display:inline">
+		</div>
+		<div class="col-md-7" style="padding-top: calc(100vw * 0.1251558 - 50px); display:inline; padding-left: 36px;">
+			<h1 class="text-start" style="font-weight:700; color:rgb(247, 238, 202); text-align:left; margin-bottom:10px;font-family:'AvenirLTProMedium', Calibri; ">Create a New Era in Social Science Research</h1>
+			<p class="text-start" style="text-align:left; font-size: 22px;">By developing the world’s first <i>fundamental theory</i> of social systems.</p>
 		</div>
 	</div>
-	-->
-	
-	
-
-	<div class="container" style="background:rgb(51, 51, 39); color:rgb(224, 223, 218);">
-		<!--<iframe width="calc(100vw - 20px);" src="https://www.youtube-nocookie.com/embed/j-IIEyUguug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-		<iframe style="margin-top: 115px;margin-bottom: 10px;" width="820" height="461.25" src="https://www.youtube-nocookie.com/embed/j-IIEyUguug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		<br>
-		<a href="https://www.youtube.com/channel/UCm0caeSDqlclH3KBYk_WIGA" style="margin-bottom: 10px;">The YouTube channel</a>
-		<br><br>
 		
-	</div>
-		
-	<div class="container-fluid" style="background-color: rgb(66, 67, 62);">
+	<div class="container-fluid" style="background-color: rgb(32, 33, 36);">
 	<!--rgb(130, 99, 74), rgb(66, 62, 57) , rgb(89, 81, 74) , rgb(112, 96, 83), rgb(142, 112, 87)-->
-		<div class="row row-eq-height top-4-argument-row"  style="padding-bottom:10px;">
-			<div class="col-sm-6">
-				<div class="top-4-argument-title">Don't model an individual dataset,<br>model the world!</div>
-		
-				<div class="top-4-argument-text">
-					All existing statistics- and machine learning- models are trained on an individual dataset. They don't learn general patterns, but only those occurring in this dataset.
-					The Tree of Knowledge models are instead trained on many different datasets with observations from many different scenarios. 
-					The findings from Tree of Knowledge are therefore more generally valid and significantly more accurate and robust.</div>
+		<div class="row row-eq-height top-4-argument-row"  style="padding:73px 10% 0px 10%; ">
+			<div class="blue-title">The Big <u>Problem</u> with Statistics</div>
+			<div class="col-sm-8">
+				<div class="intro-text" style="text-align: left; color: rgb(247, 246, 243); margin-top:15px">
+					Statistics is the main tool for doing quantitative social science research.<br>
+					Unfortunately, it is badly suited for dealing with the complex social systems and phenomena that exist in the real world:
+					<ul>
+						<li>Statistical analyses are usually based on only a single dataset, making them <b>unreliable/not well proven</b> and <b>not generalisable</b>.</li>
+						<li>Statistical models cannot deal with real-world complexities, limiting us to analysing studies made in <b>artificial environments</b>.</li>						
+						<li>The individual analyses and the resulting findings are <b>disconnected</b> from each other. Instead of our understanding progressing, we therefore just get an ever-growing collection <b>partially-contradictory findings</b>.</li>
+					</ul>
+					<!--
+					In Social Science research, statistics is used for making individual ad-hoc analyses. 
+					<br>Leading to a confusing collection of <b>disconnected</b> findings.
+					Instead of our understanding progressing, we just get an ever-growing jumble of inconclusive and <b>partially-contradictory</b> findings.-->
 				</div>
-				<!--
-				<div class="top-4-argument-title">Don't model an individual dataset,<br>model the world!</div>
-				<div class="top-4-argument-text">
-				All existing Statistics- and Machine Learning- models are trained on a single dataset which was captured in one specific setting. 
-				The Tree of Knowledge models are however trained on many different datasets. 
-				The findings from Tree of Knowledge are therefore many orders of magnitude more accurate and robust.</div>
-			-->
-			<div class="col-sm-6">
-				<div class="top-4-argument-title">Don't just make predictions,<br>fully understand the system!</div>
-				<div class="top-4-argument-text">At the core of Tree of Knowledge lies a Probabilistic Programming engine which allows users to create simulation-based models. With this type of model you can easily model and understand complex behaviours and interactions. 
-				Furthermore, the simulation-based models make it is easy to investigate phenomena that are not directly observed or that are entangled with other phenomena - you no longer have to control for variables, use instrumental variables, etc.
-				<!--
-				Also, it is no longer required 
-				It also allows learning from messy real-world data without having to isolate phenomena (by e.g. ). Due to the nature of these models the phenomenon of interest doesn't even have to be directly observed or relate to an observed variable.-->
-				</div>
+			</div>
+
+			<div class="col-sm-4">
+				<img src="{% static 'images/current_statistics4.png'%}" style="margin-top:calc(-100vw / 45 + 20px); width: 100%; min-width:300px; max-width: 395px; padding: 4px;">
 			</div>	
 		</div>
-		<div class="row row-eq-height top-4-argument-row" style="padding-top:6px;">
-			<div class="col-sm-6">
-				<div class="top-4-argument-title">Be certain about uncertainty!</div>
-				<div class="top-4-argument-text">Due to Bayesian inference, Bayesian updating and Monte-Carlo simulations, all uncertainties of the system are captured and modelled. The error margins of the simulations correspond <i>exactly</i> to our level of understanding of the system.</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="top-4-argument-title">Stand on the shoulders of giants!</div>
-				<div class="top-4-argument-text">
-				When using Tree of Knowledge to model your system of interest, you don't really create a new model, rather you adapt part of a big, holistic model. 
-				This holistic model grows, becomes more detailed and accurate, as users model new systems with it. Together with the holistic model the individual simulations get more accurate, too.
+		<br>
+		<br>
+		<div class="row row-eq-height top-4-argument-row" style="padding:6px 10% 76px 10%; ">
+			<div class="blue-title"><u>The Solution:</u> Fundamental Theory Building</div>
+			<div class="col-sm-8" style="padding-left:0px">
+				<div class="arrows" style="border-left:solid; border-left-color:rgb(103 101 97);border-left-width:1px; margin-top: -11px; padding-top:11px;"><!--rgb(171 166 147);-->
+					<div class="intro-text" style="text-align: left;color: rgb(247, 246, 243); margin-left:15px; margin-top:15px">
+						This online platform enables a completely new approach to statistics - instead working on isolated findings, researchers can now collaborate to develop a powerful fundamental theory that <b>fits to all datasets</b>.
+
+					</div>
+						<h2 style="text-align: left;padding-left:0px; color:rgb(103 101 97) ;position: relative; top: 11px; margin-top: 9px;font-size: 24px;margin-left: -2px;" >
+						⟶ <b class="benefit-title">Benefits</b></h2>
+					<div class="intro-text" style="text-align: left;color: rgb(247, 246, 243); margin-left:15px; margin-top:20px">
+						<ul>
+							<li>Training a model on many datasets - instead of just a single dataset - gives us insights which are vastly more <b>proven</b>, <b>accurate</b> and <b>generalisable</b>.</li>
+							<li>By integrating your work with the work from other researchers, you can model and capture highly <b>complex phenomena</b> and get a <b>detailed and insightful understanding</b>.</li>
+							<li>Through modelling datasets on this platform, you are automatically helping to improve and extend the <b>world's first</b> exact fundamental theory of human behavior.</li>
+						</ul>
+
+					</div>
+						<!--<h2 style="text-align: left;padding-left:0px; background-image: linear-gradient(rgb(0 0 0), rgb(243 237 224), rgb(217 207 167), rgb(205 205 204)); color: transparent;background-clip: text; -webkit-text-stroke: 0.05px black;position: relative; top: 11px; margin-top: 9px;font-size: 24px;margin-left: -2px;" >-->
+						<h2 style="text-align: left;padding-left:0px; color:rgb(103 101 97);; position:relative; top: 11px; margin-top: 9px;font-size: 24px;margin-left: -2px;" ><!--rgb(122 180 219);-->
+						⟶ <b class="benefit-title">About Fundamental Theories</b></h2>
 				</div>
-			</div>
-			<!--
-			<div class="col-sm-6">
-				<div class="top-4-argument-title">Be part of something great!</div>
-				<div class="top-4-argument-text">By modelling your dataset in your specific domain you are automatically contributing to a powerful holistic model of the world. 
-				We believe this model will one day be able to make very accurate predictions for complex questions like the 'What will be the effect of passing certain legislation?'
+				<div class="intro-text" style="text-align: left;color: rgb(247, 246, 243); margin-left:30px; margin-top:20px; float: left; width: 150%;">
+					Fundamental theories are extremely powerful! <br>
+					For example, a fundamental theory of human behavior would not only give us an <b>accurate and complete understanding</b> of human behavior. It would also allow us to <b>predict the exact behavior of any absolutely social system</b> - thereby automatically solving most social science research questions. <br>
+					You can take part in this quest!
 				</div>
+				
 			</div>
-			<div class="col-sm-6">
-				<div class="top-4-argument-title">Be part of something great!</div>
-				<div class="top-4-argument-text">By modelling your dataset in your specific domain you are automatically contributing to a powerful holistic model of the world. 
-				By modelling your dataset in your specific domain you are automatically building upon and contributing to a powerful holistic model of the world. This model will one day accurately simulate all interactions in an economy.
-				</div>
+			<div class="col-sm-4">
+				<img src="{% static 'images/fundamental theory4.png'%}" style="margin-top:42px; width: 100%; min-width:300px; max-width: 395px; padding: 4px;">
 			</div>
-			-->
 		</div>
 					
 	</div>
@@ -313,193 +294,165 @@
 	
 	
 		
-	<div class="container" style="background:rgb(51, 51, 39); color:rgb(224, 223, 218);">
+	<div class="container container-fluid" style="background:rgb(51, 51, 39); color:rgb(224, 223, 218);">
 		<br>
-		<h1 id="how-it-works-overall-title-title">How it works</h1>
-		
-		
-		
+		<br>
+		<h1 id="how-it-works-overall-title-title" style="color:rgb(247, 238, 202); font-family:'AvenirLTProMedium', Calibri">How it works</h1>
+		<br>
 		<div class="row" style="display:flex; align-items:center;">
-			<div class="col-md-9">
-				<p class="lead left-aligned">	
-				
-					<div class="how-it-works-title">
-						<span class="icon-frame" style="float:left;";>
-							<img src="{% static 'images/si-glyph-trees.svg'%}" style="height:36px;width:36px; margin-bottom:3px">
-						</span>
-						<h2 class="yellowish">Simulations</h2>
-					</div>
-					<div class="how-it-works-block">
-						With Tree of Knowledge you create simulation models with one or multiple interacting agents. 
-						The agents' behaviours are governed by behaviour rules, which change the agents' internal state depending on inside and outside conditions.
-						<!--
-						When modelling your system of interest with Tree of Knowledge, you are not really making a new model, rather you are using a part of a big, holistic model and, if necessary, adding to it. <br>
-						With Tree of Knowledge you create simulation models where one or multiple agents interact. 
-						You must specify which agents are present in your system and what their initial state is, their behaviour rules, however, come from the holistic model.
-						This holistic model has for every object type a list of behaviour rules.<br>
-						You can also add new behaviour rules to the objects, this might be especially relevant when you are modelling the objects in a completely new environment.-->
-					</div>
-					
-					<br>
-					<div class="how-it-works-title">
-						<span class="icon-frame" style="float:left;";>
-							<img src="{% static 'images/si-glyph-person-2.svg'%}" style="height:36px;width:36px; margin-bottom:3px">
-						</span>
-						<h2 class="yellowish">Objects/Agents</h2>
-					</div>
-					<div class="how-it-works-block">
-						The basic premise of the Tree of Knowledge is that objects/agents should behave according to the same rules independent of what scenario they are in! 
-						For example: people will stay the same people and act according to the same basic rules if they are shopping in a street market or conducting job interviews. <br><br>
-					
-						So, to model your system of interest, you only need to specify which objects are present in your system and what their initial state is. 
-						The objects' behaviours come from a centralized repository of object behaviours. 
-						If necessary, you may also add new behaviour rules to the repository. This might be especially relevant when modelling a new type of object or objects in a completely new environment.
-						
-						<!--
-						The different behaviour of individuals is accounted for by choosing more specific objects from the hierachy of object (see figure 1) or by making the behaviour rules more specific by e.g. including the condition "IF culture=='occidental'". 
-						(behind the scenes these two options have the same effect.)
-						-->
-
-						<!--
-						When modelling your system of interest with Tree of Knowledge, you are not really making a new model, rather you are using a part of a big, holistic model and, if necessary, adding to it. <br>
-						With Tree of Knowledge you create simulation models where one or multiple agents interact. 
-						You must specify which agents are present in your system and what their initial state is, their behaviour rules, however, come from the holistic model.
-						This holistic model has for every object type a list of behaviour rules.<br>
-						You can also add new behaviour rules to the objects, this might be especially relevant when you are modelling the objects in a completely new environment.-->
-					</div>
-					<br>
-					<div class="how-it-works-title">
-						<span class="icon-frame" style="float:left;padding-top:4px;";>
-							<i class="fas fa-cogs" aria-hidden="true"></i>
-						</span>
-						<h2 class="yellowish">Learning Object Behaviours</h2>
-					</div>
-					<div class="how-it-works-block">
-						When users add new behaviour rules to objects, the question remains 'Which of the behaviours rules are actually true?'<br><br>
-						Here is where the strength of the Tree of Knowledge truly comes to bear:<br>
-						Over time users will have modelled different systems using the same objects. The system can therefore automatically test the objects' behaviours in all these different scenarios! 
-						After all, if we say that some type of objects (e.g. people) have a certain behaviour, then this behaviour must be valid in all circumstances/scenarios. 
-						By testing the behaviour rules this way we can get truly robust insights about our objects of interest. 
-						Also, the insights will be more accurate than with existing methods, because they are learned from more data. 
-						<br><br>
-						The behaviour rules are optimized such that in as many simulations as possible the simulated values are as close as possible to the true, observed values. 
-						Through the optimization a probability is learned for each behaviour rule - the probability that the rule is true (in all the different scenarios).
-					</div>		
-					<br>
-					<div class="how-it-works-title">
-						<span class="icon-frame" style="float:left;padding-top:3px;padding-left: 11px;";>
-							<i class="fas fa-question" aria-hidden="true"></i>
-						</span>
-						<h2 class="yellowish">Hypothesis Testing</h2>
-					</div>
-					<div class="how-it-works-block">
-						The Rule Learning can also easily be used for hypothesis testing: You can formulate any relation, dependence or behaviour as a new rule and the system will learn the probability that it is true.
-						Actually, due to the Bayesian inference and updating, the system doesn't only learn the probabilities that rules are true but also the exact confidence for these predictions (in form of pdfs - see figure 2).
-						<br>
-						Using simulations has the added advantage that behaviours/phenomena can be tested even if they were not directly observed or if they co-occur with other phenomena.
-					</div>		
-						
-					
-					<!--	
-					<br>
-					<div class="how-it-works-title">
-						<span class="icon-frame" style="float:left;padding-top:3px;";>
-							<i class="fas fa-cogs" aria-hidden="true"></i>
-						</span>
-						<h2 class="yellowish">Objects/Agents</h2>
-					</div>
-					<div class="how-it-works-block">
-						When modelling your system of interest with Tree of Knowledge, you are not really making a new model, 
-						rather you are using a part of a holistic model of the world and, if necessary, adding to it.
-						At the core of this holistic model lies a hierachy of objects (Figure 1). Each object in this hierachy has a set of own or inherited behaviours, that specify how it's 
-						internal state changes depending on inside and outside conditions (agent-based, monte-carlo simulation). To create a simulation model of a system you use these objects with their 
-						pre-defined behaviours and, if necessary, add new behaviours to them.
-						<br><br>
-						To allow for learnings accross different models, the object types with their behaviour rules are sorted into a hierarchy of objects (figure 1).<br>
-						In this repository ojects are sorted into a hierarchy of objects (figure 1), allowing learnings to be made accross different models.<br>
-					</div>
-
-					<br>
-					<div class="how-it-works-title">
-						<span class="icon-frame" style="float:left;padding-top:3px;";>
-							<i class="fas fa-cogs" aria-hidden="true"></i>
-						</span>
-						<h2 class="yellowish">Learning Behaviours</h2>
-					</div>
-					<div class="how-it-works-block">
-						Your simulation models are automatically verified with data from the knowledge base - the simulation results must match the real observations of the system as accurately as possible.<br>
-						Behaviour rules are also learned this way: for each simulation in which a certain object occurs, the system automatically checks which combination of the object's rules produce the most correct simulation. 
-						Rules that improve the results of many different simulations are considered to be more correct than rules that worsen their results. <br>
-						All this is done within the rigorous formalism of likelihood-free Bayesian inference => the learned probability distributions accurately reflect the certainty about the rules.
-					</div>
-					-->
-				</p>
-			</div>
-			<div class="col-md-3">
-				<br>
-				<br>
-				<a href="{% static 'images/object_hierachy3.png'%}"><img id="object_hierachy-image" src="{% static 'images/object_hierachy3.png'%}" class="img-responsive mr-3 img-thumbnail"></a><br>
-				Figure 1: To facilitate learning across different models, the objects and their behaviour rules are sorted into a hierarchy of objects.<br>
-				<br>
-				<br>
-				<br>
-				<a href="{% static 'images/probability_distribution.png'%}"><img id="probability_distribution-image" src="{% static 'images/probability_distribution.png'%}" class="img-responsive mr-3 img-thumbnail"></a><br>
-				Figure 2: This probability density function (pdf) shows that the corresponding rule is likely to be 100% true, but the probability of it being true could also be lower (tail to the left). The more data and simulations a rule has been evaluated on, the narrower its pdf becomes i.e. the more precisely its probability can be determined.
+			<div class="col-md-12">	
+				<iframe  width="900" height="506.25" src="https://www.youtube-nocookie.com/embed/7h0p-7VHgp8?si=9BijhBLp4RQuN36i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 			</div>
 		</div>
 		<br>
+		<br>
+		<br>
+		<br>
+		
+		(More details can be found in <a href="https://arxiv.org/abs/2103.03666">this paper</a>.)<br><br>
+		The powerful fundamental theory will continue to improve over time,<br>but even from the very start there are huge advantages to this new approach. <br>Such as...
+		<br>
+		<br>
+		<br>
+		<h1 id="how-it-works-overall-title-title" style="color:rgb(247, 238, 202); font-family:'AvenirLTProMedium', Calibri; margin-bottom: -3px;">Advantages</h1>
+		<div class="row row-eq-height" >
+			<div class="col-sm-7">
+				<div class="how-it-works-title">
+					<span class="icon-frame" style="float:left; padding-top:4px;";>
+						<i class="fas fa-signal" style="margin-left:-1px"></i>
+					</span>
+					<h2 class="yellowish">Continuous & Measurable Progress</h2>
+				</div>
+			</div>
+		</div>
+		<div class="row row-eq-height" style="margin-left: 0px;">
+			<div class="col-sm-7" style="min-width: 530px;">
+				<div class="video-container">
+					<iframe  class="video" src="https://www.youtube-nocookie.com/embed/0qIf1Ixnd5A?si=9BijhBLp4RQuN36i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					<!--width="650" height="365.625" -->
+				</div>
+			</div>	
+			<div class="col-sm-5" style="min-width: 370px;">
+				<div class="standard-text video-description" style="text-align: left; margin-top:15px">
+					<h3>Video Summary:</h3>
+					Working with a fundamental theory is a lot <b>easier and less work</b> than having to make sense of a large collection of individual insights. 
+					It gives us a <b>cohesive and complete understanding</b> and allows us to make <b>accurate predictions for any scenario</b>.<br>
+					Most importantly, the rigorous evaluation framework allows us to objectively determine which candidate theory is the best - this is the key to <b>real</b>, <b>measurable</b> and <b>lasting scientific progress</b>!
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
 		<div class="how-it-works-title">
-			<span class="icon-frame" style="float:left;padding-left:5px;padding-top:0px;";>
-				<img src="{% static 'images/data_integration_icon.png'%}" style="height:36px;width:36px; margin-bottom:3px">
+			<span class="icon-frame" style="float:left;";>
+				<img src="{% static 'images/si-glyph-global.svg'%}" style="height:36px;width:36px; margin-bottom:1px">
 			</span>
-			<h2 class="yellowish">Knowledge Base</h2>
+			<h2 class="yellowish">Reliable & Universal</h2>
 		</div>
-		<div class="how-it-works-block">
-			As already mentioned, there is a centralized repository for object behaviours. The second key component of the Tree of Knowledge's holistic model is the knowledge base - a centralized store for all the data.<br>
-			<br>
-			A knowledge base is a database which stores data in an integrated fashion. As with existing knowledge bases (dbpedia, yago, etc.), any structured data can be uploaded to the Tree of Knowledge's knowledge base. 
-			The Tree of Knowledge's knowledge base, however, goes much further: for any datapoint in the knowledge base we know everything: when it was observed, what attribute/relation of what specific object was being observed and much more.
-			Furthermore, a high level of data quality is assured through strict data monitoring and data validation. <br>
-			This powerful knowledge base enables much of the other functionality such as automatic model validation and rule learning, automatic model initalisation and advanced querying. <br>
+		<div class="row row-eq-height"  style="margin-left: 0px;">
+			<div class="col-sm-7" style="min-width: 530px;">
+				<div class="video-container ">
+					<iframe class="video" src="https://www.youtube-nocookie.com/embed/q83nEhP_lvs?si=xGuL9Mf9P-WalLIo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				</div>
+			</div>	
+			<div class="col-sm-5" style="min-width: 370px;">
+				<div class="standard-text video-description" style="text-align: left; color: margin-top:15px">
+					<h3>Video Summary:</h3>
+					Confidence in scientific findings comes from the finding but from it being shown to hold true in many circumstances. <br>
+					Tree of knowledge tests hypotheses in <b>hundreds of different scenarios</b>, making them <b>immensely more reliable and trustworthy</b> than the findings from normal statistical analyses. 
+					Also, this rigorous testing assures the <b>general applicability/universality</b> of these results.	
+				</div>
+			</div>
 		</div>
+		<br>
 		<br>
 		<div class="how-it-works-title">
-			<span class="icon-frame" style="float:left; padding-top:5px;";>
-				<i class="fas fa-signal" style="margin-left:-1px"></i>
+			<span class="icon-frame" style="float:left;";>
+				<img src="{% static 'images/network.svg'%}" style="height:36px;width:36px; margin-bottom:3px">
 			</span>
-			<h2 class="yellowish">Growing the most detailed and accurate model</h2>
+			<h2 class="yellowish">Understanding complex systems</h2>
 		</div>
-		<div class="how-it-works-block">
-			The holistic model behind the Tree of Knowledge grows the more it is used. It is the only existing data-based model that whose capability and accuracy grow in this way.<br>
-			As users upload new datasets to the knowledge base it will grow to an extensive data portal. It has the capability of accurately cataloging most of human knowledge.<br>
-			<br>
-			The growth/refinement of object behaviours is even more significant!<br>
-			As users make new models portraying the objects in new scenarios (the scenarios they are trying to understand/for which they have data), 
-			the object's behaviour gets increasingly comprehensive and exact. If objects have been simulated and evaluated in sufficiently many environments, we expect that it will be possible to create the most accurate economic models with them!
-		</div>
-		<br>
-		<div class="how-it-works-title">
-			<span class="icon-frame" style="float:left;padding-top:3px;";>
-				<i class="fas fa-ruler" aria-hidden="true"></i>
-			</span>
-			<h2 class="yellowish">Accurate forecasting</h2>
-		</div>
-		<div class="how-it-works-block">
-			The Tree of Knowledge uses likelihood-free Bayesian inference and Bayesian updating to determine the rule probabilities. 
-			This is a robust, statistically rigorous formalism that captures all uncertainties (those originating from imperfect knowledge of the world, and those from inherent randomness).
-			<br><br>
-			When making predictions with Tree of Knowledge, the Monte-Carlo simulation engine captures and propagates all previously learned uncertainties => the predicted outcomes and the uncertainty of these predictions correspond exactly to the true uncertainty.
-		    <!--
-			The increasing exactness of behaviour rules can be observed in the narrower proability density functions associated with them.<br>
-			In other words: the uncertainty about behaviour rules (due to imperfect knowledge of the world) are always accurately determined through likelyhood-free bayesian inference and bayesian updating.<br>
-			When making predictions these uncertainties are accurately propagated through the system through monte-carlo simulations.
-			-->
-			<br><br>
-			
+		<div class="row row-eq-height"  style="margin-left: 0px;">
+			<div class="col-sm-7" style="min-width: 530px;">
+				<div class="video-container">
+					<iframe class="video" src="https://www.youtube-nocookie.com/embed/HJF_TdsqEdQ?si=-KmOkmsV8T7yFa0c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				</div>
+			</div>	
+			<div class="col-sm-5" style="min-width: 370px;">
+				<div class="standard-text video-description" style="text-align: left; color: margin-top:15px">
+					<h3>Video Summary:</h3>
+						Most complex systems cannot be studied due to the many different effects that are going on simultaneously. These intertwined effects make it impossible to clearly measure and model any single effect.  <br>
+						Tree of knowledge solves this problem - With all the already-modelled phenomena on the platform, it becomes very easy to make models that allow us to <b>peer through this complexity</b> by <b>capturing all the different effects</b> in the model.<br>
+						<b>Opening up for study: vast, previously-too-complex areas of reseach.</b>
+					
+				</div>
+			</div>
 		</div>
 		<br>
 		<br>
 		<br>
+		<br>
+		<br>
+		<h1 id="how-it-works-overall-title-title" style="color:rgb(247, 238, 202); font-family:'AvenirLTProMedium', Calibri">Frequently Asked Questions</h1>
+		<br>
+
+
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					<h4 class="panel-title">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+						People aren't identical. How could a set of rules fit all of them?
+						</a>
+					</h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse">
+					<div class="panel-body">
+						The differences between people are taken into account in the different behavior rules we create. <br>
+						E.g. the trigger for the action “tidy the house” should depend on a person's hygiene level. Which in turn might depend on other things.
+					</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					<h4 class="panel-title">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+							What if it isn't possible to get to an accuracy as high as 94%?
+						</a>
+					</h4>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse">
+					<div class="panel-body">
+						I believe that having a low accuracy (= wide uncertainty) isn't a bad thing.<br>
+						Being trained-on and optimized to hundreds of datasets, makes Tree of Knowledge the most accurate fundamental theory out there. 
+						If the most accurate existing theory says that there is a high uncertainty attached to a specific prediction, 
+						then we can be fairly confident that this is truly the case.
+						<br><br>
+						I think that being honest about the limits of our knowledge in this way is very important and is a refreshing change to some of the alternatives - 
+						both hypothesis tests and popular rethoric have a strong tendency to overstate their confidence in predictions. 
+					</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					<h4 class="panel-title">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+						Is it even possible to define or measure feelings such as happiness?
+						</a>
+					</h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse">
+					<div class="panel-body">
+						This is a problem that psychology and similar disciplines have faced for a long time. There is a consensus on how to deal with these difficulties, which are described in the field of measurement theory. Tree of knowledge recommends sticking to this consensus.
+						<br><br>
+						However, this platform will allow us to see which rules most accurately describe human behavior… it might turn out that things work differently after all.
+
+					</div>
+					</div>
+				</div>
+			</div>
+
+
 		<br>
 		<br>
 		<br>
@@ -508,7 +461,7 @@
 		<img id="bottom-logo" src="{% static 'images/logo_gray2.png'%}" >
 		<br>
 		<div class="bottom-slogan">
-			Revolutionize Social Sciences
+			Revolutionizing Social Sciences
 		</div>
 		<br>
 	</div>
