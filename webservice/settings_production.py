@@ -29,7 +29,7 @@ if 'RDS_HOSTNAME' in os.environ:
         }
     }
 else:
-	DATABASES['default'] = dj_database_url.config()
+	DATABASES['default'] = dj_database_url.config(default=None)
 
 DB_CONNECTION_URL = DB_CONNECTION_URL = os.getenv('DATABASE_URL', 'awseb-e-jivwhga8ui-stack-awsebrdsdatabase-whgz4rmetb10.cee9izytbdnd.eu-central-1.rds.amazonaws.com')
 
