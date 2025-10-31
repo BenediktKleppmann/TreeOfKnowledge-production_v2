@@ -31,7 +31,7 @@ if 'RDS_HOSTNAME' in os.environ:
 else:
 	DATABASES['default'] = dj_database_url.config()
 
-DB_CONNECTION_URL = os.environ['DATABASE_URL']
+DB_CONNECTION_URL = DB_CONNECTION_URL = os.getenv('DATABASE_URL', 'awseb-e-jivwhga8ui-stack-awsebrdsdatabase-whgz4rmetb10.cee9izytbdnd.eu-central-1.rds.amazonaws.com')
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
