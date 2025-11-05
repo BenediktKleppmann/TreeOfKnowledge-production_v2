@@ -54,7 +54,7 @@ MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware'] + MIDDLEWARE  # use 
 
 # ----- static -----
 STATIC_URL = '/static/'
-STATIC_ROOT = '/var/app/current/static/'
+STATIC_ROOT = '/var/app/current/collection/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # <-this is super strict: it will make 'eb deploy' fail if there is a reference to a static file that no longer is in the right folder
 
