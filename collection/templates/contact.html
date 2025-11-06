@@ -34,10 +34,14 @@
 		}
 		
 		#cv {
-			padding-left: 89px;
+			margin-left: -3px;
 			padding-top: 9px;
 			display: block;
-			font-size: 24px;
+			font-size: 21px;
+		}
+
+		#english-cv {
+			margin-left: 39px;
 		}
 	</style>
 {% endblock %}	
@@ -83,7 +87,9 @@
 						<div id="my-picture">
 							<a href="/static/images/DSC_0940-web.jpg"><img id="object_hierachy-image" src="/static/images/DSC_0940-web.jpg" class="img-responsive mr-3 img-thumbnail"></a>
 						</div>
-						<a href="/static/images/Lebenslauf_Benedikt_Kleppmann.pdf" id="cv">CV</a>
+						<div id="cv">
+							<a href="/static/images/Lebenslauf_Benedikt_Kleppmann.pdf">German CV</a><a href="/static/images/CV_Benedikt_Kleppmann.pdf" id="english-cv">English CV</a>
+						</div>
 					</div>
 				</div>
 				<br>
@@ -91,10 +97,11 @@
 				<div class="center">
 					<h1 class="yellowish">Legal Notice</h2>
 				</div>
-				<div class="lead left-aligned">				pip uninstall pythonnet
-					We however can't guarantee it and won't take any responsibility for it. If you find data that you would like to have removed, please contact us.<br>
+				<div class="lead left-aligned">			
+					By uploading data to www.treeofknowledge.ai, you are agreeing to share it publicly. Do not upload data for which you do not have explicit permission to share it publicly. <br>
+					If you find data that you would like to have removed, please contact us.<br>
 					<br>
-					Although we try to assure the correctness of the data and the simulation results, their correctness is not guaranteed and we don't take any resposibility for it.<br>
+					Although we try to assure the correctness of the data and the simulation results, their correctness is not guaranteed and we do not take any resposibility for it. <br>
 					<br>
 					<br><br>
 			  </div>
