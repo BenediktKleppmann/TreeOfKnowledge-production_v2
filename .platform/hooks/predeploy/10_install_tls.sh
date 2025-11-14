@@ -2,8 +2,9 @@
 set -euo pipefail
 
 # Source files committed in your repo
-CRT_SRC="/var/app/current/deploy/tls/www.treeofknowledge.ai.crt"
-KEY_SRC="/var/app/current/deploy/tls/www.treeofknowledge.ai.key"
+SRC_DIR="${EB_APP_STAGING_DIR:-/var/app/staging}"  # <— NEW: point at staging
+CRT_SRC="$SRC_DIR/deploy/tls/www.treeofknowledge.ai.crt"
+KEY_SRC="$SRC_DIR/deploy/tls/www.treeofknowledge.ai.key"
 
 # Destination paths used by nginx.conf
 CRT_DST="/etc/pki/tls/certs/www.treeofknowledge.ai.crt"
@@ -13,8 +14,18 @@ KEY_DST="/etc/pki/tls/private/www.treeofknowledge.ai.key"
 [ -s "$CRT_SRC" ] || { echo "Missing $CRT_SRC"; exit 1; }
 [ -s "$KEY_SRC" ] || { echo "Missing $KEY_SRC"; exit 1; }
 
+
+# Ensure destination dirs exist
+install -d -m 755 /etc/pki/tls/certs /etc/pki/tls/private
+
 # Install certificate (full chain; leaf first)
 sudo cp "$CRT_SRC" "$CRT_DST"
+
+# Normalize line endings (no-op if already LF)
+if command -v dos2unix >/dev/null 2>&1; then
+  sudo dos2unix "$CRT_DST" || true
+  sudo dos2unix "$KEY_DST" || true
+fi
 
 # Always convert the key to **PKCS#1 (RSA)** for nginx/OpenSSL 3 compatibility
 # This covers both PKCS#1 and PKCS#8 inputs safely.
@@ -22,12 +33,6 @@ sudo openssl rsa -in "$KEY_SRC" -out "$KEY_DST"
 
 # Tight perms
 sudo chmod 400 "$CRT_DST" "$KEY_DST"
-
-# Normalize line endings (no-op if already LF)
-if command -v dos2unix >/dev/null 2>&1; then
-  sudo dos2unix "$CRT_DST" || true
-  sudo dos2unix "$KEY_DST" || true
-fi
 
 # Quick parse checks (fail fast if malformed)
 sudo openssl x509 -in "$CRT_DST" -noout -subject >/dev/null
